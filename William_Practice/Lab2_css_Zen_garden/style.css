@@ -10,14 +10,14 @@
 
 /* basic elements */
 html {
-	margin: 0;
-	padding: 0;
+	margin: 1;
+	padding: 1;
 	}
 body { 
 	font: 75% georgia, sans-serif;
 	line-height: 1.88889;
-	color: #27301f; 
-	background: rgb(190, 53, 53) url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right; 
+	color: #50524e; 
+	background: rgb(255, 255, 255) url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right; 
 	margin: 0; 
 	padding: 0;
 	}
@@ -27,7 +27,7 @@ p {
 	}
 h3 { 
 	font: italic normal 1.4em georgia, sans-serif;
-	letter-spacing: 2px; 
+	letter-spacing: 1px; 
 	margin-bottom: 0; 
 	color: #7D775C;
 	}
