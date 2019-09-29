@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script type="text/javascript" src="practice.js"></script>
+        <link rel="stylesheet" href="practice.css"> 
         <meta charset="utf-8">
         <title> WILLIAM´S HOMEPAGE </title>
     </head>
     <body>
-        <h1>My home page</h1>
+        <h1>WILLIAM´S HOMEPAGE</h1>
         <p>Hello, I am William and this is my homepage.</p>
         <p>Click this button:</p>
-        <button>Click</button>
-        <script>
-            let button = document.querySelector("button");
-            button.addEventListener("Click", () => {
-                console.log("Button clicked");
-            });
-            window.addEventListener("Click", () => {
-                concole.log("You clicked");
-            });
-        </script>
+        <input id="clickMe" type="button" value="Button" onclick="doFunction();"/>
+
     </body>
 </html>
