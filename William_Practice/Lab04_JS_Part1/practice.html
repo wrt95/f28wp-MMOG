@@ -9,7 +9,27 @@
     </head>
     <body>
         <p>Hello, I am William and this is my homepage.</p>
-        <p>Click this button to print the content:</p>
-        <button onclick="print_current_page()">Print-Button</button>
+        
+        <form>
+            <p>
+                Click this button to print the content:
+                <button onclick="print_current_page()">Print-Button</button>
+            </p>
+            <p>
+                Do your calculations below:
+            </p>
+            1st Number : <input type="text" id="firstNumber" /><br>
+            2nd Number : <input type="text" id="secondNumber"/><br>
+            <input type="button" onClick="addBy()" Value="Add"/>
+            <input type="button" onClick="subtractBy()" Value="Subtract"/>
+            <input type="button" onClick="multiplyBy()" Value="Multiply"/>
+            <input type="button" onClick="divideBy()" Value="Divide"/>
+            <input type="button" onClick="remainder()" Value="Remainder"/>
+            <input type="button" onClick="doPower()" Value="Power"/>
+        </form>
+        <p>
+            The result is :  
+            <span id = "result"></span>
+        </p>
     </body>
 </html>
