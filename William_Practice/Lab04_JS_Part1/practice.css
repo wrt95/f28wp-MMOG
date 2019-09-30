@@ -36,3 +36,19 @@ body > form {
 #clickMe {
     background-color: rgb(169, 196, 169);
 }
+
+
+button {
+    border: 1px solid #AAA;
+    padding: 5px 15px;
+    border-radius: 4px;
+    outline: none;
+}
+
+button:hover {
+    background-color: rgb(111, 120, 111);
+}
+
+button:active {
+    background-color: rgb(111, 120, 111);
+}
