@@ -272,6 +272,124 @@ Pacman.Ghost = function (game, map, colour) {
 };
 
 
+// Creating the user
+Packman.User = function (game, map) {
+
+    var position    = null, 
+        direction   = null, 
+        eaten       = null, 
+        due         = null, 
+        lives       = null, 
+        score       = 5, 
+        keyMap      = {}; 
+
+    keyMap[KeyboardEvent.ARROW_LEFT]    = LEFT; 
+    keyMap[KeyboardEvent.ARROW_UP]      = UP; 
+    keyMap[KeyboardEvent.ARROW_RIGHT]   = RIGHT; 
+    keyMap[KeyboardEvent.ARROW_DOWN]    = DOWN; 
+
+    function addScore (nScore) {
+
+    };
+
+    function theScore () {
+
+    };
+
+    function loseLife () {
+
+    };
+
+    function getLives () {
+
+    };
+
+    function initUser () {
+
+    }
+
+    function newLevel () {
+
+    };
+
+    function resetPosition () {
+
+    };
+
+    function reset () {
+
+    };
+
+    function keyDown(e) {
+
+    };
+
+    function getNewCoord (dir, current) {
+
+    };
+
+    function onWholeSquare(x) {
+
+    };
+
+    function pointToCoord (x, dir) {
+
+    };
+
+    function nextSquare (x, dir) {
+
+    };
+
+    function next (pos, dir) {
+
+    };
+
+    function onGridSquare (pos) {
+
+    };
+
+    function isOnSamePlane(due, dir) {
+
+    };
+
+    function move (ctx) {
+
+    };
+
+    function isMidSquare (x) {
+
+    };
+
+    function calcAngle(dir, pos) {
+
+    };
+
+    function drwaDead (ctx, amount) {
+
+    };
+
+    function draw (ctx) {
+
+    };
+
+    initUser();
+
+    return {
+        "draw"          : draw,
+        "drawDead"      : drawDead,
+        "loseLife"      : loseLife,
+        "getLives"      : getLives,
+        "score"         : score,
+        "addScore"      : addScore,
+        "theScore"      : theScore,
+        "keyDown"       : keyDown,
+        "move"          : move,
+        "newLevel"      : newLevel,
+        "reset"         : reset,
+        "resetPosition" : resetPosition
+    };
+};
+
 
 
 
