@@ -603,6 +603,11 @@ var PACMAN = (function () {
     };
 }());
 
+// Human readable keyCode index
+
+var KEY = {
+
+}; 
 
 
 // Set information for the map
@@ -643,3 +648,15 @@ Pacman.MAP  = [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+
+Pacman.WALLS = [
+
+];
+
+Object.prototype.clone = function () {
+
+};
+
+$(function() {
+
+});
