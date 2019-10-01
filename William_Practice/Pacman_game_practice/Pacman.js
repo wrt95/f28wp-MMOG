@@ -497,6 +497,111 @@ Pacman.Audio = function (game) {
     };
 };
 
+// creating the variable pacman
+var PACMAN = (function () {
+
+    var state           = WAITING,
+        audio           = null, 
+        ghosts          = []
+        shostsSpecs     = ["#00FFDE", "#FF0000", "#FFB8DE", "#FFB847"], 
+        eatenCount      = 0,
+        level           = 0,
+        tick            = 0,
+        ghostPos        = true,
+        userPos         = true, 
+        stateChanged    = true, 
+        timerStart      = null, 
+        lastTime        = 0,
+        ctx             = null, 
+        timer           = null,    
+        map             = null, 
+        user            = null, 
+        stored          = null;
+    
+    function getTick() {
+
+    };
+
+    function drawScore (text, position) {
+
+    }
+
+    function dialog (text) {
+
+    }
+
+    function soundDisabled () {
+
+    }; 
+
+    function startLevel() {
+
+    }
+
+    function startNewGame () {
+
+    }
+
+    function keyDown (e) {
+
+    }
+
+    function loseLife () {
+
+    }
+
+    function setState () {
+
+    };
+
+    function collided (user, ghost) {
+
+    };
+
+    function drawFooter () {
+
+    }
+
+    function redrawBlock (pos) {
+
+    }
+
+    function mainDraw () {
+
+    };
+
+    function mainLoop () {
+
+    }
+
+    function eatenPill() {
+
+    };
+
+    function completedLevel () {
+
+    };
+
+    function keyPress (e) {
+
+    };
+
+    function init (wrapper, root) {
+
+    };
+
+    function load (arr, callBack) {
+
+    };
+
+    function loaded () {
+
+    };
+
+    return {
+        "init" : init
+    };
+}());
 
 
 
