@@ -1,4 +1,4 @@
-### Coursework in F28WP-MMORPG - Web Programming
+# Coursework in F28WP-MMORPG - Web Programming
 
 An MMO game for our course.
 
