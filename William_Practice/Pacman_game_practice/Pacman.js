@@ -390,6 +390,68 @@ Packman.User = function (game, map) {
     };
 };
 
+// Creating the map
+Pacman.Map = function (size) {
+
+    var height      = null,
+        width       = null,
+        blockSize   = size,
+        pillSize    = 0,
+        map         = null;
+
+    function withinBounds (y,x) {
+
+    }
+
+    function isFloorSpace(pos) {
+
+    }
+
+    function drawWall (ctx) {
+
+    }
+
+    function reset () {
+
+    };
+
+    function block (pos) {
+
+    };
+
+    function setBlock(pos, type) {
+
+    };
+
+    function drawPills (ctx) {
+
+    };
+
+    function draw(ctx) {
+
+    };
+
+    function drawBlock (y, x, ctx) {
+
+    };
+
+    reset();
+
+    return {
+        "draw"         : draw,
+        "drawBlock"    : drawBlock,
+        "drawPills"    : drawPills,
+        "block"        : block,
+        "setBlock"     : setBlock,
+        "reset"        : reset,
+        "isWallSpace"  : isWall,
+        "isFloorSpace" : isFloorSpace,
+        "height"       : height,
+        "width"        : width,
+        "blockSize"    : blockSize
+    };
+};
+
 
 
 
