@@ -205,12 +205,69 @@ Pacman.Ghost = function (game, map, colour) {
         ctx.fill();
    };
 
-   function pane () {
-
+   function pane (pos) {
+       if (pos.y === 100 && pos.x >= 190 && direction === RIGHT) {
+           return {"y": 100, "x": -10};
+       }
+       if (pos.y === 100 && pos.x <= -10 && direction === LEFT) {
+           return postion = {"y": 100, "x": 190};
+       }
+       return false;
    };
 
-   function move () {
+   function move (ctx) {
 
+       var  oldPos  = position, 
+            onGrid  = onGridSquare(position),
+            npos    = null;
+    
+        if (due !== direction) {
+            npos = getNewCoord(due, position);
+
+            if (onGrid && map.isFloorSpace({
+                "y": pointToCoord(nextSquare(npos.y, due)),
+                "x": pointToCoord(nextSquare(npos.x, due))})) {
+                    direction = due;
+            } else {
+                npos = null;
+            }
+        }
+        
+        if (npos === null) {
+            npos = getNewCoord(direction, position);
+        }
+
+        if (onGrid && map.isWallSpace({
+            "y": pointToCoord(nextSquare(npos.y, direction)),
+            "x": pointToCoord(nextSquare(npos.x, direction))})) {
+
+                due = getRandomDirection();
+                return move(ctx);
+        }
+
+        position = npos;
+
+        var tmp = pane(position);
+        if (tmp) {
+            position = tmp;
+        }
+
+        due = getRandomDirection();
+
+        return { 
+            "new" : position, 
+            "old" : oldPos
+        };
+   };
+
+   return {
+       "eat"            : eat,
+       "isVunerable"    : isVunerable,
+       "isDangerous"    : isDangerous,
+       "makeEatable"    : makeEatable,
+       "reset"          : reset,
+       "move"           : move,
+       "draw"           : draw
    };
 };
 
