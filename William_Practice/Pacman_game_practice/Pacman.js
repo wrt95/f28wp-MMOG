@@ -289,67 +289,100 @@ Packman.User = function (game, map) {
     keyMap[KeyboardEvent.ARROW_DOWN]    = DOWN; 
 
     function addScore (nScore) {
-
+        score += nScore;
+        if (score >= 10000 && score - nScore < 10000) {
+            lives += 1;
+        }
     };
 
     function theScore () {
-
+        return score;
     };
 
     function loseLife () {
-
+        lives -= 1;
     };
 
     function getLives () {
-
+        return lives;
     };
 
     function initUser () {
-
+        score = 0;
+        lives = 5;
+        newLevel();
     }
 
     function newLevel () {
-
+        resetPosition();
+        eaten = 0;
     };
 
     function resetPosition () {
-
+        position = {"x": 90, "y": 120};
+        direction = LEFT;
+        due = LEFT;
     };
 
     function reset () {
-
+        initUser();
+        resetPosition();
     };
 
     function keyDown(e) {
-
+        if (typeof keyMap[e.keyCode] !== "undefined") {
+            due = keyMap[e.keyCode];
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+        return true;
     };
 
     function getNewCoord (dir, current) {
-
+        return {
+            "x": current.x + (dir === LEFT && -2 || dir === RIGHT && 2 || 0), 
+            "y": current.y + (dir === DOWN && 2 || dir === UP && -2 || 0)
+        };
     };
 
     function onWholeSquare(x) {
-
+        return x % 10 === 0;
     };
 
     function pointToCoord (x, dir) {
-
+        return Math.round(x/10);
     };
 
     function nextSquare (x, dir) {
+        var rem = x % 10;
+        if (rem === 0) {
+            return x;
 
+        } else if (dir === RIGHT || dir === DOWN) {
+            return z + (10 -rem);
+
+        } else {
+            return x - rem;
+        }
     };
 
     function next (pos, dir) {
-
+        return {
+            "y": pointToCoord(nextSquare(pos.y, dir)), 
+            "x": pointToCoord(nextSquare(pos.x, dir)),
+        };
     };
 
     function onGridSquare (pos) {
-
+        return onWholeSquare(pos.y) && onWholeSquare(pos.x);
     };
 
     function isOnSamePlane(due, dir) {
-
+        return  ((due === LEFT || due === RIGHT) && 
+                (dir === LEFT || dir === RIGHT)) ||
+                ((due === UP || due === DOWB) &&
+                (dir === UP || dir === DOWN));
     };
 
     function move (ctx) {
