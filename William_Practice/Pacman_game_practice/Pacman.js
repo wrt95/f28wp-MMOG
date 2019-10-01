@@ -86,5 +86,49 @@ Pacman.Ghost = function (game, map, colour) {
                 dir === RIGHT && LEFT ||
                 dir === UP && DOWN || UP;
 
-   }
+   };
+
+   function makeEatable () {
+
+   };
+
+   function eat () {
+
+   };
+
+   function pointToCoord (x) {
+
+   };
+
+   function nextSquare (x, dir) {
+
+   };
+
+   function onGridSquare (pos) {
+
+   };
+
+   function secondsAgo (tick) {
+
+   };
+
+   function getColour() {
+
+   };
+
+   function draw () {
+
+   };
+
+   function pane () {
+
+   };
+
+   function move () {
+
+   };
+
+   
+
+
 }
