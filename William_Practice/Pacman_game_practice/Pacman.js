@@ -452,6 +452,50 @@ Pacman.Map = function (size) {
     };
 };
 
+// Create audio
+Pacman.Audio = function (game) {
+
+    var files           = [],
+        endEvents       = [], 
+        progressEvents  = [], 
+        playing         = [];
+
+    function load(name, path, cb) {
+
+    };
+
+    function progress (event, name, callback) {
+
+    };
+
+    function disableSound() {
+
+    };
+
+    function ended(name) {
+
+    };
+
+    function play (name) {
+
+    };
+
+    function pause () {
+
+    };
+
+    function resume () {
+
+    };
+
+    return {
+        "disableSound" : disableSound,
+        "load"         : load,
+        "play"         : play,
+        "pause"        : pause,
+        "resume"       : resume
+    };
+};
 
 
 
