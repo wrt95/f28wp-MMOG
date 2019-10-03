@@ -1,1 +1,9 @@
 /* Missing Content */
+
+#redball {
+    position: fixed;
+    left: 500;
+    top: 200;
+    width: 4%;
+    height: 4%;
+}
