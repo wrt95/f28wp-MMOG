@@ -8,7 +8,7 @@ var yvel    = -100;
 function Timer() // update loop for game
 {
 	// Get current positions
-	var y =document.getElementById('i1').offsetTop;
+	var y =document.getElementById('football').offsetTop;
 	var x =document.getElementById('i1').offsetLeft;
 	var xs=document.getElementById('i2').offsetLeft;
 	
