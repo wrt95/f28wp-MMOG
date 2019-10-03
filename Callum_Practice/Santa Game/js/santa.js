@@ -9,8 +9,7 @@ function Timer() // update loop for game
 {
 	// Get current positions
 	var y =document.getElementById('football').offsetTop;
-	var x =document.getElementById('i1').offsetLeft;
-	var xs=document.getElementById('i2').offsetLeft;
+	var x =document.getElementById('football').offsetLeft; 
 	
 	// Movement velocities (positions change over time)
 	yvel = yvel - 1;
@@ -43,10 +42,9 @@ function KeyDown(e)
   if (e.keyCode == 38 && yvel<-70 ) {  yvel = 70;   } // up key
 }
 
-function Reset1(r)
+function Reset1()
 {
-	//Adding event for key press 'r' to reset the game 
-	if(r.keydown == 82) {
+
 	xdir = 0;
 	ydir = 0;
 	
@@ -59,5 +57,5 @@ function Reset1(r)
 	document.addEventListener("keydown", KeyDown, false);
 
 	Timer();
-	} 	
+	
 }
