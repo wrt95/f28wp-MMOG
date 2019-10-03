@@ -1,1 +1,3 @@
-stuff stuff stuff
+var first = "hello";
+
+alert(first);
