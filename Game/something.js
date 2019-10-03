@@ -1,5 +1,7 @@
 
 
-
+function screenshot() {
+    window.print();
+}
 
 

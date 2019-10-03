@@ -1,4 +1,24 @@
 /* Missing Content */
+body {
+    background-color: rgb(166, 166, 169);
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: rgb(2, 2, 32);
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#gameCanvas {
+    width: 1000;
+    height: 1000;
+    border: 2px solid;
+    border-color: black;
+}
+
 
 #redball {
     position: fixed;
@@ -6,4 +26,14 @@
     top: 200;
     width: 4%;
     height: 4%;
+}
+
+
+button:hover {
+    background-color: rgb(127, 191, 99);
+}
+
+
+button:active {
+    background-color: rgb(59, 174, 59);
 }
