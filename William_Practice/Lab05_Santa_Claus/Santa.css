@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(252, 252, 252);
+}
+
+#i1 {
+    position: absolute;
+    left: 500;
+    top: 200;
+}
+
+#i2 {
+    position: absolute;
+    left: -200;
+    top: 240;
+}
+
+#msg {
+    
+}
