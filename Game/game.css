@@ -1,7 +1,7 @@
 /* Missing Content */
+
 body {
     background-color: rgb(166, 166, 169);
-    text-align: center;
     font-family: sans-serif;
 }
 
@@ -21,7 +21,16 @@ h1 {
     height: 4%;
 }
 
+#blueball {
+    position: absolute;
+    left: 400;
+    top: 100;
+    width: 4%;
+    height: 4%;
+}
+
 .btn-group {
+    text-align: center;
     padding: 10px 10px;
     cursor: pointer;
     float: center;
