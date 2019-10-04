@@ -18,7 +18,7 @@ function Timer() // update loop for game
     if ( yvel < -100 ) yvel = -100;
     if ( y    >  200  ) y    = 200;
     xs = xs + 1;
-    if ( xs   > 500 ) xs = -200;
+    if ( xs   > 1000 ) xs = -200;
     if ( x < 0   ) x = 0;
     if ( x > 600 ) x = 600;
     
