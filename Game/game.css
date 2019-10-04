@@ -12,13 +12,6 @@ h1 {
     font-family: sans-serif;
 }
 
-#gameCanvas {
-    width: 70%;
-    height: 70%;
-    border: 2px solid;
-    border-color: black;
-}
-
 
 #redball {
     position: fixed;

@@ -5,6 +5,4 @@ function screenshot() {
 }
 
 
-var canvas = document.getElementById("gameCanvas");
-
 
