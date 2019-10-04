@@ -2,58 +2,37 @@
 <html lang="en">
     <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <title>CW F28WP Web Programming</title>
-        <script type="text/javascript" src="game.js" language="JavaScript" ></script>
+        
         <link rel="stylesheet" href="game.css"> 
 
 
-        <h1>WELCOME TO OUR GAME</h1>
-
         <!-- group for buttons. -->
-        <div class="btn-group">
-            <button onClick=startGame()>Start</button>
-            <button onClick=pauseGame()>Pause</button>
+        <div class='btn-group'>
             <button onClick=newGame()>New Game</button>
-            <button onClick=screenshot()>Screenshot</button>
-            <button>Email us</button>
-            <br><br><br><br><br> <!--Using this to get some space between the buttons and the body-->
+            <button onClick=leaveGame()>Leave Game</button>
+            <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
     </head>
 
 
-    <body>
-        <!--Username for the player using the game-->
-        <h3>My username: </h3>
-        <div id="myUsername"></div>
+    <body onkeydown='getKeyAndMove(event)'>
+        <p>My username: </h3>
+        <p>My score: <p>
+        <div id='score'></div>
+        <br><br><br>
 
-        <!--The score for the player using the game-->
-        <h3>My score: </h3>
-        <div id="score"></div>
-
-        <!--Informational text about the game-->
-        <h3>Information about the game:</h3>
-        <div id="infoText">
-            You are are a blue ball, try to avoid the red balls <br>
-            If you fall into a black hole, you will die and lose<br>
-            your score. Use your arrows to move the <br>
-            ball around. You will get points by : <br>
-            -    collecting coins <br>
-            -    Staying in the game 
-        </div>
-
-        <!--The area to show how many players are playing-->
-        <h4>Number of players: </h4>
-        <div id="numberOfPlayers"></div>
-
-        <!--The area to show the usernames of all players playing-->
-        <h4>Usernames of players</h4>
-        <div id="usernamesOfPlayers"></div>
+        <canvas id="gameCanvas"></canvas>
+        
         
         <!-- Image for the users ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288 -->
-        <img src="./Images/redball.png" id='redball'>
-
+       <!-- <img src="./Images/redball.png" id='redball'>-->
+        <br><br><br>
         <!-- Image for the oponents balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
-        <img src="./Images/blueball.png" id="blueball">
+        <img id='blueball' src="./Images/blueball.png">
      
         <br><br><br><br><br><br><br><br><br><br>
+
+    
+        <script type="text/javascript" src="game.js" language="JavaScript" ></script>
     </body>
 </html>
