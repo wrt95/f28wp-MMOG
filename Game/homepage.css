@@ -1,1 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
 
+    background-color: rgb(235, 233, 228);
+}
+img{
+  position: absolute;
+  left: 20%;
+  top: 14px;
+}
+
+p.solid {border-style: solid;}
