@@ -23,6 +23,7 @@ function getKeyAndMove(e){
         case 40: //down arrow key
             moveDown();
             break;						
+            
     }
 }
 function moveLeft(){
