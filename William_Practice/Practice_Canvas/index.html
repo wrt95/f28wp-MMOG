@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <title>CW F28WP Web Programming</title>
+        <link rel="stylesheet" href="canvas.css"> 
+        <title>Practise Canvas</title>
+
+        <h1>Practise Canvas</h1>
         
         <!-- group for buttons. -->
         <div class='btn-group'>
@@ -11,19 +14,18 @@
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
 
-    </head>
-    <body onload="startGame()">
-        
-        
-        <style>
-            canvas {
-                border:1px solid #d3d3d3;
-                background-color: #f1f1f1;
-            }
-        </style>
+        <table>
+            <tr>
+                <td id="usrName">USERNAME</td>
+                <td id="usrScore">Score: </td>
+                <td id="timeLeft">Time left: </td>
+            </tr>
+        </table>
 
-        <p>Make sure this window has focus, then use the arrow keys on you keyboard to move the red square.</p>
-        <p>When pressing both the left and the down arrow, the red square will move both down and to the left.</p>
+    </head>
+    <body>
+
+        <canvas id="myCanvas"></canvas>
 
         <script type="text/javascript" src="canvas.js" language="JavaScript" ></script>
     </body>
