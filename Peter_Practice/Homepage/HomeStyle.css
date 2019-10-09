@@ -2,6 +2,10 @@ html{
     margin: 0;
     padding: 0;
 }
+*{
+    box-sizing: border-box;
+
+}
 head{   
     line-height: 200;
     color: #ffffff;
@@ -30,6 +34,7 @@ body{
     background-repeat: no-repeat;
     /*keeps the .text div from flowing out of banner*/
     overflow: hidden;
+
 }
 .text{
     height: 100%;
@@ -43,28 +48,27 @@ body{
     background: rgb(0, 0, 0) transparent;
     /* RGBa with 0.6 opacity */
     background: rgba(0, 0, 0, 0.6);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 
 }
 .div1{
-    width: 300px;
-    height: 200px;
     border: 1px dotted pink;
-    box-sizing: border-box;
+    width: 85%;
+    height: 95vh;
+    float: left;
+    
 }
 .div2{
-    width: auto;
     height: 100vh;
     border: 1px dashed darkgoldenrod;
     padding: 0;
-    box-sizing: border-box;
+    width: 15%;
+    float: right;
+
 }
 .pics{
   padding: 0px;
   background: #353434;
+
 }
 .pics img {
     max-width: 100%;
@@ -72,6 +76,15 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 100%; 
     object-fit: scale-down;
+}
+.footer{
+    width: 85%;
+    height: 5vh;
+    float: left;
+    border: 1px solid purple;
+    text-align: center;
+    padding: 1px;
+
 }
