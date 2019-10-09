@@ -1,0 +1,26 @@
+
+h1 {
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    width: 80%;
+}
+
+#myCanvas {
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    border: 1px solid #000000;
+}
+
+#blueball {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+}
+
+
