@@ -25,7 +25,7 @@ img{
  }
 
  .button:hover{
-   background-color: green; 
+   background-color: blue; 
  }
 
  div {
@@ -45,5 +45,10 @@ img{
  
  .score-board-title{
     text-decoration-color: blue; 
+    text-align: center; 
+ }
+
+ .score-board-table{
+   text-align: center; 
  }
 
