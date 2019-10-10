@@ -1,3 +1,6 @@
-var first = "The Beginning of the End";
+function print()
+{
+    var first = "hi";
 
-alert(first);
+    alert(first);
+}
