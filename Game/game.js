@@ -4,13 +4,14 @@ var imgCoin     = null;
 
 // function to initialise the blue ball.
 function init(){
-    // getting the id for the ball, and assigning it to the variable. 
+    // getting the id for the ball, assigning it to the variable, and positons
     imgBlueBall=document.getElementById("blueball");				
-    imgBlueBall.style.position='relative';
+    imgBlueBall.style.position='absolute';
     imgBlueBall.style.left='285px';
     imgBlueBall.style.top='195px';
 }
 
+// functions that calls different functions based on key pressed. 
 function getKeyAndMove(e){				
     var key_code=e.which||e.keyCode;
     switch(key_code){
@@ -29,21 +30,32 @@ function getKeyAndMove(e){
             
     }
 }
+
+// function to move left
 function moveLeft(){
     imgBlueBall.style.left=parseInt(imgBlueBall.style.left)-5 +'px';
 }
+
+// function to move up
 function moveUp(){
     imgBlueBall.style.top=parseInt(imgBlueBall.style.top)-5 +'px';
 }
+
+// function to move right
 function moveRight(){
     imgBlueBall.style.left=parseInt(imgBlueBall.style.left)+5 +'px';
 }
+
+// function to move down
 function moveDown(){
     imgBlueBall.style.top=parseInt(imgBlueBall.style.top)+5 +'px';
 }
+// load in the blue ball. 
 window.onload=init;
 
+// function that assigns the coins to random variables. 
 function randomiseCoins () {
+    // creating an element so we can show all. 
     imgCoin = document.createElement("img");
     var imgCoinsAttribute = document.createAttribute("class");
     imgCoinsAttribute.value = "coin";
@@ -53,6 +65,7 @@ function randomiseCoins () {
     var xposCoin = Math.random()*700;
     var yposCoin = Math.random()*400;
 
+    // 30 random positions
     for (var i = 0; i < 30; i++) {
         imgCoin.style.position = "absolute";
         imgCoin.style.left = xposCoin + 'px';
@@ -62,16 +75,17 @@ function randomiseCoins () {
     document.getElementById('gameArea').append(imgCoin);
     return imgCoin;
 }
-
+// displays 15 coins.
 for (var i = 0; i<15; i++) {
     randomiseCoins();
 }
 
-
+// function for new game
 function newGame() {
     window.location.reload();
 }
 
+// function to leave game
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "";
 }
