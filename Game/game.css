@@ -1,0 +1,137 @@
+
+body {
+    background-color: rgb(166, 166, 169);
+    font-family: sans-serif;
+}
+
+#gameArea {
+    border: 5px solid black;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    height: 60%; 
+}
+
+h1 {
+    color: rgb(2, 2, 32);
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+table {
+    top: 15%;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+}
+
+
+/*
+#redball {
+    position: absolute;
+    left: 500;
+    top: 200;
+    width: 50px;
+    height: 50px;
+}
+*/
+
+#blueball {
+    position: absolute;
+    left: 500px;
+    top: 500px;
+    width: 30px;
+    height: 30px;
+}
+
+.coin {
+    position: absolute;
+    background-image: url("Images/coin.png");
+    left: 0px;
+    top: 40px;
+    width: 15px;
+    height: 15px;
+}
+
+#ob1 {
+    position: absolute;
+    left: 50px;
+    top: 190px;
+    width: 100px;
+    height: 50px;
+}
+
+#ob2 {
+    position: absolute;
+    left: 300px;
+    top: 250px;
+    width: 400px;
+    height: 300px;
+}
+
+#obcircle {
+    position: absolute;
+    left: 500px;
+    top: 70px;
+    width: 50px;
+    height: 50px;
+}
+
+#obTr1 {
+    position: absolute;
+    left: 200px;
+    top: 110px;
+    width: 80px;
+    height: 80px;
+}
+
+#obTr2 {
+    position: absolute;
+    left: 200px;
+    top: 230px;
+    width: 80px;
+    height: 80px;
+}
+
+#obTr3 {
+    position: absolute;
+    left: 320px;
+    top: 230px;
+    width: 80px;
+    height: 80px;
+}
+
+#obTr4 {
+    position: absolute;
+    left: 320px;
+    top: 110px;
+    width: 80px;
+    height: 80px;
+}
+
+
+.btn-group {
+    padding: 10px 10px;
+    cursor: pointer;
+    float: center;
+}
+
+/* Creating a border around all buttons in the group. */
+.btn-group > *{
+    border: 2px solid black;
+    background-color: red;
+}
+
+
+button:hover {
+    background-color: rgb(127, 191, 99);
+}
+
+
+button:active {
+    background-color: rgb(59, 174, 59);
+}
+
+

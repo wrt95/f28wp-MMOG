@@ -1,5 +1,6 @@
-//init blueball globally
-var imgBlueBall= null;
+//initialise images globally
+var imgBlueBall = null;
+var imgCoin     = null;
 
 function init(){
     imgBlueBall=document.getElementById("blueball");				
@@ -39,3 +40,29 @@ function moveDown(){
     imgBlueBall.style.top=parseInt(imgBlueBall.style.top)+5 +'px';
 }
 window.onload=init;
+
+function randomiseCoins () {
+
+  //  imgCoin =  document.getElementById("coin");
+    imgCoin = document.createElement("img");
+    var imgCoinsAttribute = document.createAttribute("class");
+    imgCoinsAttribute.value = "coin";
+    imgCoin.setAttributeNode(imgCoinsAttribute);
+    imgCoin.src = "Images/coin.png";
+
+    var xposCoin = Math.random()*700;
+    var yposCoin = Math.random()*400;
+
+    for (var i = 0; i < 30; i++) {
+        imgCoin.style.position = "absolute";
+        imgCoin.style.left = xposCoin + 'px';
+        imgCoin.style.top = yposCoin + 'px';
+       
+    }
+    document.getElementById('gameArea').append(imgCoin);
+    return imgCoin;
+}
+
+for (var i = 0; i<15; i++) {
+    randomiseCoins();
+}
