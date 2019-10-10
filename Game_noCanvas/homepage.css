@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 100px;
+    padding: 10px;
 
     background-color: rgb(235, 233, 228);
 }
@@ -11,3 +11,8 @@ img{
 }
 
 p.solid {border-style: solid;}
+
+.button1{
+
+  background-color: brown; 
+}
