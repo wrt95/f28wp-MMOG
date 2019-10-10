@@ -32,6 +32,7 @@ img{
    position: relative; 
    top:25px;
    background-color:black; 
+   height: 100px; 
    width: 80%;
    border: 15px solid white;
    padding: 50px;
