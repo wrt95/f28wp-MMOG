@@ -6,7 +6,7 @@ body {
 }
 img{
   position: absolute;
-  padding-left: 10%; 
+  padding-left: 9%; 
   top:4%;
   width: 65%; 
   height: 15%; 
@@ -29,9 +29,11 @@ img{
  }
 
  div {
-   background-color: aqua; 
-   width: 300px;
-   border: 15px solid green;
+   position: relative; 
+   top:25px;
+   background-color:black; 
+   width: 80%;
+   border: 15px solid white;
    padding: 50px;
    margin: 20px;
    
