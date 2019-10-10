@@ -17,12 +17,22 @@ img{
   background-color: rgb(231, 8, 8);
   position: relative;
   top: 35px; 
-  padding-left: 20%;
+  padding-left: 15%;
   padding-right: 10%;
-  text-align: center; 
-  text-emphasis: bold;
+  font-weight: bold; 
+  text-align: center;
+ 
  }
 
  .button:hover{
    background-color: green; 
+ }
+
+ div {
+   background-color: aqua; 
+   width: 300px;
+   border: 15px solid green;
+   padding: 50px;
+   margin: 20px;
+   
  }
