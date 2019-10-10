@@ -66,3 +66,9 @@ function randomiseCoins () {
 for (var i = 0; i<15; i++) {
     randomiseCoins();
 }
+
+
+function newGame() {
+    window.location.reload();
+}
+
