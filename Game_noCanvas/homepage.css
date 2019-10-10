@@ -1,1 +1,18 @@
+body {
+    margin: 100px;
+    padding: 10px;
 
+    background-color: rgb(235, 233, 228);
+}
+img{
+  position: absolute;
+  left: 20%;
+  top: 14px;
+}
+
+p.solid {border-style: solid;}
+
+.button1{
+
+  background-color: brown; 
+}
