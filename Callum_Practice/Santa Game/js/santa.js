@@ -1,31 +1,5 @@
 
 
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Demo of Image KeyInput Image Movement JavaScript</title>
-
-<!--
-Web Programming
-2019
-https://f20wp.github.io
-Ben Kenwright
-
-Demonstrate:
-1. user input (e.g., keys)
-2. reset/start game
-3. simple animation/movement
-4. todo - game mechanics (score/gameover/playtesting, ..)
-
--->
-
-<noscript>
-	Warning - JavaScript is Disabled.
-	
-	For full functionality of this page, it is necessary to enable JavaScript.
-</noscript>
-
-
-<script language="JavaScript" type="text/JavaScript">
-
 var myTime  = null;
 var xdir    = 0;
 var ydir    = 0;
@@ -34,9 +8,8 @@ var yvel    = -100;
 function Timer() // update loop for game
 {
 	// Get current positions
-	var y =document.getElementById('i1').offsetTop;
-	var x =document.getElementById('i1').offsetLeft;
-	var xs=document.getElementById('i2').offsetLeft;
+	var y =document.getElementById('football').offsetTop;
+	var x =document.getElementById('football').offsetLeft; 
 	
 	// Movement velocities (positions change over time)
 	yvel = yvel - 1;
@@ -69,10 +42,9 @@ function KeyDown(e)
   if (e.keyCode == 38 && yvel<-70 ) {  yvel = 70;   } // up key
 }
 
-function Reset1(r)
+function Reset1()
 {
-	//Adding event for key press 'r' to reset the game 
-	if(r.keydown == 82) {
+
 	xdir = 0;
 	ydir = 0;
 	
@@ -85,23 +57,5 @@ function Reset1(r)
 	document.addEventListener("keydown", KeyDown, false);
 
 	Timer();
-	} 	
+	
 }
-//-->
-</script>
-
-</head>
-<body >
-	<img src="./images/img.gif" id='i1' style="position:absolute; left: 500; top: 200;">
-	<input type=button onClick=Reset1() value='Start'></br>
-	Press left and right keys for movement and up key for jump
-    <div id='msg'></div>
-	<img width="200" src="./images/ball.gif" id='i2' style="position:absolute; left: -200; top: 240;">
-	<br><br><br><br>
-</body>
-</html>
-
-
-
-
-

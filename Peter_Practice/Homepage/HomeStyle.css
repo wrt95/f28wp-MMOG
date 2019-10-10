@@ -1,0 +1,90 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+
+}
+head{   
+    line-height: 200;
+    color: #ffffff;
+    background: rgb(57, 95, 8);
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: Arial, sans-serif;
+    line-height: 15;
+    color: #000000;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.Banner{
+    background-image: url("images/Edinburgh.jpg");
+    /*keeps the image in the same postion relative to the banner*/
+    position: relative;
+    /*keeps the size of the image at 100% the size of the banner*/
+    background-size:100%;
+    /*keeps image aspect ratio constant at 305:1998*/
+    width: 100%;
+    padding-top: 15.3%;
+    /*makes the background strectch to fit instead of repeat to fit*/
+    background-repeat: no-repeat;
+    /*keeps the .text div from flowing out of banner*/
+    overflow: hidden;
+
+}
+.text{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    color: whitesmoke;
+    /*Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0) transparent;
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.6);
+
+}
+.div1{
+    border: 1px dotted pink;
+    width: 85%;
+    height: 95vh;
+    float: left;
+    
+}
+.div2{
+    height: 100vh;
+    border: 1px dashed darkgoldenrod;
+    padding: 0;
+    width: 15%;
+    float: right;
+
+}
+.pics{
+  padding: 0px;
+  background: #353434;
+
+}
+.pics img {
+    max-width: 100%;
+    height: 25vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; 
+    object-fit: scale-down;
+}
+.footer{
+    width: 85%;
+    height: 5vh;
+    float: left;
+    border: 1px solid purple;
+    text-align: center;
+    padding: 1px;
+
+}

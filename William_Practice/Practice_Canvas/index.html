@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <link rel="stylesheet" href="canvas.css"> 
+        <title>Practise Canvas</title>
+
+        <h1>Practise Canvas</h1>
+        
+        <!-- group for buttons. -->
+        <div class='btn-group'>
+            <button onClick=newGame()>New Game</button>
+            <button onClick=leaveGame()>Leave Game</button>
+            <br><br> <!--Using this to get some space between the buttons and the body-->
+        </div>
+
+        <table>
+            <tr>
+                <td id="usrName">USERNAME</td>
+                <td id="usrScore">Score: </td>
+                <td id="timeLeft">Time left: </td>
+            </tr>
+        </table>
+
+    </head>
+    <body>
+
+        <canvas id="myCanvas"></canvas>
+     
+
+        <script type="text/javascript" src="canvas.js" language="JavaScript" ></script>
+    </body>
+</html>
