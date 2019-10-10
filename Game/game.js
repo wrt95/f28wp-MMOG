@@ -2,11 +2,13 @@
 var imgBlueBall = null;
 var imgCoin     = null;
 
+// function to initialise the blue ball.
 function init(){
+    // getting the id for the ball, and assigning it to the variable. 
     imgBlueBall=document.getElementById("blueball");				
     imgBlueBall.style.position='relative';
-    imgBlueBall.style.left='0px';
-    imgBlueBall.style.top='0px';
+    imgBlueBall.style.left='285px';
+    imgBlueBall.style.top='195px';
 }
 
 function getKeyAndMove(e){				
@@ -42,8 +44,6 @@ function moveDown(){
 window.onload=init;
 
 function randomiseCoins () {
-
-  //  imgCoin =  document.getElementById("coin");
     imgCoin = document.createElement("img");
     var imgCoinsAttribute = document.createAttribute("class");
     imgCoinsAttribute.value = "coin";
@@ -74,6 +74,5 @@ function newGame() {
 
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "";
-
 }
 
