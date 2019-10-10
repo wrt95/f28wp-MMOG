@@ -13,7 +13,7 @@ function make_blueball() {
     imgBlueBall = new Image();
     imgBlueBall.src = 'images/blueball.png';
     imgBlueBall.onload = function(){
-        context.drawImage(imgBlueBall, 120, 60, 15, 15);
+        context.drawImage(imgBlueBall, 120, 60, 10, 10);
     }
 }
 
@@ -25,6 +25,7 @@ function make_obstacle1() {
         context.drawImage(imgObstacle1, 120, 20, 15, 30); // middle top
         context.drawImage(imgObstacle1, 120, 100, 15, 30); // middle bottom
         context.drawImage(imgObstacle1, 20, 20, 30, 15); // top left
+        context.drawImage(imgObstacle1, 50, 20, 30, 15); // top left2
         context.drawImage(imgObstacle1, 250, 20, 30, 15); // top right
         context.drawImage(imgObstacle1, 20, 110, 30, 15); // bottom left
         context.drawImage(imgObstacle1, 250, 110, 30, 15); // bottom right
@@ -37,7 +38,7 @@ function make_obstacle1() {
 // TODO
 // make 30 coins that appear randomly on the screen
 function make_coin () {
-    var coinSize = 8;
+    var coinSize = 4;
     imgCoin = new Image();
     imgCoin.src = 'images/coin.png';
     imgCoin.onload = function(){
@@ -48,7 +49,7 @@ function make_coin () {
         context.drawImage(imgCoin, 5, 109, coinSize, coinSize);
         context.drawImage(imgCoin, 5, 135, coinSize, coinSize);
         context.drawImage(imgCoin, 70, 5, coinSize, coinSize);
-        context.drawImage(imgCoin, 70, 31, coinSize, coinSize);
+        context.drawImage(imgCoin, 70, 40, coinSize, coinSize);
         context.drawImage(imgCoin, 70, 57, coinSize, coinSize);
         context.drawImage(imgCoin, 70, 83, coinSize, coinSize);
         context.drawImage(imgCoin, 70, 109, coinSize, coinSize);
