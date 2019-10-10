@@ -12,6 +12,7 @@ h1 {
 }
 
 table {
+    font-weight: bold;
     text-align: center;
     width: 80%;
 }
@@ -20,7 +21,7 @@ table {
     width: 70%;
     position: absolute;
     left: 15%;
-    border: 1px solid #000000;
+    border: 5px solid #000000;
 }
 
 #blueball {
@@ -35,6 +36,11 @@ table {
     padding: 10px 10px;
     cursor: pointer;
     float: center;
+}
+
+/* Creating a border around all buttons in the group. */
+.btn-group > *{
+    border: 2px solid black;
 }
 
 button:hover {
