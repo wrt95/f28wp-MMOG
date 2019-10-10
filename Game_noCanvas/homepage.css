@@ -1,18 +1,28 @@
 body {
     margin: 100px;
     padding: 10px;
-
-    background-color: rgb(235, 233, 228);
+    background-color: black; 
+    border-color: white; 
 }
 img{
   position: absolute;
-  left: 20%;
-  top: 14px;
+  padding-left: 10%; 
+  top:4%;
+  width: 65%; 
+  height: 15%; 
 }
 
-p.solid {border-style: solid;}
+.button{
 
-.button1{
+  background-color: rgb(231, 8, 8);
+  position: relative;
+  top: 35px; 
+  padding-left: 20%;
+  padding-right: 10%;
+  text-align: center; 
+  text-emphasis: bold;
+ }
 
-  background-color: brown; 
-}
+ .button:hover{
+   background-color: green; 
+ }
