@@ -72,3 +72,8 @@ function newGame() {
     window.location.reload();
 }
 
+function leaveGame(gameArea) {
+    document.getElementById(gameArea).innerHTML= "";
+
+}
+
