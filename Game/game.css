@@ -53,6 +53,7 @@ table {
     top: 40px;
     width: 15px;
     height: 15px;
+    z-index: -2;
 }
 
 #ob1 {
