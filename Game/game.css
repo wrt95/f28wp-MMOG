@@ -11,6 +11,8 @@ body {
     left: 10%;
     width: 80%;
     height: 60%; 
+    text-align: center;
+    font-weight: bold;
 }
 
 h1 {

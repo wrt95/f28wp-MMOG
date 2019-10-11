@@ -26,8 +26,7 @@ function getKeyAndMove(e){
             break;
         case 40: //down arrow key
             moveDown();
-            break;						
-            
+            break;				          
     }
 }
 
@@ -87,6 +86,6 @@ function newGame() {
 
 // function to leave game
 function leaveGame(gameArea) {
-    document.getElementById(gameArea).innerHTML= "";
-}
+    document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 
+}
