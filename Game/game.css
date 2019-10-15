@@ -11,6 +11,8 @@ body {
     left: 10%;
     width: 80%;
     height: 60%; 
+    text-align: center;
+    font-weight: bold;
 }
 
 h1 {
@@ -53,6 +55,7 @@ table {
     top: 40px;
     width: 15px;
     height: 15px;
+    z-index: -2;
 }
 
 #ob1 {
