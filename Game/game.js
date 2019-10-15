@@ -1,15 +1,26 @@
 //initialise images globally
+// var imgRedBall = null;
 var imgBlueBall = null;
 var imgCoin     = null;
 
 // function to initialise the blue ball.
-function init(){
+function initBlue(){
     // getting the id for the ball, assigning it to the variable, and positons
     imgBlueBall=document.getElementById("blueball");				
     imgBlueBall.style.position='absolute';
     imgBlueBall.style.left='285px';
     imgBlueBall.style.top='195px';
 }
+/*
+// function to initialise the blue ball.
+function initRed(){
+    // getting the id for the ball, assigning it to the variable, and positons
+    imgRedBall=document.getElementById("blueball");				
+    imgRedBall.style.position='absolute';
+    imgRedBall.style.left='285px';
+    imgRedBall.style.top='195px';
+}
+*/
 
 // functions that calls different functions based on key pressed. 
 function getKeyAndMove(e){				
@@ -50,7 +61,9 @@ function moveDown(){
     imgBlueBall.style.top=parseInt(imgBlueBall.style.top)+5 +'px';
 }
 // load in the blue ball. 
-window.onload=init;
+window.onload=initBlue;
+// load in the red ball.
+// window.onload=initRed;
 
 // function that assigns the coins to random variables. 
 function randomiseCoins () {
@@ -89,3 +102,4 @@ function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 
 }
+
