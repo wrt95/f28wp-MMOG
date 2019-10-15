@@ -8,13 +8,14 @@ body {
 
 #gameArea {
     border: 5px solid black;
-    position: absolute;
+    position: relative;
     top: 25%;
     left: 10%;
-    width: 80%;
-    height: 60%; 
-    text-align: center;
-    font-weight: bold;
+    width: 1000px;   /*80%*/ 
+    height: 400px;  /*60vh*/ 
+    /*text-align: center;
+    font-weight: bold;*/
+    margin-left: 5%;
 }
 
 h1 {
