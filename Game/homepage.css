@@ -34,7 +34,7 @@ img{
    background-color:black; 
    height: 50%; 
    width: 88.5%;
-   /*border: 15px solid white; */
+   /*border: 15px solid white;*/
    padding: 50px;
    margin: 20px;
    color:white;  
@@ -50,12 +50,15 @@ img{
 
  .score-board-table{
    text-align: center; 
+   text-decoration-color: red; 
  }
 
  .score-board-table > tr > th{
    text-align: left; 
  }
-
+.container {
+  text-decoration-color: red;
+}
  
  .score-board-table > tr > td{
    text-decoration-color: red; 
@@ -65,4 +68,5 @@ img{
    background-color: red; 
    border: 1px solid white; 
    width: 92.7%; 
+   
  }
