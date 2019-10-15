@@ -45,17 +45,21 @@ body{
     left: 0;
     top: 0;
     text-align: center;
-    color: whitesmoke;
+    vertical-align: middle; 
+    color: rgb(227, 222, 241);
     /*Fallback for web browsers that doesn't support RGBa */
-    background: rgb(0, 0, 0) transparent;
+       background: rgb(0, 0, 0) transparent;
     /* RGBa with 0.6 opacity */
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 1.2em;
+    font-family: Stencil Std, fantasy    
 }
 .div1{
     border: 1px dotted pink;
     width: 85%;
     height: 95vh;
     float: left;
+    background-color: pink;
     
 }
 .div2{
@@ -86,6 +90,8 @@ body{
     float: left;
     border: 1px solid purple;
     text-align: center;
-    padding: 1px;
+    padding: 0px;
+    background-color: greenyellow;
+    object-fit: scale-down;
 
 }
