@@ -30,43 +30,43 @@ img{
 
  div {
    position: relative; 
-   top:25px;
+   top:20px;
    background-color:black; 
    height: 50%; 
    width: 88.5%;
-   /*border: 15px solid white;*/
+   /*border: 15px solid white; */
    padding: 50px;
    margin: 20px;
    color:white;  
    text-align: center; 
-   font-weight: bold; 
+   font-weight: bold;
+   min-height: 20000px;  
    
  }
- 
- .score-board-title{
-    text-decoration-color: blue; 
-    text-align: center; 
- }
 
- .score-board-table{
-   text-align: center; 
-   text-decoration-color: red; 
- }
-
- .score-board-table > tr > th{
-   text-align: left; 
- }
-.container {
-  text-decoration-color: red;
-}
- 
- .score-board-table > tr > td{
-   text-decoration-color: red; 
- }
-
- section#score-board {
-   background-color: red; 
+ #score-board {
+   background-color:red;
    border: 1px solid white; 
-   width: 92.7%; 
+   width: 93%; 
+   align-content: center; 
    
  }
+
+ .container-title{
+ 
+   border: 1px solid white; 
+ }
+
+
+ #score-board-table tr th:nth-child(-n+3) {
+
+  border: 1px solid white; 
+ }
+
+ #score-board-table tr td:nth-child(-n+3) {
+
+  border: 1px solid white; 
+  align-items: center; 
+  table align: center; 
+ }
+
