@@ -7,14 +7,20 @@ body {
 }
 
 #gameArea {
+<<<<<<< HEAD
     border: 5px solid red;
     position: absolute;
+=======
+    border: 5px solid black;
+    position: relative;
+>>>>>>> 857b9aeca89d9b2479a47021cc9a7d4b2b385436
     top: 25%;
     left: 10%;
-    width: 80%;
-    height: 60%; 
-    text-align: center;
-    font-weight: bold;
+    width: 1000px;   /*80%*/ 
+    height: 400px;  /*60vh*/ 
+    /*text-align: center;
+    font-weight: bold;*/
+    margin-left: 5%;
 }
 
 h1 {
