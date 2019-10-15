@@ -32,9 +32,9 @@ img{
    position: relative; 
    top:25px;
    background-color:black; 
-   height: 100px; 
-   width: 80%;
-   border: 15px solid white;
+   height: 50%; 
+   width: 88.5%;
+   /*border: 15px solid white; */
    padding: 50px;
    margin: 20px;
    color:white;  
@@ -52,3 +52,17 @@ img{
    text-align: center; 
  }
 
+ .score-board-table > tr > th{
+   text-align: left; 
+ }
+
+ 
+ .score-board-table > tr > td{
+   text-decoration-color: red; 
+ }
+
+ section#score-board {
+   background-color: red; 
+   border: 1px solid white; 
+   width: 92.7%; 
+ }
