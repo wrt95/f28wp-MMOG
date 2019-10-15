@@ -2,12 +2,12 @@
 
 body {
 
-    background-color: rgb(166, 166, 169);
+    background-color: rgb(0, 0, 0);
     font-family: sans-serif;
 }
 
 #gameArea {
-    border: 5px solid black;
+    border: 5px solid red;
     position: absolute;
     top: 25%;
     left: 10%;

@@ -14,7 +14,8 @@ img{
 
 .button{
 
-  background-color: rgb(231, 8, 8);
+  background-color: red; 
+  color: black; 
   position: relative;
   top: 35px; 
   padding-left: 15%;
@@ -39,8 +40,7 @@ img{
    margin: 20px;
    color:white;  
    text-align: center; 
-   font-weight: bold;
-   min-height: 20000px;  
+   font-weight: bold; 
    
  }
 
@@ -55,6 +55,9 @@ img{
  .container-title{
  
    border: 1px solid white; 
+   height: 2px; 
+   width: 2px;
+  
  }
 
 
@@ -64,9 +67,7 @@ img{
  }
 
  #score-board-table tr td:nth-child(-n+3) {
-
+   
   border: 1px solid white; 
-  align-items: center; 
-  table align: center; 
  }
 
