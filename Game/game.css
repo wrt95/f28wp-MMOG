@@ -2,18 +2,13 @@
 
 body {
 
-    background-color: rgb(0, 0, 0);
+    background-color:grey(0, 0, 0);
     font-family: sans-serif;
 }
 
 #gameArea {
-<<<<<<< HEAD
     border: 5px solid red;
     position: absolute;
-=======
-    border: 5px solid black;
-    position: relative;
->>>>>>> 857b9aeca89d9b2479a47021cc9a7d4b2b385436
     top: 25%;
     left: 10%;
     width: 1000px;   /*80%*/ 
