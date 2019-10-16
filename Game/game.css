@@ -1,11 +1,11 @@
 
-
+/* Main body */
 body {
-
     background-color: black;
     font-family: sans-serif;
 }
 
+/* The area wherer the game will*/
 #gameArea {
     border: 5px solid red;
     position: relative;
@@ -17,6 +17,7 @@ body {
     margin: 0 auto;
 }
 
+/* The header */
 h1 {
     color: rgb(2, 2, 32);
     text-align: center;
@@ -24,9 +25,11 @@ h1 {
     font-family: sans-serif;
 }
 
+/* The table with username, score and time left */
 table {
     top: 15%;
     font-weight: bold;
+    color: red;
     text-align: center;
     width: 80%;
 }
@@ -42,6 +45,7 @@ table {
 }
 */
 
+/* Users ball */
 #blueball {
     position: absolute;
     left: 500px;
@@ -50,6 +54,7 @@ table {
     height: 30px;
 }
 
+/* The coins */
 .coin {
     position: absolute;
     background-image: url("Images/coin.png");
@@ -59,20 +64,20 @@ table {
     height: 15px;
     z-index: -2;
 }
-
+/* All the obstacles */
+/* ob"number" is the square obstacles */
 #ob1 {
     position: absolute;
     left: 50px;
-    top: 190px;
+    top: 190px;            
     width: 100px;
     height: 50px;
- 
 }
 
 #ob2 {
     position: absolute;
     left: 600px;
-    top: 350px;
+    top: 350px;             
     width: 100px;
     height: 50px;
 }
@@ -82,8 +87,7 @@ table {
     left: 1000px;
     top: 190px;
     width: 100px;
-    height: 50px;
- 
+    height: 50px; 
 }
 
 #ob4 {
@@ -92,7 +96,6 @@ table {
     top: 90px;
     width: 50px;
     height: 100px;
- 
 }
 
 #ob5 {
@@ -101,7 +104,6 @@ table {
     top: 350px;
     width: 50px;
     height: 100px;
- 
 }
 
 #ob6 {
@@ -109,8 +111,7 @@ table {
     left: 900px;
     top: 350px;
     width: 100px;
-    height: 50px;
- 
+    height: 50px; 
 }
 
 #ob7 {
@@ -118,8 +119,7 @@ table {
     left: 800px;
     top: 50px;
     width: 100px;
-    height: 50px;
- 
+    height: 50px; 
 }
 
 #ob8 {
@@ -128,10 +128,10 @@ table {
     top: 0px;
     width: 50px;
     height: 100px;
- 
 }
 
-#obcircle {
+/* circle obstacles */
+#obcircle1 {
     position: absolute;
     left: 500px;
     top: 70px;
@@ -139,6 +139,23 @@ table {
     height: 50px;
 }
 
+#obcircle2 {
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    width: 50px;
+    height: 50px;
+}
+
+#obcircle3 {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+/* The triangle obstacles */
 #obTr1 {
     position: absolute;
     left: 200px;
@@ -171,7 +188,7 @@ table {
     height: 80px;
 }
 
-
+/* The group of buttons */
 .btn-group {
     padding: 10px 10px;
     cursor: pointer;
@@ -184,14 +201,14 @@ table {
     background-color: red;
 }
 
-
+/* changing the colour when hovering over buttons. */ 
 button:hover {
-    background-color: rgb(127, 191, 99);
+    background-color: rgb(0, 21, 255);
 }
 
-
+/* changing the colour when clicking a button. */ 
 button:active {
-    background-color: rgb(59, 174, 59);
+    background-color: rgb(0, 21, 255);
 }
 
 
