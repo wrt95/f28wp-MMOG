@@ -1,23 +1,14 @@
 
 /* Main body */
 body {
-<<<<<<< HEAD
-
-    background-color:grey(0, 0, 0);
-=======
     background-color: black;
->>>>>>> d526f3ce075613bb26d34f935c2dcda68330dab0
     font-family: sans-serif;
 }
 
 /* The area wherer the game will*/
 #gameArea {
     border: 5px solid red;
-<<<<<<< HEAD
-    position: absolute;
-=======
     position: relative;
->>>>>>> d526f3ce075613bb26d34f935c2dcda68330dab0
     top: 25%;
     width: 1200px;   /*80%*/ 
     height: 450px;  /*60vh*/ 
