@@ -74,8 +74,9 @@ function randomiseCoins () {
     imgCoin.setAttributeNode(imgCoinsAttribute);
     imgCoin.src = "Images/coin.png";
 
-    var xposCoin = Math.random()*700;
-    var yposCoin = Math.random()*400;
+    // variables for where coins might pop up. 
+    var xposCoin = Math.random()*1180;
+    var yposCoin = Math.random()*430;
 
     // 30 random positions
     for (var i = 0; i < 30; i++) {
