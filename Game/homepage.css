@@ -4,6 +4,10 @@ body {
     background-color: black; 
     border-color: white; 
 }
+head{
+  padding-bottom: 200px;
+}
+
 /* Centering the 'Shape escape' and 'scoreboard' images */ 
 img{
   position: absolute;
@@ -56,9 +60,11 @@ img{
 
  .container-title{
  
-   border: 1px solid white; 
+ 
    height: 2px; 
-   width: 2px;
+   width: 50px;
+   padding-right: 185px; 
+   
   
  }
 
@@ -66,10 +72,15 @@ img{
  #score-board-table tr th:nth-child(-n+3) {
 
   border: 1px solid white; 
+  padding-right:200px; 
  }
+
+ /*
 
  #score-board-table tr td:nth-child(-n+3) {
    
   border: 1px solid white; 
  }
+
+ */ 
 
