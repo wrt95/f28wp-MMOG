@@ -4,6 +4,7 @@ body {
     background-color: black; 
     border-color: white; 
 }
+/* Centering the 'Shape escape' and 'scoreboard' images */ 
 img{
   position: absolute;
   padding-left: 9%; 
@@ -12,6 +13,7 @@ img{
   height: 15%; 
 }
 
+/* 'Join Game' 'Contact us' 'Instructions' buttons */
 .button{
 
   background-color: red; 
@@ -24,7 +26,7 @@ img{
   text-align: center;
  
  }
-
+ /* Making the button appear blue when they are hovered over*/
  .button:hover{
    background-color: blue; 
  }
