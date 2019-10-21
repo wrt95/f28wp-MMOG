@@ -22,9 +22,18 @@ function initRed(){
 }
 */
 
+const canMove = {
+    left:false,
+    right:false,
+    up:false,
+    down:false,
+};
+
+
 // functions that calls different functions based on key pressed. 
 function getKeyAndMove(e){				
     var key_code=e.which||e.keyCode;
+    console.log(trackBall);
     switch(key_code){
         case 37: //left arrow key
             if (trackBall() === true)
@@ -178,7 +187,7 @@ function trackBall () {
     var bottomLineGA = Math.abs(ballY - gaBottom);       // The bottom line
 
     if (leftLineGA < 10) {
-        return false; 
+        return false;
     }
     else if (topLineGA < 10) {
         return false; 

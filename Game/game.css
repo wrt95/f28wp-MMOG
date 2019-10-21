@@ -15,6 +15,7 @@ body {
     /*text-align: center;
     font-weight: bold;*/
     margin: 0 auto;
+    overflow: hidden;     /* Keep the game area as it is. */
 }
 
 /* The header */
@@ -48,160 +49,160 @@ table {
 /* Users ball */
 #blueball {
     position: absolute;
-    left: 500px;
-    top: 500px;
-    width: 30px;
-    height: 30px;
+    left: 28%;
+    top: 33%;
+    width: 2.5%;
+    height: 6.25%;
 }
 
 /* The coins */
 .coin {
     position: absolute;
     background-image: url("Images/coin.png");
-    left: 0px;
-    top: 40px;
-    width: 15px;
-    height: 15px;
+    left: 2%;
+    top: 2%;
+    width: 1%;
+    height: 2.5%;
     z-index: -2;
 }
 /* All the obstacles */
 /* ob"number" is the square obstacles */
 #ob1 {
     position: absolute;
-    left: 50px;
-    top: 190px;            
-    width: 100px;
-    height: 50px;
+    left: 4%;
+    top: 42%;            
+    width: 9%;
+    height: 10%;
 }
 
 #ob2 {
     position: absolute;
-    left: 600px;
-    top: 350px;             
-    width: 100px;
-    height: 50px;
+    left: 60%;
+    top: 70%;             
+    width: 9%;
+    height: 10%;
 }
 
 #ob3 {
     position: absolute;
-    left: 1020px;
-    top: 150px;
-    width: 100px;
-    height: 50px; 
+    left: 85%;
+    top: 40%;
+    width: 9%;
+    height: 10%; 
 }
 
 #ob4 {
     position: absolute;
-    left: 1070px;
-    top: 50px;
-    width: 50px;
-    height: 100px;
+    left: 89.5%;
+    top: 10%;
+    width: 4.5%;
+    height: 30%;
 }
 
 #ob5 {
     position: absolute;
-    left: 800px;
-    top: 350px;
-    width: 50px;
-    height: 100px;
+    left: 58%;
+    top: 70%;
+    width: 4.5%;
+    height: 30%;
 }
 
 #ob6 {
     position: absolute;
-    left: 920px;
-    top: 350px;
-    width: 100px;
-    height: 50px; 
+    left: 75%;
+    top: 70%;
+    width: 9%;
+    height: 10%; 
 }
 
 #ob7 {
     position: absolute;
-    left: 800px;
-    top: 50px;
-    width: 100px;
-    height: 50px; 
+    left: 68%;
+    top: 10%;
+    width: 9%;
+    height: 10%; 
 }
 
 #ob8 {
     position: absolute;
-    left: 700px;
-    top: 0px;
-    width: 50px;
-    height: 100px;
+    left: 58%;
+    top: 0%;
+    width: 4.5%;
+    height: 30%;
 }
 
 #ob9 {
     position: absolute;
-    left: 1020px;
-    top: 350px;
-    width: 100px;
-    height: 50px;
+    left: 83%;
+    top: 70%;
+    width: 9%;
+    height: 10%;
 }
 
 #ob10 {
     position: absolute;
-    left: 900px;
-    top: 50px;
-    width: 100px;
-    height: 50px;
+    left: 75%;
+    top: 10%;
+    width: 9%;
+    height: 10%;
 }
 
 /* circle obstacles */
 #obcircle1 {
     position: absolute;
-    left: 500px;
-    top: 70px;
-    width: 50px;
-    height: 50px;
+    left: 42%;
+    top: 16%;
+    width: 4.5%;
+    height: 11%;
 }
 
 #obcircle2 {
     position: absolute;
-    left: 600px;
-    top: 200px;
-    width: 50px;
-    height: 50px;
+    left: 50%;
+    top: 50%;
+    width: 4.5%;
+    height: 11%;
 }
 
 #obcircle3 {
     position: absolute;
-    left: 50px;
-    top: 50px;
-    width: 50px;
-    height: 50px;
+    left: 7%;
+    top: 10%;
+    width: 4.5%;
+    height: 11%;
 }
 
-/* The triangle obstacles */
+/* The cross obstacles */
 #obTr1 {
     position: absolute;
-    left: 200px;
-    top: 110px;
-    width: 80px;
-    height: 80px;
+    left: 18%;
+    top: 25%;
+    width: 7%;
+    height: 18%;
 }
 
 #obTr2 {
     position: absolute;
-    left: 200px;
-    top: 230px;
-    width: 80px;
-    height: 80px;
+    left: 18%;
+    top: 55%;
+    width: 7%;
+    height: 18%;
 }
 
 #obTr3 {
     position: absolute;
-    left: 320px;
-    top: 230px;
-    width: 80px;
-    height: 80px;
+    left: 29%;
+    top: 55%;
+    width: 7%;
+    height: 18%;
 }
 
 #obTr4 {
     position: absolute;
-    left: 320px;
-    top: 110px;
-    width: 80px;
-    height: 80px;
+    left: 29%;
+    top: 25%;
+    width: 7%;
+    height: 18%;
 }
 
 /* The group of buttons */
