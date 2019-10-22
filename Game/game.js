@@ -152,7 +152,7 @@ function getPositionOb1 () {
     var topPos = $("#ob1").position().top;      // get top position
     var width = leftPos + 100;                  // get the width 
     var height = topPos + 50;                   // get the height
-    var centreX = leftPos + width / 2;          // get X center
+    var centreX = (leftPos + width) / 2;        // get X center
     var centreY = topPos + height / 2;          // get Y center
 
     // Stuff used for debugging:
@@ -173,26 +173,29 @@ function trackBall () {
 
 
     // CALCULATIONS
-    var ballX_ob1X_delta = Math.abs(ballX - ob1X);    // center of ball and ob1 X position
-    var ballY_ob1Y_delta = Math.abs(ballY - ob1Y);    // center of ball and ob1 Y position
+    var ballX_ob1X_delta = Math.abs(ballX - ob1X);  // center of ball and ob1 X position
+    var ballY_ob1Y_delta = Math.abs(ballY - ob1Y);  // center of ball and ob1 Y position
 
-    var gaLeftSide = gameAreaPosition() [0]; // getting the left position of the GA
+    // Game Area VS Ball
+    var gaLeftSide = gameAreaPosition() [0];        // getting the left position of the GA
+    var gaTop = gameAreaPosition() [2];             // getting the width of the GA
+    var gaBottom = gameAreaPosition() [3];          // getting the height
 
-    var gaTop = gameAreaPosition() [2]; // getting the width of the GA
+    var leftLineGA = Math.abs(ballX - gaLeftSide);  // the left line of the GA
+    var topLineGA = Math.abs(ballY - gaLeftSide);   // the top line of the GA
+    var bottomLineGA = Math.abs(ballY - gaBottom);  // The bottom line
+    var rightLineGA = Math.abs(ballX - gaTop - 565);
 
-    var gaBottom = gameAreaPosition() [3]; // getting the height
-
-    var leftLineGA = Math.abs(ballX - gaLeftSide);       // the left line of the GA
-    var topLineGA = Math.abs(ballY - gaLeftSide);        // the top line of the GA
-    var bottomLineGA = Math.abs(ballY - gaBottom);       // The bottom line
-
-    if (leftLineGA < 10) {
+    if (leftLineGA < 10) {          // if the left line is less than 10, return false
         return false;
     }
-    else if (topLineGA < 10) {
+    else if (topLineGA < 10) {      // if the top line is less than 10, return false
         return false; 
     }
-    else if (bottomLineGA < 10) {
+    else if (bottomLineGA < 10) {   // if the bottom line is less than 10, return false
+        return false; 
+    }
+    else if (rightLineGA < 10) {   // if the bottom line is less than 10, return false
         return false; 
     }
 
