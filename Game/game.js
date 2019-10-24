@@ -20,11 +20,16 @@ function gameTimer(countDown){
         if (--timer <0){
             timer = countDown;
         }
-
-
-    }
+    }, 1000); 
 
 }
+
+window.onload = function () {
+    var oneMin = 60, 
+    display = document.querySelector('#time'); 
+    gameTimer(oneMin, display); 
+
+}; 
 
 // function to initialise the blue ball.
 function initBlue(){
