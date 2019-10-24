@@ -61,7 +61,7 @@ $(document).ready(function () {
     var gameArea = $('#gameArea'),
         blueball = $('#blueball'),
         width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
-        height = gameArea.height() - blueball.height(), 
+       // height = gameArea.height() - blueball.height(), 
         keyPressed = {},                                // stores information of what key is pressed
         distance = 3;                                   // the "speed", distance moved per intervall, in px
 
@@ -78,9 +78,9 @@ $(document).ready(function () {
         
         // This expression ensures that the new value is in the permitted bounds.
         // if n is less than 0 return 0, 
-        // else if n greater than the width/height, return the width/height, 
+        // else if n greater than the width, return the width, 
         // else return n
-        return (n < 0 ? 0 : n > width ? width : n) && (n < 0 ? 0 : n > height ? height : n);
+        return (n < 0 ? 0 : n > width ? width : n); // && (n < 0 ? 0 : n > height ? height : n);
     } 
 
     $(window).keydown(function(e) { keyPressed[e.which] = true; }); // stores the key pressed, and set it to true
