@@ -49,8 +49,8 @@ table {
 /* Users ball */
 #blueball {
     position: absolute;
-    left: 50px;
-    top: 50px;
+    left: 0;
+    top: 0;
     width: 4%; /*2.5%;*/
     height: 4%; /*6.25%;*/
 }
@@ -72,7 +72,7 @@ table {
 /* ob"number" is the square obstacles */
 #ob1 {                      /**************/
     position: absolute;     /*            */ 
-    left: 8%;               /*            */ 
+    left: 7%;               /*            */ 
     top: 53%;               /* []         */
     width: 14%;             /*            */
     height: 7%;             /*            */
@@ -80,132 +80,132 @@ table {
 
 #ob2 {                      /**************/
     position: absolute;     /*            */ 
-    left: 60%;              /*            */ 
-    top: 70%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    left: 14%;              /*            */ 
+    top: 87%;               /*            */ 
+    width: 14%;             /*            */ 
+    height: 7%;             /*  []        */ 
 }                           /**************/
 
 #ob3 {                      /**************/
     position: absolute;     /*            */ 
-    left: 85%;              /*            */ 
-    top: 40%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    left: 14%;              /*  []        */ 
+    top: 24%;               /*            */ 
+    width: 14%;             /*            */ 
+    height: 7%;             /*            */ 
 }                           /**************/
 
 #ob4 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 89.5%;            /*            */ 
-    top: 10%;               /*            */ 
+    position: absolute;     /*         [] */ 
+    left: 87%;              /*            */ 
+    top: 0%;                /*            */ 
     width: 4.5%;            /*            */ 
     height: 30%;            /*            */ 
 }                           /**************/
 
 #ob5 {                      /**************/
     position: absolute;     /*            */ 
-    left: 58%;              /*            */ 
-    top: 70%;               /*            */ 
-    width: 4.5%;            /*            */ 
-    height: 30%;            /*            */ 
+    left: 65%;              /*            */ 
+    top: 69%;               /*            */ 
+    width: 7%;              /*            */ 
+    height: 21%;            /*        []  */ 
 }                           /**************/
 
 #ob6 {                      /**************/
     position: absolute;     /*            */ 
-    left: 75%;              /*            */ 
-    top: 70%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    left: 69%;              /*            */ 
+    top: 83%;               /*            */ 
+    width: 14%;             /*            */ 
+    height: 7%;             /*          []*/ 
 }                           /**************/
 
 #ob7 {                      /**************/
-    position: absolute;     /*            */ 
+    position: absolute;     /*   []       */ 
     left: 68%;              /*            */ 
     top: 10%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    width: 14%;             /*            */ 
+    height: 7%;             /*            */ 
 }                           /**************/
 
 #ob8 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 58%;              /*            */ 
-    top: 0%;                /*            */ 
-    width: 4.5%;            /*            */ 
-    height: 30%;            /*            */ 
+    position: absolute;     /*   []       */ 
+    left: 30%;              /*            */ 
+    top: 7%;                /*            */ 
+    width: 20%;             /*            */ 
+    height: 5%;             /*            */ 
 }                           /**************/
 
 #ob9 {                      /**************/
     position: absolute;     /*            */ 
-    left: 83%;              /*            */ 
+    left: 7%;               /*            */ 
     top: 70%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    width: 8%;              /*            */ 
+    height: 24%;            /* []         */ 
 }                           /**************/
 
 #ob10 {                     /**************/
     position: absolute;     /*            */ 
-    left: 75%;              /*            */ 
+    left: 75%;              /*        []  */ 
     top: 10%;               /*            */ 
-    width: 9%;              /*            */ 
-    height: 10%;            /*            */ 
+    width: 14%;             /*            */ 
+    height: 7%;             /*            */ 
 }                           /**************/
 
 /* circle obstacles */
 #obcircle1 {                /**************/
     position: absolute;     /*            */ 
-    left: 42%;              /*            */ 
-    top: 16%;               /*            */ 
-    width: 8%;            /*            */ 
-    height: 8%;            /*            */ 
+    left: 37%;              /*      []    */ 
+    top: 12%;               /*            */ 
+    width: 6%;              /*            */ 
+    height: 18%;            /*            */ 
 }                           /**************/
 
 #obcircle2 {                /**************/
     position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
+    left: 80%;              /*            */ 
     top: 50%;               /*            */ 
-    width: 8%;            /*            */ 
-    height: 8%;            /*            */ 
+    width: 7%;              /*         [] */ 
+    height: 21%;            /*            */ 
 }                           /**************/
 
 #obcircle3 {                /**************/
-    position: absolute;     /*            */ 
+    position: absolute;     /* []         */ 
     left: 7%;               /*            */ 
-    top: 10%;               /*            */ 
-    width: 8%;            /*            */ 
-    height: 8%;            /*            */ 
+    top: 7%;                /*            */ 
+    width: 8%;              /*            */ 
+    height: 24%;            /*            */ 
 }                           /**************/
 
 /* The cross obstacles */
 #obTr1 {                    /**************/
     position: absolute;     /*            */ 
-    left: 30%;              /*            */ 
-    top: 45%;               /*   []       */ 
-    width: 7%;              /*            */ 
-    height: 7%;             /*            */ 
+    left: 29%;              /*            */ 
+    top: 44%;               /*   []       */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
 }                           /**************/
 
 #obTr2 {                    /**************/            
     position: absolute;     /*            */ 
-    left: 30%;              /*            */ 
-    top: 60%;               /*            */ 
-    width: 7%;              /*   []       */ 
-    height: 7%;             /*            */ 
+    left: 29%;              /*            */ 
+    top: 61%;               /*            */ 
+    width: 10%;             /*   []       */ 
+    height:10%;             /*            */ 
 }                           /**************/
 
 #obTr3 {                    /**************/            
     position: absolute;     /*            */ 
-    left: 45%;              /*            */ 
-    top: 60%;               /*            */ 
-    width: 7%;              /*     []     */ 
-    height: 7%;             /*            */ 
+    left: 46%;              /*            */ 
+    top: 61%;               /*            */ 
+    width: 10%;             /*     []     */ 
+    height: 10%;            /*            */ 
 }                           /**************/
 
 #obTr4 {                    /**************/
     position: absolute;     /*            */ 
-    left: 45%;              /*            */ 
-    top: 45%;               /*     []     */ 
-    width: 7%;              /*            */ 
-    height: 7%;             /*            */ 
+    left: 46%;              /*            */ 
+    top: 44%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
 }                           /**************/
 
 /* The group of buttons */
