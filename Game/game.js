@@ -28,6 +28,27 @@ const canMove = {
     up:false,
     down:false,
 };
+/*
+var blueball = $('#blueball');
+
+$(document).keydown(function(e) {
+    var left = parseInt(blueball.css('left') || 0);
+    var top = parseInt(blueball.css('top') || 0);
+    if (e.which === 39 && ((left + blueball.outerWidth() + 16) < 400)) {
+        blueball.css('left', "+=16px");
+    } else if (e.which === 37 && (left > 0)) {
+        blueball.css('left', '-=16px');
+    }
+    else if (e.which === 40 && ((top + blueball.outerHeight() + 16) < 400)) {
+        blueball.css('top', '+=16px'); 
+    }
+    else if (e.which === 38 && (top > 0)) {
+        blueball.css('top', '-=16px');
+       // alert("test");
+    }
+});
+   
+*/
 
 
 // functions that calls different functions based on key pressed. 
@@ -53,6 +74,8 @@ function getKeyAndMove(e){
             break;				          
     }
 }
+
+
 
 // function to move left
 function moveLeft(){
@@ -133,10 +156,12 @@ function gameAreaPosition () {
 function blueBallPosition () {
     var leftPos = $("#blueball").position().left;   // get left position 
     var topPos = $("#blueball").position().top;     // get top position
-    var width = leftPos + 30;                       // get the width 
-    var height = topPos + 30;                       // get the height
-    var centreX = leftPos + width / 2;              // get X center
-    var centreY = topPos + height / 2;              // get Y center
+    var right = leftPos + 30;                       // get the right 
+    var bottom = topPos + 30;                       // get the bottom
+    var centreX = leftPos + right / 2;              // get X center
+    var centreY = topPos + bottom / 2;              // get Y center
+
+    var tmpNext = leftPos + 5;
 
     // Stuff used for debugging
     // console.log (leftPos);
@@ -152,7 +177,7 @@ function getPositionOb1 () {
     var topPos = $("#ob1").position().top;      // get top position
     var width = leftPos + 100;                  // get the width 
     var height = topPos + 50;                   // get the height
-    var centreX = (leftPos + width) / 2;        // get X center
+    var centreX = leftPos + width / 2;        // get X center
     var centreY = topPos + height / 2;          // get Y center
 
     // Stuff used for debugging:
@@ -163,28 +188,33 @@ function getPositionOb1 () {
     return [centreX, centreY];  // return an array of the x and y center 
 }
 
+// Function to get positions for obTr1
+function getPositionObTr1 () {
+    var leftPos = $("#obTr1").position().left;    // get left position 
+    var topPos = $("#obTr1").position().top;      // get top position
+    var width = leftPos + 50;                     // get the width                          // WHY IS THE POSITION SO OFF?!?!?!??!?!?!??!?
+    var height = topPos + 50;                     // get the height
+    var centreX = (leftPos + width) / 2;          // get X center
+    var centreY = topPos + height / 2;            // get Y center
+
+    return [centreX, centreY];  // return an array of the x and y center 
+}
+
+
 // Function to compare the balls position with the game area and obstacles. 
 function trackBall () {
     var ballX = blueBallPosition()[0];      // X center for ball
     var ballY = blueBallPosition()[1];      // Y center for ball
 
-    var ob1X = getPositionOb1()[0];         // X center for ob1
-    var ob1Y = getPositionOb1()[1];         // Y center for ob1
-
-
-    // CALCULATIONS
-    var ballX_ob1X_delta = Math.abs(ballX - ob1X);  // center of ball and ob1 X position
-    var ballY_ob1Y_delta = Math.abs(ballY - ob1Y);  // center of ball and ob1 Y position
-
-    // Game Area VS Ball
+    // BALL VS GAME AREA
     var gaLeftSide = gameAreaPosition() [0];        // getting the left position of the GA
     var gaTop = gameAreaPosition() [2];             // getting the width of the GA
     var gaBottom = gameAreaPosition() [3];          // getting the height
 
     var leftLineGA = Math.abs(ballX - gaLeftSide);  // the left line of the GA
     var topLineGA = Math.abs(ballY - gaLeftSide);   // the top line of the GA
-    var bottomLineGA = Math.abs(ballY - gaBottom);  // The bottom line
-    var rightLineGA = Math.abs(ballX - gaTop - 565);
+    var bottomLineGA = Math.abs(ballY - gaBottom);  // The bottom line of the GA
+    var rightLineGA = Math.abs(ballX - gaTop - 565);// The right line of the GA
 
     if (leftLineGA < 10) {          // if the left line is less than 10, return false
         return false;
@@ -199,14 +229,41 @@ function trackBall () {
         return false; 
     }
 
+    // BALL VS OBTR1
+    var obTr1X = getPositionObTr1()[0];     // X center for obTr1
+    var obTr1Y = getPositionObTr1()[1];     // Y center for obTr1
+
+    var ballX_obTr1X_delta = Math.abs(ballX - obTr1X); 
+    var ballY_obTr1Y_delta = Math.abs(ballY - obTr1Y); 
+
+    if (ballX_obTr1X_delta < 120 && ballY_obTr1Y_delta < 120) {
+        return false; 
+    }
 
 
-    // if the its closer to center than 120 width and 60 height. 
+
+    // BALL VS OB1
+    var ob1X = getPositionOb1()[0];         // X center for ob1
+    var ob1Y = getPositionOb1()[1];         // Y center for ob1
+
+    var ballX_ob1X_delta = Math.abs(ballX - ob1X);  // center of ball and ob1 X position
+    var ballY_ob1Y_delta = Math.abs(ballY - ob1Y);  // center of ball and ob1 Y position
+
+    // if the ball is closer to center than 120 width and 60 height. 
     if (ballX_ob1X_delta < 120 && ballY_ob1Y_delta < 60) {
         // return false 
         return false;
     }
     
+
+
+
+
+
+
+
+
+
     
         return true;
 }
