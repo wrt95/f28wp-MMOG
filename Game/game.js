@@ -4,7 +4,7 @@ var imgBlueBall = null;
 var imgCoin     = null;
 
 // function to work the game timer 
-
+// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
 function gameTimer(countDown, display){
     var timer = countDown, minutes, seconds; 
 
