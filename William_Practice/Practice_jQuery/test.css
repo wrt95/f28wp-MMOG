@@ -1,0 +1,2 @@
+#container { width:400px; height: 400px; position: absolute; border:1px solid blue; }
+#p1 { width: 200px; height: 200px; border:1px solid red; position: relative; left:0px; top:0px; }
