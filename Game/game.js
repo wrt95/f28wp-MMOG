@@ -3,6 +3,34 @@
 /*var imgBlueBall = null;
 var imgCoin     = null;
 
+// function to work the game timer 
+
+function gameTimer(countDown, display){
+    var timer = countDown, minutes, seconds; 
+
+    setInterval(function (){
+        mins = parseInt (gameTimer/ 60, 10)
+        secs = parseInt (gameTimer% 60, 10); 
+
+        mins = mins < 10 ? "0" + mins : mins;
+        secs = secs < 10 ? "0" + secs : secs;
+
+        display.textContent = mins + ":" + secs; 
+
+        if (--timer <0){
+            timer = countDown;
+        }
+    }, 1000); 
+
+}
+
+window.onload = function () {
+    var oneMin = 60 * 1, 
+    display = document.querySelector('#timer'); 
+    gameTimer(oneMin, display); 
+
+}; 
+
 // function to initialise the blue ball.
 function initBlue(){
     // getting the id for the ball, assigning it to the variable, and positons
