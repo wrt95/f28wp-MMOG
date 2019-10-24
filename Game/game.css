@@ -49,10 +49,10 @@ table {
 /* Users ball */
 #blueball {
     position: absolute;
-    left: 28%;
-    top: 33%;
-    width: 2.5%;
-    height: 6.25%;
+    left: 50px;
+    top: 50px;
+    width: 30px; /*2.5%;*/
+    height: 30px; /*6.25%;*/
 }
 
 /* The coins */

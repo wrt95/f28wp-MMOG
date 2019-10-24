@@ -1,7 +1,3 @@
-//initialise images globally
-// var imgRedBall = null;
-var imgBlueBall = null;
-var imgCoin     = null;
 
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
@@ -9,8 +5,8 @@ function gameTimer(countDown, display){
     var timer = countDown, minutes, seconds; 
 
     setInterval(function (){
-        mins = parseInt (gameTimer/ 60, 10)
-        secs = parseInt (gameTimer% 60, 10); 
+        mins = parseInt(timer / 60, 10)
+        secs = parseInt(timer % 60, 10); 
 
         mins = mins < 10 ? "0" + mins : mins;
         secs = secs < 10 ? "0" + secs : secs;
@@ -26,7 +22,7 @@ function gameTimer(countDown, display){
 
 window.onload = function () {
     var oneMin = 60 * 1, 
-    display = document.querySelector('#timer'); 
+    display = document.querySelector('#time'); 
     gameTimer(oneMin, display); 
 
 }; 
@@ -56,79 +52,51 @@ const canMove = {
     up:false,
     down:false,
 };
-/*
-var blueball = $('#blueball');
 
-$(document).keydown(function(e) {
-    var left = parseInt(blueball.css('left') || 0);
-    var top = parseInt(blueball.css('top') || 0);
-    if (e.which === 39 && ((left + blueball.outerWidth() + 16) < 400)) {
-        blueball.css('left', "+=16px");
-    } else if (e.which === 37 && (left > 0)) {
-        blueball.css('left', '-=16px');
-    }
-    else if (e.which === 40 && ((top + blueball.outerHeight() + 16) < 400)) {
-        blueball.css('top', '+=16px'); 
-    }
-    else if (e.which === 38 && (top > 0)) {
-        blueball.css('top', '-=16px');
-       // alert("test");
-    }
+
+// For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
+// It is used to make the ball move around in the gamearea.
+$(document).ready(function () {
+    var gameArea = $('#gameArea'),
+        blueball = $('#blueball'),
+        width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
+        height = gameArea.height() - blueball.height(), 
+        keyPressed = {},                                // stores information of what key is pressed
+        distance = 3;                                   // the "speed", distance moved per intervall, in px
+
+    // This function calculates the new top and left values based on
+    // the oldValue and the keyPressed. 
+    // we have two values, key1 and key2, so the ball can move diagonally.
+    function newTopLeft(oldValue,key1,key2) {
+
+        // creating a variable, setting it to the 
+        // parseInt version of the String oldValue, and the radix 10, MINUS
+        // keypressed of key1 (if the key pressed is in the array, return the distance, else return 0) PLUS
+        // keypressed of key2 (if the key pressed is in the array, return the distance, else return 0)
+        var n = parseInt(oldValue, 10) - (keyPressed[key1] ? distance : 0) + (keyPressed[key2] ? distance : 0);
+        
+        // This expression ensures that the new value is in the permitted bounds.
+        // if n is less than 0 return 0, 
+        // else if n greater than the width/height, return the width/height, 
+        // else return n
+        return (n < 0 ? 0 : n > width ? width : n) && (n < 0 ? 0 : n > height ? height : n);
+    } 
+
+    $(window).keydown(function(e) { keyPressed[e.which] = true; }); // stores the key pressed, and set it to true
+    $(window).keyup(function(e) { keyPressed[e.which] = false; });  // if the key is released, it´s not in use, so false
+
+    // this function updates the interval. It is done every 20 milisecond. 
+    // if updates the left and top value of the blueball. The values is calculated by the 
+    // newTopLeft function. 
+    setInterval(function() {
+        blueball.css({
+            left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); },
+            top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }
+        });
+    }, 20); // executed every 20 milisec
 });
-   
-*/
 
 
-// functions that calls different functions based on key pressed. 
-function getKeyAndMove(e){				
-    var key_code=e.which||e.keyCode;
-    console.log(trackBall);
-    switch(key_code){
-        case 37: //left arrow key
-            if (trackBall() === true)
-                moveLeft();
-            break;
-        case 38: //Up arrow key
-            if (trackBall() === true)
-                 moveUp();
-            break;
-        case 39: //right arrow key
-            if (trackBall() === true)
-                moveRight();
-            break;
-        case 40: //down arrow key
-            if (trackBall() === true)
-                moveDown();
-            break;				          
-    }
-}
-
-
-
-// function to move left
-function moveLeft(){
-    imgBlueBall.style.left=parseInt(imgBlueBall.style.left)-5 +'px';
-}
-
-// function to move up
-function moveUp(){
-    imgBlueBall.style.top=parseInt(imgBlueBall.style.top)-5 +'px';
-}
-
-// function to move right
-function moveRight(){
-    imgBlueBall.style.left=parseInt(imgBlueBall.style.left)+5 +'px';
-}
-
-// function to move down
-function moveDown(){
-    imgBlueBall.style.top=parseInt(imgBlueBall.style.top)+5 +'px';
-}
-
-// load in the blue ball. 
-window.onload=initBlue;
-// load in the red ball.
-// window.onload=initRed;
 
 // function that assigns the coins to random variables. 
 function randomiseCoins () {
@@ -167,132 +135,3 @@ function newGame() {
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
-
-// Function to get positions for the gamearea 
-function gameAreaPosition () {
-    var leftPos = $("#gameArea").position().left;   // get left position 
-    var topPos = $("#gameArea").position().top;     // get top position
-    var width = leftPos + 1200;                     // get the width 
-    var height = topPos + 450;                      // get the height
-    var centreX = leftPos + width / 2;              // get X center
-    var centreY = topPos + height / 2;              // get Y center
-
-   return [leftPos, topPos, width, height];   // return an array of 
-}
-
-// Function to get positions for the blue ball
-function blueBallPosition () {
-    var leftPos = $("#blueball").position().left;   // get left position 
-    var topPos = $("#blueball").position().top;     // get top position
-    var right = leftPos + 30;                       // get the right 
-    var bottom = topPos + 30;                       // get the bottom
-    var centreX = leftPos + right / 2;              // get X center
-    var centreY = topPos + bottom / 2;              // get Y center
-
-    var tmpNext = leftPos + 5;
-
-    // Stuff used for debugging
-    // console.log (leftPos);
-    // console.log("BB X   " + centreX);
-    // console.log("BB Y   " + centreY);
-
-   return [centreX, centreY];   // return an array of the x and y center 
-}
-
-// Function to get positions for obstacle 1
-function getPositionOb1 () {
-    var leftPos = $("#ob1").position().left;    // get left position 
-    var topPos = $("#ob1").position().top;      // get top position
-    var width = leftPos + 100;                  // get the width 
-    var height = topPos + 50;                   // get the height
-    var centreX = leftPos + width / 2;        // get X center
-    var centreY = topPos + height / 2;          // get Y center
-
-    // Stuff used for debugging:
-    // console.log(eight);
-    // console.log("OB1 X  " + centreX);
-    // console.log("OB1 Y  " + centreY);
-
-    return [centreX, centreY];  // return an array of the x and y center 
-}
-
-// Function to get positions for obTr1
-function getPositionObTr1 () {
-    var leftPos = $("#obTr1").position().left;    // get left position 
-    var topPos = $("#obTr1").position().top;      // get top position
-    var width = leftPos + 50;                     // get the width                          // WHY IS THE POSITION SO OFF?!?!?!??!?!?!??!?
-    var height = topPos + 50;                     // get the height
-    var centreX = (leftPos + width) / 2;          // get X center
-    var centreY = topPos + height / 2;            // get Y center
-
-    return [centreX, centreY];  // return an array of the x and y center 
-}
-
-
-// Function to compare the balls position with the game area and obstacles. 
-function trackBall () {
-    var ballX = blueBallPosition()[0];      // X center for ball
-    var ballY = blueBallPosition()[1];      // Y center for ball
-
-    // BALL VS GAME AREA
-    var gaLeftSide = gameAreaPosition() [0];        // getting the left position of the GA
-    var gaTop = gameAreaPosition() [2];             // getting the width of the GA
-    var gaBottom = gameAreaPosition() [3];          // getting the height
-
-    var leftLineGA = Math.abs(ballX - gaLeftSide);  // the left line of the GA
-    var topLineGA = Math.abs(ballY - gaLeftSide);   // the top line of the GA
-    var bottomLineGA = Math.abs(ballY - gaBottom);  // The bottom line of the GA
-    var rightLineGA = Math.abs(ballX - gaTop - 565);// The right line of the GA
-
-    if (leftLineGA < 10) {          // if the left line is less than 10, return false
-        return false;
-    }
-    else if (topLineGA < 10) {      // if the top line is less than 10, return false
-        return false; 
-    }
-    else if (bottomLineGA < 10) {   // if the bottom line is less than 10, return false
-        return false; 
-    }
-    else if (rightLineGA < 10) {   // if the bottom line is less than 10, return false
-        return false; 
-    }
-
-    // BALL VS OBTR1
-    var obTr1X = getPositionObTr1()[0];     // X center for obTr1
-    var obTr1Y = getPositionObTr1()[1];     // Y center for obTr1
-
-    var ballX_obTr1X_delta = Math.abs(ballX - obTr1X); 
-    var ballY_obTr1Y_delta = Math.abs(ballY - obTr1Y); 
-
-    if (ballX_obTr1X_delta < 120 && ballY_obTr1Y_delta < 120) {
-        return false; 
-    }
-
-
-
-    // BALL VS OB1
-    var ob1X = getPositionOb1()[0];         // X center for ob1
-    var ob1Y = getPositionOb1()[1];         // Y center for ob1
-
-    var ballX_ob1X_delta = Math.abs(ballX - ob1X);  // center of ball and ob1 X position
-    var ballY_ob1Y_delta = Math.abs(ballY - ob1Y);  // center of ball and ob1 Y position
-
-    // if the ball is closer to center than 120 width and 60 height. 
-    if (ballX_ob1X_delta < 120 && ballY_ob1Y_delta < 60) {
-        // return false 
-        return false;
-    }
-    
-
-
-
-
-
-
-
-
-
-    
-        return true;
-}
-
