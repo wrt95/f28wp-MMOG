@@ -21,11 +21,12 @@ function gameTimer(countDown, display){
 }
 
 window.onload = function () {
-    var oneMin = 60 * 1, 
-    display = document.querySelector('#time'); 
-    gameTimer(oneMin, display); 
+      var oneMin = 60 * 1, 
+       display = document.querySelector('#time'); 
+       gameTimer(oneMin, display); 
+   
+   }; 
 
-}; 
 
 // function to initialise the blue ball.
 function initBlue(){
@@ -130,6 +131,7 @@ for (var i = 0; i<15; i++) {
 function newGame() {
     window.location.reload();
 }
+
 
 // function to leave game
 function leaveGame(gameArea) {
