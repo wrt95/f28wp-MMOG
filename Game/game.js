@@ -1,6 +1,6 @@
 //initialise images globally
 // var imgRedBall = null;
-var imgBlueBall = null;
+/*var imgBlueBall = null;
 var imgCoin     = null;
 
 // function to initialise the blue ball.
@@ -22,85 +22,49 @@ function initRed(){
 }
 */
 
-const canMove = {
-    left:false,
-    right:false,
-    up:false,
-    down:false,
-};
-/*
-var blueball = $('#blueball');
+// For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
+// It is used to make the ball move around in the gamearea.
+$(document).ready(function () {
+    var gameArea = $('#gameArea'),
+        blueball = $('#blueball'),
+        width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
+        height = gameArea.height() - blueball.height(), 
+        keyPressed = {},                                // stores information of what key is pressed
+        distance = 3;                                   // the "speed", distance moved per intervall, in px
 
-$(document).keydown(function(e) {
-    var left = parseInt(blueball.css('left') || 0);
-    var top = parseInt(blueball.css('top') || 0);
-    if (e.which === 39 && ((left + blueball.outerWidth() + 16) < 400)) {
-        blueball.css('left', "+=16px");
-    } else if (e.which === 37 && (left > 0)) {
-        blueball.css('left', '-=16px');
-    }
-    else if (e.which === 40 && ((top + blueball.outerHeight() + 16) < 400)) {
-        blueball.css('top', '+=16px'); 
-    }
-    else if (e.which === 38 && (top > 0)) {
-        blueball.css('top', '-=16px');
-       // alert("test");
-    }
+    // This function calculates the new top and left values based on
+    // the oldValue and the keyPressed. 
+    // we have two values, key1 and key2, so the ball can move diagonally.
+    function newTopLeft(oldValue,key1,key2) {
+
+        // creating a variable, setting it to the 
+        // parseInt version of the String oldValue, and the radix 10, MINUS
+        // keypressed of key1 (if the key pressed is in the array, return the distance, else return 0) PLUS
+        // keypressed of key2 (if the key pressed is in the array, return the distance, else return 0)
+        var n = parseInt(oldValue, 10) - (keyPressed[key1] ? distance : 0) + (keyPressed[key2] ? distance : 0);
+        
+        // This expression ensures that the new value is in the permitted bounds.
+        // if n is less than 0 return 0, 
+        // else if n greater than the width/height, return the width/height, 
+        // else return n
+        return (n < 0 ? 0 : n > width ? width : n) && (n < 0 ? 0 : n > height ? height : n);
+    } 
+
+    $(window).keydown(function(e) { keyPressed[e.which] = true; }); // stores the key pressed, and set it to true
+    $(window).keyup(function(e) { keyPressed[e.which] = false; });  // if the key is released, it´s not in use, so false
+
+    // this function updates the interval. It is done every 20 milisecond. 
+    // if updates the left and top value of the blueball. The values is calculated by the 
+    // newTopLeft function. 
+    setInterval(function() {
+        blueball.css({
+            left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); },
+            top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }
+        });
+    }, 20); // executed every 20 milisec
 });
-   
-*/
 
 
-// functions that calls different functions based on key pressed. 
-function getKeyAndMove(e){				
-    var key_code=e.which||e.keyCode;
-    console.log(trackBall);
-    switch(key_code){
-        case 37: //left arrow key
-            if (trackBall() === true)
-                moveLeft();
-            break;
-        case 38: //Up arrow key
-            if (trackBall() === true)
-                 moveUp();
-            break;
-        case 39: //right arrow key
-            if (trackBall() === true)
-                moveRight();
-            break;
-        case 40: //down arrow key
-            if (trackBall() === true)
-                moveDown();
-            break;				          
-    }
-}
-
-
-
-// function to move left
-function moveLeft(){
-    imgBlueBall.style.left=parseInt(imgBlueBall.style.left)-5 +'px';
-}
-
-// function to move up
-function moveUp(){
-    imgBlueBall.style.top=parseInt(imgBlueBall.style.top)-5 +'px';
-}
-
-// function to move right
-function moveRight(){
-    imgBlueBall.style.left=parseInt(imgBlueBall.style.left)+5 +'px';
-}
-
-// function to move down
-function moveDown(){
-    imgBlueBall.style.top=parseInt(imgBlueBall.style.top)+5 +'px';
-}
-
-// load in the blue ball. 
-window.onload=initBlue;
-// load in the red ball.
-// window.onload=initRed;
 
 // function that assigns the coins to random variables. 
 function randomiseCoins () {
@@ -140,6 +104,7 @@ function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
 
+/*
 // Function to get positions for the gamearea 
 function gameAreaPosition () {
     var leftPos = $("#gameArea").position().left;   // get left position 
@@ -267,4 +232,4 @@ function trackBall () {
     
         return true;
 }
-
+*/
