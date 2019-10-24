@@ -12,6 +12,16 @@ function gameTimer(countDown){
         mins = parseInt (gameTimer/ 60, 10)
         secs = parseInt (gameTimer% 60, 10); 
 
+        mins = mins < 10 ? "0" + mins : mins;
+        secs = secs < 10 ? "0" + secs : secs;
+
+        display.textContent = mins + ":" + secs; 
+
+        if (--timer <0){
+            timer = countDown;
+        }
+
+
     }
 
 }
