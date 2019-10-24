@@ -25,8 +25,8 @@ function gameTimer(countDown, display){
 }
 
 window.onload = function () {
-    var oneMin = 60 * 5, 
-    display = document.querySelector('#time'); 
+    var oneMin = 60 * 1, 
+    display = document.querySelector('#timer'); 
     gameTimer(oneMin, display); 
 
 }; 
