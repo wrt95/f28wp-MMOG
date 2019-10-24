@@ -10,8 +10,8 @@ body {
     border: 5px solid red;
     position: relative;
     top: 25%;
-    width: 1200px;   /*80%*/ 
-    height: 450px;  /*60vh*/ 
+    width: 600px;   /*80%*/ 
+    height: 600px;  /*60vh*/ 
     /*text-align: center;
     font-weight: bold;*/
     margin: 0 auto;
@@ -51,8 +51,8 @@ table {
     position: absolute;
     left: 50px;
     top: 50px;
-    width: 30px; /*2.5%;*/
-    height: 30px; /*6.25%;*/
+    width: 4%; /*2.5%;*/
+    height: 4%; /*6.25%;*/
 }
 
 /* The coins */
@@ -61,149 +61,152 @@ table {
     background-image: url("Images/coin.png");
     left: 2%;
     top: 2%;
-    width: 1%;
-    height: 2.5%;
+    width: 2%;
+    height: 2%;
     z-index: -2;
 }
 /* All the obstacles */
+
+/*** GAME AREA on the right of the code, [] indicates the location of the obstacle ***/
+
 /* ob"number" is the square obstacles */
-#ob1 {
-    position: absolute;
-    left: 4%;
-    top: 42%;            
-    width: 9%;
-    height: 10%;
-}
+#ob1 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 8%;               /*            */ 
+    top: 53%;               /* []         */
+    width: 14%;             /*            */
+    height: 7%;             /*            */
+}                           /**************/
 
-#ob2 {
-    position: absolute;
-    left: 60%;
-    top: 70%;             
-    width: 9%;
-    height: 10%;
-}
+#ob2 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 60%;              /*            */ 
+    top: 70%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-#ob3 {
-    position: absolute;
-    left: 85%;
-    top: 40%;
-    width: 9%;
-    height: 10%; 
-}
+#ob3 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 85%;              /*            */ 
+    top: 40%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-#ob4 {
-    position: absolute;
-    left: 89.5%;
-    top: 10%;
-    width: 4.5%;
-    height: 30%;
-}
+#ob4 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 89.5%;            /*            */ 
+    top: 10%;               /*            */ 
+    width: 4.5%;            /*            */ 
+    height: 30%;            /*            */ 
+}                           /**************/
 
-#ob5 {
-    position: absolute;
-    left: 58%;
-    top: 70%;
-    width: 4.5%;
-    height: 30%;
-}
+#ob5 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 58%;              /*            */ 
+    top: 70%;               /*            */ 
+    width: 4.5%;            /*            */ 
+    height: 30%;            /*            */ 
+}                           /**************/
 
-#ob6 {
-    position: absolute;
-    left: 75%;
-    top: 70%;
-    width: 9%;
-    height: 10%; 
-}
+#ob6 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 75%;              /*            */ 
+    top: 70%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-#ob7 {
-    position: absolute;
-    left: 68%;
-    top: 10%;
-    width: 9%;
-    height: 10%; 
-}
+#ob7 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 68%;              /*            */ 
+    top: 10%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-#ob8 {
-    position: absolute;
-    left: 58%;
-    top: 0%;
-    width: 4.5%;
-    height: 30%;
-}
+#ob8 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 58%;              /*            */ 
+    top: 0%;                /*            */ 
+    width: 4.5%;            /*            */ 
+    height: 30%;            /*            */ 
+}                           /**************/
 
-#ob9 {
-    position: absolute;
-    left: 83%;
-    top: 70%;
-    width: 9%;
-    height: 10%;
-}
+#ob9 {                      /**************/
+    position: absolute;     /*            */ 
+    left: 83%;              /*            */ 
+    top: 70%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-#ob10 {
-    position: absolute;
-    left: 75%;
-    top: 10%;
-    width: 9%;
-    height: 10%;
-}
+#ob10 {                     /**************/
+    position: absolute;     /*            */ 
+    left: 75%;              /*            */ 
+    top: 10%;               /*            */ 
+    width: 9%;              /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
 /* circle obstacles */
-#obcircle1 {
-    position: absolute;
-    left: 42%;
-    top: 16%;
-    width: 4.5%;
-    height: 11%;
-}
+#obcircle1 {                /**************/
+    position: absolute;     /*            */ 
+    left: 42%;              /*            */ 
+    top: 16%;               /*            */ 
+    width: 8%;            /*            */ 
+    height: 8%;            /*            */ 
+}                           /**************/
 
-#obcircle2 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 4.5%;
-    height: 11%;
-}
+#obcircle2 {                /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 50%;               /*            */ 
+    width: 8%;            /*            */ 
+    height: 8%;            /*            */ 
+}                           /**************/
 
-#obcircle3 {
-    position: absolute;
-    left: 7%;
-    top: 10%;
-    width: 4.5%;
-    height: 11%;
-}
+#obcircle3 {                /**************/
+    position: absolute;     /*            */ 
+    left: 7%;               /*            */ 
+    top: 10%;               /*            */ 
+    width: 8%;            /*            */ 
+    height: 8%;            /*            */ 
+}                           /**************/
 
 /* The cross obstacles */
-#obTr1 {
-    position: absolute;
-    left: 18%;
-    top: 25%;
-    width: 7%;
-    height: 18%;
-}
+#obTr1 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 30%;              /*            */ 
+    top: 45%;               /*   []       */ 
+    width: 7%;              /*            */ 
+    height: 7%;             /*            */ 
+}                           /**************/
 
-#obTr2 {
-    position: absolute;
-    left: 18%;
-    top: 55%;
-    width: 7%;
-    height: 18%;
-}
+#obTr2 {                    /**************/            
+    position: absolute;     /*            */ 
+    left: 30%;              /*            */ 
+    top: 60%;               /*            */ 
+    width: 7%;              /*   []       */ 
+    height: 7%;             /*            */ 
+}                           /**************/
 
-#obTr3 {
-    position: absolute;
-    left: 29%;
-    top: 55%;
-    width: 7%;
-    height: 18%;
-}
+#obTr3 {                    /**************/            
+    position: absolute;     /*            */ 
+    left: 45%;              /*            */ 
+    top: 60%;               /*            */ 
+    width: 7%;              /*     []     */ 
+    height: 7%;             /*            */ 
+}                           /**************/
 
-#obTr4 {
-    position: absolute;
-    left: 29%;
-    top: 25%;
-    width: 7%;
-    height: 18%;
-}
+#obTr4 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 45%;              /*            */ 
+    top: 45%;               /*     []     */ 
+    width: 7%;              /*            */ 
+    height: 7%;             /*            */ 
+}                           /**************/
 
 /* The group of buttons */
 .btn-group {
