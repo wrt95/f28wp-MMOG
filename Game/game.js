@@ -3,6 +3,19 @@
 var imgBlueBall = null;
 var imgCoin     = null;
 
+// function to work the game timer 
+
+function gameTimer(countDown){
+    var timer = countDown, minutes, seconds; 
+
+    setInterval(function (){
+        mins = parseInt (gameTimer/ 60, 10)
+        secs = parseInt (gameTimer% 60, 10); 
+
+    }
+
+}
+
 // function to initialise the blue ball.
 function initBlue(){
     // getting the id for the ball, assigning it to the variable, and positons
