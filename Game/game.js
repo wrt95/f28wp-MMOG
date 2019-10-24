@@ -5,7 +5,7 @@ var imgCoin     = null;
 
 // function to work the game timer 
 
-function gameTimer(countDown){
+function gameTimer(countDown, display){
     var timer = countDown, minutes, seconds; 
 
     setInterval(function (){
@@ -25,7 +25,7 @@ function gameTimer(countDown){
 }
 
 window.onload = function () {
-    var oneMin = 60, 
+    var oneMin = 60 * 5, 
     display = document.querySelector('#time'); 
     gameTimer(oneMin, display); 
 
