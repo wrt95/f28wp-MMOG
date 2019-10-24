@@ -1,4 +1,59 @@
 
+// function to work the game timer 
+// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
+function gameTimer(countDown, display){
+    var timer = countDown, minutes, seconds; 
+
+    setInterval(function (){
+        mins = parseInt(timer / 60, 10)
+        secs = parseInt(timer % 60, 10); 
+
+        mins = mins < 10 ? "0" + mins : mins;
+        secs = secs < 10 ? "0" + secs : secs;
+
+        display.textContent = mins + ":" + secs; 
+
+        if (--timer <0){
+            timer = countDown;
+        }
+    }, 1000); 
+
+}
+
+window.onload = function () {
+    var oneMin = 60 * 1, 
+    display = document.querySelector('#time'); 
+    gameTimer(oneMin, display); 
+
+}; 
+
+// function to initialise the blue ball.
+function initBlue(){
+    // getting the id for the ball, assigning it to the variable, and positons
+    imgBlueBall=document.getElementById("blueball");				
+    imgBlueBall.style.position='absolute';
+    imgBlueBall.style.left='285px';
+    imgBlueBall.style.top='195px';
+}
+/*
+// function to initialise the blue ball.
+function initRed(){
+    // getting the id for the ball, assigning it to the variable, and positons
+    imgRedBall=document.getElementById("blueball");				
+    imgRedBall.style.position='absolute';
+    imgRedBall.style.left='285px';
+    imgRedBall.style.top='195px';
+}
+*/
+
+const canMove = {
+    left:false,
+    right:false,
+    up:false,
+    down:false,
+};
+
+
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
 $(document).ready(function () {
