@@ -25,7 +25,7 @@ function testStartTimer(){
     setInterval(function() {
       counter--;
       if (counter >= 0) {
-        span = document.getElementById("count");
+        span = document.getElementById("startTime");
         span.innerHTML = counter;
       }
       if (counter === 0) {
