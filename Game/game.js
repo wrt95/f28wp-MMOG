@@ -13,7 +13,7 @@ function gameTimer(countDown, display){
 
         display.textContent = mins + ":" + secs; 
 
-        if (--timer <0){
+        if (--timer < 0){
             timer = countDown;
         }
     }, 1000); 
@@ -21,15 +21,26 @@ function gameTimer(countDown, display){
 }
 
 function timeOut(){
-alert('Yeet '); 
+alert(' Game Over '); 
 }
 
-window.onload = function () {
-      var oneMin = 60 * 1, 
+//Function to call other function when the start button is clicked. 
+function startButtonClick(){
+    timeOut();
+    newGame(); 
+    gameTimer(); 
+    startTimer(); 
+}
+
+
+//Start the game timer 
+function startTimer () {
+      
        display = document.querySelector('#time'); 
        gameTimer(oneMin, display); 
    
    }; 
+   
 
 
 // function to initialise the blue ball.
