@@ -6,26 +6,33 @@
         <title>CW F28WP Web Programming</title>
         
         <h1><img src="images/pagetitle.png"/></h1>
+    </head>
 
+    <body>
         <!-- group for buttons. -->
         <div class='btn-group'>
             <button onClick="startButtonClick(); ">Start Game</button>
             <button onClick="leaveGame();">Leave Game</button>
+            <button id="newGame" onClick="newGame()">Start Game</button>
+            <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
-
         <table>
             <tr>
                 <td id="usrName">USERNAME: </td>
                 <td id="usrScore">Score: 0000</td>
                 <td <div>Time Left - <span id="testStartTime">60</span></div> </td>      
+            <tr id="userName"> 
+                <td id="name">USERNAME:</td>
+            </tr>
+            <tr id="userScore">
+                <td id="score">Score:</td>
+            </tr>
+            <tr id="timer">
+                <td <div>Time Left - <span id="time">01:00</span></div> </td>  
             </tr>
         </table>
 
-    </head>
-
-
-    <body>
         <div id="gameArea">
              <!-- Image for the opponents ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288 -->
              <!-- <img id='redball' src="./Images/redball.png" id='redball'>-->

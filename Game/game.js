@@ -64,6 +64,8 @@ function startTimer () {
    
    };
    */  
+   
+
 
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
@@ -90,7 +92,7 @@ $(document).ready(function () {
         // if n is less than 0 return 0, 
         // else if n greater than the width, return the width, 
         // else return n
-        return (n < 0 ? 0 : n > width ? width : n); // && (n < 0 ? 0 : n > height ? height : n);
+        return (n < 0 ? 0 : n > width ? width : n);
     } 
 
     $(window).keydown(function(e) { keyPressed[e.which] = true; }); // stores the key pressed, and set it to true
@@ -106,6 +108,7 @@ $(document).ready(function () {
         });
     }, 20); // executed every 20 milisec
 });
+
 
 // Creating an array for the keys. 
 var keyArray=new Array(37,38,39,40);
@@ -133,23 +136,38 @@ function randomiseCoins () {
     imgCoin.src = "Images/coin.png";
 
     // variables for where coins might pop up. 
-    var xposCoin = Math.random()*1180;
-    var yposCoin = Math.random()*430;
+    //var xposCoin = Math.random()*1180;
+    //var yposCoin = Math.random()*430;
+
+// TRYING TO MAKE AN ARRAY OF X AND Y POSITIONS
+    var positionCoinsX = ['0 px', '300px', '200px', '5px'];
+    var positionCoinsY = ['0 px', '300px', '5px', '400px'];
+
 
     // 30 random positions
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < positionCoinsX.length; i++) {
         imgCoin.style.position = "absolute";
-        imgCoin.style.left = xposCoin + 'px';
-        imgCoin.style.top = yposCoin + 'px';
+        //imgCoin.style.left = xposCoin + 'px';
+        //imgCoin.style.top = yposCoin + 'px';
+        var xPos = positionCoinsX[i];
+        var yPos = positionCoinsY[i];
+
+        imgCoin.style.left = xPos;
+        imgCoin.style.top = yPos;
        
     }
     document.getElementById('gameArea').append(imgCoin);
     return imgCoin;
 }
-// displays 15 coins.
+
 for (var i = 0; i<15; i++) {
     randomiseCoins();
 }
+
+// displays 15 coins.
+//for (var i = 0; i<15; i++) {
+//   randomiseCoins();
+//}
 
 // function for new game
 function newGame() {
