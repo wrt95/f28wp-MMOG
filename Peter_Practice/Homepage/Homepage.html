@@ -18,6 +18,41 @@
     </div>
     <div class="div1">
             <h2>Welcome to my myspace ;)</h2>
+        <div class="calc">
+            <form name="calculator">
+                <table>
+                    <tr>
+                       <td>
+                          <input type="text" name="display" id="display" disabled>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="one" value="1" onclick="calculator.display.value += '1'"></td>
+                        <td><input type="button" name="two" value="2" onclick="calculator.display.value += '2'"></td>
+                        <td><input type="button" name="three" value="3" onclick="calculator.display.value += '3'"></td>
+                        <td><input type="button" name="plus" value="+" onclick="calculator.display.value += '+'"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="four" value="4" onclick="calculator.display.value += '4'"></td>
+                        <td><input type="button" name="five" value="5" onclick="calculator.display.value += '5'"></td>
+                        <td><input type="button" name="six" value="6" onclick="calculator.display.value += '6'"></td>
+                        <td><input type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="button" name="seven" value="7" onclick="calculator.display.value += '7'"></td>
+                        <td><input type="button" name="eight" value="8" onclick="calculator.display.value += '8'"></td>
+                        <td><input type="button" name="nine" value="9" onclick="calculator.display.value += '9'"></td>
+                        <td><input type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
+                        <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
+                        <td><input type="button" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
+                        <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
+                     </tr>
+                </table>
+            </form>
+        </div>
         <p>Hi! I&#8217;m Peter Mathie, I&#8217;m vegan. It&#8217;s very important that you remember this because I&#8217;ll be talking about it again. My whole life I&#8217;ve always wanted to be an astronaut, but the doctors said I&#8217;m too gay to be around men for extended periods of time. Thats why I have a girlfriend, to help me cope with my disability. I am also severely autistic however I don&#8217;t like to let that hold me back, again I am vegan. Please remember that #milkthemsoytitties.</p>
         <input type="button" value="Generate Random Number" onclick="msg()">
         <script>
