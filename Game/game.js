@@ -97,6 +97,20 @@ $(document).ready(function () {
     }, 20); // executed every 20 milisec
 });
 
+// Creating an array for the keys. 
+var keyArray=new Array(37,38,39,40);
+
+$(window).keydown(function(e) {
+    // assign the key pressed to key. 
+     var key = e.which;
+      // if the key pressed is not in the array, prevent default, and return false. 
+      if($.inArray(key,keyArray) != -1) {
+          e.preventDefault();
+          return false;
+      }
+      // if the key is in the array, return true. 
+      return true;
+});
 
 
 // function that assigns the coins to random variables. 
