@@ -50,7 +50,7 @@ alert(' Game Over ');
 function startButtonClick(){
   //  timeOut();
     newGame(); 
-    gameTimer(); 
+   // gameTimer(); 
     testStartTimer(); 
 }
 
