@@ -20,6 +20,10 @@ function gameTimer(countDown, display){
 
 }
 
+function timeOut(){
+alert('Yeet '); 
+}
+
 window.onload = function () {
       var oneMin = 60 * 1, 
        display = document.querySelector('#time'); 
