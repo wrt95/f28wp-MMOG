@@ -25,19 +25,22 @@ function testStartTimer(){
     setInterval(function() {
       counter--;
       if (counter >= 0) {
-        span = document.getElementById("startTime");
+        span = document.getElementById("testStartTime");
         span.innerHTML = counter;
       }
       if (counter === 0) {
-          alert('sorry, out of time');
+          alert('Game is over');
           clearInterval(counter);
       }
     }, 1000);
   }
 
+  /*
   $("#testStartTimer").click(function(){
     testStartTimer();
  });
+
+ */ 
 
 function timeOut(){
 alert(' Game Over '); 
@@ -45,19 +48,21 @@ alert(' Game Over ');
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-    timeOut();
+  //  timeOut();
     newGame(); 
     gameTimer(); 
     testStartTimer(); 
 }
 
 //Start the game timer 
+/*
 function startTimer () {
       
        display = document.querySelector('#time'); 
        gameTimer(oneMin, display); 
    
-   }; 
+   };
+   */  
 
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
