@@ -9,8 +9,8 @@
 
         <!-- group for buttons. -->
         <div class='btn-group'>
-            <button onClick="setTimeout(startButtonClick, 61000)">Start Game</button>
-            <button onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
+            <button onClick="setTimeout(startButtonClick, 6000)">Start Game</button>
+            <button onClick="leaveGame();">Leave Game</button>
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
 
@@ -18,7 +18,8 @@
             <tr>
                 <td id="usrName">USERNAME: </td>
                 <td id="usrScore">Score: 0000</td>
-                <td <div>Time Left - <span id="time">01:00</span></div> </td>                
+                <td <div>Time Left - <span id="count">60</span></div> </td>  
+                <a href="#" id="testStartTimer">Start Clock</a>             
             </tr>
         </table>
 

@@ -19,6 +19,25 @@ function gameTimer(countDown, display){
     }, 1000); 
 
 }
+//test function 
+function testStartTimer(){
+    var counter = 60;
+    setInterval(function() {
+      counter--;
+      if (counter >= 0) {
+        span = document.getElementById("count");
+        span.innerHTML = counter;
+      }
+      if (counter === 0) {
+          alert('sorry, out of time');
+          clearInterval(counter);
+      }
+    }, 1000);
+  }
+
+  $("#testStartTimer").click(function(){
+    testStartTimer();
+ });
 
 function timeOut(){
 alert(' Game Over '); 
@@ -29,9 +48,8 @@ function startButtonClick(){
     timeOut();
     newGame(); 
     gameTimer(); 
-    startTimer(); 
+    testStartTimer(); 
 }
-
 
 //Start the game timer 
 function startTimer () {
