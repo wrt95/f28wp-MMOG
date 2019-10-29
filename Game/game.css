@@ -9,13 +9,15 @@ body {
 #gameArea {
     border: 5px solid red;
     position: relative;
-    top: 25%;
+   /* top: 20%;*/
     width: 600px;   /*80%*/ 
     height: 600px;  /*60vh*/ 
     /*text-align: center;
     font-weight: bold;*/
     margin: 0 auto;
     overflow: hidden;     /* Keep the game area as it is. */
+    float: left;
+    margin-left: 20%;
 }
 
 /* The header */
@@ -28,11 +30,12 @@ h1 {
 
 /* The table with username, score and time left */
 table {
-    top: 15%;
+    float: left;
+    top: 30%;
     font-weight: bold;
     color: red;
-    text-align: center;
-    width: 80%;
+    margin-left: 2%;
+    margin-top: 12%;
 }
 
 
@@ -210,9 +213,17 @@ table {
 
 /* The group of buttons */
 .btn-group {
-    padding: 10px 10px;
+    padding: 1% 1%;
     cursor: pointer;
-    float: center;
+}
+
+#newGame {
+    float: left;
+    margin-left: 30%;
+}
+#leaveGame {
+    float: right;
+    margin-right: 29%;
 }
 
 /* Creating a border around all buttons in the group. */
