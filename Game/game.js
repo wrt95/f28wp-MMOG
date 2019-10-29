@@ -40,35 +40,6 @@ function startTimer () {
        gameTimer(oneMin, display); 
    
    }; 
-   
-
-
-// function to initialise the blue ball.
-function initBlue(){
-    // getting the id for the ball, assigning it to the variable, and positons
-    imgBlueBall=document.getElementById("blueball");				
-    imgBlueBall.style.position='absolute';
-    imgBlueBall.style.left='285px';
-    imgBlueBall.style.top='195px';
-}
-/*
-// function to initialise the blue ball.
-function initRed(){
-    // getting the id for the ball, assigning it to the variable, and positons
-    imgRedBall=document.getElementById("blueball");				
-    imgRedBall.style.position='absolute';
-    imgRedBall.style.left='285px';
-    imgRedBall.style.top='195px';
-}
-*/
-
-const canMove = {
-    left:false,
-    right:false,
-    up:false,
-    down:false,
-};
-
 
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
