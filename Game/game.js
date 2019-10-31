@@ -72,6 +72,9 @@ function startTimer () {
 $(document).ready(function () {
     var gameArea = $('#gameArea'),
         blueball = $('#blueball'),
+        redball = $('#redball'),
+        greenball = $('#greenball'),
+        yellowball = $('#yellowball'),
         width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
        // height = gameArea.height() - blueball.height(), 
         keyPressed = {},                                // stores information of what key is pressed
@@ -106,8 +109,33 @@ $(document).ready(function () {
             left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); },
             top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }
         });
+
+        redball.css({
+            left: function(i,oldValue) { return newTopLeft(oldValue, 65, 68); }, // a = left, d = right
+            top: function(i,oldValue) { return newTopLeft(oldValue, 87, 83); } // w = up, s = down
+        });
+
+        greenball.css({
+            left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); }, // j = left, l = right
+            top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); } // i = up, k = down
+        });
+
+        yellowball.css({
+            left: function(i,oldValue) { return newTopLeft(oldValue, 70, 72); }, // f = left, h = right
+            top: function(i,oldValue) { return newTopLeft(oldValue, 84, 71); } // t = up, g = down
+        });
+
     }, 20); // executed every 20 milisec
 });
+
+
+// ADD OBSTACVLE AND POSITION TO MAP <position, name>
+// position needs to be of all 4 walls. 
+// make all obstacles same size. 
+
+
+
+
 
 
 // Creating an array for the keys. 
@@ -136,18 +164,18 @@ function randomiseCoins () {
     imgCoin.src = "Images/coin.png";
 
     // variables for where coins might pop up. 
-    //var xposCoin = Math.random()*1180;
-    //var yposCoin = Math.random()*430;
+    //var xposCoin = Math.random()*600;
+    //var yposCoin = Math.random()*600;
 
 // TRYING TO MAKE AN ARRAY OF X AND Y POSITIONS
-    var positionCoinsX = ['0 px', '300px' , '5px'];
-    var positionCoinsY = ['0 px', '300px', '400px'];
+    var positionCoinsX = ['0 px', '300px' , '5px', '60px'];
+    var positionCoinsY = ['0 px', '300px', '400px', '400px'];
 
 
-    // 30 random positions
-    for (var i = 0; i < positionCoinsX.length; i++) {
+    // coins position
+    for (var i = 0; i < 30; i++) {
         imgCoin.style.position = "absolute";
-        //imgCoin.style.left = xposCoin + 'px';
+      //  imgCoin.style.left = xposCoin + 'px';
         //imgCoin.style.top = yposCoin + 'px';
         var xPos = positionCoinsX[i];
         var yPos = positionCoinsY[i];
@@ -179,3 +207,7 @@ function newGame() {
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
+
+
+
+var twoDarray = new Array (10);
