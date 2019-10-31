@@ -237,3 +237,18 @@ button:active {
 }
 
 
+.left {
+    float: left;
+    width: 20%;
+}
+
+.center {
+    float: left;
+    width: 60%;
+
+}
+
+.right {
+    float: left;
+    width: 20%;
+}
