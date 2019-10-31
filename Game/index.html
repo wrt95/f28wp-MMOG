@@ -11,11 +11,17 @@
     <body>
         <!-- group for buttons. -->
         <div class='btn-group'>
+            <button onClick="startButtonClick(); ">Start Game</button>
+            <button onClick="leaveGame();">Leave Game</button>
             <button id="newGame" onClick="newGame()">Start Game</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
         <table>
+            <tr>
+                <td id="usrName">USERNAME: </td>
+                <td id="usrScore">Score: 0000</td>
+                <td <div>Time Left - <span id="testStartTime">60</span></div> </td>      
             <tr id="userName"> 
                 <td id="name">USERNAME:</td>
             </tr>

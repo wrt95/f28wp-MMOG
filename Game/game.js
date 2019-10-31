@@ -1,6 +1,7 @@
 
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
+//
 function gameTimer(countDown, display){
     var timer = countDown, minutes, seconds; 
 
@@ -13,23 +14,57 @@ function gameTimer(countDown, display){
 
         display.textContent = mins + ":" + secs; 
 
-        if (--timer <0){
+        if (--timer < 0){
             timer = countDown;
         }
     }, 1000); 
 
 }
+//test function 
+function testStartTimer(){
+    var counter = 60;
+    setInterval(function() {
+      counter--;
+      if (counter >= 0) {
+        span = document.getElementById("testStartTime");
+        span.innerHTML = counter;
+      }
+      if (counter === 0) {
+          alert('Game is over');
+          clearInterval(counter);
+      }
+    }, 1000);
+  }
+
+  /*
+  $("#testStartTimer").click(function(){
+    testStartTimer();
+ });
+
+ */ 
 
 function timeOut(){
-alert('Yeet '); 
+alert(' Game Over '); 
 }
 
-window.onload = function () {
-      var oneMin = 60 * 1, 
+//Function to call other function when the start button is clicked. 
+function startButtonClick(){
+  //  timeOut();
+    newGame(); 
+   // gameTimer(); 
+    testStartTimer(); 
+}
+
+//Start the game timer 
+/*
+function startTimer () {
+      
        display = document.querySelector('#time'); 
        gameTimer(oneMin, display); 
    
-   }; 
+   };
+   */  
+   
 
 
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
