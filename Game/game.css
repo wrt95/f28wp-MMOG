@@ -215,16 +215,10 @@ table {
 .btn-group {
     padding: 1% 1%;
     cursor: pointer;
+    text-align: center;
+    float: center;
 }
 
-#newGame {
-    float: left;
-    margin-left: 30%;
-}
-#leaveGame {
-    float: right;
-    margin-right: 29%;
-}
 
 /* Creating a border around all buttons in the group. */
 .btn-group > * {

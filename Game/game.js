@@ -105,8 +105,8 @@ function randomiseCoins () {
     //var yposCoin = Math.random()*430;
 
 // TRYING TO MAKE AN ARRAY OF X AND Y POSITIONS
-    var positionCoinsX = ['0 px', '300px', '200px', '5px'];
-    var positionCoinsY = ['0 px', '300px', '5px', '400px'];
+    var positionCoinsX = ['0 px', '300px' , '5px'];
+    var positionCoinsY = ['0 px', '300px', '400px'];
 
 
     // 30 random positions
