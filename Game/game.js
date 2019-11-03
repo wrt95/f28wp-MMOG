@@ -72,9 +72,10 @@ function startTimer () {
 $(document).ready(function () {
     var gameArea = $('#gameArea'),
         blueball = $('#blueball'),
-        redball = $('#redball'),
-        greenball = $('#greenball'),
-        yellowball = $('#yellowball'),
+       // redball = $('#redball'),              UNNCOMMENT FOR REDBALL
+       // greenball = $('#greenball'),          UNNCOMMENT FOR GREENBALL
+       // yellowball = $('#yellowball'),        UNNCOMMENT FOR YELLOWBALL
+
         width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
        // height = gameArea.height() - blueball.height(), 
         keyPressed = {},                                // stores information of what key is pressed
@@ -110,6 +111,7 @@ $(document).ready(function () {
             top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }
         });
 
+   /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
         redball.css({
             left: function(i,oldValue) { return newTopLeft(oldValue, 65, 68); }, // a = left, d = right
             top: function(i,oldValue) { return newTopLeft(oldValue, 87, 83); } // w = up, s = down
@@ -124,6 +126,7 @@ $(document).ready(function () {
             left: function(i,oldValue) { return newTopLeft(oldValue, 70, 72); }, // f = left, h = right
             top: function(i,oldValue) { return newTopLeft(oldValue, 84, 71); } // t = up, g = down
         });
+    */
 
     }, 20); // executed every 20 milisec
 });

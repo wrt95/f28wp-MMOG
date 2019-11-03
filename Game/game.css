@@ -39,14 +39,14 @@ table {
 }
 
 
-
+/*
 #redball {
     position: absolute;
     left: 2%;
     top: 2%;
-    width: 4%; /*2.5%;*/
-    height: 4%; /*6.25%;*/
-}
+    width: 4%;              // UNNCOMMENT FOR REDBALL
+    height: 4%; 
+}*/
 
 /* Users ball */
 #blueball {
@@ -57,21 +57,25 @@ table {
     height: 4%; /*6.25%;*/
 }
 
+/*
 #yellowball {
     position: absolute;
     left: 2%;
-    top: 94%;
-    width: 4%; /*2.5%;*/
-    height: 4%; /*6.25%;*/
+    top: 94%;           // UNNCOMMENT FOR YELLOWBALL
+    width: 4%;
+    height: 4%; 
 }
+*/
 
+/*
 #greenball {
     position: absolute;
     left: 94%;
-    top: 94%;
-    width: 4%; /*2.5%;*/
-    height: 4%; /*6.25%;*/
+    top: 94%;           // UNNCOMMENT FOR GREENBALL
+    width: 4%; 
+    height: 4%;
 }
+*/
 
 /* The coins */
 .coin {
@@ -83,13 +87,51 @@ table {
     height: 2%;
     z-index: -2;
 }
+
+/* The group of buttons */
+.btn-group {
+    padding: 1% 1%;
+    cursor: pointer;
+    text-align: center;
+    float: center;
+}
+
+/* Creating a border around all buttons in the group. */
+.btn-group > * {
+    border: 2px solid black;
+    background-color: red;
+}
+
+/* changing the colour when hovering over buttons. */ 
+button:hover {
+    background-color: rgb(0, 21, 255);
+}
+
+/* changing the colour when clicking a button. */ 
+button:active {
+    background-color: rgb(0, 21, 255);
+}
+
+
+.left {
+    float: left;
+    width: 20%;
+}
+
+.center {
+    float: left;
+    width: 60%;
+
+}
+
+.right {
+    float: left;
+    width: 20%;
+}
+
 /* All the obstacles */
-
 /*** GAME AREA on the right of the code, [] indicates the location of the obstacle ***/
-
 /* ob"number" is the square obstacles */
-
-
 
 #ob1 {                      /**************/
     position: absolute;     /*            */ 
@@ -227,44 +269,107 @@ table {
     height: 10%;            /*            */ 
 }                           /**************/
 
-/* The group of buttons */
-.btn-group {
-    padding: 1% 1%;
-    cursor: pointer;
-    text-align: center;
-    float: center;
-}
+#ob18 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
+#ob19 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-/* Creating a border around all buttons in the group. */
-.btn-group > * {
-    border: 2px solid black;
-    background-color: red;
-}
+#ob20 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-/* changing the colour when hovering over buttons. */ 
-button:hover {
-    background-color: rgb(0, 21, 255);
-}
+#ob21 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-/* changing the colour when clicking a button. */ 
-button:active {
-    background-color: rgb(0, 21, 255);
-}
+#ob22 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
+#ob23 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-.left {
-    float: left;
-    width: 20%;
-}
+#ob24 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-.center {
-    float: left;
-    width: 60%;
+#ob25 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-}
+#ob26 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
 
-.right {
-    float: left;
-    width: 20%;
-}
+#ob27 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
+
+#ob28 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
+
+#ob29 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
+
+#ob30 {                    /**************/
+    position: absolute;     /*            */ 
+    left: 50%;              /*            */ 
+    top: 40%;               /*     []     */ 
+    width: 10%;             /*            */ 
+    height: 10%;            /*            */ 
+}                           /**************/
+
