@@ -129,247 +129,291 @@ button:active {
     width: 20%;
 }
 
-/* All the obstacles */
-/*** GAME AREA on the right of the code, [] indicates the location of the obstacle ***/
-/* ob"number" is the square obstacles */
+/*      
+                                THE GAME AREA
 
-#ob1 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 10%;               /*            */ 
-    top: 50%;               /* []         */
-    width: 10%;             /*            */
-    height: 10%;            /*            */
-}                           /**************/
+    Below is all the obstacles in the game. The game area is split up in 10x10 rows/columns. 
+    The first commented square is where all the obstacles are located. This is used for 
+    maintenance and debugging, and it makes it easier to located free area for coins, and 
+    balls to start. The game area has 100 "squares", 33 of them are taken by an obstacle, 
+    which leaves 67 free for balls / coins. 
 
-#ob2 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 10%;              /*            */ 
-    top: 90%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;             /*  []        */ 
-}                           /**************/
+    ob = obstacle. The number is which obstacle number it is. 
 
-#ob3 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 10%;              /*  []        */ 
-    top: 20%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;              /*            */ 
-}                           /**************/
+                                            LEFT
+         0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
+TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
+    |         |         |         |         |         |         |         |         |         |         |                 *
+0%  |         |         |         |         |         |         |         |         |  ob4    |         |                  *
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+10% |  ob32   |  ob13   |         |  ob8    |         |  ob11   |  ob21   |  ob7    |  ob1    |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+20% |         |  ob3    |         |  ob33   |         |         |         |         |         |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+30% |         |         |         |         |  ob14   |         |  ob17   |         |  ob19   |  ob20   |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+40% |  ob29   |  ob30   |  ob31   |         |         |         |         |         |  ob18   |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+50% |         |         |         |         |  ob15   |         |  ob16   |         |  ob12   |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+60% |         |  ob1    |  ob28   |         |         |         |         |         |         |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+70% |         |  ob9    |         |         |         |  ob23   |         |  ob5    |  ob22   |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+80% |         |  ob27   |         |  ob26   |  ob25   |  ob24   |         |         |         |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+    |         |         |         |         |         |         |         |         |         |         |
+90% |         |  ob2    |         |         |         |         |         |         |  ob6    |         |
+    |         |         |         |         |         |         |         |         |         |         |
+    * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
 
-#ob4 {                      /**************/
-    position: absolute;     /*         [] */ 
-    left: 80%;              /*            */ 
-    top: 0%;                /*            */ 
-    width: 10%;             /*            */ 
-    height: 10%;             /*            */ 
-}                           /**************/
+*/
 
-#ob5 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 60%;              /*            */ 
-    top: 70%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;             /*        []  */ 
-}                           /**************/
-
-#ob6 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 70%;              /*            */ 
-    top: 80%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;             /*          []*/ 
-}                           /**************/
-
-#ob7 {                      /**************/
-    position: absolute;     /*        []  */ 
-    left: 70%;              /*            */ 
-    top: 10%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;              /*            */ 
-}                           /**************/
-
-#ob8 {                      /**************/
-    position: absolute;     /*   []       */ 
-    left: 30%;              /*            */ 
-    top: 10%;                /*            */ 
-    width: 10%;             /*            */ 
-    height: 10%;              /*            */ 
-}                           /**************/
-
-#ob9 {                      /**************/
-    position: absolute;     /*            */ 
-    left: 10%;               /*            */ 
-    top: 70%;               /*            */ 
-    width: 10%;              /*            */ 
-    height: 10%;            /* []         */ 
-}                           /**************/
-
-#ob10 {                     /**************/
-    position: absolute;     /*            */ 
-    left: 80%;              /*        []  */ 
-    top: 10%;               /*            */ 
-    width: 10%;             /*            */ 
-    height: 10%;              /*            */ 
-}                           /**************/
-
-#ob11 {                     /**************/
-    position: absolute;     /*            */ 
-    left: 40%;              /*      []    */ 
-    top: 10%;               /*            */ 
-    width: 10%;               /*            */ 
-    height: 10%;             /*            */ 
-}                           /**************/
-
-#ob12 {                     /**************/
-    position: absolute;     /*            */ 
-    left: 80%;              /*            */ 
-    top: 50%;               /*            */ 
-    width: 10%;              /*         [] */ 
-    height: 10%;             /*            */ 
-}                           /**************/
-
-#ob13 {                     /**************/
-    position: absolute;     /* []         */ 
-    left: 10%;               /*            */ 
-    top: 10%;                /*            */ 
-    width: 10%;               /*            */ 
-    height: 10%;             /*            */ 
-}                           /**************/
-
-#ob14 {                     /**************/
-    position: absolute;     /*            */ 
-    left: 30%;              /*            */ 
-    top: 40%;               /*   []       */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob15 {                     /**************/            
-    position: absolute;     /*            */ 
-    left: 30%;              /*            */ 
-    top: 60%;               /*            */ 
-    width: 10%;             /*   []       */ 
-    height:10%;             /*            */ 
-}                           /**************/
-
-#ob16 {                    /**************/            
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 60%;               /*            */ 
-    width: 10%;             /*     []     */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob17 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob18 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob19 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob20 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob21 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob22 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob23 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob24 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob25 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob26 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob27 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob28 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob29 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
-#ob30 {                    /**************/
-    position: absolute;     /*            */ 
-    left: 50%;              /*            */ 
-    top: 40%;               /*     []     */ 
-    width: 10%;             /*            */ 
-    height: 10%;            /*            */ 
-}                           /**************/
-
+#ob1 {                      
+    position: absolute;  
+    left: 10%;            
+    top: 60%;             
+    width: 10%;            
+    height: 10%;            
+}                      
+#ob2 {                    
+    position: absolute;    
+    left: 10%;             
+    top: 90%;        
+    width: 10%;              
+    height: 10%;            
+}                    
+#ob3 {                     
+    position: absolute;      
+    left: 10%;            
+    top: 20%;              
+    width: 10%;             
+    height: 10%;            
+}                           
+#ob4 {                    
+    position: absolute;     
+    left: 80%;              
+    top: 0%;              
+    width: 10%;             
+    height: 10%;             
+}                           
+#ob5 {                      
+    position: absolute;    
+    left: 70%;             
+    top: 70%;            
+    width: 10%;          
+    height: 10%;          
+}                       
+#ob6 {                    
+    position: absolute;     
+    left: 80%;              
+    top: 90%;               
+    width: 10%;              
+    height: 10%;           
+}                         
+#ob7 {                   
+    position: absolute;     
+    left: 70%;           
+    top: 10%;            
+    width: 10%;           
+    height: 10%;            
+}                          
+#ob8 {                     
+    position: absolute;     
+    left: 30%;              
+    top: 10%;               
+    width: 10%;             
+    height: 10%;              
+}                          
+#ob9 {                     
+    position: absolute;     
+    left: 10%;               
+    top: 70%;            
+    width: 10%;             
+    height: 10%;            
+}                          
+#ob10 {                   
+    position: absolute;     
+    left: 80%;              
+    top: 10%;               
+    width: 10%;          
+    height: 10%;             
+}                          
+#ob11 {                     
+    position: absolute;   
+    left: 50%;            
+    top: 10%;             
+    width: 10%;              
+    height: 10%;            
+}                     
+#ob12 {                    
+    position: absolute;    
+    left: 80%;           
+    top: 50%;               
+    width: 10%;           
+    height: 10%;            
+}                          
+#ob13 {                     
+    position: absolute;     
+    left: 10%;             
+    top: 10%;               
+    width: 10%;             
+    height: 10%;             
+}                         
+#ob14 {                    
+    position: absolute;   
+    left: 40%;              
+    top: 30%;            
+    width: 10%;           
+    height: 10%;            
+}                          
+#ob15 {                             
+    position: absolute;     
+    left: 40%;              
+    top: 50%;               
+    width: 10%;          
+    height:10%;            
+}                           
+#ob16 {                        
+    position: absolute;     
+    left: 60%;           
+    top: 50%;               
+    width: 10%;            
+    height: 10%;           
+}                         
+#ob17 {                    
+    position: absolute;     
+    left: 60%;            
+    top: 30%;              
+    width: 10%;          
+    height: 10%;          
+}                          
+#ob18 {                   
+    position: absolute;     
+    left: 80%;             
+    top: 40%;             
+    width: 10%;            
+    height: 10%;          
+}                           
+#ob19 {                   
+    position: absolute;     
+    left: 80%;             
+    top: 30%;              
+    width: 10%;            
+    height: 10%;            
+}         
+#ob20 {                  
+    position: absolute;    
+    left: 90%;              
+    top: 30%;             
+    width: 10%;          
+    height: 10%;            
+}                           
+#ob21 {                    
+    position: absolute;   
+    left: 60%;            
+    top: 10%;               
+    width: 10%;          
+    height: 10%;          
+}                          
+#ob22 {                    
+    position: absolute;   
+    left: 80%;            
+    top: 70%;               
+    width: 10%;          
+    height: 10%;          
+}                           
+#ob23 {                    
+    position: absolute;   
+    left: 50%;            
+    top: 70%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob24 {                    
+    position: absolute;   
+    left: 50%;            
+    top: 80%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob25 {                    
+    position: absolute;   
+    left: 40%;            
+    top: 80%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob26 {                    
+    position: absolute;   
+    left: 30%;            
+    top: 80%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob27 {                    
+    position: absolute;   
+    left: 10%;            
+    top: 80%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob28 {                    
+    position: absolute;   
+    left: 20%;            
+    top: 60%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob29 {                    
+    position: absolute;   
+    left: 0%;            
+    top: 40%;               
+    width: 10%;          
+    height: 10%;          
+}   
+#ob30 {                    
+    position: absolute;   
+    left: 10%;            
+    top: 40%;               
+    width: 10%;          
+    height: 10%;          
+}  
+#ob31 {                    
+    position: absolute;   
+    left: 20%;            
+    top: 40%;               
+    width: 10%;          
+    height: 10%;          
+} 
+#ob32 {                    
+    position: absolute;   
+    left: 0%;            
+    top: 10%;               
+    width: 10%;          
+    height: 10%;          
+} 
+#ob33 {                    
+    position: absolute;   
+    left: 30%;            
+    top: 20%;               
+    width: 10%;          
+    height: 10%;          
+}
