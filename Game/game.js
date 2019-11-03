@@ -138,9 +138,6 @@ $(document).ready(function () {
 
 
 
-
-
-
 // Creating an array for the keys. 
 var keyArray=new Array(37,38,39,40);
 
@@ -167,50 +164,51 @@ function randomiseCoins () {
     imgCoin.src = "Images/coin.png";
 
     // variables for where coins might pop up. 
-    //var xposCoin = Math.random()*600;
-    //var yposCoin = Math.random()*600;
+    var xposCoin = Math.random()*600;
+    var yposCoin = Math.random()*600;
 
-// TRYING TO MAKE AN ARRAY OF X AND Y POSITIONS
-    var positionCoinsX = ['0 px', '300px' , '5px', '60px'];
-    var positionCoinsY = ['0 px', '300px', '400px', '400px'];
-
+    var coinsArray = new Array (15);
 
     // coins position
     for (var i = 0; i < 30; i++) {
         imgCoin.style.position = "absolute";
-      //  imgCoin.style.left = xposCoin + 'px';
-        //imgCoin.style.top = yposCoin + 'px';
-        var xPos = positionCoinsX[i];
-        var yPos = positionCoinsY[i];
-
-        imgCoin.style.left = xPos;
-        imgCoin.style.top = yPos;
-       
+        imgCoin.style.left = xposCoin + 'px';
+        imgCoin.style.top = yposCoin + 'px';
     }
     document.getElementById('gameArea').append(imgCoin);
     return imgCoin;
 }
 
-for (var i = 0; i<15; i++) {
-    randomiseCoins();
+//var taken = 0;
+//var free = 1;
+var gameArray = [
+                [1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+                [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 0, 1, 0, 1, 0, 0],
+                [0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 1, 1, 1, 0, 1, 0, 0, 1],
+                [1, 0, 1, 0, 0, 0, 1, 1, 1, 1],
+                [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+                ];
+
+for (var i = 0; i<10; i++) {
+    for (var j = 0; j <10; j++) {
+        if (gameArray[i][j] === 1) {
+          randomiseCoins();
+        }
+    }
 }
 
-// displays 15 coins.
-//for (var i = 0; i<15; i++) {
-//   randomiseCoins();
-//}
 
 // function for new game
 function newGame() {
     window.location.reload();
 }
 
-
 // function to leave game
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
-
-
-
-var twoDarray = new Array (10);
