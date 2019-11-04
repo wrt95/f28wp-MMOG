@@ -238,14 +238,19 @@ var gameArray = [
                 ];
 
 function trackBall() {
-    var leftTopX = Math.floor(($("#blueball").position().left) / 60);  // left position
-    var leftTopY = Math.floor(($("#blueball").position().top) / 60);    // top position
 
-    var rightTopX = Math.floor(($("#blueball").position().left) + ($("#blueball").position().width)/60);
-    // in same Y
+    var blueB = $("#blueball");
+
+    var leftTopX = Math.floor((blueB.position().left) / 60);  // left position
+    var leftTopY = Math.floor((blueB.position().top) / 60);    // top position
+
+    var rightTopX = Math.floor((blueB.position().left) + ($("#blueball").position().width)/60);
+    // rightTopY is leftTopY
     
-    var leftBottomY = Math.floor(($("#blueball").position().top) + ($("#blueball").position().height)/60);
-    // in same X
+    var leftBottomY = Math.floor((blueB.position().top) + ($("#blueball").position().height)/60);
+    // leftBottomX is leftTOpX
+
+
 
 
     
@@ -255,6 +260,8 @@ function trackBall() {
 
     if (gameArray[leftTopY][leftTopX] === 0) {
         killBall();
+
+        //alert("YOU DIED!");
     }
 }
 
@@ -281,8 +288,6 @@ function leaveGame(gameArea) {
 function killBall() {
     // Set score to 0
     score = 0;
-
-    alert("YOU DIED!");
     // set position of ball to startposition.
     $("#blueball").css({
         left: 93.5 + "%",
