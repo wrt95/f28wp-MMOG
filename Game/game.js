@@ -281,6 +281,8 @@ function leaveGame(gameArea) {
 function killBall() {
     // Set score to 0
     score = 0;
+
+    alert("YOU DIED!");
     // set position of ball to startposition.
     $("#blueball").css({
         left: 93.5 + "%",
