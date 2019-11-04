@@ -1,4 +1,5 @@
 
+var score = 0;
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
 //
@@ -44,7 +45,7 @@ function testStartTimer(){
  */ 
 
 function timeOut(){
-alert(' Game Over '); 
+    alert(' Game Over '); 
 }
 
 //Function to call other function when the start button is clicked. 
@@ -239,6 +240,23 @@ function newGame() {
 // function to leave game
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
+}
+
+
+
+function killBall() {
+    // Set score to 0
+    score = 0;
+    // set position of ball to startposition.
+    imgCoin.style.left = 93.5 + '%';
+    imgCoin.style.top = 1 + '%';
+}
+
+function removeCoin () {
+    // increment score by 1
+    score++;
+
+    // remove that specific coin for 10 seconds. 
 }
 
 
