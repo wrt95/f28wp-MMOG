@@ -209,11 +209,6 @@ function getObstacleShape () {
     return obstacleArray;
 }
 
-// NEED HELP WITH: 
-// - Coins position vs obstacle position
-// - Collision detection.
-
-
 var taken = 0;  // if position is taken
 var free = 1;   // if position is free
 var gameArray = [
@@ -245,3 +240,33 @@ function newGame() {
 function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
+
+
+
+
+// NEED HELP WITH: 
+// - Coins position vs obstacle position
+// - Collision detection.
+
+
+
+/*
+        add jQuery game code.
+
+        collison ball - obstacle 
+        - killBall()
+            - sends ball back to start position
+            - set score to 0.
+
+        collision ball - coins
+        - removeCoin()
+            - removes the coin for 10 seconds
+            - score++;
+
+
+        Replace red iamge with galaxy image
+
+
+
+
+*/

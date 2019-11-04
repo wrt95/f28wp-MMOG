@@ -82,6 +82,7 @@ button:active {
     position: absolute;
     left: 94%;
     top: 1%;
+    z-index: 1;
     width: 4%; /*2.5%;*/
     height: 4%; /*6.25%;*/
 }
