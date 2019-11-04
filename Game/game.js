@@ -46,8 +46,6 @@ function testStartTimer(){
 
  */ 
 
- 
-
 function timeOut(){
     alert(' Game Over '); 
 }
@@ -55,7 +53,8 @@ function timeOut(){
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
   //timeOut();
-    newGame(); 
+  //  newGame(); 
+    startTimer(); 
   //gameTimer(); 
   //  testStartTimer(); 
 }
@@ -225,7 +224,7 @@ for (var x = 0; x < 15; x++) {
 // function for new game
 function newGame() {
     window.location.reload();
-    testStartTimer(); 
+ 
 
 }
 
