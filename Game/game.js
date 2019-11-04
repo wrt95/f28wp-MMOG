@@ -2,6 +2,7 @@
 var score = 0;
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
+/*
 function gameTimer(countDown, display){
     var timer = countDown, minutes, seconds; 
 
@@ -20,13 +21,15 @@ function gameTimer(countDown, display){
     }, 1000); 
 
 }
+*/ 
+
 //test function 
 function testStartTimer(){
     var counter = 60;
     setInterval(function() {
       counter--;
       if (counter >= 0) {
-        span = document.getElementById("testStartTime");
+        span = document.getElementById("startTime");
         span.innerHTML = counter;
       }
       if (counter === 0) {
@@ -37,11 +40,13 @@ function testStartTimer(){
   }
 
   /*
-  $("#testStartTimer").click(function(){
+  $("#startTime").click(function(){
     testStartTimer();
  });
 
  */ 
+
+ 
 
 function timeOut(){
     alert(' Game Over '); 
@@ -49,24 +54,12 @@ function timeOut(){
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-  //  timeOut();
+  //timeOut();
     newGame(); 
-   // gameTimer(); 
-    testStartTimer(); 
+  //gameTimer(); 
+  //  testStartTimer(); 
 }
-
-//Start the game timer 
-/*
-function startTimer () {
-      
-       display = document.querySelector('#time'); 
-       gameTimer(oneMin, display); 
    
-   };
-   */  
-   
-
-
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
 $(document).ready(function () {
@@ -134,8 +127,6 @@ $(document).ready(function () {
 
 // ADD OBSTACVLE AND POSITION TO MAP <position, name>
 // position needs to be of all 4 walls. 
-
-
 
 // Creating an array for the keys. 
 var keyArray=new Array(37,38,39,40);
@@ -234,6 +225,8 @@ for (var x = 0; x < 15; x++) {
 // function for new game
 function newGame() {
     window.location.reload();
+    testStartTimer(); 
+
 }
 
 // function to leave game
