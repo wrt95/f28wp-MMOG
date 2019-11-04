@@ -1,30 +1,37 @@
 
 var score = 0;
-// function to work the game timer 
-// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
-/*
-function gameTimer(countDown, display){
-    var timer = countDown, minutes, seconds; 
+var seconds=60;
+var timer;
 
-    setInterval(function (){
-        mins = parseInt(timer / 60, 10)
-        secs = parseInt(timer % 60, 10); 
+// https://codepen.io/PeteTalksWeb/pen/eJQbGo?editors=1111
+// Help taken from the link above 
+function timerFun() {
 
-        mins = mins < 10 ? "0" + mins : mins;
-        secs = secs < 10 ? "0" + secs : secs;
+    if(seconds < 60) {
+        document.getElementById("timer").innerHTML=seconds; 
+    }
 
-        display.textContent = mins + ":" + secs; 
-
-        if (--timer < 0){
-            timer = countDown;
-        }
-    }, 1000); 
+    if (seconds > 0){
+        seconds--; 
+    }
+    else {
+        clearInterval(timer);
+        alert("Timer is up"); 
+    }
 
 }
-*/ 
+
+document.getElementById("textarea").onkeypress = function() {
+    if(!timer){
+        timer = window.setInterval(function(){
+            timerFun();
+        }, 1000); 
+    }
+}
+
 
 //test function 
-function testStartTimer(){
+function startTimer(){
     var counter = 60;
     setInterval(function() {
       counter--;
@@ -39,22 +46,18 @@ function testStartTimer(){
     }, 1000);
   }
 
-  /*
-  $("#startTime").click(function(){
-    testStartTimer();
- });
-
- */ 
-
 function timeOut(){
     alert(' Game Over '); 
+}
+
+function startClock(){
+    startTimer(); 
 }
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
   //timeOut();
-  //  newGame(); 
-    startTimer(); 
+   newGame(); 
   //gameTimer(); 
   //  testStartTimer(); 
 }
