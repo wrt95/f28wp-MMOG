@@ -134,7 +134,6 @@ $(document).ready(function () {
 
 // ADD OBSTACVLE AND POSITION TO MAP <position, name>
 // position needs to be of all 4 walls. 
-// make all obstacles same size. 
 
 
 
@@ -155,7 +154,7 @@ $(window).keydown(function(e) {
 
 
 // function that assigns the coins to random variables. 
-function randomiseCoins () {
+function makeCoins () {
     // creating an element so we can show all. 
     imgCoin = document.createElement("img");
     var imgCoinsAttribute = document.createAttribute("class");
@@ -164,29 +163,65 @@ function randomiseCoins () {
     imgCoin.src = "Images/coin.png";
 
     // variables for where coins might pop up. 
-    var xposCoin = Math.random()*600;
-    var yposCoin = Math.random()*600;
+    var xposCoin = Math.random()*90 | 5;
+    var yposCoin = Math.random()*90 | 5;
 
     var coinsArray = new Array (15);
 
     // coins position
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 15; i++) {
         imgCoin.style.position = "absolute";
-        imgCoin.style.left = xposCoin + 'px';
-        imgCoin.style.top = yposCoin + 'px';
+        imgCoin.style.left = xposCoin + '%';
+        imgCoin.style.top = yposCoin + '%';
+        coinsArray[i] = imgCoin;
     }
-    document.getElementById('gameArea').append(imgCoin);
-    return imgCoin;
+    
+    if (isPosFree) {
+        document.getElementById('gameArea').append(imgCoin);
+    }
+    return coinsArray;
 }
 
-//var taken = 0;
-//var free = 1;
+// function to check if position is free.
+function isPosFree () {
+    var posFree = false;
+    for (var i = 0; i<10; i++) {
+        for (var j = 0; j <10; j++) {
+            if (gameArray[i][j] === free) {
+              posFree = true;
+            }
+        }
+    }
+    return posFree;
+}
+
+// function to get the shape of an obstacle
+function getObstacleShape () {
+    var size = 10 + '%',                   // size of the obstacle is 10% * 10%     
+        left = $("#ob*").position().left,  // left position
+        top = $("#ob*").position().top,    // top position
+        width = left + size,               // the width
+        height = top + size;               // the height
+
+    var bottomRight = width + height;      // bottom right position
+    var obstacleArray = [left, top, width, height, bottomRight];    // array with the positions
+
+    return obstacleArray;
+}
+
+// NEED HELP WITH: 
+// - Coins position vs obstacle position
+// - Collision detection.
+
+
+var taken = 0;  // if position is taken
+var free = 1;   // if position is free
 var gameArray = [
                 [1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 0],
-                [0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+                [0, 0, 0, 1, 1, 1, 1, 1, 0, 1],     // 2D array representing the game. 
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
                 [1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
                 [1, 0, 1, 1, 1, 0, 1, 0, 0, 1],
@@ -194,14 +229,12 @@ var gameArray = [
                 [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
                 ];
 
-for (var i = 0; i<10; i++) {
-    for (var j = 0; j <10; j++) {
-        if (gameArray[i][j] === 1) {
-          randomiseCoins();
-        }
+// get 15 coins. 
+for (var x = 0; x < 15; x++) {
+    if (isPosFree()) {
+        makeCoins();
     }
 }
-
 
 // function for new game
 function newGame() {
