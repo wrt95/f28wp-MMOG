@@ -5,14 +5,18 @@
     //alert(first);
 //}
 
-import http from "http";
-//var cors = require("cors");
+import { createServer } from 'http';
 
-//app.use(cors());
+const hostname = '127.0.0.1';
 
-var svr = http.createServer(function(request, response) {
-response.writeHead(200, {"Content-Type": "text/plain"});
-response.setHeader("Access-Control-Allow-Origin", "*")
-response.end("Hello Web World");
-})
-.listen(8080);
+const port = 3000;
+
+const server = createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}`);
+});

@@ -1,9 +1,10 @@
 import mysql from 'mysql';
 
 var con = mysql.createConnection({
-    host: "localhost",
+    host: "mysql-server-1.macs.hw.ac.uk",
     user: "agm6",
-    password: "7s4RlYr7Eh"
+    password: "7s4RlYr7Eh",
+    database: "agm6"
 });
 
 con.connect(function(err) {
