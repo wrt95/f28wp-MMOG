@@ -236,44 +236,41 @@ var gameArray = [
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
                 [2, 0, 1, 2, 0, 1, 1, 2, 0, 1],
                 ];
+                
 
 function trackBall() {
 
     var blueB = $("#blueball");
 
-    var leftTopX = Math.floor((blueB.position().left) / 60);  // left position
-    var leftTopY = Math.floor((blueB.position().top) / 60);    // top position
+    // Math.floor to round the value down.
+    var leftTopX = Math.floor((blueB.position().left) / 60);  // LeftTopX is the left postion divided by 60 (600px for gameArea, 10 squares)
+    var leftTopY = Math.floor((blueB.position().top) / 60);   // LeftTopY is the top postion divided by 60 (600px for gameArea, 10 squares)
 
-    var rightTopX = Math.floor((blueB.position().left) + ($("#blueball").position().width)/60);
+    // RightTopX is the left postion plus the width divided by 60 (600px for gameArea, 10 squares)
+    var rightTopX = Math.floor((blueB.position().left) + (blueB.position().width)/60);
     // rightTopY is leftTopY
     
-    var leftBottomY = Math.floor((blueB.position().top) + ($("#blueball").position().height)/60);
+    // LeftBottomY is the top postion plus the height divided by 60 (600px for gameArea, 10 squares)
+    var leftBottomY = Math.floor((blueB.position().top) + (blueB.position().height)/60);
     // leftBottomX is leftTOpX
 
-
-
-
-    
+    // rightBottomY is leftTop + height + width divided by 60 (600px for gameArea, 10 squares)
+    var rightBottomY = Math.floor((blueB.position().width + blueB.position().height)/60);
+    // rightBottomX is rightTopX
 
 //    console.log(left);
 //    console.log(top);
 
-    if (gameArray[leftTopY][leftTopX] === 0) {
+    // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
+    if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[rightBottomY][rightTopX] === 0) {
         killBall();
-
         //alert("YOU DIED!");
     }
-}
-
-
-/*
-// get 15 coins. 
-for (var x = 0; x < 15; x++) {
-    if (isPosFree()) {
-        makeCoins();
+    // if top left corner or top right corner or bottom left corner or bottom right corner is 2, remove the coin
+    if (gameArray[leftTopY][leftTopX] === 2 || gameArray[leftTopY][rightTopX] === 2 || gameArray[leftBottomY][leftTopX] === 2 || gameArray[rightBottomY][rightTopX] === 2) {
+        removeCoin();
     }
 }
-*/
 
 // function for new game
 function newGame() {
@@ -295,38 +292,16 @@ function killBall() {
     });
 }
 
-/*
+
 function removeCoin () {
     // increment score by 1
     score++;
 
     // remove the coin for 5 seconds. 
-    setTimeout(function () {
-        imgCoin.style.display = "block";
-    }, 5000);
 }
 
-*/
+
 
 // NEED HELP WITH: 
-// - Coins position vs obstacle position
-// - Collision detection.
-
-
-
-/*
-        add jQuery game code.
-
-        collison ball - obstacle 
-        - killBall()
-            - sends ball back to start position
-            - set score to 0.
-
-        collision ball - coins
-        - removeCoin()
-            - removes the coin for 10 seconds
-            - score++;
-
-*/
-
-
+// - ball doesnt die when hitting from top, or from left. 
+// - how to make the coin disapear for 5 seconds. 
