@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+const mysql = require('mysql');
 
 var con = mysql.createConnection({
     host: "mysql-server-1.macs.hw.ac.uk",
