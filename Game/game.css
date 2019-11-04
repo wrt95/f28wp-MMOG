@@ -107,7 +107,7 @@ button:active {
 }
 */
 
-/* The coins */
+/* The coins 
 .coin {
     position: absolute;
     background-image: url("Images/coin.png");
@@ -117,6 +117,7 @@ button:active {
     height: 2%;
     z-index: -2;
 }
+*/
 
 /* The game area */
 #gameArea {
@@ -145,7 +146,7 @@ button:active {
          0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
 TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
     |         |         |         |         |         |         |         |         |         |         |                 *
-0%  |         |         |         |  ob37   |         |         |         |         |  ob4    |         |                  *
+0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |         |                  *
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -153,7 +154,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-20% |         |  ob3    |         |  ob33   |         |         |         |         |  ob20   |         |
+20% |  coin3  |  ob3    |         |  ob33   |         |         |         |         |  ob20   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -161,7 +162,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-40% |  ob29   |  ob30   |  ob31   |         |         |         |         |         |  ob18   |         |
+40% |  ob29   |  ob30   |  ob31   |         |         |  coin9  |         |         |  ob18   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -169,7 +170,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-60% |         |  ob1    |  ob28   |         |         |         |         |         |         |         |
+60% |  coin8  |  ob1    |  ob28   |         |         |         |         |         |         |  coin7  |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -181,7 +182,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-90% |         |  ob2    |         |         |  ob36   |         |         |         |  ob6    |         |
+90% |  coin4  |  ob2    |         |  coin5  |  ob36   |         |         |  coin10 |  ob6    |  coin6  |
     |         |         |         |         |         |         |         |         |         |         |
     * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
 
@@ -446,3 +447,114 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     width: 10%;          
     height: 10%;          
 }
+
+
+
+
+/*  THE COINS   */
+#coin1 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin2 {                    
+    position: absolute;   
+    left: 75%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin3 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 25%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin4 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 95%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin5 {                    
+    position: absolute;   
+    left: 35%;            
+    top: 95%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin6 {                    
+    position: absolute;   
+    left: 95%;            
+    top: 95%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin7 {                    
+    position: absolute;   
+    left: 95%;            
+    top: 65%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin8 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 65%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin9 {                    
+    position: absolute;   
+    left: 55%;            
+    top: 45%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin10 {                    
+    position: absolute;   
+    left: 75%;            
+    top: 95%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin11 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin12 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin13 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin14 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+#coin15 {                    
+    position: absolute;   
+    left: 5%;            
+    top: 5%;               
+    width: 2%;          
+    height: 2%;          
+}
+

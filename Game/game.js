@@ -80,7 +80,7 @@ $(document).ready(function () {
         width = gameArea.width() - blueball.width(),    // the maximal left/top value for gameArea
        // height = gameArea.height() - blueball.height(), 
         keyPressed = {},                                // stores information of what key is pressed
-        distance = 3;                                   // the "speed", distance moved per intervall, in px
+        distance = 10;                                   // the "speed", distance moved per intervall, in px
 
     // This function calculates the new top and left values based on
     // the oldValue and the keyPressed. 
@@ -100,17 +100,24 @@ $(document).ready(function () {
         return (n < 0 ? 0 : n > width ? width : n);
     } 
 
-    $(window).keydown(function(e) { keyPressed[e.which] = true; }); // stores the key pressed, and set it to true
-    $(window).keyup(function(e) { keyPressed[e.which] = false; });  // if the key is released, it´s not in use, so false
-
-    // this function updates the interval. It is done every 20 milisecond. 
-    // if updates the left and top value of the blueball. The values is calculated by the 
-    // newTopLeft function. 
-    setInterval(function() {
+    $(window).keydown(function(e) { 
+        keyPressed[e.which] = true; // stores the key pressed, and set it to true
         blueball.css({
             left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); },
             top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }
         });
+        trackBall();
+
+    }); 
+
+
+    $(window).keyup(function(e) { keyPressed[e.which] = false; });  // if the key is released, it´s not in use, so false
+
+
+    // this function updates the interval. It is done every 20 milisecond. 
+    // if updates the left and top value of the blueball. The values is calculated by the 
+    // newTopLeft function. 
+   
 
    /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
         redball.css({
@@ -129,7 +136,7 @@ $(document).ready(function () {
         });
     */
 
-    }, 20); // executed every 20 milisec
+     // executed every 20 milisec
 });
 
 
@@ -153,7 +160,7 @@ $(window).keydown(function(e) {
       return true;
 });
 
-
+/*
 // function that assigns the coins to random variables. 
 function makeCoins () {
     // creating an element so we can show all. 
@@ -181,7 +188,8 @@ function makeCoins () {
         document.getElementById('gameArea').append(imgCoin);
     }
     return coinsArray;
-}
+}*/
+
 
 // function to check if position is free.
 function isPosFree () {
@@ -210,27 +218,54 @@ function getObstacleShape () {
     return obstacleArray;
 }
 
-var taken = 0;  // if position is taken
-var free = 1;   // if position is free
+
+var obstacle = 0,   // if position is taken
+    free = 1,       // if position is free
+    coin = 2;       // if position is coin
+
 var gameArray = [
-                [1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+                [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-                [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 0, 1, 0, 1, 0, 0],
-                [0, 0, 0, 1, 1, 1, 1, 1, 0, 1],     // 2D array representing the game. 
+                [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-                [1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
-                [1, 0, 1, 1, 1, 0, 1, 0, 0, 1],
-                [1, 0, 1, 0, 0, 0, 1, 1, 1, 1],
-                [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+                [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     // 2D array representing the game. 
+                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [2, 0, 0, 1, 1, 1, 1, 1, 1, 2],
+                [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
+                [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
+                [2, 0, 1, 2, 0, 1, 1, 2, 0, 1],
                 ];
 
+function trackBall() {
+    var leftTopX = Math.floor(($("#blueball").position().left) / 60);  // left position
+    var leftTopY = Math.floor(($("#blueball").position().top) / 60);    // top position
+
+    var rightTopX = Math.floor(($("#blueball").position().left) + ($("#blueball").position().width)/60);
+    // in same Y
+    
+    var leftBottomY = Math.floor(($("#blueball").position().top) + ($("#blueball").position().height)/60);
+    // in same X
+
+
+    
+
+//    console.log(left);
+//    console.log(top);
+
+    if (gameArray[leftTopY][leftTopX] === 0) {
+        killBall();
+    }
+}
+
+
+/*
 // get 15 coins. 
 for (var x = 0; x < 15; x++) {
     if (isPosFree()) {
         makeCoins();
     }
 }
+*/
 
 // function for new game
 function newGame() {
@@ -242,25 +277,28 @@ function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
 
-
-
 function killBall() {
     // Set score to 0
     score = 0;
     // set position of ball to startposition.
-    imgCoin.style.left = 93.5 + '%';
-    imgCoin.style.top = 1 + '%';
+    $("#blueball").css({
+        left: 93.5 + "%",
+        top: "1%"
+    });
 }
 
+/*
 function removeCoin () {
     // increment score by 1
     score++;
 
-    // remove that specific coin for 10 seconds. 
+    // remove the coin for 5 seconds. 
+    setTimeout(function () {
+        imgCoin.style.display = "block";
+    }, 5000);
 }
 
-
-
+*/
 
 // NEED HELP WITH: 
 // - Coins position vs obstacle position
@@ -281,10 +319,6 @@ function removeCoin () {
             - removes the coin for 10 seconds
             - score++;
 
-
-        Replace red iamge with galaxy image
-
-
-
-
 */
+
+
