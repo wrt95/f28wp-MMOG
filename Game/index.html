@@ -11,7 +11,8 @@
     <body>
         <!-- group for buttons. -->
         <div class='btn-group'>
-            <button id="newGame" onClick="newGame()">Start Game</button>
+            <button id="newGame" onClick="startButtonClick()">Start Game</button>
+            <button id="Timer" onClick="timerFun()">Timer</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
@@ -25,7 +26,7 @@
                     <td id="score">Score:</td>
                 </tr>
                 <tr id="timer">
-                    <td <div>Time Left - <span id="time">01:00</span></div> </td>  
+                    <td <div>Time Left - <span id="startTimer">01:00</span></div> </td>  
                 </tr>
             </table>
         </div>

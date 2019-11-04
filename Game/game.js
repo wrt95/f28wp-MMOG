@@ -1,33 +1,42 @@
 
 var score = 0;
-// function to work the game timer 
-// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
-//
-function gameTimer(countDown, display){
-    var timer = countDown, minutes, seconds; 
+var seconds=60;
+var timer;
 
-    setInterval(function (){
-        mins = parseInt(timer / 60, 10)
-        secs = parseInt(timer % 60, 10); 
+// https://codepen.io/PeteTalksWeb/pen/eJQbGo?editors=1111
+// Help taken from the link above 
+function timerFun() {
 
-        mins = mins < 10 ? "0" + mins : mins;
-        secs = secs < 10 ? "0" + secs : secs;
+    if(seconds < 60) {
+        document.getElementById("timer").innerHTML=seconds; 
+    }
 
-        display.textContent = mins + ":" + secs; 
-
-        if (--timer < 0){
-            timer = countDown;
-        }
-    }, 1000); 
+    if (seconds > 0){
+        seconds--; 
+    }
+    else {
+        clearInterval(timer);
+        alert("Timer is up"); 
+    }
 
 }
+
+document.getElementById("textarea").onkeypress = function() {
+    if(!timer){
+        timer = window.setInterval(function(){
+            timerFun();
+        }, 1000); 
+    }
+}
+
+
 //test function 
-function testStartTimer(){
+function startTimer(){
     var counter = 60;
     setInterval(function() {
       counter--;
       if (counter >= 0) {
-        span = document.getElementById("testStartTime");
+        span = document.getElementById("startTime");
         span.innerHTML = counter;
       }
       if (counter === 0) {
@@ -37,37 +46,22 @@ function testStartTimer(){
     }, 1000);
   }
 
-  /*
-  $("#testStartTimer").click(function(){
-    testStartTimer();
- });
-
- */ 
-
 function timeOut(){
     alert(' Game Over '); 
 }
 
-//Function to call other function when the start button is clicked. 
-function startButtonClick(){
-  //  timeOut();
-    newGame(); 
-   // gameTimer(); 
-    testStartTimer(); 
+function startClock(){
+    startTimer(); 
 }
 
-//Start the game timer 
-/*
-function startTimer () {
-      
-       display = document.querySelector('#time'); 
-       gameTimer(oneMin, display); 
+//Function to call other function when the start button is clicked. 
+function startButtonClick(){
+  //timeOut();
+   newGame(); 
+  //gameTimer(); 
+  //  testStartTimer(); 
+}
    
-   };
-   */  
-   
-
-
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
 $(document).ready(function () {
@@ -142,8 +136,6 @@ $(document).ready(function () {
 
 // ADD OBSTACVLE AND POSITION TO MAP <position, name>
 // position needs to be of all 4 walls. 
-
-
 
 // Creating an array for the keys. 
 var keyArray=new Array(37,38,39,40);
@@ -270,6 +262,8 @@ for (var x = 0; x < 15; x++) {
 // function for new game
 function newGame() {
     window.location.reload();
+ 
+
 }
 
 // function to leave game
