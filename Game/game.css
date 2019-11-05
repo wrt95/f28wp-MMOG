@@ -80,8 +80,8 @@ button:active {
 /* Users ball */
 #blueball {
     position: absolute;
-    left: 93.5%;
-    top: 1%;
+    left: 93%;
+    top: 2.5%;
     z-index: 1;
     width: 4%; /*2.5%;*/
     height: 4%; /*6.25%;*/
@@ -121,7 +121,7 @@ button:active {
 
 /* The game area */
 #gameArea {
-    border: 5px solid red;
+    border: 6px solid red;
     position: relative;
     width: 600px;   
     height: 600px;  
@@ -146,11 +146,11 @@ button:active {
          0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
 TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
     |         |         |         |         |         |         |         |         |         |         |                 *
-0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |         |                  *
+0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |  start  |                  *
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-10% |  ob32   |  ob13   |         |  ob8    |         |  ob11   |  ob21   |  ob7    |  ob1    |         |
+10% |  ob32   |  ob13   |         |  ob8    |         |  ob11   |  ob21   |  ob7    |  ob10   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -187,6 +187,14 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
 
 */
+
+#startImg {
+    position: absolute;  
+    left: 91%;            
+    top: 1%;             
+    width: 8%;            
+    height: 8%;  
+}
 
 #ob1 {                      
     position: absolute;  
