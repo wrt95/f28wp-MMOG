@@ -247,27 +247,28 @@ function trackBall() {
     var leftTopY = Math.floor((blueB.position().top) / 60);   // LeftTopY is the top postion divided by 60 (600px for gameArea, 10 squares)
 
     // RightTopX is the left postion plus the width divided by 60 (600px for gameArea, 10 squares)
-    var rightTopX = Math.floor((blueB.position().left) + (blueB.position().width)/60);
+    var rightTopX = Math.floor(((blueB.position().left) + (blueB.width()))/60);
     // rightTopY is leftTopY
     
     // LeftBottomY is the top postion plus the height divided by 60 (600px for gameArea, 10 squares)
-    var leftBottomY = Math.floor((blueB.position().top) + (blueB.position().height)/60);
+    var leftBottomY = Math.floor(((blueB.position().top) + (blueB.height()))/60);
     // leftBottomX is leftTOpX
 
-    // rightBottomY is leftTop + height + width divided by 60 (600px for gameArea, 10 squares)
-    var rightBottomY = Math.floor((blueB.position().width + blueB.position().height)/60);
+    // rightBottomY is leftBottomY
     // rightBottomX is rightTopX
+
 
 //    console.log(left);
 //    console.log(top);
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
-    if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[rightBottomY][rightTopX] === 0) {
+    if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();
+
         //alert("YOU DIED!");
     }
     // if top left corner or top right corner or bottom left corner or bottom right corner is 2, remove the coin
-    if (gameArray[leftTopY][leftTopX] === 2 || gameArray[leftTopY][rightTopX] === 2 || gameArray[leftBottomY][leftTopX] === 2 || gameArray[rightBottomY][rightTopX] === 2) {
+    if (gameArray[leftTopY][leftTopX] === 2 || gameArray[leftTopY][rightTopX] === 2 || gameArray[leftBottomY][leftTopX] === 2 || gameArray[leftBottomY][rightTopX] === 2) {
         removeCoin();
     }
 }
@@ -283,6 +284,7 @@ function leaveGame(gameArea) {
 }
 
 function killBall() {
+    // alert("You died!");
     // Set score to 0
     score = 0;
     // set position of ball to startposition.
