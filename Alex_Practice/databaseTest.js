@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 var con = mysql.createConnection({
-    host: "mysql-server-1.macs.hw.ac.uk",
-    user: "agm6",
-    password: "7s4RlYr7Eh",
-    database: "agm6"
+    host: "sql2.freesqldatabase.com",
+    user: "sql2310710",
+    password: "aK1!vU9*",
+    database: "sql2310710"
 });
 
 con.connect(function(err) {
