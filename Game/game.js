@@ -48,6 +48,26 @@ function timeOut(){
     alert(' Game Over '); 
 }
 
+//calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
+//resize their screen before the next alert 
+window.setInterval(function(){
+    screenWidthAlert();
+    screenHeightAlert();  
+  }, 3000);
+
+//alert the user if the width of the screen is too small  
+function screenWidthAlert(){
+    if($(window).width() < 900) {
+        alert("Please increase the browser width")
+    }
+} 
+//alert the user if the height of the screen is too small
+function screenHeightAlert(){
+    if($(window).height() < 800) {
+        alert("Please increase the browser height")
+    }
+} 
+
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
   //  timeOut();
