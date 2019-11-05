@@ -1,5 +1,5 @@
 
-var score = 0;
+
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
 //
@@ -261,17 +261,30 @@ function trackBall() {
 //    console.log(left);
 //    console.log(top);
 
+    // if top left corner or top right corner or bottom left corner or bottom right corner is 2, remove the coin
+    if (gameArray[leftTopY][leftTopX] == 2) {
+        removeCoin(leftTopY, leftTopX);
+    }
+    else if (gameArray[leftTopY][rightTopX] === 2) {
+        removeCoin(leftTopY, rightTopX);
+    }
+    else if (gameArray[leftBottomY][leftTopX] === 2) {
+        removeCoin(leftBottomY, leftTopX);
+    }
+    else if (gameArray[leftBottomY][rightTopX] === 2) {
+        removeCoin(leftBottomY, rightTopX);
+    }
+
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();
-
         //alert("YOU DIED!");
     }
-    // if top left corner or top right corner or bottom left corner or bottom right corner is 2, remove the coin
-    if (gameArray[leftTopY][leftTopX] === 2 || gameArray[leftTopY][rightTopX] === 2 || gameArray[leftBottomY][leftTopX] === 2 || gameArray[leftBottomY][rightTopX] === 2) {
-        removeCoin();
-    }
+
 }
+
+var score = 0;
+$('#score').html(score);
 
 // function for new game
 function newGame() {
@@ -287,6 +300,7 @@ function killBall() {
     // alert("You died!");
     // Set score to 0
     score = 0;
+    $('#score').html(score);
     // set position of ball to startposition.
     $("#blueball").css({
         left: 93.5 + "%",
@@ -294,14 +308,13 @@ function killBall() {
     });
 }
 
-
-function removeCoin () {
-    // increment score by 1
+function removeCoin (y, x) {
     score++;
+    $('#score').html(score);
 
-    // remove the coin for 5 seconds. 
+    gameArray[y][x] = 1;
+    
 }
-
 
 
 // NEED HELP WITH: 
