@@ -32,6 +32,7 @@ h1 {
     font-family: sans-serif;
 }
 
+/*  --- THE TABLE WITH INFO ---  */
 /* The table with username, score and time left */
 table {
     float: left;
@@ -42,6 +43,8 @@ table {
     margin-top: 12%;
 }
 
+
+/*  --- THE BUTTONS ---  */
 /* The group of buttons */
 .btn-group {
     padding: 1% 1%;
@@ -67,7 +70,9 @@ button:active {
 }
 
 
-/*  THE BALLS   */
+
+
+/*  --- THE BALLS ---  */
 /*
 #redball {
     position: absolute;
@@ -107,18 +112,6 @@ button:active {
 }
 */
 
-/* The coins 
-.coin {
-    position: absolute;
-    background-image: url("Images/coin.png");
-    left: 2%;
-    top: 2%;
-    width: 2%;
-    height: 2%;
-    z-index: -2;
-}
-*/
-
 /* The game area */
 #gameArea {
     border: 6px solid red;
@@ -134,19 +127,22 @@ button:active {
 /*      
                                 THE GAME AREA
 
-    Below is all the obstacles in the game. The game area is split up in 10x10 rows/columns. 
-    The first commented square is where all the obstacles are located. This is used for 
-    maintenance and debugging, and it makes it easier to located free area for coins, and 
-    balls to start. The game area has 100 "squares", 37 of them are taken by an obstacle, 
-    which leaves 63 free for balls / coins. 
+    Below is the grid of the game area. The game area is split up in 10x10 rows/columns. 
+    This is used for maintenance and debugging, and it makes it easier to locate free area, coins, and 
+    balls to start. The game area has 100 "squares", 37 of them are taken by an obstacle, 13 is taken by
+    coins, which leaves 50 "free" squares for the balls to move around. 
 
-    ob = obstacle. The number is which obstacle number it is. 
+    ob_     = The obstacle.     The number is which obstacle it is. 
+    coin_   = The coin.         The number is which coin it is.
+    start   = The start point.  The point where the balls start. 
+
+    Below the grid is all the code for the obstacles, the coins and the start area. 
 
                                             LEFT
          0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
 TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
-    |         |         |         |         |         |         |         |         |         |         |                 *
-0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |  start  |                  *
+    |         |         |         |         |         |         |         |         |         |         |                 
+0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |  start  |                  
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -188,6 +184,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 */
 
+/*  --- THE START AREA ---  */
 #startImg {
     position: absolute;  
     left: 91%;            
@@ -196,6 +193,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     height: 8%;  
 }
 
+/*  --- THE OBSTACLES ---  */
 #ob1 {                      
     position: absolute;  
     left: 10%;            
@@ -456,10 +454,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     height: 10%;          
 }
 
-
-
-
-/*  THE COINS   */
+/*  --- THE COINS ---  */
 #coin1 {                    
     position: absolute;   
     left: 0.5%;            
