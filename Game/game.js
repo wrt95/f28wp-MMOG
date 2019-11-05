@@ -272,6 +272,7 @@ function trackBall() {
     // RightTopX is the left postion plus the width divided by 60 (600px for gameArea, 10 squares)
     var rightTopX = Math.floor(((blueB.position().left) + (blueB.width()))/60);
     // rightTopY is leftTopY
+    console.log(leftTopY + "," + rightTopX);
     
     // LeftBottomY is the top postion plus the height divided by 60 (600px for gameArea, 10 squares)
     var leftBottomY = Math.floor(((blueB.position().top) + (blueB.height()))/60);
@@ -285,7 +286,7 @@ function trackBall() {
 //    console.log(top);
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 2, remove the coin
-    if (gameArray[leftTopY][leftTopX] == 2) {
+    if (gameArray[leftTopY][leftTopX] === 2) {
         removeCoin(leftTopY, leftTopX);
     }
     else if (gameArray[leftTopY][rightTopX] === 2) {
@@ -303,7 +304,6 @@ function trackBall() {
         killBall();
         //alert("YOU DIED!");
     }
-
 }
 
 var score = 0;
