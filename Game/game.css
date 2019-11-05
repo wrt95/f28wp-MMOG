@@ -158,15 +158,15 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-30% |         |         |         |         |  ob14   |         |  ob17   |         |  ob19   |         |
+30% |         |         |         |         |  ob14   |  coin9  |  ob17   |         |  ob19   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-40% |  ob29   |  ob30   |  ob31   |         |         |  coin9  |         |         |  ob18   |         |
+40% |  ob29   |  ob30   |  ob31   |         |  coin12 |         |  coin13 |         |  ob18   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-50% |         |         |         |         |  ob15   |         |  ob16   |         |  ob12   |         |
+50% |         |         |         |         |  ob15   |  coin11 |  ob16   |         |  ob12   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -454,107 +454,94 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 /*  THE COINS   */
 #coin1 {                    
     position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
+    left: 0.5%;            
+    top: 0.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin2 {                    
     position: absolute;   
-    left: 75%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
+    left: 70.5%;            
+    top: 0.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin3 {                    
     position: absolute;   
-    left: 5%;            
-    top: 25%;               
-    width: 2%;          
-    height: 2%;          
+    left: 0.5%;            
+    top: 20.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin4 {                    
     position: absolute;   
-    left: 5%;            
-    top: 95%;               
-    width: 2%;          
-    height: 2%;          
+    left: 0.5%;            
+    top: 90.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin5 {                    
     position: absolute;   
-    left: 35%;            
-    top: 95%;               
-    width: 2%;          
-    height: 2%;          
+    left: 30.5%;            
+    top: 90.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin6 {                    
     position: absolute;   
-    left: 95%;            
-    top: 95%;               
-    width: 2%;          
-    height: 2%;          
+    left: 90.5%;            
+    top: 90.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin7 {                    
     position: absolute;   
-    left: 95%;            
-    top: 65%;               
-    width: 2%;          
-    height: 2%;          
+    left: 90.5%;            
+    top: 60.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin8 {                    
     position: absolute;   
-    left: 5%;            
-    top: 65%;               
-    width: 2%;          
-    height: 2%;          
+    left: 0.5%;            
+    top: 60.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin9 {                    
     position: absolute;   
-    left: 55%;            
-    top: 45%;               
-    width: 2%;          
-    height: 2%;          
+    left: 50.5%;            
+    top: 30.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin10 {                    
     position: absolute;   
-    left: 75%;            
-    top: 95%;               
-    width: 2%;          
-    height: 2%;          
+    left: 70.5%;            
+    top: 90.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin11 {                    
     position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
+    left: 50.5%;            
+    top: 50.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin12 {                    
     position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
+    left: 40.5%;            
+    top: 40.5%;               
+    width: 9%;          
+    height: 9%;          
 }
 #coin13 {                    
     position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
+    left: 60.5%;            
+    top: 40.5%;               
+    width: 9%;          
+    height: 9%;          
 }
-#coin14 {                    
-    position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
-}
-#coin15 {                    
-    position: absolute;   
-    left: 5%;            
-    top: 5%;               
-    width: 2%;          
-    height: 2%;          
-}
+
 

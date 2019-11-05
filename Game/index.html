@@ -9,15 +9,16 @@
     </head>
 
     <body>
-        <!-- group for buttons. -->
+        <!-- BUTTON GROUP ABOVE GAME AREA -->
         <div class='btn-group'>
             <button id="newGame" onClick="startButtonClick()">Start Game</button>
             <button id="Timer" onClick="timerFun()">Timer</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
-
+        <!-- LEFT AREA OF THE SCREEN -->
         <div class="left">
+            <!-- TABLE TO STORE INFO FOR USER -->
             <table>   
                 <tr> 
                     <td id="userName">USERNAME: </td>
@@ -34,7 +35,9 @@
             </table>
         </div>
 
+        <!-- CENTER AREA OF THE SCREEN -->
         <div class="center">
+            <!-- THE ARE WHERE THE GAME IS PLAYED -->
             <div id="gameArea">
                 <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
                 <img id='blueball' src="./Images/blueball.png">
@@ -42,13 +45,16 @@
                 <!-- UNNCOMMENT FOLLOWING FOR DISPLAYING REDBALL, GREENBALL AND YELLOWBALL--> 
                 <!-- Image for the opponents ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288 -->
                 <!-- <img id='redball' src="./Images/redball.png" id='redball'>-->
- <!--             <img id='redball' src="./Images/redball.png" id='redball'>  -->
+ <!--           <img id='redball' src="./Images/redball.png" id='redball'>  -->
                 <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567 -->
- <!--               <img id='greenball' src="./Images/greenball.png"> -->
+ <!--           <img id='greenball' src="./Images/greenball.png"> -->
                 <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjKi-WMysblAhXODmMBHeF1BoYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pig333.com%2Fshop%2Fmanipulable-toys-material_529%2Ftoy-ball-for-pigs-yellow-30-cm_49%2F&psig=AOvVaw00JG6p6CXqxVlde8lo4xds&ust=1572614070722774 -->
- <!--               <img id='yellowball' src="./Images/yellowball.png"> -->
+ <!--           <img id='yellowball' src="./Images/yellowball.png"> -->
                 
-                <!-- Image for square obstacles - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj_qoTDzp7lAhUkyIUKHUjJBsYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.codeproject.com%2FTips%2F1022374%2FSquare-Circle-Ring-Oh-and-That-Smiley&psig=AOvVaw3Axk3D_Ozu716anaXA6qWU&ust=1571240843289884 -->
+
+
+                <!-- Image for obstacles - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj_qoTDzp7lAhUkyIUKHUjJBsYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.codeproject.com%2FTips%2F1022374%2FSquare-Circle-Ring-Oh-and-That-Smiley&psig=AOvVaw3Axk3D_Ozu716anaXA6qWU&ust=1571240843289884 -->
+                <!-- These images are edited by removing the inner red square. All images are made from the image sourced above. -->
                 <img id='ob1' src='./Images/obstacle1.png'>
                 <img id='ob2' src='./Images/obstacle1.png'>
                 <img id='ob3' src='./Images/obstacle1.png'>
@@ -87,7 +93,7 @@
                 <img id='ob36' src='./Images/obstacle1.png'>
                 <img id='ob37' src='./Images/obstacle1.png'>
 
-
+                <!-- Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjS_P30ktPlAhWtzIUKHVFeBDEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fcoin&psig=AOvVaw1vFMOZ5HP_7MvB1L0VlGAk&ust=1573045934980901 -->
                 <img id='coin1' src='Images/coin.png'>
                 <img id='coin2' src='Images/coin.png'>
                 <img id='coin3' src='Images/coin.png'>
@@ -101,17 +107,14 @@
                 <img id='coin11' src='Images/coin.png'>
                 <img id='coin12' src='Images/coin.png'>
                 <img id='coin13' src='Images/coin.png'>
-                <img id='coin14' src='Images/coin.png'>
-                <img id='coin15' src='Images/coin.png'>
             </div>
         </div>
 
-        <div class="right">
-            
+        <!-- RIGHT AREA OF THE SCREEN -->
+        <div class="right"> 
         </div>
         
         <script src="jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="game.js" language="JavaScript" ></script>
-        
+        <script type="text/javascript" src="game.js" language="JavaScript" ></script> 
     </body>
 </html>
