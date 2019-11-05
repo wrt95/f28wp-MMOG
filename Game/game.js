@@ -71,6 +71,9 @@ function startTimer () {
 // For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 // It is used to make the ball move around in the gamearea.
 $(document).ready(function () {
+    score = 0;
+    $('#score').html(score);
+
     var gameArea = $('#gameArea'),
         blueball = $('#blueball'),
        // redball = $('#redball'),              UNNCOMMENT FOR REDBALL
@@ -284,7 +287,6 @@ function trackBall() {
 }
 
 var score = 0;
-$('#score').html(score);
 
 // function for new game
 function newGame() {
