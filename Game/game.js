@@ -199,13 +199,13 @@ var gameArray = [
                 [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
-                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-                [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     
-                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [1, 1, 1, 1, 0, 2, 0, 1, 0, 1],
+                [0, 0, 0, 1, 2, 1, 2, 1, 0, 1],     
+                [1, 1, 1, 1, 0, 2, 0, 1, 0, 1],
                 [2, 0, 0, 1, 1, 1, 1, 1, 1, 2],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
-                [2, 0, 1, 2, 0, 1, 1, 2, 0, 1],
+                [2, 0, 1, 2, 0, 1, 1, 2, 0, 2],
                 ];
                 
 
@@ -236,25 +236,45 @@ function trackBall() {
     // if top left corner is 2, remove the coin
     if (gameArray[leftTopY][leftTopX] === 2) {
         removeCoin(leftTopY, leftTopX);
+        /*    setTimeout(function() {
+            bringBack();
+        }, 10000);
+        */
 
     }
     // if top right corner is 2, remove the coin
     else if (gameArray[leftTopY][rightTopX] === 2) {
         removeCoin(leftTopY, rightTopX);
+        /*    setTimeout(function() {
+            bringBack();
+        }, 10000);
+        */
     }
     // if bottom left corner is 2, remove the coin
     else if (gameArray[leftBottomY][leftTopX] === 2) {
         removeCoin(leftBottomY, leftTopX);
+        /*    setTimeout(function() {
+            bringBack();
+        }, 10000);
+        */
     }
     // if bottom right corner is 2, remove the coin
     else if (gameArray[leftBottomY][rightTopX] === 2) {
         removeCoin(leftBottomY, rightTopX);
+    /*    setTimeout(function() {
+            bringBack();
+        }, 10000);
+        */
     }
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();
     }
+
+    setTimeout(function() {
+        bringBack7();
+    }, 10000);
 }
 
 /*
@@ -271,15 +291,49 @@ function killBall() {
     });
 }
 
+var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'), $('#coin6'),$('#coin7'), 
+                 $('#coin8'), $('#coin9'), $('#coin10'), $('#coin11'), $('#coin12'), $('#coin13')]
+
 /* 
-This function removes the ball and increments the score of the user. 
-NOT READY YET, MISSING IMPLEMENTATION OF COIN TO DISSAPEAR
+This function removes the coin and increments the score of the user. 
 */
 function removeCoin (y, x) {
     score++;
     $('#score').html(score);
     gameArray[y][x] = 1;
+
+    for (var i = 0; i < coinArray.length; i++) {
+        var coinX = Math.floor((coinArray[i].position().left) / 60);
+        var coinY = Math.floor((coinArray[i].position().top) / 60); 
+
+        if (coinX === x && coinY === y) {
+            coinArray[i].hide();
+        }
+    }
 }
+
+console.log((Math.floor((coinArray[7].position().left)/60)), (Math.floor((coinArray[7].position().top)/60)));
+
+function bringBack1 () {   
+    coinArray[0].show();
+    gameArray[0,0] = 2;
+}
+function bringBack7 () {   
+    coinArray[6].show();
+    gameArray[9,6] = 2;
+}
+function bringBack13 () {   
+    coinArray[12].show();
+    gameArray[4,6] = 2;
+}
+function bringBack11 () {   
+    coinArray[10].show();
+    gameArray[5,5] = 2;
+}
+
+
+
+
 
 // function for new game
 function newGame() {
