@@ -5,20 +5,32 @@
     //alert(first);
 //}
 
-var http = require("http");
-var fs = require('fs');
+const http = require("http");
+
+const fs = require('fs');
+
+const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
+
 
 var svr = http
   .createServer(function(request, response) {
-    response.writeHead(200, { "Content-Type": "text/html" });
-    fs.readFile('./test.html', null, function(error, data){
-      if (error) {
-        response.writeHead(404);
-        response.write('File not found!');
-      } else{
-        response.write(data);
-      }
-      response.end();
-    });
+    response.writeHead(200, { "Content-Type": "text/plain" });
+    //fs.readFile('./test.html', null, function(error, data){
+     // if (error) {
+     //   response.writeHead(404);
+       // response.write('File not found!');
+      //} else{
+        //response.write(data);
+      //}
+      //response.end();
+    //});
+    response.end();
   })
-  .listen(8080);
+    router.get('/', function(req,res){
+      res.sendFile(path.join(__dirname+'/test.html'));
+    })
+  app.use('/', router);
+  app.listen(8080);
