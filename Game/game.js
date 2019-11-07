@@ -208,7 +208,6 @@ var gameArray = [
                 [2, 0, 1, 2, 0, 1, 1, 2, 0, 2],
                 ];
                 
-
 /* 
 This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area. 
 It gets all the corners, and based on where it is positioned, it either kills the ball, or removes a coin / increment score. 
@@ -230,51 +229,63 @@ function trackBall() {
                                                                                         // rightBottomY is leftBottomY (on same Y position.)
                                                                                         // rightBottomX is rightTopX   (on same X position.) 
 // Following is used for debugging to track the grid position of the ball:
-//    console.log(left);
-//    console.log(top);
+    console.log(leftTopX, leftTopY);
 
     // if top left corner is 2, remove the coin
     if (gameArray[leftTopY][leftTopX] === 2) {
         removeCoin(leftTopY, leftTopX);
-        /*    setTimeout(function() {
-            bringBack();
-        }, 10000);
-        */
 
+       // var coinX = leftTopX;
+       // var coinY = leftTopY;
+
+        // after 10 seconds, bring the coins back
+        setTimeout(function() {
+           bringBackCoins();
+        }, 10000);
     }
     // if top right corner is 2, remove the coin
     else if (gameArray[leftTopY][rightTopX] === 2) {
         removeCoin(leftTopY, rightTopX);
-        /*    setTimeout(function() {
-            bringBack();
+
+       // var coinX = leftTopX;
+       // var coinY = leftTopY;
+
+        // after 10 seconds, bring the coins back
+        setTimeout(function() {
+            bringBackCoins();
         }, 10000);
-        */
+
     }
     // if bottom left corner is 2, remove the coin
     else if (gameArray[leftBottomY][leftTopX] === 2) {
         removeCoin(leftBottomY, leftTopX);
-        /*    setTimeout(function() {
-            bringBack();
+
+       // var coinX = leftTopX;
+       // var coinY = leftTopY;
+
+        // after 10 seconds, bring the coins back
+        setTimeout(function() {
+            bringBackCoins();
         }, 10000);
-        */
     }
     // if bottom right corner is 2, remove the coin
     else if (gameArray[leftBottomY][rightTopX] === 2) {
         removeCoin(leftBottomY, rightTopX);
-    /*    setTimeout(function() {
-            bringBack();
+
+       // var coinX = leftTopX;
+       // var coinY = leftTopY;
+ 
+        // after 10 seconds, bring the coins back
+        setTimeout(function() {
+            bringBackCoins();
         }, 10000);
-        */
+
     }
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();
     }
-
-    setTimeout(function() {
-        bringBack7();
-    }, 10000);
 }
 
 /*
@@ -291,49 +302,151 @@ function killBall() {
     });
 }
 
+// Array for all the coins
 var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'), $('#coin6'),$('#coin7'), 
                  $('#coin8'), $('#coin9'), $('#coin10'), $('#coin11'), $('#coin12'), $('#coin13')]
+
+var coin1 = $('#coin1'), 
+    coin2 = $('#coin2'), 
+    coin3 = $('#coin3'), 
+    coin4 = $('#coin4'), 
+    coin5 = $('#coin5'), 
+    coin6 = $('#coin6'), 
+    coin7 = $('#coin7'), 
+    coin8 = $('#coin8'), 
+    coin9 = $('#coin9'), 
+    coin10 = $('#coin10'), 
+    coin11 = $('#coin11'), 
+    coin12 = $('#coin12'), 
+    coin13 = $('#coin13');
+
+var coinMap = { [[0][0]]: coin1,
+                [[0][7]]: coin2,
+                [[2][0]]: coin3,
+                [[9][0]]: coin4,
+                [[9][3]]: coin5,
+                [[9][9]]: coin6,
+                [[6][9]]: coin7,
+                [[6][0]]: coin8, 
+                [[3][5]]: coin9,
+                [[9][7]]: coin10,
+                [[5][5]]: coin11,
+                [[4][4]]: coin12,
+                [[4][6]]: coin13
+}
 
 /* 
 This function removes the coin and increments the score of the user. 
 */
 function removeCoin (y, x) {
-    score++;
-    $('#score').html(score);
-    gameArray[y][x] = 1;
-
+    // Looping through the array. Create X and Y value for the index coin. 
     for (var i = 0; i < coinArray.length; i++) {
         var coinX = Math.floor((coinArray[i].position().left) / 60);
         var coinY = Math.floor((coinArray[i].position().top) / 60); 
 
+        // if the coins x and y is equal to whats passed in, hide the coin. 
         if (coinX === x && coinY === y) {
             coinArray[i].hide();
-        }
+            gameArray[y][x] = 1; 
+        }       
     }
+    score++;
+    $('#score').html(score);  
 }
 
-console.log((Math.floor((coinArray[7].position().left)/60)), (Math.floor((coinArray[7].position().top)/60)));
 
-function bringBack1 () {   
+/*
+function bringBack(y, x) {
+   /*tmp = [[y][x]];
+    Object.key(coinMap).forEach(i => {
+        if (coinMap.i === tmp) {
+            coinMap.i.show();
+            gameArray[y][x] = 2;
+        }
+    });*/
+/*
+    var tmp = [[y][x]];
+
+    $.each(coinMap, function (key, value) {
+        if (coinMap.key === tmp) {
+            coinMap.key.show();
+            gameArray[y][x] = 2;
+        }
+    });
+}*/
+
+// Function to bring the coins back
+function bringBackCoins(){
+    bringBack1();
+    bringBack2();
+    bringBack3();
+    bringBack4();
+    bringBack5();
+    bringBack6();
+    bringBack7();
+    bringBack8();
+    bringBack9();
+    bringBack10();
+    bringBack11();
+    bringBack12();
+    bringBack13();
+}
+
+// Below are 13 functions, one for each coin. 
+// It sets the coin to be visible, and changes the 
+// value in the 2D array to 2, which represents a coin. 
+function bringBack1 () {  
     coinArray[0].show();
-    gameArray[0,0] = 2;
+    gameArray[0][0] = 2;
 }
-function bringBack7 () {   
+function bringBack2 () {   
+    coinArray[1].show();
+    gameArray[0][7] = 2;
+}
+function bringBack3 () {   
+    coinArray[2].show();
+    gameArray[2][0] = 2;
+}
+function bringBack4 () {   
+    coinArray[3].show();
+    gameArray[9][0] = 2;
+}
+function bringBack5 () {   
+    coinArray[4].show();
+    gameArray[9][3] = 2;
+}
+function bringBack6 () {   
+    coinArray[5].show();
+    gameArray[9][9] = 2;
+}
+function bringBack7 () {           
     coinArray[6].show();
-    gameArray[9,6] = 2;
+    gameArray[6][9] = 2;
 }
-function bringBack13 () {   
-    coinArray[12].show();
-    gameArray[4,6] = 2;
+function bringBack8 () {   
+    coinArray[7].show();
+    gameArray[6][0] = 2;
+}
+function bringBack9 () {   
+    coinArray[8].show();
+    gameArray[3][5] = 2;
+}
+function bringBack10 () {   
+    coinArray[9].show();
+    gameArray[9][7] = 2;
 }
 function bringBack11 () {   
     coinArray[10].show();
-    gameArray[5,5] = 2;
+    gameArray[5][5] = 2;
 }
-
-
-
-
+function bringBack12 () {   
+    coinArray[11].show();
+    gameArray[4][4] = 2;
+}
+function bringBack13 () {   
+    coinArray[12].show();
+    gameArray[4][6] = 2;
+}
 
 // function for new game
 function newGame() {
@@ -345,5 +458,3 @@ function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
 }
 
-// NEED HELP WITH: 
-// - how to make the coin disapear for 5 seconds. 
