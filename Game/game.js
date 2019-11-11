@@ -17,6 +17,7 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; 
         if(maxTime == 0 ){
             clearInterval(timer)
+            leaveGame(); 
             alert("Game Over")
         }
       }
@@ -45,6 +46,7 @@ function screenHeightAlert(){
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
     newGame(); 
+    clock(); 
 }
 
 /* 
