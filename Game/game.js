@@ -7,9 +7,10 @@ blueball = $('#blueball');
 //timer function 
 var timer; 
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
+//Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
     timer = setInterval(countDown, 1000); 
-    var maxTime = 60; 
+    var maxTime = 10; 
 
     //This function takes the seconds away from the maximum time 
     function countDown() {
@@ -20,10 +21,6 @@ function clock(){
         }
       }
     }
-
-function timeOut(){
-    alert(' Game Over '); 
-}
 
 //calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
 //resize their screen before the next alert 
