@@ -22,49 +22,6 @@ function clock(){
     }
 
 
-// function to work the game timer 
-// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
-//
-function gameTimer(countDown, display){
-    var timer = countDown, minutes, seconds; 
-
-    setInterval(function (){
-        mins = parseInt(timer / 60, 10)
-        secs = parseInt(timer % 60, 10); 
-
-        mins = mins < 10 ? "0" + mins : mins;
-        secs = secs < 10 ? "0" + secs : secs;
-
-        display.textContent = mins + ":" + secs; 
-
-        if (--timer < 0){
-            timer = countDown;
-        }
-    }, 1000); 
-
-}
-//test function 
-function testStartTimer(){
-    var counter = 60;
-    setInterval(function() {
-      counter--;
-      if (counter >= 0) {
-        span = document.getElementById("testStartTime");
-        span.innerHTML = counter;
-      }
-      if (counter === 0) {
-          alert('Game is over');
-          clearInterval(counter);
-      }
-    }, 1000);
-  }
-
-  /*
-  $("#testStartTimer").click(function(){
-    testStartTimer();
- });
-
- */ 
 
 function timeOut(){
     alert(' Game Over '); 
