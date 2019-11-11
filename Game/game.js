@@ -21,8 +21,6 @@ function clock(){
       }
     }
 
-
-
 function timeOut(){
     alert(' Game Over '); 
 }
@@ -49,23 +47,8 @@ function screenHeightAlert(){
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-  //  timeOut();
     newGame(); 
-   // gameTimer(); 
-   // testStartTimer(); 
 }
-
-//Start the game timer 
-/*
-function startTimer () {
-      
-       display = document.querySelector('#time'); 
-       gameTimer(oneMin, display); 
-   
-   };
-   */  
-   
-
 
 /* 
 For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
