@@ -4,6 +4,24 @@ var score = 0;
 // Variable for the blue ball
 blueball = $('#blueball');
 
+//timer function 
+var timer; 
+//This function sets the max timer for the clock and calls the other function that deducts the seconds 
+function clock(){
+    timer = setInterval(countDown, 1000); 
+    var maxTime = 60; 
+
+    //This function takes the seconds away from the maximum time 
+    function countDown() {
+        document.getElementById("timerID").innerHTML = --maxTime; 
+        if(maxTime == 0 ){
+            clearInterval(timer)
+            alert("Game Over")
+        }
+      }
+    }
+
+
 // function to work the game timer 
 // help taken from - https://jsfiddle.net/wr1ua0db/17/ 
 //
@@ -77,7 +95,7 @@ function startButtonClick(){
   //  timeOut();
     newGame(); 
    // gameTimer(); 
-    testStartTimer(); 
+   // testStartTimer(); 
 }
 
 //Start the game timer 

@@ -12,8 +12,11 @@
         <!-- BUTTON GROUP ABOVE GAME AREA -->
         <div class='btn-group'>
             <button id="newGame" onClick="startButtonClick()">Start Game</button>
-            <button id="Timer" onClick="timerFun()">Timer</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
+            <p id="timerID">60</p>
+            <button onclick="clock(); document.getElementById('timerID').innerHTML='60';">Start counter</button>
+            <button onclick="clearInterval(timer);">Stop counter</button>
+ 
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
         <!-- LEFT AREA OF THE SCREEN -->
@@ -29,7 +32,8 @@
                     <td id="score"></td>
                 </tr>
                 <tr>
-                    <td id="timer">Time Left:</td>
+                    
+                    <td id="timer">60</td>
                     <td <span id="startTimer">01:00</span> </td>  
                 </tr>
             </table>
