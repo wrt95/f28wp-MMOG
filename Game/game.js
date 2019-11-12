@@ -312,25 +312,7 @@ function removeCoin (y, x) {
 }
 
 
-/*
-function bringBack(y, x) {
-   /*tmp = [[y][x]];
-    Object.key(coinMap).forEach(i => {
-        if (coinMap.i === tmp) {
-            coinMap.i.show();
-            gameArray[y][x] = 2;
-        }
-    });*/
-/*
-    var tmp = [[y][x]];
 
-    $.each(coinMap, function (key, value) {
-        if (coinMap.key === tmp) {
-            coinMap.key.show();
-            gameArray[y][x] = 2;
-        }
-    });
-}*/
 
 // Function to bring the coins back
 function bringBackCoins(){
