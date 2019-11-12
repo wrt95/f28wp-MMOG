@@ -511,45 +511,18 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 }
 #coin8 {                    
     position: absolute;   
-    left: 0.5%;            
-    top: 60.5%;               
+    left: 50.5%;            
+    top: 40.5%;               
     width: 9%;          
     height: 9%;          
 }
 #coin9 {                    
-    position: absolute;   
-    left: 50.5%;            
-    top: 30.5%;               
-    width: 9%;          
-    height: 9%;          
-}
-#coin10 {                    
     position: absolute;   
     left: 70.5%;            
     top: 90.5%;               
     width: 9%;          
     height: 9%;          
 }
-#coin11 {                    
-    position: absolute;   
-    left: 50.5%;            
-    top: 50.5%;               
-    width: 9%;          
-    height: 9%;          
-}
-#coin12 {                    
-    position: absolute;   
-    left: 40.5%;            
-    top: 40.5%;               
-    width: 9%;          
-    height: 9%;          
-}
-#coin13 {                    
-    position: absolute;   
-    left: 60.5%;            
-    top: 40.5%;               
-    width: 9%;          
-    height: 9%;          
-}
+
 
 
