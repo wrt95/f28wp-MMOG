@@ -129,6 +129,10 @@ button:active {
     margin-left: 20%;
 }
 
+#endGame{
+    display:none; 
+}
+
 /*      
                                 THE GAME AREA
 
