@@ -91,13 +91,14 @@ $(document).ready(function () {
     } 
 
     
-    var counter; //used for making the clock start on one click rather than multiple clicks 
+    counter = 0; //used for making the clock start on one click rather than multiple clicks 
 
     // This function sets the new values of the ball. It is done when a button is pressed. 
     $(window).keydown(function(e) { 
        // clock(); //uncomment for demo 
-        counter++; 
-
+        counter = counter + 1; //adding 1 to the counter
+        //the timer starts when the counter = 1 *the first button press*
+        //equal to 1 so it doesnt keep re starting with every button press 
         if(counter == 1){
             clock(); 
         }
