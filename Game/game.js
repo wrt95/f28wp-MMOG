@@ -4,53 +4,24 @@ var score = 0;
 // Variable for the blue ball
 blueball = $('#blueball');
 
-// function to work the game timer 
-// help taken from - https://jsfiddle.net/wr1ua0db/17/ 
-//
-function gameTimer(countDown, display){
-    var timer = countDown, minutes, seconds; 
+//timer function 
+var timer; 
+//This function sets the max timer for the clock and calls the other function that deducts the seconds 
+//Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
+function clock(){
+    timer = setInterval(countDown, 1000); 
+    var maxTime = 10; 
 
-    setInterval(function (){
-        mins = parseInt(timer / 60, 10)
-        secs = parseInt(timer % 60, 10); 
-
-        mins = mins < 10 ? "0" + mins : mins;
-        secs = secs < 10 ? "0" + secs : secs;
-
-        display.textContent = mins + ":" + secs; 
-
-        if (--timer < 0){
-            timer = countDown;
+    //This function takes the seconds away from the maximum time 
+    function countDown() {
+        document.getElementById("timerID").innerHTML = --maxTime; 
+        if(maxTime == 0 ){
+            clearInterval(timer)
+            leaveGame(); 
+            alert("Game Over")
         }
-    }, 1000); 
-
-}
-//test function 
-function testStartTimer(){
-    var counter = 60;
-    setInterval(function() {
-      counter--;
-      if (counter >= 0) {
-        span = document.getElementById("testStartTime");
-        span.innerHTML = counter;
       }
-      if (counter === 0) {
-          alert('Game is over');
-          clearInterval(counter);
-      }
-    }, 1000);
-  }
-
-  /*
-  $("#testStartTimer").click(function(){
-    testStartTimer();
- });
-
- */ 
-
-function timeOut(){
-    alert(' Game Over '); 
-}
+    }
 
 //calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
 //resize their screen before the next alert 
@@ -74,23 +45,9 @@ function screenHeightAlert(){
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-  //  timeOut();
     newGame(); 
-   // gameTimer(); 
-    testStartTimer(); 
+    clock(); 
 }
-
-//Start the game timer 
-/*
-function startTimer () {
-      
-       display = document.querySelector('#time'); 
-       gameTimer(oneMin, display); 
-   
-   };
-   */  
-   
-
 
 /* 
 For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys

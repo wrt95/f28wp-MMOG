@@ -53,6 +53,11 @@ table {
     float: center;
 }
 
+.timerID{
+    color: royalblue;
+    background-color: royalblue;
+}
+
 /* Creating a border around all buttons in the group. */
 .btn-group > * {
     border: 2px solid black;
