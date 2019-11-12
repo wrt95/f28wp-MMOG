@@ -17,8 +17,10 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; 
         if(maxTime == 0 ){
             clearInterval(timer)
-            leaveGame(); 
-            alert("Game Over")
+        //  leaveGame(gameArea); 
+            killBall(); 
+            document.getElementById("gameArea").innerHTML= "images/gamever.png";
+        //  alert("Game Over")
         }
       }
     }
@@ -45,8 +47,7 @@ function screenHeightAlert(){
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-    newGame(); 
-    clock(); 
+    newGame();  
 }
 
 /* 
@@ -89,8 +90,18 @@ $(document).ready(function () {
         return (n < 0 ? 0 : n > width ? width : n);
     } 
 
+    
+    var counter; //used for making the clock start on one click rather than multiple clicks 
+
     // This function sets the new values of the ball. It is done when a button is pressed. 
     $(window).keydown(function(e) { 
+       // clock(); //uncomment for demo 
+        counter++; 
+
+        if(counter == 1){
+            clock(); 
+        }
+     
         // The button pressed from the array is set to true. 
         keyPressed[e.which] = true; 
         // Update the left and top value of the ball in CSS. 
