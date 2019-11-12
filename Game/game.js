@@ -19,12 +19,10 @@ function clock(){
             clearInterval(timer) //clearing the timer when it gets to 0 
             killBall(); 
         //    document.getElementById("gameArea").innerHTML= "images/gamever.png";
-            var egImg = $('#endGame');
-            var gameArea = $('#gameArea'); 
-            egImg.show(); 
-            gameArea.hide(); 
-
-
+            var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
+            var gameArea = $('#gameArea'); //creating a variable set to the game area 
+            egImg.show(); //Showing the game over image 
+            gameArea.hide(); //hiding the game area
         }
       }
     }
