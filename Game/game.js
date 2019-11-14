@@ -31,7 +31,7 @@ function clock(){
       }
     }
 
-function lobbyClock(){
+//Timer to countdown the time until the game can startunction lobbyClock(){
     timerL = setInterval(countDownL, 1000); 
     var maxTimeL = 10;
 
