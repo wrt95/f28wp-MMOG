@@ -34,11 +34,12 @@ function clock(){
 //Timer to countdown the time until the game can startunction lobbyClock(){
     timerL = setInterval(countDownL, 1000); 
     var maxTimeL = 10;
+    
 
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL;
         if(maxTimeL == 0){
-           clearInterval(timerL)
+           clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
             
         }
     }
