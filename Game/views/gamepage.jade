@@ -4,11 +4,11 @@ head
   link(rel='stylesheet' href='stylesheets/game.css')
   title CW F28WP Web Programming
   h1
-    img(src='images/pagetitle.png')
+    img(src='./Images/pagetitle.png')
 // BUTTON GROUP ABOVE GAME AREA
 .btn-group
   button#newGame(onclick='startButtonClick();') Start Game
-  button#leaveGame(onclick="alert(Will take you back to home page)") Leave Game
+  button#leaveGame(onclick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'") Leave Game
   p#timerID 60
   // <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button>
   // <button onclick="clearInterval(timer);">Stop timer</button>
@@ -16,17 +16,23 @@ head
   br
   // Using this to get some space between the buttons and the body
 // LEFT AREA OF THE SCREEN
-.left
+#left
   // TABLE TO STORE INFO FOR USER
   table
+    tr#gameStartClock
+      td
+        h2 Game Start :
+      td#timerIDL 10
     tr
-      td#userName USERNAME: 
-      td#name
+    td#userName
+      h2 USERNAME:
+    td#name
     tr
-      td#userScore Score: 
+      td#userScore
+        h2 Score: 
       td#score
 // CENTER AREA OF THE SCREEN
-.center
+#center
   // THE ARE WHERE THE GAME IS PLAYED
   #gameArea
     #newDiv.here(style='display: none')  content
@@ -79,22 +85,23 @@ head
     img#ob35(src='./Images/obOpenB.png')
     img#ob36(src='./Images/obOpenTB.png')
     img#ob37(src='./Images/obOpenTB.png')
-    // Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjS_P30ktPlAhWtzIUKHVFeBDEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fcoin&psig=AOvVaw1vFMOZ5HP_7MvB1L0VlGAk&ust=1573045934980901
-    img#coin1(src='Images/coin.png')
-    img#coin2(src='Images/coin.png')
-    img#coin3(src='Images/coin.png')
-    img#coin4(src='Images/coin.png')
-    img#coin5(src='Images/coin.png')
-    img#coin6(src='Images/coin.png')
-    img#coin7(src='Images/coin.png')
-    img#coin8(src='Images/coin.png')
-    img#coin9(src='Images/coin.png')
+    // Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6o6jg9-nlAhVBAmMBHZKJD8oQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fgiphy.com%252Fstickers%252Fspinning-ZUdFkBdpw3Tvq%26psig%3DAOvVaw1WTDipYYGTKSTZD5HZGSrw%26ust%3D1573828696886160&psig=AOvVaw1WTDipYYGTKSTZD5HZGSrw&ust=1573828696886160
+    img#coin1(src='Images/coin.gif')
+    img#coin2(src='Images/coin.gif')
+    img#coin3(src='Images/coin.gif')
+    img#coin4(src='Images/coin.gif')
+    img#coin5(src='Images/coin.gif')
+    img#coin6(src='Images/coin.gif')
+    img#coin7(src='Images/coin.gif')
+    img#coin8(src='Images/coin.gif')
+    img#coin9(src='Images/coin.gif')
     // Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641
     img#startImg(src='Images/start.png')
   #endGame
     img#endGameImg(src='Images/gameover.png')
+    #score score
 // RIGHT AREA OF THE SCREEN
-.right
+#right
 // This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code.
-script(src='javascripts/jquery-3.4.1.min.js')
+script(src='jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/game.js' language='JavaScript')
