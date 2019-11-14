@@ -6,6 +6,10 @@ blueball = $('#blueball');
 
 //timer function 
 var timer; 
+
+//lobby timer function 
+var timerL; 
+
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
 //Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
@@ -17,15 +21,37 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
             clearInterval(timer) //clearing the timer when it gets to 0 
-            killBall(); 
-        //    document.getElementById("gameArea").innerHTML= "images/gamever.png";
             var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
             var gameArea = $('#gameArea'); //creating a variable set to the game area 
             egImg.show(); //Showing the game over image 
             gameArea.hide(); //hiding the game area
+
+
+            // Delete what is stored in right
+            $('#right').hide();
+
         }
       }
     }
+
+function gameLobby(){
+    killBall();
+}
+
+//Timer to countdown the time until the game can start
+function lobbyClock(){
+    timerL = setInterval(countDownL, 1000); 
+    var maxTimeL = 10;
+    
+    function countDownL(){
+        document.getElementById("timerIDL").innerHTML= --maxTimeL;
+        if(maxTimeL == 0){
+        //  function gameLobby(); 
+        clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
+            
+        }
+    }
+}
 
 //calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
 //resize their screen before the next alert 
@@ -47,10 +73,11 @@ function screenHeightAlert(){
     }
 } 
 
-//Function to call other function when the start button is clicked. 
+//Function to start the game when the start button is clicked
 function startButtonClick(){
     newGame();  
 }
+
 
 /* 
 For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
@@ -60,6 +87,7 @@ $(document).ready(function () {
     // Set score initially to 0, and add it to the html.
     score = 0;
     $('#score').html(score);
+    lobbyClock(); //Starting the lobby clock when the screen is loaded 
 
     // Variables for 
     var gameArea = $('#gameArea'),
@@ -68,7 +96,7 @@ $(document).ready(function () {
        // greenball = $('#greenball'),          UNNCOMMENT FOR GREENBALL
        // yellowball = $('#yellowball'),        UNNCOMMENT FOR YELLOWBALL
 
-        width = gameArea.width() - blueball.width(),    // widt:        The maximal left/top value for gameArea
+        width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
         speed = 10;                                     // speed:       The distance moved per intervall, in px
 
@@ -255,9 +283,12 @@ function trackBall() {
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
-        killBall();
+        killBall();   
+        deadColour();
+        
     }
 }
+var deadCounter = 0;
 
 /*
 This function "kills" the ball. 
@@ -271,6 +302,25 @@ function killBall() {
         left: "93%",
         top: "2.5%"
     });
+    deadCounter++;
+}
+
+var colors = ["red","green","blue","yellow"];
+
+
+
+function deadColour () {
+
+    for (var i = 0; i < deadCounter; i++) {
+      //   var tmp = dead;
+        var color = colors[Math.floor(Math.random()*colors.length)] // geting random color from array;
+        tmp = document.createElement("p");
+        tmp.style.color = color;
+
+
+        $("#right").append(tmp);
+    }
+    tmp.innerHTML = "YOU DIED!";
 }
 
 // Array for all the coins
