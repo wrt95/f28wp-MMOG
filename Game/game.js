@@ -25,6 +25,11 @@ function clock(){
             var gameArea = $('#gameArea'); //creating a variable set to the game area 
             egImg.show(); //Showing the game over image 
             gameArea.hide(); //hiding the game area
+
+
+            // Delete what is stored in right
+            $('#right').hide();
+
         }
       }
     }
@@ -278,9 +283,12 @@ function trackBall() {
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
-        killBall();
+        killBall();   
+        deadColour();
+        
     }
 }
+var deadCounter = 0;
 
 /*
 This function "kills" the ball. 
@@ -294,6 +302,25 @@ function killBall() {
         left: "93%",
         top: "2.5%"
     });
+    deadCounter++;
+}
+
+var colors = ["red","green","blue","yellow"];
+
+
+
+function deadColour () {
+
+    for (var i = 0; i < deadCounter; i++) {
+      //   var tmp = dead;
+        var color = colors[Math.floor(Math.random()*colors.length)] // geting random color from array;
+        tmp = document.createElement("p");
+        tmp.style.color = color;
+
+
+        $("#right").append(tmp);
+    }
+    tmp.innerHTML = "YOU DIED!";
 }
 
 // Array for all the coins
