@@ -91,7 +91,7 @@ $(document).ready(function () {
        // greenball = $('#greenball'),          UNNCOMMENT FOR GREENBALL
        // yellowball = $('#yellowball'),        UNNCOMMENT FOR YELLOWBALL
 
-        width = gameArea.width() - blueball.width(),    // widt:        The maximal left/top value for gameArea
+        width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
         speed = 10;                                     // speed:       The distance moved per intervall, in px
 
