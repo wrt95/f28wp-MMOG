@@ -6,6 +6,10 @@ blueball = $('#blueball');
 
 //timer function 
 var timer; 
+
+//lobby timer function 
+var timerL; 
+
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
 //Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
@@ -26,6 +30,19 @@ function clock(){
         }
       }
     }
+
+function lobbyClock(){
+    timerL = setInterval(countDownL, 1000); 
+    var maxTimeL = 10;
+
+    function countDownL(){
+        document.getElementById("timerIDL").innerHTML= --maxTimeL;
+        if(maxTimeL == 0){
+           clearInterval(timerL)
+            
+        }
+    }
+}
 
 //calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
 //resize their screen before the next alert 
@@ -52,6 +69,7 @@ function startButtonClick(){
     newGame();  
 }
 
+
 /* 
 For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
 It is used to make the ball move around in the gamearea.
@@ -60,6 +78,7 @@ $(document).ready(function () {
     // Set score initially to 0, and add it to the html.
     score = 0;
     $('#score').html(score);
+    lobbyClock(); 
 
     // Variables for 
     var gameArea = $('#gameArea'),

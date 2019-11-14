@@ -74,6 +74,12 @@ button:active {
     background-color: rgb(0, 21, 255);
 }
 
+#timerIDL{
+    color: red;
+    font-size: 50px;
+}
+
+
 
 
 

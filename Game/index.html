@@ -14,6 +14,7 @@
             <button id="newGame" onClick="startButtonClick();">Start Game</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <p id="timerID" >60</p>
+            
            <!-- <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button> -->
            <!-- <button onclick="clearInterval(timer);">Stop timer</button> -->
  
@@ -23,12 +24,18 @@
         <div class="left">
             <!-- TABLE TO STORE INFO FOR USER -->
             <table>   
-                <tr> 
-                    <td id="userName">USERNAME: </td>
+                <tr id ="gameStartClock">
+                    <td><h2>Game Start :</h2> </td>
+                    <td id="timerIDL" >10</td>
+                </tr> 
+                <tr>
+
+                </tr>
+                    <td id="userName"><h2>USERNAME:</h2> </td>
                     <td id="name"></td>
                 </tr>
                 <tr>
-                    <td id="userScore">Score: </td>
+                    <td id="userScore"><h2>Score: </h2></td>
                     <td id="score"></td>
                 </tr>
             </table>
