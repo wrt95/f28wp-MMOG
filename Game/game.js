@@ -29,14 +29,20 @@ function clock(){
       }
     }
 
-//Timer to countdown the time until the game can startunction lobbyClock(){
+function gameLobby(){
+    killBall();
+}
+
+//Timer to countdown the time until the game can start
+function lobbyClock(){
     timerL = setInterval(countDownL, 1000); 
     var maxTimeL = 10;
     
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL;
         if(maxTimeL == 0){
-           clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
+        //  function gameLobby(); 
+        clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
             
         }
     }
@@ -62,7 +68,7 @@ function screenHeightAlert(){
     }
 } 
 
-//Function to call other function when the start button is clicked. 
+//Function to start the game when the start button is clicked
 function startButtonClick(){
     newGame();  
 }
