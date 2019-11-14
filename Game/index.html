@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <link rel="stylesheet" href="game.css"> 
+        <title>CW F28WP Web Programming</title>
+        
+        <h1><img src="./Images/pagetitle.png"/></h1>
+    </head>
+
+    <body>
+        <!-- BUTTON GROUP ABOVE GAME AREA -->
+        <div class='btn-group'>
+            <button id="newGame" onClick="startButtonClick();">Start Game</button>
+            <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
+            <p id="timerID" >60</p>
+           <!-- <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button> -->
+           <!-- <button onclick="clearInterval(timer);">Stop timer</button> -->
+ 
+            <br><br> <!--Using this to get some space between the buttons and the body-->
+        </div>
+        <!-- LEFT AREA OF THE SCREEN -->
+        <div class="left">
+            <!-- TABLE TO STORE INFO FOR USER -->
+            <table>   
+                <tr> 
+                    <td id="userName">USERNAME: </td>
+                    <td id="name"></td>
+                </tr>
+                <tr>
+                    <td id="userScore">Score: </td>
+                    <td id="score"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CENTER AREA OF THE SCREEN -->
+        <div class="center">
+            <!-- THE ARE WHERE THE GAME IS PLAYED -->
+            <div id="gameArea">
+                    <div id="newDiv" class="here" style="display: none" > content</div>
+                    <div id="oldDiv" class="here" style="display: block"> content</div>
+                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
+                <img id='blueball' src="./Images/blueball.png">
+        
+                <!-- UNNCOMMENT FOLLOWING FOR DISPLAYING REDBALL, GREENBALL AND YELLOWBALL--> 
+                <!-- Image for the opponents ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288 -->
+                <!-- <img id='redball' src="./Images/redball.png" id='redball'>-->
+ <!--           <img id='redball' src="./Images/redball.png" id='redball'>  -->
+                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567 -->
+ <!--           <img id='greenball' src="./Images/greenball.png"> -->
+                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjKi-WMysblAhXODmMBHeF1BoYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pig333.com%2Fshop%2Fmanipulable-toys-material_529%2Ftoy-ball-for-pigs-yellow-30-cm_49%2F&psig=AOvVaw00JG6p6CXqxVlde8lo4xds&ust=1572614070722774 -->
+ <!--           <img id='yellowball' src="./Images/yellowball.png"> -->
+                
+
+
+                <!-- Image for obstacles - image source: self-made -->
+                <img id='ob1' src='./Images/obOpenRB.png'>
+                <img id='ob2' src='./Images/obOpenTB.png'>
+                <img id='ob3' src='./Images/obOpenT.png'>
+                <img id='ob4' src='./Images/obOpenTB.png'>
+                <img id='ob5' src='./Images/obOpenLR.png'>
+                <img id='ob6' src='./Images/obOpenB.png'>
+                <img id='ob7' src='./Images/obOpenLR.png'>
+                <img id='ob8' src='./Images/obOpenTB.png'>
+                <img id='ob9' src='./Images/obOpenTB.png'>
+                <img id='ob10' src='./Images/obOpenTLB.png'>
+                <img id='ob11' src='./Images/obOpenR.png'>
+                <img id='ob12' src='./Images/obOpenT.png'>
+                <img id='ob13' src='./Images/obOpenLB.png'>          
+                <img id='ob14' src='./Images/obOpenM.png'>
+                <img id='ob15' src='./Images/obOpenM.png'>
+                <img id='ob16' src='./Images/obOpenM.png'>
+                <img id='ob17' src='./Images/obOpenM.png'>
+                <img id='ob18' src='./Images/obOpenTB.png'>
+                <img id='ob19' src='./Images/obOpenTB.png'>
+                <img id='ob20' src='./Images/obOpenTB.png'>
+                <img id='ob21' src='./Images/obOpenLR.png'>          
+                <img id='ob22' src='./Images/obOpenLR.png'>
+                <img id='ob23' src='./Images/obOpenRB.png'>
+                <img id='ob24' src='./Images/obOpenT.png'>
+                <img id='ob25' src='./Images/obOpenTLB.png'>
+                <img id='ob26' src='./Images/obOpenR.png'>
+                <img id='ob27' src='./Images/obOpenTB.png'>          
+                <img id='ob28' src='./Images/obOpenL.png'>
+                <img id='ob29' src='./Images/obOpenLR.png'>
+                <img id='ob30' src='./Images/obOpenLR.png'>
+                <img id='ob31' src='./Images/obOpenL.png'>
+                <img id='ob32' src='./Images/obOpenLR.png'>
+                <img id='ob33' src='./Images/obOpenT.png'>
+                <img id='ob34' src='./Images/obOpenLR.png'>
+                <img id='ob35' src='./Images/obOpenB.png'>
+                <img id='ob36' src='./Images/obOpenTB.png'>
+                <img id='ob37' src='./Images/obOpenTB.png'>
+
+                <!-- Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjS_P30ktPlAhWtzIUKHVFeBDEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fcoin&psig=AOvVaw1vFMOZ5HP_7MvB1L0VlGAk&ust=1573045934980901 -->
+                <img id='coin1' src='Images/coin.png'>
+                <img id='coin2' src='Images/coin.png'>
+                <img id='coin3' src='Images/coin.png'>
+                <img id='coin4' src='Images/coin.png'>
+                <img id='coin5' src='Images/coin.png'>
+                <img id='coin6' src='Images/coin.png'>
+                <img id='coin7' src='Images/coin.png'>
+                <img id='coin8' src='Images/coin.png'>
+                <img id='coin9' src='Images/coin.png'>
+                
+                <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
+                <img id='startImg' src='Images/start.png'> 
+            </div>
+            <div id="endGame">       
+                <img id='endGameImg' src='Images/gameover.png'> 
+                <div id="score">score</div> 
+            </div>
+        </div>
+
+        <!-- RIGHT AREA OF THE SCREEN -->
+        <div class="right"> 
+        </div>
+        
+        <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
+        <script src="jquery-3.4.1.min.js"></script>
+
+        <script type="text/javascript" src="game.js" language="JavaScript" ></script> 
+    </body>
+</html>
