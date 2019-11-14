@@ -9,16 +9,20 @@ var timer;
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
 //Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
-    timer = setInterval(countDown, 1000); 
-    var maxTime = 10; 
+    timer = setInterval(countDown, 1000); //calling the timer every second 
+    var maxTime = 60; 
 
     //This function takes the seconds away from the maximum time 
     function countDown() {
-        document.getElementById("timerID").innerHTML = --maxTime; 
+        document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
-            clearInterval(timer)
-            leaveGame(); 
-            alert("Game Over")
+            clearInterval(timer) //clearing the timer when it gets to 0 
+            killBall(); 
+        //    document.getElementById("gameArea").innerHTML= "images/gamever.png";
+            var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
+            var gameArea = $('#gameArea'); //creating a variable set to the game area 
+            egImg.show(); //Showing the game over image 
+            gameArea.hide(); //hiding the game area
         }
       }
     }
@@ -45,8 +49,7 @@ function screenHeightAlert(){
 
 //Function to call other function when the start button is clicked. 
 function startButtonClick(){
-    newGame(); 
-    clock(); 
+    newGame();  
 }
 
 /* 
@@ -89,8 +92,19 @@ $(document).ready(function () {
         return (n < 0 ? 0 : n > width ? width : n);
     } 
 
+    
+    var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
+
     // This function sets the new values of the ball. It is done when a button is pressed. 
     $(window).keydown(function(e) { 
+       // clock(); //uncomment for demo 
+        counter = counter + 1; //adding 1 to the counter
+        //the timer starts when the counter = 1 *the first button press*
+        //equal to 1 so it doesnt keep re starting with every button press 
+        if(counter == 1){
+            clock(); 
+        }
+     
         // The button pressed from the array is set to true. 
         keyPressed[e.which] = true; 
         // Update the left and top value of the ball in CSS. 

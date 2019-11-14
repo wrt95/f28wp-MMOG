@@ -13,8 +13,8 @@
         <div class='btn-group'>
             <button id="newGame" onClick="startButtonClick();">Start Game</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
-            <p id="timerID">60</p>
-            <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button>
+            <p id="timerID" >60</p>
+           <!-- <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button> -->
            <!-- <button onclick="clearInterval(timer);">Stop timer</button> -->
  
             <br><br> <!--Using this to get some space between the buttons and the body-->
@@ -38,7 +38,9 @@
         <div class="center">
             <!-- THE ARE WHERE THE GAME IS PLAYED -->
             <div id="gameArea">
-                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
+                    <div id="newDiv" class="here" style="display: none" > content</div>
+                    <div id="oldDiv" class="here" style="display: block"> content</div>
+                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
                 <img id='blueball' src="./Images/blueball.png">
         
                 <!-- UNNCOMMENT FOLLOWING FOR DISPLAYING REDBALL, GREENBALL AND YELLOWBALL--> 
@@ -104,6 +106,9 @@
                 
                 <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
                 <img id='startImg' src='Images/start.png'> 
+            </div>
+            <div id="endGame">       
+                <img id='endGameImg' src='Images/gameover.png'> 
             </div>
         </div>
 
