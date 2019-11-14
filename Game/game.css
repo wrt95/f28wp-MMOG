@@ -131,6 +131,11 @@ button:active {
 
 #endGame{
     display:none; 
+    position: absolute;
+    width: 600px;
+    height: 300px; 
+    left:26%; 
+    top:30%; 
 }
 
 /*      
