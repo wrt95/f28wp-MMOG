@@ -21,8 +21,6 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
             clearInterval(timer) //clearing the timer when it gets to 0 
-            killBall(); 
-        //    document.getElementById("gameArea").innerHTML= "images/gamever.png";
             var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
             var gameArea = $('#gameArea'); //creating a variable set to the game area 
             egImg.show(); //Showing the game over image 
