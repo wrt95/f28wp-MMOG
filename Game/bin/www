@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('generator:server');
 var http = require('http');
 
+var socket = require('socket.io');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -88,3 +90,9 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+var io = socket(server);
+
+io.on('connection', function(socket){
+  console.log('connected', socket.id)
+});
