@@ -33,7 +33,6 @@ function clock(){
     timerL = setInterval(countDownL, 1000); 
     var maxTimeL = 10;
     
-
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL;
         if(maxTimeL == 0){
@@ -77,7 +76,7 @@ $(document).ready(function () {
     // Set score initially to 0, and add it to the html.
     score = 0;
     $('#score').html(score);
-    lobbyClock(); 
+    lobbyClock(); //Starting the lobby clock when the screen is loaded 
 
     // Variables for 
     var gameArea = $('#gameArea'),
