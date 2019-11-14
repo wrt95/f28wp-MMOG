@@ -305,21 +305,26 @@ function killBall() {
     deadCounter++;
 }
 
-var colors = ["red","green","blue","yellow"];
-
 
 
 function deadColour () {
+    // Array of colours
+    var colors = ["red","green","blue","yellow", "orange", "purple", "lime"];
 
+    // Loop up through deadcounter. 
     for (var i = 0; i < deadCounter; i++) {
-      //   var tmp = dead;
-        var color = colors[Math.floor(Math.random()*colors.length)] // geting random color from array;
+
+        // make the colour to display. 
+        var color = colors[Math.floor(Math.random()*colors.length)] 
+
+        // create an element, and set the colour of it. 
         tmp = document.createElement("p");
         tmp.style.color = color;
 
-
+        // append it to the right area of the game. 
         $("#right").append(tmp);
     }
+    // Set the text.
     tmp.innerHTML = "YOU DIED!";
 }
 
