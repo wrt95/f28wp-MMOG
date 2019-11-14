@@ -170,10 +170,10 @@ var gameArray = [
                 [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
-                [1, 1, 1, 1, 0, 2, 0, 1, 0, 1],
-                [0, 0, 0, 1, 2, 1, 2, 1, 0, 1],     
-                [1, 1, 1, 1, 0, 2, 0, 1, 0, 1],
-                [2, 0, 0, 1, 1, 1, 1, 1, 1, 2],
+                [1, 1, 1, 1, 0, 0, 0, 1, 0, 1],
+                [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     
+                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [1, 0, 0, 1, 1, 1, 1, 1, 1, 2],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
                 [2, 0, 1, 2, 0, 1, 1, 2, 0, 2],
@@ -274,8 +274,8 @@ function killBall() {
 }
 
 // Array for all the coins
-var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'), $('#coin6'),$('#coin7'), 
-                 $('#coin8'), $('#coin9'), $('#coin10'), $('#coin11'), $('#coin12'), $('#coin13')]
+var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'),  
+                 $('#coin6'), $('#coin7'), $('#coin8'), $('#coin9')]
 
 var coin1 = $('#coin1'), 
     coin2 = $('#coin2'), 
@@ -285,11 +285,7 @@ var coin1 = $('#coin1'),
     coin6 = $('#coin6'), 
     coin7 = $('#coin7'), 
     coin8 = $('#coin8'), 
-    coin9 = $('#coin9'), 
-    coin10 = $('#coin10'), 
-    coin11 = $('#coin11'), 
-    coin12 = $('#coin12'), 
-    coin13 = $('#coin13');
+    coin9 = $('#coin9');
 
 var coinMap = { [[0][0]]: coin1,
                 [[0][7]]: coin2,
@@ -298,12 +294,8 @@ var coinMap = { [[0][0]]: coin1,
                 [[9][3]]: coin5,
                 [[9][9]]: coin6,
                 [[6][9]]: coin7,
-                [[6][0]]: coin8, 
-                [[3][5]]: coin9,
-                [[9][7]]: coin10,
-                [[5][5]]: coin11,
-                [[4][4]]: coin12,
-                [[4][6]]: coin13
+                [[4][5]]: coin8, 
+                [[9][7]]: coin9,
 }
 
 /* 
@@ -326,25 +318,7 @@ function removeCoin (y, x) {
 }
 
 
-/*
-function bringBack(y, x) {
-   /*tmp = [[y][x]];
-    Object.key(coinMap).forEach(i => {
-        if (coinMap.i === tmp) {
-            coinMap.i.show();
-            gameArray[y][x] = 2;
-        }
-    });*/
-/*
-    var tmp = [[y][x]];
 
-    $.each(coinMap, function (key, value) {
-        if (coinMap.key === tmp) {
-            coinMap.key.show();
-            gameArray[y][x] = 2;
-        }
-    });
-}*/
 
 // Function to bring the coins back
 function bringBackCoins(){
@@ -357,10 +331,6 @@ function bringBackCoins(){
     bringBack7();
     bringBack8();
     bringBack9();
-    bringBack10();
-    bringBack11();
-    bringBack12();
-    bringBack13();
 }
 
 // Below are 13 functions, one for each coin. 
@@ -396,27 +366,11 @@ function bringBack7 () {
 }
 function bringBack8 () {   
     coinArray[7].show();
-    gameArray[6][0] = 2;
+    gameArray[4][5] = 2;
 }
 function bringBack9 () {   
     coinArray[8].show();
-    gameArray[3][5] = 2;
-}
-function bringBack10 () {   
-    coinArray[9].show();
     gameArray[9][7] = 2;
-}
-function bringBack11 () {   
-    coinArray[10].show();
-    gameArray[5][5] = 2;
-}
-function bringBack12 () {   
-    coinArray[11].show();
-    gameArray[4][4] = 2;
-}
-function bringBack13 () {   
-    coinArray[12].show();
-    gameArray[4][6] = 2;
 }
 
 // function for new game
