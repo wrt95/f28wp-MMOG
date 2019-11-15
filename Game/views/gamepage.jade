@@ -1,0 +1,107 @@
+doctype html
+head
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  link(rel='stylesheet' href='stylesheets/game.css')
+  title CW F28WP Web Programming
+  h1
+    img(src='./Images/pagetitle.png')
+// BUTTON GROUP ABOVE GAME AREA
+.btn-group
+  button#newGame(onclick='startButtonClick();') Start Game
+  button#leaveGame(onclick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'") Leave Game
+  p#timerID 60
+  // <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button>
+  // <button onclick="clearInterval(timer);">Stop timer</button>
+  br
+  br
+  // Using this to get some space between the buttons and the body
+// LEFT AREA OF THE SCREEN
+#left
+  // TABLE TO STORE INFO FOR USER
+  table
+    tr#gameStartClock
+      td
+        h2 Game Start :
+      td#timerIDL 10
+    tr
+    td#userName
+      h2 USERNAME:
+    td#name
+    tr
+      td#userScore
+        h2 Score: 
+      td#score
+// CENTER AREA OF THE SCREEN
+#center
+  // THE ARE WHERE THE GAME IS PLAYED
+  #gameArea
+    #newDiv.here(style='display: none')  content
+    #oldDiv.here(style='display: block')  content
+    // Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609
+    img#blueball(src='./Images/blueball.png')
+    // UNNCOMMENT FOLLOWING FOR DISPLAYING REDBALL, GREENBALL AND YELLOWBALL
+    // Image for the opponents ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288
+    // <img id='redball' src="./Images/redball.png" id='redball'>
+    // <img id='redball' src="./Images/redball.png" id='redball'>
+    // Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567
+    // <img id='greenball' src="./Images/greenball.png">
+    // Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjKi-WMysblAhXODmMBHeF1BoYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pig333.com%2Fshop%2Fmanipulable-toys-material_529%2Ftoy-ball-for-pigs-yellow-30-cm_49%2F&psig=AOvVaw00JG6p6CXqxVlde8lo4xds&ust=1572614070722774
+    // <img id='yellowball' src="./Images/yellowball.png">
+    // Image for obstacles - image source: self-made
+    img#ob1(src='./Images/obOpenRB.png')
+    img#ob2(src='./Images/obOpenTB.png')
+    img#ob3(src='./Images/obOpenT.png')
+    img#ob4(src='./Images/obOpenTB.png')
+    img#ob5(src='./Images/obOpenLR.png')
+    img#ob6(src='./Images/obOpenB.png')
+    img#ob7(src='./Images/obOpenLR.png')
+    img#ob8(src='./Images/obOpenTB.png')
+    img#ob9(src='./Images/obOpenTB.png')
+    img#ob10(src='./Images/obOpenTLB.png')
+    img#ob11(src='./Images/obOpenR.png')
+    img#ob12(src='./Images/obOpenT.png')
+    img#ob13(src='./Images/obOpenLB.png')
+    img#ob14(src='./Images/obOpenM.png')
+    img#ob15(src='./Images/obOpenM.png')
+    img#ob16(src='./Images/obOpenM.png')
+    img#ob17(src='./Images/obOpenM.png')
+    img#ob18(src='./Images/obOpenTB.png')
+    img#ob19(src='./Images/obOpenTB.png')
+    img#ob20(src='./Images/obOpenTB.png')
+    img#ob21(src='./Images/obOpenLR.png')
+    img#ob22(src='./Images/obOpenLR.png')
+    img#ob23(src='./Images/obOpenRB.png')
+    img#ob24(src='./Images/obOpenT.png')
+    img#ob25(src='./Images/obOpenTLB.png')
+    img#ob26(src='./Images/obOpenR.png')
+    img#ob27(src='./Images/obOpenTB.png')
+    img#ob28(src='./Images/obOpenL.png')
+    img#ob29(src='./Images/obOpenLR.png')
+    img#ob30(src='./Images/obOpenLR.png')
+    img#ob31(src='./Images/obOpenL.png')
+    img#ob32(src='./Images/obOpenLR.png')
+    img#ob33(src='./Images/obOpenT.png')
+    img#ob34(src='./Images/obOpenLR.png')
+    img#ob35(src='./Images/obOpenB.png')
+    img#ob36(src='./Images/obOpenTB.png')
+    img#ob37(src='./Images/obOpenTB.png')
+    // Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6o6jg9-nlAhVBAmMBHZKJD8oQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fgiphy.com%252Fstickers%252Fspinning-ZUdFkBdpw3Tvq%26psig%3DAOvVaw1WTDipYYGTKSTZD5HZGSrw%26ust%3D1573828696886160&psig=AOvVaw1WTDipYYGTKSTZD5HZGSrw&ust=1573828696886160
+    img#coin1(src='Images/coin.gif')
+    img#coin2(src='Images/coin.gif')
+    img#coin3(src='Images/coin.gif')
+    img#coin4(src='Images/coin.gif')
+    img#coin5(src='Images/coin.gif')
+    img#coin6(src='Images/coin.gif')
+    img#coin7(src='Images/coin.gif')
+    img#coin8(src='Images/coin.gif')
+    img#coin9(src='Images/coin.gif')
+    // Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641
+    img#startImg(src='Images/start.png')
+  #endGame
+    img#endGameImg(src='Images/gameover.png')
+    #score score
+// RIGHT AREA OF THE SCREEN
+#right
+// This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code.
+script(src='jquery-3.4.1.min.js')
+script(type='text/javascript' src='javascripts/game.js' language='JavaScript')

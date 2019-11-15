@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="game.css"> 
         <title>CW F28WP Web Programming</title>
         
-        <h1><img src="images/pagetitle.png"/></h1>
+        <h1><img src="./Images/pagetitle.png"/></h1>
     </head>
 
     <body>
@@ -14,28 +14,35 @@
             <button id="newGame" onClick="startButtonClick();">Start Game</button>
             <button id="leaveGame" onClick="window.location.href='file:///C:/Users/Callum%20Forsyth/Github%20Repository/Game/f28wp-MMOG/Game/homepage.html'" >Leave Game</button>
             <p id="timerID" >60</p>
+            
            <!-- <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button> -->
            <!-- <button onclick="clearInterval(timer);">Stop timer</button> -->
  
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
         <!-- LEFT AREA OF THE SCREEN -->
-        <div class="left">
+        <div id="left">
             <!-- TABLE TO STORE INFO FOR USER -->
             <table>   
-                <tr> 
-                    <td id="userName">USERNAME: </td>
+                <tr id ="gameStartClock">
+                    <td><h2>Game Start :</h2> </td>
+                    <td id="timerIDL" >10</td>
+                </tr> 
+                <tr>
+
+                </tr>
+                    <td id="userName"><h2>USERNAME:</h2> </td>
                     <td id="name"></td>
                 </tr>
                 <tr>
-                    <td id="userScore">Score: </td>
+                    <td id="userScore"> <h2>Score: </h2></td>
                     <td id="score"></td>
                 </tr>
             </table>
         </div>
 
         <!-- CENTER AREA OF THE SCREEN -->
-        <div class="center">
+        <div id="center">
             <!-- THE ARE WHERE THE GAME IS PLAYED -->
             <div id="gameArea">
                     <div id="newDiv" class="here" style="display: none" > content</div>
@@ -93,27 +100,28 @@
                 <img id='ob36' src='./Images/obOpenTB.png'>
                 <img id='ob37' src='./Images/obOpenTB.png'>
 
-                <!-- Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjS_P30ktPlAhWtzIUKHVFeBDEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fcoin&psig=AOvVaw1vFMOZ5HP_7MvB1L0VlGAk&ust=1573045934980901 -->
-                <img id='coin1' src='Images/coin.png'>
-                <img id='coin2' src='Images/coin.png'>
-                <img id='coin3' src='Images/coin.png'>
-                <img id='coin4' src='Images/coin.png'>
-                <img id='coin5' src='Images/coin.png'>
-                <img id='coin6' src='Images/coin.png'>
-                <img id='coin7' src='Images/coin.png'>
-                <img id='coin8' src='Images/coin.png'>
-                <img id='coin9' src='Images/coin.png'>
+                <!-- Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6o6jg9-nlAhVBAmMBHZKJD8oQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fgiphy.com%252Fstickers%252Fspinning-ZUdFkBdpw3Tvq%26psig%3DAOvVaw1WTDipYYGTKSTZD5HZGSrw%26ust%3D1573828696886160&psig=AOvVaw1WTDipYYGTKSTZD5HZGSrw&ust=1573828696886160 -->
+                <img id='coin1' src='Images/coin.gif'>
+                <img id='coin2' src='Images/coin.gif'>
+                <img id='coin3' src='Images/coin.gif'>
+                <img id='coin4' src='Images/coin.gif'>
+                <img id='coin5' src='Images/coin.gif'>
+                <img id='coin6' src='Images/coin.gif'>
+                <img id='coin7' src='Images/coin.gif'>
+                <img id='coin8' src='Images/coin.gif'>
+                <img id='coin9' src='Images/coin.gif'>
                 
                 <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
                 <img id='startImg' src='Images/start.png'> 
             </div>
             <div id="endGame">       
                 <img id='endGameImg' src='Images/gameover.png'> 
+                <div id="score">score</div> 
             </div>
         </div>
 
         <!-- RIGHT AREA OF THE SCREEN -->
-        <div class="right"> 
+        <div id="right"> 
         </div>
         
         <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
