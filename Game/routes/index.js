@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index.jade');
 });
 
-router.get('/', function(req, res, next) {
+router.get('/gamepage', function(req, res, next) {
   res.render('gamepage');
 });
 
