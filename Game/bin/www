@@ -109,10 +109,15 @@ var con = mysql.createConnection({
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var UsrScore = "SELECT Users.USERNAME AS Username, SCORES.score AS Score FROM Users JOIN SCORES ON SCORES.USER_ID = Users.USER_ID ORDER BY Score DESC";
+    var UsrScore = "SELECT Users.USERNAME AS Username, SCORES.score AS Score FROM Users JOIN SCORES ON Users.USER_ID = SCORES.USER_ID ORDER BY Score DESC";
+    var LdrBrd = "SELECT Users.USERNAME AS Username, SCORES.HIGHSCORE AS HighScore, SCORES.GAMES_PLAYED FROM Users JOIN SCORES ON Users.USER_ID = SCORES.USER_ID ORDER BY HIGHSCORE DESC LIMIT 5"
     var CnVis = "SELECT Coin.VISIBLE AS Visible, Coin.COIN_ID AS CoinNum, Coin_pos.XCOORD AS X, Coin_pos.YCOORD AS Y FROM Coin JOIN Coin_pos ON Coin.COIN_ID = Coin_pos.COIN_ID WHERE Coin.VISIBLE = 1"
     var CnInvis = "SELECT Coin.VISIBLE AS Visible, Coin.COIN_ID AS CoinNum, Coin_pos.XCOORD AS X, Coin_pos.YCOORD AS Y FROM Coin JOIN Coin_pos ON Coin.COIN_ID = Coin_pos.COIN_ID WHERE Coin.VISIBLE = 0"
     con.query(UsrScore, function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+    });
+    con.query(LdrBrd, function (err, result, fields) {
       if (err) throw err;
       console.log(result);
     });
