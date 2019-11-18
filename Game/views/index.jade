@@ -24,38 +24,15 @@ body
             h3 Score
           th 
             h3 Games Played
-          th
-        tr
-          td(align='center')
-          td
-            h3 CF51
-          td
-            h3 1098
-          td
-            h3 3
-        tr
-          td(align='center')
-          td
-            h3 WRT1
-          td
-            h3 598
-          td
-            h3 1
-        tr
-          td(align='center')
-          td
-            h3 AGM6
-          td
-            h3 1588
-          td
-            h3 7
-        tr
-          td(align='center')
-          td
-            h3 PTR3
-          td
-            h3 4589
-          td 
-            h3 9
+          th  
+        each player in locals.ld
+          tr
+            td(align='center')
+            td
+              h3 #{player.Username}
+            td
+              h3 #{player.Highscore}
+            td
+              h3 #{player.Games_Played}
 
   script(src='javascripts/socket.js')
