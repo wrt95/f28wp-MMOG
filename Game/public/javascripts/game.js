@@ -89,75 +89,77 @@ $(document).ready(function () {
     $('#score').html(score);
     lobbyClock(); //Starting the lobby clock when the screen is loaded 
 
-    // Variables for 
-    var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
-    //  widthGreen = gameArea.width() - greenball.width(),    // width:        The maximal left/top value for gameArea
+    collisionDetection();
 
-        keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
-        speed = 10;                                     // speed:       The distance moved per intervall, in px
-
-
-
-
-
-    /* 
-    This function calculates the new top and left values based on
-    the oldValue and the keyPressed. It basiclly updates the new position of the ball based on the
-    key that is pressed. We have two values, key1 and key2, so the ball can move diagonally.
-    */
-    function newTopLeft(oldValue,key1,key2) {
-        // creating a variable, setting it to the 
-        // using parse int to convert the String String oldValue, with base 10, MINUS
-        // keypressed of key1 (if the key pressed is in the array, return the speed, else return 0) PLUS
-        // keypressed of key2 (if the key pressed is in the array, return the speed, else return 0)
-        // The reason for having to keys is to be able to move diagonally. 
-        var n = parseInt(oldValue, 10) - (keyPressed[key1] ? speed : 0) + (keyPressed[key2] ? speed : 0);
-        
-        // This expression ensures that the new value is in the permitted bounds.
-        // if n is less than 0 return 0, 
-        // else if n greater than the width, return the width, 
-        // else return n
-        return (n < 0 ? 0 : n > width ? width : n);
-    } 
-
-    
-    var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
-
-    // This function sets the new values of the ball. It is done when a button is pressed. 
-    $(window).keydown(function(e) { 
-       // clock(); //uncomment for demo 
-        counter = counter + 1; //adding 1 to the counter
-        //the timer starts when the counter = 1 *the first button press*
-        //equal to 1 so it doesnt keep re starting with every button press 
-        if(counter == 1){
-            clock(); 
-        }
-     
-        // The button pressed from the array is set to true. 
-        keyPressed[e.which] = true; 
-        // Update the left and top value of the ball in CSS. 
-        blueball.css({
-            left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); }, // left arrow  = left,     right arrow = right
-            top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }   // up arrow    = up,       down arrow  = down
-        });
-
- /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
-        greenball.css({
-            left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); }, // j = left, l = right
-            top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); } // i = up, k = down
-        });
- */
-
-        // Call track ball to get the position in the grid. 
-        trackBall();
-    }); 
-
-    // This function changed the buttons value to false.
-    $(window).keyup(function(e) { 
-        // if the key is released, it´s not in use, set to false
-        keyPressed[e.which] = false;    
-    });  
+   
 });
+
+function collisionDetection() {
+     // Variables for 
+     var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
+     //  widthGreen = gameArea.width() - greenball.width(),    // width:        The maximal left/top value for gameArea
+ 
+         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
+         speed = 10;                                     // speed:       The distance moved per intervall, in px
+
+     /* 
+     This function calculates the new top and left values based on
+     the oldValue and the keyPressed. It basiclly updates the new position of the ball based on the
+     key that is pressed. We have two values, key1 and key2, so the ball can move diagonally.
+     */
+     function newTopLeft(oldValue,key1,key2) {
+         // creating a variable, setting it to the 
+         // using parse int to convert the String String oldValue, with base 10, MINUS
+         // keypressed of key1 (if the key pressed is in the array, return the speed, else return 0) PLUS
+         // keypressed of key2 (if the key pressed is in the array, return the speed, else return 0)
+         // The reason for having to keys is to be able to move diagonally. 
+         var n = parseInt(oldValue, 10) - (keyPressed[key1] ? speed : 0) + (keyPressed[key2] ? speed : 0);
+         
+         // This expression ensures that the new value is in the permitted bounds.
+         // if n is less than 0 return 0, 
+         // else if n greater than the width, return the width, 
+         // else return n
+         return (n < 0 ? 0 : n > width ? width : n);
+     } 
+ 
+     
+     var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
+ 
+     // This function sets the new values of the ball. It is done when a button is pressed. 
+     $(window).keydown(function(e) { 
+        // clock(); //uncomment for demo 
+         counter = counter + 1; //adding 1 to the counter
+         //the timer starts when the counter = 1 *the first button press*
+         //equal to 1 so it doesnt keep re starting with every button press 
+         if(counter == 1){
+             clock(); 
+         }
+      
+         // The button pressed from the array is set to true. 
+         keyPressed[e.which] = true; 
+         // Update the left and top value of the ball in CSS. 
+         blueball.css({
+             left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); }, // left arrow  = left,     right arrow = right
+             top: function(i,oldValue) { return newTopLeft(oldValue, 38, 40); }   // up arrow    = up,       down arrow  = down
+         });
+ 
+  /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
+         greenball.css({
+             left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); }, // j = left, l = right
+             top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); } // i = up, k = down
+         });
+  */
+ 
+         // Call track ball to get the position in the grid. 
+         trackBall();
+     }); 
+ 
+     // This function changed the buttons value to false.
+     $(window).keyup(function(e) { 
+         // if the key is released, it´s not in use, set to false
+         keyPressed[e.which] = false;    
+     });  
+}
 
 
 /* 
@@ -446,9 +448,4 @@ function bringBack9 () {
 function newGame() {
     window.location.reload();
 }
-
-// function to leave game
-/* function leaveGame(gameArea) {
-    document.getElementById(gameArea).innerHTML= "Thanks for playing!";
-}*/
 
