@@ -97,6 +97,10 @@ $(document).ready(function () {
         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
         speed = 10;                                     // speed:       The distance moved per intervall, in px
 
+
+
+
+
     /* 
     This function calculates the new top and left values based on
     the oldValue and the keyPressed. It basiclly updates the new position of the ball based on the
@@ -359,6 +363,38 @@ function removeCoin (y, x) {
     $('#score').html(score);  
 }
 
+/*
+function moveSquare () {
+
+    var ob14 = $('#ob14'), 
+        ob15 = $('#ob15'),
+        ob16 = $('#ob16'),
+        ob17 = $('#ob17');
+
+    ob14.css({
+        left: '40%', 
+        top: '40%'  
+    })
+}
+
+function moveSquareBack () {
+
+    var ob14 = $('#ob14'), 
+        ob15 = $('#ob15'),
+        ob16 = $('#ob16'),
+        ob17 = $('#ob17');
+
+    ob14.css({
+        left: '40%', 
+        top: '30%'  
+    })
+}
+
+
+setInterval(function() {
+    moveSquare();
+}, 3000);
+*/
 
 
 
