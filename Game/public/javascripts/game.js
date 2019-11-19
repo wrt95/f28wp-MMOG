@@ -46,11 +46,11 @@ function lobbyClock(){
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL;
         if(maxTimeL == 0){
-        //  function gameLobby(); 
-        clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
+            //  function gameLobby(); 
+            clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
 
-        collisionDetection();
-            
+            // When count down hits 0, enable the functionality
+            gameFunctionality();  
         }
     }
 }
@@ -90,13 +90,9 @@ $(document).ready(function () {
     score = 0;
     $('#score').html(score);
     lobbyClock(); //Starting the lobby clock when the screen is loaded 
-
-   // collisionDetection();
-
-   
 });
 
-function collisionDetection() {
+function gameFunctionality() {
      // Variables for 
      var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
      //  widthGreen = gameArea.width() - greenball.width(),    // width:        The maximal left/top value for gameArea
