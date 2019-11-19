@@ -1,8 +1,12 @@
-// Variable for the score
-var score = 0;
 
-// Variable for the blue ball
-blueball = $('#blueball');
+
+var gameArea = $('#gameArea');          // variable for the game area
+var score = 0;                          // Variable for the score
+
+var blueball = $('#blueball');          // Variable for the blue ball
+// var redball = $('#redball');            // Variable for the blue ball
+// var greenball = $('#greenball');        // Variable for the blue ball
+// var yellowball = $('#yllowball');       // Variable for the blue ball
 
 //timer function 
 var timer; 
@@ -22,7 +26,6 @@ function clock(){
         if(maxTime == 0 ){
             clearInterval(timer) //clearing the timer when it gets to 0 
             var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
-            var gameArea = $('#gameArea'); //creating a variable set to the game area 
             egImg.show(); //Showing the game over image 
             gameArea.hide(); //hiding the game area
 
@@ -90,13 +93,7 @@ $(document).ready(function () {
     lobbyClock(); //Starting the lobby clock when the screen is loaded 
 
     // Variables for 
-    var gameArea = $('#gameArea'),
-       
-       // redball = $('#redball'),              UNNCOMMENT FOR REDBALL
-       // greenball = $('#greenball'),          UNNCOMMENT FOR GREENBALL
-       // yellowball = $('#yellowball'),        UNNCOMMENT FOR YELLOWBALL
-
-        width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
+    var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
         speed = 10;                                     // speed:       The distance moved per intervall, in px
 
@@ -278,7 +275,6 @@ function trackBall() {
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
-
     }
 
     // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
@@ -342,16 +338,7 @@ var coin1 = $('#coin1'),
     coin8 = $('#coin8'), 
     coin9 = $('#coin9');
 
-var coinMap = { [[0][0]]: coin1,
-                [[0][7]]: coin2,
-                [[2][0]]: coin3,
-                [[9][0]]: coin4,
-                [[9][3]]: coin5,
-                [[9][9]]: coin6,
-                [[6][9]]: coin7,
-                [[4][5]]: coin8, 
-                [[9][7]]: coin9,
-}
+
 
 /* 
 This function removes the coin and increments the score of the user. 
@@ -434,7 +421,7 @@ function newGame() {
 }
 
 // function to leave game
-function leaveGame(gameArea) {
+/* function leaveGame(gameArea) {
     document.getElementById(gameArea).innerHTML= "Thanks for playing!";
-}
+}*/
 
