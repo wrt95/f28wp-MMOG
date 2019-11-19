@@ -43,6 +43,10 @@ table {
     margin-top: 12%;
 }
 
+.timerID{
+    color: royalblue;
+    background-color: royalblue;
+}
 
 /*  --- THE BUTTONS ---  */
 /* The group of buttons */
@@ -51,11 +55,6 @@ table {
     cursor: pointer;
     text-align: center;
     float: center;
-}
-
-.timerID{
-    color: royalblue;
-    background-color: royalblue;
 }
 
 /* Creating a border around all buttons in the group. */
