@@ -97,8 +97,8 @@ button:active {
     left: 93%;
     top: 2.5%;
     z-index: 1;
-    width: 4%; /*2.5%;*/
-    height: 4%; /*6.25%;*/
+    width: 4%; 
+    height: 4%; 
 }
 
 /*
