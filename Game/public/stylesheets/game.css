@@ -75,18 +75,19 @@ button:active {
 }
 
 #timerIDL{
-    color:red;
     font-size: 50px;
 }
 
 #timerID {
-    color:red;
     font-size: 50px;
 }
 
 #score {
-    color:red;
     font-size: 50px;
+}
+
+#gameTimeLeft {
+    display: none;
 }
 
 

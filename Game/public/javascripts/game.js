@@ -53,7 +53,8 @@ function lobbyClock(){
             gameFunctionality();
             
             $('#gameStartClock').hide();
-            
+            $('#gameTimeLeft').show();
+
             clock();
 
         }
