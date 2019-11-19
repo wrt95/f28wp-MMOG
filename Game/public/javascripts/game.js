@@ -203,7 +203,7 @@ var gameArray = [
                 [1, 0, 0, 1, 1, 1, 1, 1, 1, 2],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
-                [2, 0, 1, 2, 0, 1, 1, 2, 0, 2],
+                [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
                 
 /* 
@@ -328,7 +328,7 @@ function deadColour () {
 
 // Array for all the coins
 var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'),  
-                 $('#coin6'), $('#coin7'), $('#coin8'), $('#coin9')]
+                 $('#coin6'), $('#coin7'), $('#coin8')]
 
 var coin1 = $('#coin1'), 
     coin2 = $('#coin2'), 
@@ -337,8 +337,7 @@ var coin1 = $('#coin1'),
     coin5 = $('#coin5'), 
     coin6 = $('#coin6'), 
     coin7 = $('#coin7'), 
-    coin8 = $('#coin8'), 
-    coin9 = $('#coin9');
+    coin8 = $('#coin8');
 
 
 
@@ -443,10 +442,6 @@ function bringBack7 () {
 function bringBack8 () {   
     coinArray[7].show();
     gameArray[4][5] = 2;
-}
-function bringBack9 () {   
-    coinArray[8].show();
-    gameArray[9][7] = 2;
 }
 
 // function for new game
