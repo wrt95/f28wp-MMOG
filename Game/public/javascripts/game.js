@@ -52,11 +52,12 @@ function lobbyClock(){
             // When count down hits 0, enable the functionality
             gameFunctionality();
             
+            // hide the count down timer, show the game left timer
             $('#gameStartClock').hide();
             $('#gameTimeLeft').show();
 
+            // Call the function to count down the timer. 
             clock();
-
         }
     }
 }
