@@ -4,9 +4,7 @@ var gameArea = $('#gameArea');          // variable for the game area
 var score = 0;                          // Variable for the score
 
 var blueball = $('#blueball');          // Variable for the blue ball
-// var redball = $('#redball');            // Variable for the blue ball
 // var greenball = $('#greenball');        // Variable for the blue ball
-// var yellowball = $('#yllowball');       // Variable for the blue ball
 
 //timer function 
 var timer; 
@@ -32,7 +30,6 @@ function clock(){
 
             // Delete what is stored in right
             $('#right').hide();
-
         }
       }
     }
@@ -94,6 +91,8 @@ $(document).ready(function () {
 
     // Variables for 
     var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
+    //  widthGreen = gameArea.width() - greenball.width(),    // width:        The maximal left/top value for gameArea
+
         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
         speed = 10;                                     // speed:       The distance moved per intervall, in px
 
@@ -143,17 +142,9 @@ $(document).ready(function () {
         });
 
  /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
-        redball.css({
-            left: function(i,oldValue) { return newTopLeft(oldValue, 65, 68); }, // a = left, d = right
-            top: function(i,oldValue) { return newTopLeft(oldValue, 87, 83); } // w = up, s = down
-        });
         greenball.css({
             left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); }, // j = left, l = right
             top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); } // i = up, k = down
-        });
-        yellowball.css({
-            left: function(i,oldValue) { return newTopLeft(oldValue, 70, 72); }, // f = left, h = right
-            top: function(i,oldValue) { return newTopLeft(oldValue, 84, 71); } // t = up, g = down
         });
  */
 
