@@ -48,6 +48,8 @@ function lobbyClock(){
         if(maxTimeL == 0){
         //  function gameLobby(); 
         clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
+
+        collisionDetection();
             
         }
     }
@@ -89,7 +91,7 @@ $(document).ready(function () {
     $('#score').html(score);
     lobbyClock(); //Starting the lobby clock when the screen is loaded 
 
-    collisionDetection();
+   // collisionDetection();
 
    
 });
