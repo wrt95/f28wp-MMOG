@@ -83,13 +83,6 @@ button:active {
 
 /*  --- THE BALLS ---  */
 /*
-#redball {
-    position: absolute;
-    left: 95%;
-    top: 1%;
-    width: 4%;              // UNNCOMMENT FOR REDBALL
-    height: 4%; 
-}*/
 
 /* Users ball */
 #blueball {
@@ -102,20 +95,11 @@ button:active {
 }
 
 /*
-#yellowball {
-    position: absolute;
-    left: 95%;
-    top: 1%;           // UNNCOMMENT FOR YELLOWBALL
-    width: 4%;
-    height: 4%; 
-}
-*/
-
-/*
 #greenball {
     position: absolute;
-    left: 95%;
-    top: 1%;           // UNNCOMMENT FOR GREENBALL
+    left: 93%;
+    top: 2.5%;
+    z-index: 1;           // UNNCOMMENT FOR GREENBALL
     width: 4%; 
     height: 4%;
 }
