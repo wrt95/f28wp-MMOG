@@ -79,6 +79,15 @@ button:active {
     font-size: 50px;
 }
 
+#timerID {
+    color:red;
+    font-size: 50px;
+}
+
+#score {
+    color:red;
+    font-size: 50px;
+}
 
 
 /*  --- THE BALLS ---  */

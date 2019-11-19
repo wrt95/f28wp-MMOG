@@ -50,7 +50,12 @@ function lobbyClock(){
             clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
 
             // When count down hits 0, enable the functionality
-            gameFunctionality();  
+            gameFunctionality();
+            
+            $('#gameStartClock').hide();
+            
+            clock();
+
         }
     }
 }
@@ -126,12 +131,12 @@ function gameFunctionality() {
      // This function sets the new values of the ball. It is done when a button is pressed. 
      $(window).keydown(function(e) { 
         // clock(); //uncomment for demo 
-         counter = counter + 1; //adding 1 to the counter
+    //     counter = counter + 1; //adding 1 to the counter
          //the timer starts when the counter = 1 *the first button press*
          //equal to 1 so it doesnt keep re starting with every button press 
-         if(counter == 1){
-             clock(); 
-         }
+    //     if(counter == 1){
+    //         clock(); 
+    //     }
       
          // The button pressed from the array is set to true. 
          keyPressed[e.which] = true; 
