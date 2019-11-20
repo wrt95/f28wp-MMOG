@@ -179,24 +179,23 @@ function gameFunctionality() {
 
 
 /* 
- * This function prevents the screen to move up and down if the arrows are pressed. 
-*/
+ *  This function prevents the screen to move up and down if the arrows are pressed. 
+ *  It uses an array with the arrow keys to check if it is pressed. 
+ */
 $(window).keydown(function(e) {
-    // Creating an array for the keys. 
     var keyArray=new Array(37,38,39,40);
-    // assign the key pressed to key. 
-     var key = e.which;
-      // if the key pressed is not in the array, prevent default, and return false. 
-      if($.inArray(key,keyArray) != -1) {
-          e.preventDefault();
-          return false;
-      }
-      // if the key is in the array, return true. 
-      return true;
+    var key = e.which;
+    // If the key pressed is not in the array, prevent default, and return false. 
+    if($.inArray(key,keyArray) != -1) {
+        e.preventDefault();
+        return false;
+    }
+    // If the key is in the array, return true. 
+    return true;
 });
 
 
-// --- THE MAP ---
+/* --- THE MAP --- */
 
 // Variables for the different objects. 
 var obstacle = 0,   
@@ -216,11 +215,14 @@ var gameArray = [
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
                 [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
+
+// Variable to count number of deaths. 
+var deadCounter = 0;
                 
 /* 
-This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area. 
-It gets all the corners, and based on where it is positioned, it either kills the ball, or removes a coin / increment score. 
-*/
+ *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area. 
+ *  It gets all the corners, and based on where it is positioned, it either kills the ball, or removes a coin / increment score. 
+ */
 function trackBall() {
                                                                                         // --- THE LEFT TOP CORNER ---
     var leftTopX = Math.floor((blueball.position().left) / 60);                         // LeftTopX is the left postion divided by 60 (600px for gameArea, 10 squares)
@@ -237,67 +239,49 @@ function trackBall() {
                                                                                         // --- THE RIGHT BOTTOM CORNER ---
                                                                                         // rightBottomY is leftBottomY (on same Y position.)
                                                                                         // rightBottomX is rightTopX   (on same X position.) 
-// Following is used for debugging to track the grid position of the ball:
+    // Following is used for debugging to track the grid position of the ball:
     console.log(leftTopX, leftTopY);
 
-    // if top left corner is 2, remove the coin
+    // If top left corner is 2, remove the coin. Bring back after 10 seconds. 
     if (gameArray[leftTopY][leftTopX] === 2) {
         removeCoin(leftTopY, leftTopX);
-
-       // var coinX = leftTopX;
-       // var coinY = leftTopY;
-
-        // after 10 seconds, bring the coins back
         setTimeout(function() {
            bringBackCoins();
         }, 10000);
     }
-    // if top right corner is 2, remove the coin
+    // If top right corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftTopY][rightTopX] === 2) {
         removeCoin(leftTopY, rightTopX);
-
-       // var coinX = leftTopX;
-       // var coinY = leftTopY;
-
-        // after 10 seconds, bring the coins back
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
 
     }
-    // if bottom left corner is 2, remove the coin
+    // If bottom left corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftBottomY][leftTopX] === 2) {
         removeCoin(leftBottomY, leftTopX);
-
-       // var coinX = leftTopX;
-       // var coinY = leftTopY;
-
-        // after 10 seconds, bring the coins back
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
     }
-    // if bottom right corner is 2, remove the coin
+    // If bottom right corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftBottomY][rightTopX] === 2) {
         removeCoin(leftBottomY, rightTopX);
-
-       // var coinX = leftTopX;
-       // var coinY = leftTopY;
- 
-        // after 10 seconds, bring the coins back
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
     }
 
-    // if top left corner or top right corner or bottom left corner or bottom right corner is 0, kill the ball.
+    // If one of the corners is 0, kill the ball. Update the screen with the deadColour function. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
-        deadColour();
-        
+        // id deadColour is displayed more 18 times, stop creating more of it. 
+        if (deadCounter <= 18) {
+            deadColour();     
+        }
     }
 }
-var deadCounter = 0;
+
 
 /*
 This function "kills" the ball. 
@@ -313,6 +297,8 @@ function killBall() {
     });
     deadCounter++;
 }
+
+
 
 
 
