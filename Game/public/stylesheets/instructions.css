@@ -1,17 +1,16 @@
 body {
     margin: 100px;
-    padding: 10px;
+ /*   padding: 10px; */
     background-color: black; 
 }
 
-/* Centering the 'Shape escape' and 'scoreboard' images */ 
 img{
     position: absolute;
     padding-left: 9%; 
     top:4%;
     width: 65%; 
-    height: 15%; 
-  }
+    height: 15%;
+}
 
 .button{
     background-color: red; 
@@ -21,7 +20,7 @@ img{
     font-weight: bold; 
     text-align: center;  
 }
-/* Making the button appear blue when they are hovered over*/
+/* Making the button appear blue when hovered over */
 .button:hover{
     background-color: blue; 
 }
