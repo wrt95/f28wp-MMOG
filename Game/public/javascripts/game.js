@@ -197,12 +197,12 @@ $(window).keydown(function(e) {
 
 /* --- THE MAP --- */
 
-// Variables for the different objects. 
-var obstacle = 0,   
-    free = 1,       
-    coin = 2;      
-
-// 2D array representing the game. 
+/* 
+ *  2D array to represent the game area. 
+ *  0 = obstacle
+ *  1 = free position
+ *  2 = coin
+ */
 var gameArray = [
                 [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
@@ -216,8 +216,21 @@ var gameArray = [
                 [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
 
-// Variable to count number of deaths. 
-var deadCounter = 0;
+
+var deadCounter = 0,        // Variable to count number of deaths. 
+    coin1 = $('#coin1'),    // Variable for coin 1
+    coin2 = $('#coin2'),    // Variable for coin 2
+    coin3 = $('#coin3'),    // Variable for coin 3
+    coin4 = $('#coin4'),    // Variable for coin 4
+    coin5 = $('#coin5'),    // Variable for coin 5
+    coin6 = $('#coin6'),    // Variable for coin 6
+    coin7 = $('#coin7'),    // Variable for coin 7
+    coin8 = $('#coin8');    // Variable for coin 8
+
+
+// Array for all the coins
+var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8];  
+
                 
 /* 
  *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area. 
@@ -275,7 +288,7 @@ function trackBall() {
     // If one of the corners is 0, kill the ball. Update the screen with the deadColour function. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
-        // id deadColour is displayed more 18 times, stop creating more of it. 
+        // If deadColour is displayed more 18 times, stop creating more of it. 
         if (deadCounter <= 18) {
             deadColour();     
         }
@@ -284,9 +297,9 @@ function trackBall() {
 
 
 /*
-This function "kills" the ball. 
-It changes the users score to 0, and sends the user back to start position. 
-*/
+ *  This function "kills" the ball if the ball collide with an obstacle. 
+ *  It changes the users score to 0, and sends the user back to start position. 
+ */
 function killBall() {
     score = 0;
     $('#score').html(score);
@@ -298,101 +311,50 @@ function killBall() {
     deadCounter++;
 }
 
-
-
-
-
+/*
+ *  This function creates a new <p> element that prints "YOU DIED!" in the right area of the screen 
+ *  if the user dies. The colours are randomly choosen from an array of colours. The function loops
+ *  up to the deadCounter, so it prints every time the user dies. 
+ */
 function deadColour () {
-    // Array of colours
-    var colors = ["red","green","blue","yellow", "orange", "purple", "lime"];
-
-    // Loop up through deadcounter. 
+    var colors = ["red","green","blue","yellow", "orange", "purple", "lime"];      // Array of colours
+ 
     for (var i = 0; i < deadCounter; i++) {
-
-        // make the colour to display. 
-        var color = colors[Math.floor(Math.random()*colors.length)] 
-
-        // create an element, and set the colour of it. 
-        tmp = document.createElement("p");
+        var color = colors[Math.floor(Math.random()*colors.length)];    // Variable for colour to display. 
+        tmp = document.createElement("p");                              // Create a <p> element, and set the colour of it. 
         tmp.style.color = color;
-
-        // append it to the right area of the game. 
-        $("#right").append(tmp);
+        $("#right").append(tmp);                                        // Append the <p> to the right area of the game. 
     }
-    // Set the text.
-    tmp.innerHTML = "YOU DIED!";
+    tmp.innerHTML = "YOU DIED!";    // Set the text.
 }
-
-// Array for all the coins
-var coinArray = [$('#coin1'), $('#coin2'), $('#coin3'), $('#coin4'), $('#coin5'),  
-                 $('#coin6'), $('#coin7'), $('#coin8')]
-
-var coin1 = $('#coin1'), 
-    coin2 = $('#coin2'), 
-    coin3 = $('#coin3'), 
-    coin4 = $('#coin4'), 
-    coin5 = $('#coin5'), 
-    coin6 = $('#coin6'), 
-    coin7 = $('#coin7'), 
-    coin8 = $('#coin8');
-
 
 
 /* 
-This function removes the coin and increments the score of the user. 
+ *  This function removes the coin and increments the score of the user. 
+ *  It takes two arguments, y and x, to represent the positon of the coin. 
+ *  y is which row, x is which column.
 */
 function removeCoin (y, x) {
     // Looping through the array. Create X and Y value for the index coin. 
     for (var i = 0; i < coinArray.length; i++) {
-        var coinX = Math.floor((coinArray[i].position().left) / 60);
-        var coinY = Math.floor((coinArray[i].position().top) / 60); 
+        var coinX = Math.floor((coinArray[i].position().left) / 60);    // Divide by 60 and round down to get a value between 0-9.
+        var coinY = Math.floor((coinArray[i].position().top) / 60);     // Divide by 60 and round down to get a value between 0-9.
 
-        // if the coins x and y is equal to whats passed in, hide the coin. 
+        // If the coins´ x- and y-positon is equal to whats passed in, hide the coin, and set that position to be free-position.
         if (coinX === x && coinY === y) {
             coinArray[i].hide();
             gameArray[y][x] = 1; 
         }       
     }
+    // Increment score.
     score++;
     $('#score').html(score);  
 }
 
+
 /*
-function moveSquare () {
-
-    var ob14 = $('#ob14'), 
-        ob15 = $('#ob15'),
-        ob16 = $('#ob16'),
-        ob17 = $('#ob17');
-
-    ob14.css({
-        left: '40%', 
-        top: '40%'  
-    })
-}
-
-function moveSquareBack () {
-
-    var ob14 = $('#ob14'), 
-        ob15 = $('#ob15'),
-        ob16 = $('#ob16'),
-        ob17 = $('#ob17');
-
-    ob14.css({
-        left: '40%', 
-        top: '30%'  
-    })
-}
-
-
-setInterval(function() {
-    moveSquare();
-}, 3000);
-*/
-
-
-
-// Function to bring the coins back
+ * This function brings back the coins. 
+ */
 function bringBackCoins(){
     bringBack1();
     bringBack2();
@@ -405,9 +367,11 @@ function bringBackCoins(){
     bringBack9();
 }
 
-// Below are 13 functions, one for each coin. 
-// It sets the coin to be visible, and changes the 
-// value in the 2D array to 2, which represents a coin. 
+
+/* 
+ *  Below are 8 functions, one for each coin. It sets the coin to be visible, 
+ *  and changes the value in the 2D array to be 2, which represent a coin.
+ */
 function bringBack1 () {  
     coinArray[0].show();
     gameArray[0][0] = 2;
@@ -441,7 +405,9 @@ function bringBack8 () {
     gameArray[4][5] = 2;
 }
 
-// function for new game
+/* 
+ *  This function starts a new game.
+ */
 function newGame() {
     window.location.reload();
 }
