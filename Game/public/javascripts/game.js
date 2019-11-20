@@ -1,4 +1,5 @@
 
+/* --- GLOBAL VARIABLES --- */
 
 var gameArea = $('#gameArea');          // variable for the game area
 var score = 0;                          // Variable for the score
@@ -6,33 +7,31 @@ var score = 0;                          // Variable for the score
 var blueball = $('#blueball');          // Variable for the blue ball
 // var greenball = $('#greenball');        // Variable for the blue ball
 
-//timer function 
-var timer; 
+var timer;              // Variable for the timer 
+var timerL;             // Variable for the lobby timer (Count down to start)
 
-//lobby timer function 
-var timerL; 
+
+
 
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
 //Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
-    timer = setInterval(countDown, 1000); //calling the timer every second 
+    timer = setInterval(countDown, 1000); // calling the timer every second 
     var maxTime = 60; 
 
     //This function takes the seconds away from the maximum time 
     function countDown() {
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
-            clearInterval(timer) //clearing the timer when it gets to 0 
-            var egImg = $('#endGame'); //creating a variable set to 'GAME OVER' image 
-            egImg.show(); //Showing the game over image 
-            gameArea.hide(); //hiding the game area
-
-
-            // Delete what is stored in right
-            $('#right').hide();
+            clearInterval(timer)        // Clearing the timer when it gets to 0 
+            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
+            egImg.show();               // Showing the gameover image 
+            gameArea.hide();            // Hiding the game area
+            $('#right').hide();         // Hide what is stored in right
         }
       }
     }
+
 
 function gameLobby(){
     killBall();
@@ -67,7 +66,7 @@ function lobbyClock(){
 window.setInterval(function(){
     screenWidthAlert();
     screenHeightAlert();  
-  }, 3000);
+  }, 5000);
 
 //alert the user if the width of the screen is too small  
 function screenWidthAlert(){
@@ -77,7 +76,7 @@ function screenWidthAlert(){
 } 
 //alert the user if the height of the screen is too small
 function screenHeightAlert(){
-    if($(window).height() < 800) {
+    if($(window).height() < 750) {
         alert("Please increase the browser height")
     }
 } 
@@ -88,36 +87,42 @@ function startButtonClick(){
 }
 
 
-/* 
-For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
-It is used to make the ball move around in the gamearea.
-*/
+/*
+ *  This is called when the page is loaded. 
+ *  It sets the score to 0, and calls the function lobbyClock, which starts the game. 
+ */
 $(document).ready(function () {
-    // Set score initially to 0, and add it to the html.
     score = 0;
     $('#score').html(score);
-    lobbyClock(); //Starting the lobby clock when the screen is loaded 
+    lobbyClock(); 
 });
 
+/* 
+ *  For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
+ *  
+ *  This function creates the functionality of the balls movement around in the game area. 
+ *  It calculates the collision detection based on the difference between the width of the ball and the game area.
+ *  This makes the ball unable to leave the game area square. 
+ */
 function gameFunctionality() {
      // Variables for 
-     var width = gameArea.width() - blueball.width(),    // width:        The maximal left/top value for gameArea
-     //  widthGreen = gameArea.width() - greenball.width(),    // width:        The maximal left/top value for gameArea
+     var width = gameArea.width() - blueball.width(),       // The maximal left/top value for gameArea
+     //  widthGreen = gameArea.width() - greenball.width(),    // The maximal left/top value for gameArea
  
-         keyPressed = {},                                // keyPressed:  Array to store information of which key is pressed
-         speed = 10;                                     // speed:       The distance moved per intervall, in px
+         keyPressed = {},                                   // Array to store information of which key is pressed
+         speed = 10;                                        // The distance moved by the ball per intervall, in px
+
 
      /* 
-     This function calculates the new top and left values based on
-     the oldValue and the keyPressed. It basiclly updates the new position of the ball based on the
-     key that is pressed. We have two values, key1 and key2, so the ball can move diagonally.
+      * This function calculates the new top and left values based on
+      * the oldValue and the keyPressed. It updates the new position of the ball based on the
+      * key that is pressed. We have two values, key1 and key2, so the ball can move diagonally.
      */
      function newTopLeft(oldValue,key1,key2) {
-         // creating a variable, setting it to the 
-         // using parse int to convert the String String oldValue, with base 10, MINUS
-         // keypressed of key1 (if the key pressed is in the array, return the speed, else return 0) PLUS
-         // keypressed of key2 (if the key pressed is in the array, return the speed, else return 0)
-         // The reason for having to keys is to be able to move diagonally. 
+         // Creating a variable, setting it to the 
+         //     - Integer value of the String String oldValue, with base 10,                            MINUS
+         //     - The key pressed first. (If the key is in the array, return the speed, else return 0)  PLUS
+         //     - The key pressed second. (If the key is in the array, return the speed, else return 0)  
          var n = parseInt(oldValue, 10) - (keyPressed[key1] ? speed : 0) + (keyPressed[key2] ? speed : 0);
          
          // This expression ensures that the new value is in the permitted bounds.
@@ -130,7 +135,10 @@ function gameFunctionality() {
      
      var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
  
-     // This function sets the new values of the ball. It is done when a button is pressed. 
+     /*
+      * This function sets the new values of the ball. It happens when a button that is in the
+      * array is pressed.  
+      */
      $(window).keydown(function(e) { 
         // clock(); //uncomment for demo 
     //     counter = counter + 1; //adding 1 to the counter
@@ -142,6 +150,7 @@ function gameFunctionality() {
       
          // The button pressed from the array is set to true. 
          keyPressed[e.which] = true; 
+
          // Update the left and top value of the ball in CSS. 
          blueball.css({
              left: function(i,oldValue) { return newTopLeft(oldValue, 37, 39); }, // left arrow  = left,     right arrow = right
@@ -158,17 +167,19 @@ function gameFunctionality() {
          // Call track ball to get the position in the grid. 
          trackBall();
      }); 
+
  
-     // This function changed the buttons value to false.
+     /*
+      * This function changes the buttons value to false when the key is relesed.
+      */
      $(window).keyup(function(e) { 
-         // if the key is released, it´s not in use, set to false
          keyPressed[e.which] = false;    
      });  
 }
 
 
 /* 
-This function prevents the screen to move up and down if the arrows are pressed. 
+ * This function prevents the screen to move up and down if the arrows are pressed. 
 */
 $(window).keydown(function(e) {
     // Creating an array for the keys. 
