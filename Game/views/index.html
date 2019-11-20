@@ -20,6 +20,7 @@
  
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
+
         <!-- LEFT AREA OF THE SCREEN -->
         <div id="left">
             <!-- TABLE TO STORE INFO FOR USER -->
@@ -28,14 +29,17 @@
                     <td><h2>Game Starts in:</h2> </td>
                     <td id="timerIDL">5</td>
                 </tr> 
+
                 <tr id="gameTimeLeft">
                     <td><h2>Time left to play:</h2> </td>
                     <td id="timerID">60</td>
-
                 </tr>
+
+                <tr>
                     <td id="userName"><h2>USERNAME:</h2> </td>
                     <td id="name"></td>
                 </tr>
+
                 <tr>
                     <td id="userScore"> <h2>Score: </h2></td>
                     <td id="score"></td>
@@ -49,14 +53,14 @@
             <div id="gameArea">
                     <div id="newDiv" class="here" style="display: none" > content</div>
                     <div id="oldDiv" class="here" style="display: block"> content</div>
+
                 <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
                 <img id='blueball' src="../public/Images/blueball.png">
         
                 <!-- UNNCOMMENT FOLLOWING FOR DISPLAYING GREENBALL --> 
                 <!-- Image for the oponents balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567 -->
  <!--           <img id='greenball' src="./Images/greenball.png"> -->
-
-                
+  
                 <!-- Image for obstacles - image source: self-made -->
                 <img id='ob1' src='../public/Images/obOpenRB.png'>
                 <img id='ob2' src='../public/Images/obOpenTB.png'>
@@ -109,9 +113,10 @@
                 <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
                 <img id='startImg' src='../public/Images/start.png'> 
             </div>
+
+            <!-- To be shown when game is over -->
             <div id="endGame">       
                 <img id='endGameImg' src='../public/Images/gameover.png'> 
-                <div id="score">score</div> 
             </div>
         </div>
 
@@ -119,7 +124,7 @@
         <div id="right"> 
         </div>
         
-        <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
+        <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is not modified, just used for jQuery code. -->
         <script src="../public/javascripts/jquery-3.4.1.min.js"></script>
 
         <script type="text/javascript" src="../public/javascripts/game.js" language="JavaScript" ></script> 
