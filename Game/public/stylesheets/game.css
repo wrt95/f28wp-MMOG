@@ -39,9 +39,9 @@ h1 {
 }
 /* Creating a border around all buttons in the group. */
 .btn-group > * {
-    border: 2px solid black;
+    border: 2px solid white;
     background-color: red;
-    font-size: 20px;
+    font-size: 30px;
 }
 /* changing the colour when hovering over buttons. */ 
 button:hover {
