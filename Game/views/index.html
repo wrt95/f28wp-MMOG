@@ -1,57 +1,77 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <img src="../public/Images/pagetitle.png"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
             <link rel="stylesheet" href="../public/stylesheets/homepage.css">
+            <title> CW F28WP Web Programming</title>
+
+            <h1 id="title-image"><img src="../public/Images/pagetitle.png"/></h1> 
+           
         
     </head>
     <body>
-        <p class="solid"></p>
+        <div class='btn-group'>
                 <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
                 <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
                 <button class="button" type="button3" id="b3" onclick="alert('Email: cf51@hw.ac.uk')">Contact Us </button>
                 <button class="button" type="button4" id="b4" onclick="login()">Login</button>
+                <br> <br>
+         </div>
+                <div id= "left">
 
 
-                <section id="score-board">
-                        <div class="container">
-                                <h1 class="container-title" data-id="score-board-title"> <img src="../public/Images/scoreboard.png"/></h1>
+
+
+                </div>
+
+                <div id ="center">
                                 <table id="score-board-table">
-                                        <tr>
-                                                <table align="center">
-                                                <th><h3>Username</h3></th>
-                                                <th><h3>Score</h3></th>
-                                                <th><h3>Games Played</h3></th>
-                                                <th></th>
-                                        </tr>
-
-                                        <tr>
-                                                <td><h3>CF51</h3></td>
-                                                <td><h3>1098</h3></td>
-                                                <td><h3>3</h3></td>
-                                        </tr>
-
-                                        <tr>
-                                                <td><h3>WRT1</h3></td>
-                                                <td><h3>598</h3></td>
-                                                <td><h3>1</h3></td>
-                                        </tr>
-
-                                        <tr>
-                                                <td><h3>AGM6</h3></td>
-                                                <td><h3>1588</h3></td>
-                                                <td><h3>7</h3></td>
-                                        </tr>
-
-                                        <tr>
-                                                <td><h3>PTR3</h3></td>
-                                                <td><h3>4589</h3></td>
-                                                <td><h3>9</h3></td>
-                                        </tr>
-                                </table>
-
+                                                <tr id="row0">
+                                                        <tr><img id="score-board-title" src="../public/Images/scoreboard.png"/></tr>
+                                                        <tr></tr>
+                                                        <tr></tr>
+                                                        <tr></tr>
+                                                </tr>
+                                                <tr id="row1">
+                                                        <!-- <table align="center">-->
+                                                        <th><h3>Username</h3></th>
+                                                        <th><h3>Score</h3></th>
+                                                        <th><h3>Games Played</h3></th>
+                                                        <th></th>
+                                                </tr>
+        
+                                                <tr id="row2">
+                                                        <td><h3>CF51</h3></td>
+                                                        <td><h3>1098</h3></td>
+                                                        <td><h3>3</h3></td>
+                                                </tr>
+        
+                                                <tr id="row3">
+                                                        <td><h3>WRT1</h3></td>
+                                                        <td><h3>598</h3></td>
+                                                        <td><h3>1</h3></td>
+                                                </tr>
+        
+                                                <tr id="row4">
+                                                        <td><h3>AGM6</h3></td>
+                                                        <td><h3>1588</h3></td>
+                                                        <td><h3>7</h3></td>
+                                                </tr>
+        
+                                                <tr id="row5">
+                                                        <td><h3>PTR3</h3></td>
+                                                        <td><h3>4589</h3></td>
+                                                        <td><h3>9</h3></td>
+                                                </tr>
+                                        </table>
                         </div>
-                </section>
+
+                <div id="right">
+
+
+
+
+                </div>
 
                 <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
                 <script src="../public/javascripts/jquery-3.4.1.min.js"></script>

@@ -1,81 +1,107 @@
 body {
-    margin: 100px;
-    padding: 10px;
     background-color: black; 
     border-color: white; 
 }
 
-
-/* Centering the 'Shape escape' and 'scoreboard' images */ 
-img{
-  position: absolute;
-  padding-left: 9%; 
-  top:4%;
-  width: 65%; 
-  height: 13%;
- 
+#left{
+  float:left; 
+  width:10%; 
 }
 
-/* 'Join Game' 'Contact us' 'Instructions' buttons */
-.button{
-  background-color: red; 
-  color: black; 
-  position: relative;
-  top: 40px; 
-  padding-left: 9.60%;
-  padding-right: 9.5%;
-  font-weight: bold; 
+#center{
+  float:left;
+  width: 80%;
+}
+
+#right{
+  float:left; 
+  width:10%; 
+}
+
+#title-image{
   text-align: center;
+}
 
- 
- }
- /* Making the button appear blue when they are hovered over*/
- .button:hover{
-   background-color: blue; 
- }
 
- .container {
-   position: relative; 
-   top:20px;
-   background-color:black; 
-   height: 50%; 
-   width: 88.5%;
-   /*border: 15px solid white; */
-   padding: 50px;
-   margin: 20px;
-   color:white;  
-   text-align: center; 
-   font-weight: bold; 
+.btn-group{
+  padding: 1% 1%; 
+  cursor: pointer;
+  text-align: center;
+  float: center; 
+}
+
+.btn-group > *{
+  border: 2px solid black; 
+  background-color: red;
+  font-size: 30px;
+}
+
+
+/* Making the button appear blue when they are hovered over*/
+button:hover{
+  background-color: blue; 
+}
+
+button:active{
+  background-color: blue;
+}
+
+
+#score-board-table{
+  float: left;
+  top: 10%;
+  font-weight: bold;
+  color: red;
+  margin-left: 2%;
+  margin-top:12%;
+  background-color: black;
+  left: 50%;
+  position: relative;
+  border: 2px solid black;
+  align-content: center;
+  overflow: hidden;
+  border-spacing: 15px;
+
+}
+
+#row1{
+  font-size: 50px;
+  font-weight:bold;
+}
+
+
+#score-board-title{
+  text-align: center;
+  position: absolute;
+  width:40%;
+  height:7%;
+  left: 40%; 
+}
+
+/*
+ #container {
+   border:4px solid;
+   border-color:red;
+   position: relative;  
+   height: 600px; 
+   width: 600px;
+   margin: 0 auto;
+   overflow: hidden; 
+   float:left;
+   margin-left: 20%;
    
  }
-
- #score-board {
-   background-color:red;
-   border: 1px solid white; 
-   width: 93%; 
-   align-content: center; 
-   overflow: hidden;
-   
- }
-
- .container-title{
- 
- 
-   height: 2px; 
-   width: 50px;
-   padding-right: 185px; 
-   
-  
- }
+ */
 
 
+/*
  #score-board-table tr th:nth-child(-n+3) {
 
   border: 1px solid white; 
   padding-right:200px; 
  }
 
- /*
+ 
 
  #score-board-table tr td:nth-child(-n+3) {
    
