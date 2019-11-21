@@ -27,7 +27,7 @@ function clock(){
             var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
             egImg.show();               // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
-            $('#right').hide();         // Hide what is stored in right
+            $('#right').hide();         // Hide what is stored in right>
         }
       }
     }
