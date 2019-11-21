@@ -128,6 +128,15 @@ table {
     top:30%; 
 }
 
+#timeUp {
+    display:none; 
+    position: absolute;
+    width: 600px;
+    height: 300px; 
+    left:26%; 
+    top:30%; 
+}
+
 /*      
                                 THE GAME AREA GRID 
 

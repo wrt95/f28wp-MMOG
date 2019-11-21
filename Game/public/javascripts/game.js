@@ -283,8 +283,8 @@ function trackBall() {
         }
         else {
             clearInterval(timer)        // Clearing the timer when it gets to 0 
-            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
-            egImg.show();               // Showing the gameover image 
+            var timeUp = $('#timeUp');  // Creating a variable set to 'GAME OVER' image 
+            timeUp.show();               // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
         }
