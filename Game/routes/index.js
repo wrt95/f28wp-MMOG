@@ -14,16 +14,15 @@ var con    =  mysql.createConnection({
 var leaderboard;
 var name;
 
-var login = require('../public/javascripts/homepage');
 
 con.connect(function(err) {
- 
-
+  const login = require('../public/javascripts/homepage');
+  
 
   if (err) throw err;
   console.log("Connected!");
-  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC ";
-  var usr      = "SELECT USERNAME AS Username FROM User LIMIT 1"; // change limit to where username is their username
+  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5 ";
+  var usr      = "SELECT USERNAME AS Username FROM User WHERE USERNAME = '"+login.username+"'"; 
   //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
   //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
   
