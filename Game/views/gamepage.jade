@@ -27,9 +27,10 @@ head
       td
        h2 Time left to play:
       td#timerID 60
-    td#userName
-      h2 USERNAME:
-    td#name
+    each player in locals.ud
+      td#userName
+        h2 Username: #{player.Username}
+      td#name
     tr
       td#userScore
         h2 Score: 
