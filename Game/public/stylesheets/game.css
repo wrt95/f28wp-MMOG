@@ -26,10 +26,7 @@ body {
 
 /* The header */
 h1 {
-    color: rgb(2, 2, 32);
     text-align: center;
-    font-weight: bold;
-    font-family: sans-serif;
 }
 
 /*  --- THE BUTTONS ---  */
