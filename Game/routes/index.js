@@ -61,7 +61,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/gamepage', function(req, res, next) {
-  res.render('gamepage');
+  res.render('gamepage.jade');
+});
+
+router.get('/instructions', function(req, res, next) {
+  res.render('instructions.jade');
 });
 
 module.exports = router;

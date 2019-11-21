@@ -1,0 +1,32 @@
+body {
+    margin: 100px;
+ /*   padding: 10px; */
+    background-color: black; 
+}
+
+img{
+    position: absolute;
+    padding-left: 9%; 
+    top:4%;
+    width: 65%; 
+    height: 15%;
+}
+
+.button{
+    background-color: red; 
+    color: black; 
+    position: relative;
+    font-size: 10px;
+    font-weight: bold; 
+    text-align: center;  
+}
+/* Making the button appear blue when hovered over */
+.button:hover{
+    background-color: blue; 
+}
+
+#information {
+    font-size: 40px;
+    text-align: center;
+    color: red;
+}

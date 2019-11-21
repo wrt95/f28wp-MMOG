@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <link rel="stylesheet" href="../public/stylesheets/game.css"> 
-        <title>CW F28WP Web Programming</title>
+            <img src="../public/Images/pagetitle.png"/>
+            <link rel="stylesheet" href="../public/stylesheets/homepage.css">
         
-        <h1><img src="../public/Images/pagetitle.png"/></h1>
     </head>
-
     <body>
+<<<<<<< HEAD
         <!-- BUTTON GROUP ABOVE GAME AREA -->
         <div class='btn-group'>
             <button id="newGame" onClick="startButtonClick();">Start Game</button>
@@ -31,97 +29,57 @@
                 <tr id="gameTimeLeft">
                     <td><h2>Time left to play:</h2> </td>
                     <td id="timerID">60</td>
+=======
+        <p class="solid"></p>
+                <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
+                <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
+                <button class="button" type="button3" id="b3"  onclick="alert('Email: cf51@hw.ac.uk')">Contact Us </button>
+>>>>>>> a382a2c881a2bb9c0b312aade6cac4dadef8fd86
 
-                </tr>
-                    <td id="userName"><h2>USERNAME:</h2> </td>
-                    <td id="name"></td>
-                </tr>
-                <tr>
-                    <td id="userScore"> <h2>Score: </h2></td>
-                    <td id="score"></td>
-                </tr>
-            </table>
-        </div>
 
-        <!-- CENTER AREA OF THE SCREEN -->
-        <div id="center">
-            <!-- THE ARE WHERE THE GAME IS PLAYED -->
-            <div id="gameArea">
-                    <div id="newDiv" class="here" style="display: none" > content</div>
-                    <div id="oldDiv" class="here" style="display: block"> content</div>
-                <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
-                <img id='blueball' src="../public/Images/blueball.png">
-        
-                <!-- UNNCOMMENT FOLLOWING FOR DISPLAYING GREENBALL --> 
-                <!-- Image for the oponents balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567 -->
- <!--           <img id='greenball' src="./Images/greenball.png"> -->
+                <section id="score-board">
+                        <div class="container">
+                                <h1 class="container-title" data-id="score-board-title"> <img src="../public/Images/scoreboard.png"/></h1>
+                                <table id="score-board-table">
+                                        <tr>
+                                                <table align="center">
+                                                <th><h3>Username</h3></th>
+                                                <th><h3>Score</h3></th>
+                                                <th><h3>Games Played</h3></th>
+                                                <th></th>
+                                        </tr>
 
-                
-                <!-- Image for obstacles - image source: self-made -->
-                <img id='ob1' src='../public/Images/obOpenRB.png'>
-                <img id='ob2' src='../public/Images/obOpenTB.png'>
-                <img id='ob3' src='../public/Images/obOpenT.png'>
-                <img id='ob4' src='../public/Images/obOpenTB.png'>
-                <img id='ob5' src='../public/Images/obOpenLR.png'>
-                <img id='ob6' src='../public/Images/obOpenB.png'>
-                <img id='ob7' src='../public/Images/obOpenLR.png'>
-                <img id='ob8' src='../public/Images/obOpenTB.png'>
-                <img id='ob9' src='../public/Images/obOpenTB.png'>
-                <img id='ob10' src='../public/Images/obOpenTLB.png'>
-                <img id='ob11' src='../public/Images/obOpenR.png'>
-                <img id='ob12' src='../public/Images/obOpenT.png'>
-                <img id='ob13' src='../public/Images/obOpenLB.png'>          
-                <img id='ob14' src='../public/Images/obOpenM.png'>
-                <img id='ob15' src='../public/Images/obOpenM.png'>
-                <img id='ob16' src='../public/Images/obOpenM.png'>
-                <img id='ob17' src='../public/Images/obOpenM.png'>
-                <img id='ob18' src='../public/Images/obOpenTB.png'>
-                <img id='ob19' src='../public/Images/obOpenTB.png'>
-                <img id='ob20' src='../public/Images/obOpenTB.png'>
-                <img id='ob21' src='../public/Images/obOpenLR.png'>          
-                <img id='ob22' src='../public/Images/obOpenLR.png'>
-                <img id='ob23' src='../public/Images/obOpenRB.png'>
-                <img id='ob24' src='../public/Images/obOpenT.png'>
-                <img id='ob25' src='../public/Images/obOpenTLB.png'>
-                <img id='ob26' src='../public/Images/obOpenR.png'>
-                <img id='ob27' src='../public/Images/obOpenTB.png'>          
-                <img id='ob28' src='../public/Images/obOpenL.png'>
-                <img id='ob29' src='../public/Images/obOpenLR.png'>
-                <img id='ob30' src='../public/Images/obOpenLR.png'>
-                <img id='ob31' src='../public/Images/obOpenL.png'>
-                <img id='ob32' src='../public/Images/obOpenLR.png'>
-                <img id='ob33' src='../public/Images/obOpenT.png'>
-                <img id='ob34' src='../public/Images/obOpenLR.png'>
-                <img id='ob35' src='../public/Images/obOpenB.png'>
-                <img id='ob36' src='../public/Images/obOpenTB.png'>
-                <img id='ob37' src='../public/Images/obOpenTB.png'>
+                                        <tr>
+                                                <td><h3>CF51</h3></td>
+                                                <td><h3>1098</h3></td>
+                                                <td><h3>3</h3></td>
+                                        </tr>
 
-                <!-- Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6o6jg9-nlAhVBAmMBHZKJD8oQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fgiphy.com%252Fstickers%252Fspinning-ZUdFkBdpw3Tvq%26psig%3DAOvVaw1WTDipYYGTKSTZD5HZGSrw%26ust%3D1573828696886160&psig=AOvVaw1WTDipYYGTKSTZD5HZGSrw&ust=1573828696886160 -->
-                <img id='coin1' src='../public/Images/coin.gif'>
-                <img id='coin2' src='../public/Images/coin.gif'>
-                <img id='coin3' src='../public/Images/coin.gif'>
-                <img id='coin4' src='../public/Images/coin.gif'>
-                <img id='coin5' src='../public/Images/coin.gif'>
-                <img id='coin6' src='../public/Images/coin.gif'>
-                <img id='coin7' src='../public/Images/coin.gif'>
-                <img id='coin8' src='../public/Images/coin.gif'>
-                
-                <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
-                <img id='startImg' src='../public/Images/start.png'> 
-            </div>
-            <div id="endGame">       
-                <img id='endGameImg' src='../public/Images/gameover.png'> 
-                <div id="score">score</div> 
-            </div>
-        </div>
+                                        <tr>
+                                                <td><h3>WRT1</h3></td>
+                                                <td><h3>598</h3></td>
+                                                <td><h3>1</h3></td>
+                                        </tr>
 
-        <!-- RIGHT AREA OF THE SCREEN -->
-        <div id="right"> 
-        </div>
-        
-        <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
-        <script src="../public/javascripts/jquery-3.4.1.min.js"></script>
+                                        <tr>
+                                                <td><h3>AGM6</h3></td>
+                                                <td><h3>1588</h3></td>
+                                                <td><h3>7</h3></td>
+                                        </tr>
 
-        <script type="text/javascript" src="../public/javascripts/game.js" language="JavaScript" ></script> 
-    </body>
+                                        <tr>
+                                                <td><h3>PTR3</h3></td>
+                                                <td><h3>4589</h3></td>
+                                                <td><h3>9</h3></td>
+                                        </tr>
+                                </table>
+
+                        </div>
+                </section>
+
+                <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
+                <script src="../public/javascripts/jquery-3.4.1.min.js"></script>
+
+                <script type="text/javascript" src="../public/javascripts/homepage.js" language="JavaScript" ></script> 
+        </body>
 </html>

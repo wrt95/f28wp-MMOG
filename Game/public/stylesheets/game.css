@@ -32,6 +32,30 @@ h1 {
     font-family: sans-serif;
 }
 
+/*  --- THE BUTTONS ---  */
+/* The group of buttons */
+.btn-group {
+    padding: 1% 1%;
+    cursor: pointer;
+    text-align: center;
+    float: center;
+}
+/* Creating a border around all buttons in the group. */
+.btn-group > * {
+    border: 2px solid black;
+    background-color: red;
+    font-size: 20px;
+}
+/* changing the colour when hovering over buttons. */ 
+button:hover {
+    background-color: rgb(0, 21, 255);
+}
+/* changing the colour when clicking a button. */ 
+button:active {
+    background-color: rgb(0, 21, 255);
+}
+
+
 /*  --- THE TABLE WITH INFO ---  */
 /* The table with username, score and time left */
 table {
@@ -42,58 +66,28 @@ table {
     margin-left: 2%;
     margin-top: 12%;
 }
-
-
-/*  --- THE BUTTONS ---  */
-/* The group of buttons */
-.btn-group {
-    padding: 1% 1%;
-    cursor: pointer;
-    text-align: center;
-    float: center;
-}
-
-.timerID{
-    color: royalblue;
-    background-color: royalblue;
-}
-
-/* Creating a border around all buttons in the group. */
-.btn-group > * {
-    border: 2px solid black;
-    background-color: red;
-    font-size: 20px;
-}
-
-/* changing the colour when hovering over buttons. */ 
-button:hover {
-    background-color: rgb(0, 21, 255);
-}
-
-/* changing the colour when clicking a button. */ 
-button:active {
-    background-color: rgb(0, 21, 255);
-}
-
-#timerIDL{
-    font-size: 50px;
-}
-
-#timerID {
-    font-size: 50px;
-}
-
 #score {
     font-size: 50px;
 }
 
+
+/* --- THE TIMER --- */ 
+.timerID{
+    color: royalblue;
+    background-color: royalblue;
+}
+#timerIDL{
+    font-size: 50px;
+}
+#timerID {
+    font-size: 50px;
+}
 #gameTimeLeft {
     display: none;
 }
 
 
 /*  --- THE BALLS ---  */
-
 /* Users ball */
 #blueball {
     position: absolute;
@@ -115,7 +109,7 @@ button:active {
 }
 */
 
-/* The game area */
+/* --- THE GAME AREA --- */
 #gameArea {
     border: 4px solid; 
     border-color: red;
@@ -138,7 +132,7 @@ button:active {
 }
 
 /*      
-                                THE GAME AREA
+                                THE GAME AREA GRID 
 
     Below is the grid of the game area. The game area is split up in 10x10 rows/columns. 
     This is used for maintenance and debugging, and it makes it easier to locate free area, coins, and 
@@ -524,7 +518,3 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     width: 9%;          
     height: 9%;          
 }
-
-
-
-
