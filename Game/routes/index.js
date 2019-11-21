@@ -16,19 +16,16 @@ var name;
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 4";
+  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC ";
   var usr      = "SELECT USERNAME AS Username FROM User LIMIT 1"; // change limit to where username is their username
   //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
   //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
   
-  //var sqlUpdate = "UPDATE Scores.HIGHSCORE = ?"
-  /*
-  con.query(UsrScore, function (err, result, fields) {
+var sqlUpdate = "INSERT INTO User (USERNAME) VALUES ('FVBAFGDS')";
+
+  con.query(sqlUpdate, function (err, result) {
     if (err) throw err;
-    NameScore = result;
-    console.log("User Scores",result);
-  */
- 
+  });
  con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
     leaderboard = result;
