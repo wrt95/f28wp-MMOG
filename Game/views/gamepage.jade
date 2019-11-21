@@ -9,7 +9,7 @@ head
 .btn-group
   button#newGame(onclick='startButtonClick();') Start Game
   button#leaveGame(onclick="window.location.href='/'") Leave Game
-  p#timerID 60
+  //p#timerID 60
   // <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button>
   // <button onclick="clearInterval(timer);">Stop timer</button>
   br
@@ -21,9 +21,12 @@ head
   table
     tr#gameStartClock
       td
-        h2 Game Start :
-      td#timerIDL 10
-    tr
+        h2 Game Starts in:
+      td#timerIDL 5
+    tr#gameTimeLeft
+      td
+       h2 Time left to play:
+      td#timerID 60
     td#userName
       h2 USERNAME:
     td#name
