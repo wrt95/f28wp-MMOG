@@ -1,6 +1,5 @@
 body {
     background-color: black; 
-    border-color: white; 
 }
 
 #title-image{
@@ -24,14 +23,13 @@ body {
 
 }
 
-
 /* Making the button appear blue when they are hovered over*/
 button:hover{
   background-color: blue; 
 }
 
 button:active{
-  background-color: blue;
+  background-color: green;
 }
 
 
