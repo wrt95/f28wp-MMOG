@@ -26,6 +26,7 @@ img{
   padding-right: 9.5%;
   font-weight: bold; 
   text-align: center;
+
  
  }
  /* Making the button appear blue when they are hovered over*/
@@ -53,6 +54,7 @@ img{
    border: 1px solid white; 
    width: 93%; 
    align-content: center; 
+   overflow: hidden;
    
  }
 
