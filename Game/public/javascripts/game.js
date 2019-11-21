@@ -7,8 +7,8 @@ var score = 0;                          // Variable for the score
 var blueball = $('#blueball');          // Variable for the blue ball
 // var greenball = $('#greenball');        // Variable for the blue ball
 
-var timer;              // Variable for the timer 
-var timerL;             // Variable for the lobby timer (Count down to start)
+var timer;              // Variable for the timer (Count down to the game ending)
+var timerL;             // Variable for the lobby timer (Count down to the game starting)
 
 
 
@@ -24,7 +24,7 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
-            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
+            var egImg = $('#endGame');  // Creating a variable set to 'TIME UP!' image 
             egImg.show();               // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right>
