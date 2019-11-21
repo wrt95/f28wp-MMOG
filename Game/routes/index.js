@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 var mysql  = require('mysql');
 var con    =  mysql.createConnection({
@@ -13,15 +14,19 @@ var con    =  mysql.createConnection({
 var leaderboard;
 var name;
 
+
 con.connect(function(err) {
+  const login = require('../public/javascripts/homepage');
+  
+
   if (err) throw err;
   console.log("Connected!");
-  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC ";
-  var usr      = "SELECT USERNAME AS Username FROM User LIMIT 1"; // change limit to where username is their username
+  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5 ";
+  var usr      = "SELECT USERNAME AS Username FROM User WHERE USERNAME = '"+login.username+"'"; 
   //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
   //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
   
-var sqlUpdate = "INSERT INTO User (USERNAME) VALUES ('FVBAFGDS')";
+  var sqlUpdate = "INSERT INTO User (USERNAME, PASS, HIGHSCORE) VALUES ('"+login.username+"','"+login.password+"', 9)";
 
   con.query(sqlUpdate, function (err, result) {
     if (err) throw err;
