@@ -3,25 +3,9 @@ body {
     border-color: white; 
 }
 
-#left{
-  float:left; 
-  width:10%; 
-}
-
-#center{
-  float:left;
-  width: 80%;
-  border:5px blue solid; 
-  left:20%; 
-}
-
-#right{
-  float:left; 
-  width:10%; 
-}
-
 #title-image{
   text-align: center;
+  margin-top:2%; 
 }
 
 
@@ -30,13 +14,13 @@ body {
   cursor: pointer;
   text-align: center;
   float: center; 
-  border: 5px solid green; 
 }
 
 .btn-group > *{
-  border: 2px solid black; 
+  border: 2px solid white; 
   background-color: red;
   font-size: 30px;
+
 }
 
 
@@ -54,61 +38,46 @@ button:active{
   float: left;
   font-weight: bold;
   color: red;
-  margin-left: 2%;
-  margin-top:12%;
   background-color: black;
-  left: 35%;
+  left: 30%;
   position: relative;
-  border: 5px solid green;
   align-content: center;
   overflow: hidden;
   border-spacing: 15px;
+  margin-top:3%; 
+  text-align: center;
+ 
 
 }
 
 #row1{
-  font-size: 50px;
+  font-size: 40px;
   font-weight:bold;
+}
+
+#row2{
+  font-size: 25px;
+}
+
+#row3{
+  font-size: 25px;
+}
+
+#row4{
+  font-size: 25px;
+}
+
+#row5{
+  font-size: 25px; 
 }
 
 
 #score-board-title{
   text-align: center;
   position: absolute;
-  width:40%;
+  width:70%;
   height:7%;
-  left: 30%; 
+  left: 12%; 
 }
 
-/*
- #container {
-   border:4px solid;
-   border-color:red;
-   position: relative;  
-   height: 600px; 
-   width: 600px;
-   margin: 0 auto;
-   overflow: hidden; 
-   float:left;
-   margin-left: 20%;
-   
- }
- */
-
-
-/*
- #score-board-table tr th:nth-child(-n+3) {
-
-  border: 1px solid white; 
-  padding-right:200px; 
- }
-
- 
-
- #score-board-table tr td:nth-child(-n+3) {
-   
-  border: 1px solid white; 
- }
-
- */ 
 
