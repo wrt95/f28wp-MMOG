@@ -12,18 +12,22 @@ function makeid(length) {
     }
    return result;
 }
-
+function login(){
+    userin();
+    passin();
+}
 function userin() {
-    //var username = prompt("Please enter your username:")
-    var username = makeid(5);
+    var username = prompt("Please enter your username:")
+    //var username = makeid(5);
     if (username)
     return username;
 }
 function passin(){
-    // var password = prompt("Enter enter your password:")
-    var password = makeid(5);
+    var password = prompt("Enter enter your password:")
+    //var password = makeid(5);
     return password;
 }
+
 var username = userin();
 var password  = passin();
 module.exports = {

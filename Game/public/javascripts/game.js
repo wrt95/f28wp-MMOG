@@ -17,13 +17,16 @@ var dieAudio = new Audio('../public/Audio/die.mp3');
 // source - https://www.myinstants.com/instant/game-over-halo/
 var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
 
+// source - https://www.audioblocks.com/royalty-free-audio/3+2+1+go+countdown
+var timeupAudio = new Audio('../public/Audio/timeup.m4a');
+
 /*
  *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
  *  Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
  */
 function clock(){
     timer = setInterval(countDown, 1000); // calling the countdown function every second (countdown takes 1 away. ie minus 1 every 1 second) 
-    var maxTime = 60; 
+    var maxTime = 20; 
 
     /*
      *  This function takes the seconds away from the maximum time. It is called every second. 
@@ -34,6 +37,7 @@ function clock(){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
             var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
             timeUp.show();              // Showing the time up image 
+            timeupAudio.play(); 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
         }
