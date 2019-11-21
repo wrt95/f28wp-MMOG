@@ -216,10 +216,10 @@ var gameArray = [
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
                 [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-                [1, 0, 0, 1, 1, 1, 1, 1, 1, 2],
+                [1, 0, 0, 1, 1, 1, 1, 1, 2, 1],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
-                [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
-                [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
+                [2, 0, 1, 0, 0, 1, 0, 1, 1, 1],
+                [1, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
 
 var deadCounter = 0,        // Variable to count number of deaths. 
@@ -402,7 +402,7 @@ function bringBack3 () {
 }
 function bringBack4 () {   
     coinArray[3].show();
-    gameArray[9][0] = 2;
+    gameArray[8][0] = 2;
 }
 function bringBack5 () {   
     coinArray[4].show();
@@ -414,7 +414,7 @@ function bringBack6 () {
 }
 function bringBack7 () {           
     coinArray[6].show();
-    gameArray[6][9] = 2;
+    gameArray[6][8] = 2;
 }
 function bringBack8 () {   
     coinArray[7].show();
