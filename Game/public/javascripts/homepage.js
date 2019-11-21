@@ -16,6 +16,8 @@ function makeid(length) {
 function userin() {
     //var username = prompt("Please enter your username:")
     var username = makeid(5);
+    //if username exists in the database then prompt to use their password 
+    //else offer to retry typing their pass or create a new accoun
     if (username)
     return username;
 }
@@ -24,6 +26,11 @@ function passin(){
     var password = makeid(5);
     return password;
 }
+//newAccount() function
+//if username is in DB, enter a different username
+//else add to DB
+
+
 var username = userin();
 var password  = passin();
 module.exports = {

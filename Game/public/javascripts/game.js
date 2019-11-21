@@ -27,6 +27,10 @@ function clock(){
             timeUp.show();              // Showing the time up image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
+
+
+            // sql stuff
+           // updateScore();
         }
       }
     }
@@ -342,7 +346,9 @@ function removeCoin (y, x) {
     }
     score++;
     $('#score').html(score);  
+    
 }
+
 
 /*
  * This function brings back the coins. 
@@ -404,3 +410,20 @@ function newGame() {
     window.location.reload();
 }
 
+
+
+
+
+
+/*
+exports.getScore = function(){
+    return score
+}
+
+/*
+function updateScore(){
+    console.log(score)
+    module.exports = {
+        score
+    }
+}*/
