@@ -18,11 +18,11 @@ function login(){
     passin();
 
 }
-login();
+// login();
 function userin() {
     var username = prompt("Please enter your username:")
     //var username = makeid(5);
-    if (username)
+    // if (username)
     return username;
 }
 function passin(){

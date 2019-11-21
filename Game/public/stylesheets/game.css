@@ -156,7 +156,7 @@ table {
          0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
 TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
     |         |         |         |         |         |         |         |         |         |         |                 
-0%  |  coin1  |         |         |  ob37   |         |         |         |  coin2  |  ob4    |  start  |                  
+0%  |         |  coin1  |         |  ob37   |         |         |  coin2  |         |  ob4    |  start  |                  
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -473,14 +473,14 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 /* Setting the position for the coins to the specific place. */
 #coin1 {                    
     position: absolute;   
-    left: 0.5%;            
+    left: 10.5%;            
     top: 0.5%;               
     width: 9%;          
     height: 9%;          
 }
 #coin2 {                    
     position: absolute;   
-    left: 70.5%;            
+    left: 60.5%;            
     top: 0.5%;               
     width: 9%;          
     height: 9%;          

@@ -29,7 +29,7 @@ var coinAudio = new Audio('../public/Audio/coin.mp3');
  */
 function clock(){
     timer = setInterval(countDown, 1000); // calling the countdown function every second (countdown takes 1 away. ie minus 1 every 1 second) 
-    var maxTime = 20; 
+    var maxTime = 60; 
 
     /*
      *  This function takes the seconds away from the maximum time. It is called every second. 
@@ -38,11 +38,11 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
         if(maxTime === 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
+            gameArea.hide();            // Hiding the game area
             var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
             timeUp.show();              // Showing the time up image 
             gameAudio.pause();  
-            timeupAudio.play(); 
-            gameArea.hide();            // Hiding the game area
+            timeupAudio.play();  
             $('#right').hide();         // Hide what is stored in right
         }
       }
@@ -50,7 +50,7 @@ function clock(){
 
 /*
  *  This function counts down from 5 until the game starts. No functionality is available 
- *  in the game before this time hirs 0. 
+ *  in the game before this time hits 0. 
  */
 function lobbyClock(){
     timerL = setInterval(countDownL, 1000); // Calling the countDownL function every second 
@@ -210,7 +210,7 @@ $(window).keydown(function(e) {
  *  2 = coin
  */
 var gameArray = [
-                [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
+                [1, 2, 1, 0, 1, 1, 2, 1, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
@@ -293,16 +293,19 @@ function trackBall() {
     // If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
+
         if (deadCounter <= 10) {
             deadColour();    
         }
         else {
+            clearInterval(timer);
             var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
             endGame.show();                // Showing the gameover image 
             gameArea.hide();               // Hiding the game area
             gameAudio.pause(); 
             gameoverAudio.play(); 
             $('#right').hide();            // Hide what is stored in right
+            blueball.hide();
         }
         $('#score').html("0"); 
     }
@@ -378,7 +381,6 @@ function bringBackCoins(){
     bringBack6();
     bringBack7();
     bringBack8();
-    bringBack9();
 }
 
 
@@ -388,11 +390,11 @@ function bringBackCoins(){
  */
 function bringBack1 () {  
     coinArray[0].show();
-    gameArray[0][0] = 2;
+    gameArray[1][0] = 2;
 }
 function bringBack2 () {   
     coinArray[1].show();
-    gameArray[0][7] = 2;
+    gameArray[0][6] = 2;
 }
 function bringBack3 () {   
     coinArray[2].show();
