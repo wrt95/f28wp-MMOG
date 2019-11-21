@@ -21,11 +21,11 @@ con.connect(function(err) {
   //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
   //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
   
-var sqlUpdate = "INSERT INTO User (USERNAME) VALUES ('FVBAFGDS')";
+//var sqlUpdate = "INSERT INTO User (USERNAME) VALUES ('FVBAFGDS')";
 
-  con.query(sqlUpdate, function (err, result) {
-    if (err) throw err;
-  });
+  //con.query(sqlUpdate, function (err, result) {
+    //if (err) throw err;
+  //});
  con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
     leaderboard = result;
