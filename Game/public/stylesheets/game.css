@@ -1,31 +1,29 @@
 
+/* The header */
+h1 {
+    text-align: center;
+}
+
+/* --- THE DIFFERENT AREAS OF THE SCREEN --- */ 
 /* Main body */
 body {
     background-color: black;
     font-family: sans-serif;
 }
-
 /* Left area of the screen */
 #left {
     float: left;
     width: 20%;
 }
-
 /* Center area of the screen */
 #center {
     float: left;
     width: 60%;
 }
-
 /* Right area of the screen */
 #right {
     float: left;
     width: 20%;
-}
-
-/* The header */
-h1 {
-    text-align: center;
 }
 
 /*  --- THE BUTTONS ---  */
@@ -67,7 +65,11 @@ table {
 }
 
 
-/* --- THE TIMER --- */ 
+/* --- THE TIMERS --- */ 
+/* 
+    TmerID   = counting down to end of game 
+    TimerIDL = counting down to start
+ */
 .timerID{
     color: royalblue;
     background-color: royalblue;
@@ -93,7 +95,6 @@ table {
     width: 4%; 
     height: 4%; 
 }
-
 /*
 #greenball {
     position: absolute;
@@ -105,6 +106,7 @@ table {
 }
 */
 
+
 /* --- THE GAME AREA --- */
 #gameArea {
     border: 4px solid; 
@@ -113,11 +115,11 @@ table {
     width: 600px;   
     height: 600px;  
     margin: 0 auto;
-    overflow: hidden;     /* Keep the game area as it is. */
+    overflow: hidden;    
     float: left;
     margin-left: 20%;
 }
-
+/* If the user dies more than 10 times */
 #endGame{
     display:none; 
     position: absolute;
@@ -126,7 +128,7 @@ table {
     left:26%; 
     top:30%; 
 }
-
+/* If the time runs out */
 #timeUp {
     display:none; 
     position: absolute;
@@ -140,9 +142,9 @@ table {
                                 THE GAME AREA GRID 
 
     Below is the grid of the game area. The game area is split up in 10x10 rows/columns. 
-    This is used for maintenance and debugging, and it makes it easier to locate free area, coins, and 
-    balls to start. The game area has 100 "squares", 37 of them are taken by an obstacle, 13 is taken by
-    coins, which leaves 50 "free" squares for the balls to move around. 
+    This is used for maintenance and debugging, this makes it easier to locate free area, coins, obstacles 
+    and the ball´s to position. The game area has 100 "squares", 37 of them are taken by an obstacle, 8 are 
+    taken by coins, which leaves 55 "free" squares for the balls to move around. 
 
     ob_     = The obstacle.     The number is which obstacle it is. 
     coin_   = The coin.         The number is which coin it is.
@@ -206,6 +208,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 }
 
 /*  --- THE OBSTACLES ---  */
+/* Setting the position for the obstacles to the specific place. */
 #ob1 {                      
     position: absolute;  
     left: 10%;            
@@ -467,6 +470,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 }
 
 /*  --- THE COINS ---  */
+/* Setting the position for the coins to the specific place. */
 #coin1 {                    
     position: absolute;   
     left: 0.5%;            
