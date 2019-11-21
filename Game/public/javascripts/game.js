@@ -24,7 +24,7 @@ function clock(){
         if(maxTime == 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
             var timeUp = $('#timeUp');  // Creating a variable set to 'GAME OVER' image 
-            timeUp.show();               // Showing the gameover image 
+            timeUp.show();              // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right>
         }
