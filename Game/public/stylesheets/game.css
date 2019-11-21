@@ -143,12 +143,13 @@ table {
 
     Below is the grid of the game area. The game area is split up in 10x10 rows/columns. 
     This is used for maintenance and debugging, this makes it easier to locate free area, coins, obstacles 
-    and the ball´s to position. The game area has 100 "squares", 37 of them are taken by an obstacle, 8 are 
-    taken by coins, which leaves 55 "free" squares for the balls to move around. 
+    and the ball´s to position. The game area has 100 "squares", 37 of them are taken by an obstacle, 7 are 
+    taken by coins, 2 are taken by teleport objects, which leaves 54 "free" squares for the balls to move around. 
 
-    ob_     = The obstacle.     The number is which obstacle it is. 
-    coin_   = The coin.         The number is which coin it is.
-    start   = The start point.  The point where the balls start. 
+    ob_     = The obstacle.         The number is which obstacle it is. 
+    coin_   = The coin.             The number is which coin it is.
+    start   = The start point.      The point where the balls start. 
+    tel_    = The teleport area.    The teleport areas.
 
     Below the grid is all the code for the obstacles, the coins and the start area. 
 
@@ -156,7 +157,7 @@ table {
          0%      10%       20%       30%       40%       50%       60%       70%       80%       90%    
 TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
     |         |         |         |         |         |         |         |         |         |         |                 
-0%  |         |  coin1  |         |  ob37   |         |         |  coin2  |         |  ob4    |  start  |                  
+0%  |         |  coin1  |         |  ob37   |         |         |         |  tel2   |  ob4    |  start  |                  
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -172,11 +173,11 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-40% |  ob29   |  ob30   |  ob31   |         |         |  coin8  |         |         |  ob18   |         |
+40% |  ob29   |  ob30   |  ob31   |         |         |  coin2  |         |         |  ob18   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-50% |         |         |         |         |  ob15   |         |  ob16   |         |  ob12   |         |
+50% |  coin4  |         |         |         |  ob15   |         |  ob16   |         |  ob12   |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
@@ -188,11 +189,11 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-80% |  coin4  |  ob27   |         |  ob26   |  ob25   |         |  ob24   |         |         |         |
+80% |         |  ob27   |         |  ob26   |  ob25   |         |  ob24   |         |         |         |
     |         |         |         |         |         |         |         |         |         |         |
     | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
     |         |         |         |         |         |         |         |         |         |         |
-90% |         |  ob2    |         |  coin5  |  ob36   |         |         |         |  ob6    |  coin6  |
+90% |  tel1   |  ob2    |         |  coin5  |  ob36   |         |         |         |  ob6    |  coin6  |
     |         |         |         |         |         |         |         |         |         |         |
     * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
 
@@ -480,10 +481,10 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 }
 #coin2 {                    
     position: absolute;   
-    left: 60.5%;            
-    top: 0.5%;               
+    left: 50.5%;            
+    top: 40.5%;               
     width: 9%;          
-    height: 9%;          
+    height: 9%;         
 }
 #coin3 {                    
     position: absolute;   
@@ -495,7 +496,7 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #coin4 {                    
     position: absolute;   
     left: 0.5%;            
-    top: 80.5%;               
+    top: 50.5%;               
     width: 9%;          
     height: 9%;          
 }
@@ -520,10 +521,20 @@ TOP * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     width: 9%;          
     height: 9%;          
 }
-#coin8 {                    
+
+/*  --- THE TELEPORT AREAS ---  */
+/* Setting the position for the teleport area to the specific place. */
+#teleport1{
     position: absolute;   
-    left: 50.5%;            
-    top: 40.5%;               
+    left: 0.5%;            
+    top: 90.5%;               
     width: 9%;          
-    height: 9%;          
+    height: 9%;  
+}
+#teleport2{
+    position: absolute;   
+    left: 70.5%;            
+    top: 0.5%;               
+    width: 9%;          
+    height: 9%;  
 }

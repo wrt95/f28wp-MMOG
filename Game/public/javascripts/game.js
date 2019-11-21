@@ -208,18 +208,20 @@ $(window).keydown(function(e) {
  *  0 = obstacle
  *  1 = free position
  *  2 = coin
+ *  3 = teleport bottom
+ *  4 = teleport top
  */
 var gameArray = [
-                [1, 2, 1, 0, 1, 1, 2, 1, 0, 1],
+                [1, 2, 1, 0, 1, 1, 1, 4, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
                 [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     
-                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [2, 1, 1, 1, 0, 1, 0, 1, 0, 1],
                 [1, 0, 0, 1, 1, 1, 1, 1, 2, 1],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
-                [2, 0, 1, 0, 0, 1, 0, 1, 1, 1],
-                [1, 0, 1, 2, 0, 1, 1, 1, 0, 2],
+                [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
+                [3, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
 
 var deadCounter = 0,        // Variable to count number of deaths. 
@@ -229,11 +231,11 @@ var deadCounter = 0,        // Variable to count number of deaths.
     coin4 = $('#coin4'),    // Variable for coin 4
     coin5 = $('#coin5'),    // Variable for coin 5
     coin6 = $('#coin6'),    // Variable for coin 6
-    coin7 = $('#coin7'),    // Variable for coin 7
-    coin8 = $('#coin8');    // Variable for coin 8
+    coin7 = $('#coin7');    // Variable for coin 7
+
 
 // Array for all the coins
-var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8];  
+var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7];  
                 
 /* 
  *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area as a whole number. 
@@ -293,7 +295,6 @@ function trackBall() {
     // If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
-
         if (deadCounter <= 10) {
             deadColour();    
         }
@@ -308,6 +309,15 @@ function trackBall() {
             blueball.hide();
         }
         $('#score').html("0"); 
+    }
+
+    // If the ball enters the bottom teleport area. 
+    if (gameArray[leftTopY][leftTopX] === 3 || gameArray[leftTopY][rightTopX] === 3 || gameArray[leftBottomY][leftTopX] === 3 || gameArray[leftBottomY][rightTopX] === 3) {   
+        teleportBottom(); 
+    }
+    // If the ball enters the top teleport area.
+    if (gameArray[leftTopY][leftTopX] === 4 || gameArray[leftTopY][rightTopX] === 4 || gameArray[leftBottomY][leftTopX] === 4 || gameArray[leftBottomY][rightTopX] === 4) {
+        teleportTop();
     }
 }
 
@@ -326,6 +336,25 @@ function killBall() {
         top: "2.5%"
     });
     deadCounter++;
+}
+
+/* 
+ *  This function teleports the ball from the bottom to the top.
+ */
+function teleportBottom() {
+    blueball.css({
+        left: "66.5%",
+        top: "2.5%"
+    });
+}
+/* 
+ *  This function teleports the ball from the top to the bottom.
+ */
+function teleportTop() {
+    blueball.css({
+        left: "2.5%",
+        top: "86.5%"
+    });
 }
 
 /*
@@ -380,12 +409,11 @@ function bringBackCoins(){
     bringBack5();
     bringBack6();
     bringBack7();
-    bringBack8();
 }
 
 
 /* 
- *  Below are 8 functions, one for each coin. It sets the coin to be visible, 
+ *  Below are 7 functions, one for each coin. It sets the coin to be visible, 
  *  and changes the value in the 2D array to be 2, which represent a coin.
  */
 function bringBack1 () {  
@@ -394,7 +422,7 @@ function bringBack1 () {
 }
 function bringBack2 () {   
     coinArray[1].show();
-    gameArray[0][6] = 2;
+    gameArray[4][5] = 2;
 }
 function bringBack3 () {   
     coinArray[2].show();
@@ -402,7 +430,7 @@ function bringBack3 () {
 }
 function bringBack4 () {   
     coinArray[3].show();
-    gameArray[8][0] = 2;
+    gameArray[5][0] = 2;
 }
 function bringBack5 () {   
     coinArray[4].show();
@@ -415,10 +443,6 @@ function bringBack6 () {
 function bringBack7 () {           
     coinArray[6].show();
     gameArray[6][8] = 2;
-}
-function bringBack8 () {   
-    coinArray[7].show();
-    gameArray[4][5] = 2;
 }
 
 /* 
