@@ -3,7 +3,6 @@
 
 var gameArea = $('#gameArea');          // variable for the game area
 var score = 0;                          // Variable for the score
-
 var blueball = $('#blueball');          // Variable for the blue ball
 // var greenball = $('#greenball');     // Variable for the blue ball
 
