@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "cookie": "^0.4.0",
     "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -14,6 +15,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
+    "parser": "^0.1.4",
     "socket.io": "^2.3.0"
   }
 }
