@@ -24,8 +24,8 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
         if(maxTime == 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
-            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
-            egImg.show();               // Showing the gameover image 
+            var timeUp = $('#timeUp');  // Creating a variable set to 'GAME OVER' image 
+            timeUp.show();               // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right>
         }
@@ -279,12 +279,12 @@ function trackBall() {
         killBall();   
         // If deadColour is displayed more 18 times, stop creating more of it. 
         if (deadCounter <= 10) {
-            deadColour();     
+            deadColour();    
         }
         else {
             clearInterval(timer)        // Clearing the timer when it gets to 0 
-            var timeUp = $('#timeUp');  // Creating a variable set to 'GAME OVER' image 
-            timeUp.show();               // Showing the gameover image 
+            var endGame = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
+            endGame.show();               // Showing the gameover image 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
         }
