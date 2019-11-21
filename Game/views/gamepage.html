@@ -5,13 +5,13 @@
         <link rel="stylesheet" href="../public/stylesheets/game.css"> 
         <title>CW F28WP Web Programming</title>
         
+        <!-- The header image -->
         <h1><img src="../public/Images/pagetitle.png"/></h1>
     </head>
 
     <body>
         <!-- BUTTON GROUP ABOVE GAME AREA -->
         <div class='btn-group'>
-            <button id="newGame" onClick="startButtonClick();">Start Game</button>
             <button id="leaveGame" onClick="window.location.href='index.html'" >Leave Game</button> 
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
@@ -46,9 +46,6 @@
         <div id="center">
             <!-- THE ARE WHERE THE GAME IS PLAYED -->
             <div id="gameArea">
-                    <div id="newDiv" class="here" style="display: none" > content</div>
-                    <div id="oldDiv" class="here" style="display: block"> content</div>
-
                 <!-- Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609 -->
                 <img id='blueball' src="../public/Images/blueball.png">
         
@@ -109,10 +106,12 @@
                 <img id='startImg' src='../public/Images/start.png'> 
             </div>
 
-            <!-- To be shown when game is over -->
+            <!-- To be shown when user dies more than 10 times -->
             <div id="endGame">       
                 <img id='endGameImg' src='../public/Images/gameover.png'> 
             </div>
+
+            <!-- To be shown when game is over -->
             <div id="timeUp">       
                 <img id='timeUpImg' src='../public/Images/timeup.png'> 
             </div>
@@ -120,6 +119,7 @@
 
         <!-- RIGHT AREA OF THE SCREEN -->
         <div id="right"> 
+            <!-- Content for this is created in game.js -->
         </div>
         
         <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is not modified, just used for jQuery code. -->

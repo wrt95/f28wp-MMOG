@@ -1,13 +1,11 @@
 // $(document).ready(function () {
 
 function userin() {
-    //var username = prompt("Please enter your username:")
-    var username = "examplesarentcool ";
+    var username = prompt("Please enter your username:")
     return username;
 }
 function passin(){
-    // var password = prompt("Enter enter your password:")
-    var password = "exposeyourself";
+    var password = prompt("Enter enter your password:")
     return password;
 }
 var username = userin();

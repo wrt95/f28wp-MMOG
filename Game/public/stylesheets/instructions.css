@@ -1,36 +1,37 @@
 body {
-    margin: 100px;
- /*   padding: 10px; */
     background-color: black; 
 }
 
-img{
-    position: absolute;
-    padding-left: 9%; 
-    top:4%;
-    width: 65%; 
-    height: 15%;
+#instr-img{
+    text-align: center;
+    margin-top: 2%;
 }
 
-.button{
-    background-color: red; 
-    color: black; 
-    position: relative;
-    font-size: 10px;
-    font-weight: bold; 
-    text-align: center;  
+/* --- THE BUTTONS --- */
+.btn-group{
+    padding: 1% 1%;
+    cursor: pointer;
+    text-align: center;
+    float: center;
 }
-/* Making the button appear blue when hovered over */
-.button:hover{
+.btn-group > * {
+    border: 2px solid white;
+    background-color: red;
+    font-size: 30px;
+}
+button:hover{
     background-color: blue; 
 }
+button:active {
+    background-color: green;
+}
 
-
+/* --- THE INSTRUCTIONS --- */
 #information {
-    top: 30%;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     color: red;
     overflow: hidden;
-    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
 }
