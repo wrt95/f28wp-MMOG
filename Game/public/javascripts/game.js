@@ -1,95 +1,111 @@
 
 /* --- GLOBAL VARIABLES --- */
+var gameArea = $('#gameArea'),          // variable for the game area
+    score = 0,                          // Variable for the score
+    blueball = $('#blueball');          // Variable for the blue ball
+//  var greenball = $('#greenball');    // Variable for the blue ball
 
-var gameArea = $('#gameArea');          // variable for the game area
-var score = 0;                          // Variable for the score
+var timer,              // Variable for the timer (Count down to the game ending)
+    timerL;             // Variable for the lobby timer (Count down to the game starting)
 
-var blueball = $('#blueball');          // Variable for the blue ball
-// var greenball = $('#greenball');        // Variable for the blue ball
+// source - https://www.audioblocks.com/stock-audio/action-platform-game-from-the-80s-behle5j6ivbk0wyabwm.html
+var gameAudio = new Audio('../public/Audio/gamesong.m4a');
 
-var timer;              // Variable for the timer 
-var timerL;             // Variable for the lobby timer (Count down to start)
+// source - https://www.myinstants.com/instant/minecraft-hurt/
+var dieAudio = new Audio('../public/Audio/die.mp3');
 
+// source - https://www.myinstants.com/instant/game-over-halo/
+var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
 
+// source - https://www.audioblocks.com/royalty-free-audio/3+2+1+go+countdown
+var timeupAudio = new Audio('../public/Audio/timeup.m4a');
 
+// source - https://www.myinstants.com/instant/coin-mario/
+var coinAudio = new Audio('../public/Audio/coin.mp3');
 
-//This function sets the max timer for the clock and calls the other function that deducts the seconds 
-//Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
+/*
+ *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
+ *  Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
+ */
 function clock(){
-    timer = setInterval(countDown, 1000); // calling the timer every second 
-    var maxTime = 60; 
+    timer = setInterval(countDown, 1000); // calling the countdown function every second (countdown takes 1 away. ie minus 1 every 1 second) 
+    var maxTime = 20; 
 
-    //This function takes the seconds away from the maximum time 
+    /*
+     *  This function takes the seconds away from the maximum time. It is called every second. 
+     */
     function countDown() {
-        document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
-        if(maxTime == 0 ){
+        document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
+        if(maxTime === 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
-            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
-            egImg.show();               // Showing the gameover image 
+            var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
+            timeUp.show();              // Showing the time up image 
+            gameAudio.pause();  
+            timeupAudio.play(); 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
         }
       }
     }
 
-
-function gameLobby(){
-    killBall();
-}
-
-//Timer to countdown the time until the game can start
+/*
+ *  This function counts down from 5 until the game starts. No functionality is available 
+ *  in the game before this time hirs 0. 
+ */
 function lobbyClock(){
-    timerL = setInterval(countDownL, 1000); 
-    var maxTimeL = 5;
+    timerL = setInterval(countDownL, 1000); // Calling the countDownL function every second 
+    var maxTimeL = 5; 
     
+    /*
+     *  This is the function called in the interval. It decrements the time. 
+     *  When it hits 0, it calls the gameFunctionality, hides the count down clock, 
+     *  and displays the time left clock. 
+     */
     function countDownL(){
-        document.getElementById("timerIDL").innerHTML= --maxTimeL;
-        if(maxTimeL == 0){
-            //  function gameLobby(); 
-            clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
-
-            // When count down hits 0, enable the functionality
+        document.getElementById("timerIDL").innerHTML= --maxTimeL; 
+        if(maxTimeL === 0){ 
+            clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
             gameFunctionality();
-            
-            // hide the count down timer, show the game left timer
+            gameAudio.play(); 
             $('#gameStartClock').hide();
             $('#gameTimeLeft').show();
-
-            // Call the function to count down the timer. 
             clock();
         }
     }
 }
 
-//calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
-//resize their screen before the next alert 
+
+/*
+ *  This function calls the screen-size functions every 5 seconds, incase the user 
+ *  changes the screen-size during the game.  
+ */
 window.setInterval(function(){
-    screenWidthAlert();
+    screenWidthAlert(); 
     screenHeightAlert();  
   }, 5000);
 
-//alert the user if the width of the screen is too small  
+/*
+ * This function alerts the user if the width of their screen is too small  
+ */
 function screenWidthAlert(){
     if($(window).width() < 900) {
         alert("Please increase the browser width")
     }
 } 
-//alert the user if the height of the screen is too small
+
+/*
+ * This function alerts the user if the height of their screen is too small  
+ */
 function screenHeightAlert(){
     if($(window).height() < 750) {
         alert("Please increase the browser height")
     }
 } 
 
-//Function to start the game when the start button is clicked
-function startButtonClick(){
-    newGame();  
-}
-
-
 /*
  *  This is called when the page is loaded. 
- *  It sets the score to 0, and calls the function lobbyClock, which starts the game. 
+ *  It sets the score to 0, and calls the function lobbyClock, which starts the
+ *  countdown until the game begins. 
  */
 $(document).ready(function () {
     score = 0;
@@ -98,19 +114,19 @@ $(document).ready(function () {
 });
 
 /* 
- *  For the following function, i found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
+ *  For the following function, I found help at this link: https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys
  *  
- *  This function creates the functionality of the balls movement around in the game area. 
- *  It calculates the collision detection based on the difference between the width of the ball and the game area.
+ *  This function creates the functionality of the balls movement in the game area. 
+ *  It calculates the collision detection between the ball and the game area 
+ *  boundary based on the difference between the width of the ball and the width of the game area.
  *  This makes the ball unable to leave the game area square. 
  */
 function gameFunctionality() {
-     // Variables for 
-     var width = gameArea.width() - blueball.width(),       // The maximal left/top value for gameArea
-     //  widthGreen = gameArea.width() - greenball.width(),    // The maximal left/top value for gameArea
+     var width = gameArea.width() - blueball.width(),       // The maximal top/left value for gameArea
+     //  widthGreen = gameArea.width() - greenball.width(), // The maximal top/left value for gameArea
  
          keyPressed = {},                                   // Array to store information of which key is pressed
-         speed = 10;                                        // The distance moved by the ball per intervall, in px
+         speed = 10;                                        // The distance moved by the ball per interval, in px
 
 
      /* 
@@ -120,8 +136,8 @@ function gameFunctionality() {
      */
      function newTopLeft(oldValue,key1,key2) {
          // Creating a variable, setting it to the 
-         //     - Integer value of the String String oldValue, with base 10,                            MINUS
-         //     - The key pressed first. (If the key is in the array, return the speed, else return 0)  PLUS
+         //     - Integer value of the String oldValue, with base 10, MINUS
+         //     - The key pressed first. (If the key is in the array, return the speed, else return 0), PLUS
          //     - The key pressed second. (If the key is in the array, return the speed, else return 0)  
          var n = parseInt(oldValue, 10) - (keyPressed[key1] ? speed : 0) + (keyPressed[key2] ? speed : 0);
          
@@ -132,22 +148,11 @@ function gameFunctionality() {
          return (n < 0 ? 0 : n > width ? width : n);
      } 
  
-     
-     var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
- 
      /*
       * This function sets the new values of the ball. It happens when a button that is in the
       * array is pressed.  
       */
      $(window).keydown(function(e) { 
-        // clock(); //uncomment for demo 
-    //     counter = counter + 1; //adding 1 to the counter
-         //the timer starts when the counter = 1 *the first button press*
-         //equal to 1 so it doesnt keep re starting with every button press 
-    //     if(counter == 1){
-    //         clock(); 
-    //     }
-      
          // The button pressed from the array is set to true. 
          keyPressed[e.which] = true; 
 
@@ -164,13 +169,13 @@ function gameFunctionality() {
          });
   */
  
-         // Call track ball to get the position in the grid. 
+         // Call track ball to get the ball´s position in the grid. 
          trackBall();
      }); 
 
  
      /*
-      * This function changes the buttons value to false when the key is relesed.
+      * This function changes the buttons value to false when the key is released.
       */
      $(window).keyup(function(e) { 
          keyPressed[e.which] = false;    
@@ -183,9 +188,10 @@ function gameFunctionality() {
  *  It uses an array with the arrow keys to check if it is pressed. 
  */
 $(window).keydown(function(e) {
-    var keyArray=new Array(37,38,39,40);
-    var key = e.which;
+    var keyArray=new Array(37,38,39,40),
+        key = e.which;
     // If the key pressed is not in the array, prevent default, and return false. 
+    // The default for a button is to move the screen up and down. 
     if($.inArray(key,keyArray) != -1) {
         e.preventDefault();
         return false;
@@ -216,7 +222,6 @@ var gameArray = [
                 [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
 
-
 var deadCounter = 0,        // Variable to count number of deaths. 
     coin1 = $('#coin1'),    // Variable for coin 1
     coin2 = $('#coin2'),    // Variable for coin 2
@@ -227,13 +232,11 @@ var deadCounter = 0,        // Variable to count number of deaths.
     coin7 = $('#coin7'),    // Variable for coin 7
     coin8 = $('#coin8');    // Variable for coin 8
 
-
 // Array for all the coins
 var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8];  
-
                 
 /* 
- *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area. 
+ *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area as a whole number. 
  *  It gets all the corners, and based on where it is positioned, it either kills the ball, or removes a coin / increment score. 
  */
 function trackBall() {
@@ -247,7 +250,7 @@ function trackBall() {
     
                                                                                         // --- THE LEFT BOTTOM CORNER ---
     var leftBottomY = Math.floor(((blueball.position().top) + (blueball.height()))/60); // LeftBottomY is the top postion plus the height divided by 60 (600px for gameArea, 10 squares)
-                                                                                        // leftBottomX is leftTOpX     (on same X position.)
+                                                                                        // leftBottomX is leftTopX     (on same X position.)
 
                                                                                         // --- THE RIGHT BOTTOM CORNER ---
                                                                                         // rightBottomY is leftBottomY (on same Y position.)
@@ -255,29 +258,29 @@ function trackBall() {
     // Following is used for debugging to track the grid position of the ball:
     console.log(leftTopX, leftTopY);
 
-    // If top left corner is 2, remove the coin. Bring back after 10 seconds. 
+
+    // --- COLLISION DETECTION --- 
+
+    // If one of the 4 corners of the ball enters a grid position that is set to 2, 
+    // remove the coin stored at that postion. Bring it back after up to 10 seconds. 
     if (gameArray[leftTopY][leftTopX] === 2) {
         removeCoin(leftTopY, leftTopX);
         setTimeout(function() {
            bringBackCoins();
         }, 10000);
     }
-    // If top right corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftTopY][rightTopX] === 2) {
         removeCoin(leftTopY, rightTopX);
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
-
     }
-    // If bottom left corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftBottomY][leftTopX] === 2) {
         removeCoin(leftBottomY, leftTopX);
         setTimeout(function() {
             bringBackCoins();
         }, 10000);
     }
-    // If bottom right corner is 2, remove the coin. Bring back after 10 seconds. 
     else if (gameArray[leftBottomY][rightTopX] === 2) {
         removeCoin(leftBottomY, rightTopX);
         setTimeout(function() {
@@ -285,13 +288,23 @@ function trackBall() {
         }, 10000);
     }
 
-    // If one of the corners is 0, kill the ball. Update the screen with the deadColour function. 
+    // If one of the 4 corners of the ball enters a grid postition that is set to 0, 
+    // kill the ball. Update the screen with the deadColour function (information that you died). 
+    // If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
-        // If deadColour is displayed more 18 times, stop creating more of it. 
-        if (deadCounter <= 18) {
-            deadColour();     
+        if (deadCounter <= 10) {
+            deadColour();    
         }
+        else {
+            var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
+            endGame.show();                // Showing the gameover image 
+            gameArea.hide();               // Hiding the game area
+            gameAudio.pause(); 
+            gameoverAudio.play(); 
+            $('#right').hide();            // Hide what is stored in right
+        }
+        $('#score').html("0"); 
     }
 }
 
@@ -299,11 +312,12 @@ function trackBall() {
 /*
  *  This function "kills" the ball if the ball collide with an obstacle. 
  *  It changes the users score to 0, and sends the user back to start position. 
+ *  deadCounter is incremented.
  */
 function killBall() {
     score = 0;
     $('#score').html(score);
-    // set position of ball to startposition.
+    dieAudio.play(); 
     blueball.css({
         left: "93%",
         top: "2.5%"
@@ -312,9 +326,9 @@ function killBall() {
 }
 
 /*
- *  This function creates a new <p> element that prints "YOU DIED!" in the right area of the screen 
- *  if the user dies. The colours are randomly choosen from an array of colours. The function loops
- *  up to the deadCounter, so it prints every time the user dies. 
+ *  This function creates a new <p> element that prints "YOU DIED! You have x lives left" in the right 
+ *  area of the screen if the user dies. The colours are randomly choosen from an array of colours. 
+ *  The function loops up to the deadCounter, so it prints every time the user dies. 
  */
 function deadColour () {
     var colors = ["red","green","blue","yellow", "orange", "purple", "lime"];      // Array of colours
@@ -324,8 +338,9 @@ function deadColour () {
         tmp = document.createElement("p");                              // Create a <p> element, and set the colour of it. 
         tmp.style.color = color;
         $("#right").append(tmp);                                        // Append the <p> to the right area of the game. 
+        var livesLeft = 10 - i;
     }
-    tmp.innerHTML = "YOU DIED!";    // Set the text.
+    tmp.innerHTML = ("YOU DIED! You have " + livesLeft + " lives left"); // Set the text, update with number of lives left. 
 }
 
 
@@ -346,11 +361,10 @@ function removeCoin (y, x) {
             gameArray[y][x] = 1; 
         }       
     }
-    // Increment score.
+    coinAudio.play(); 
     score++;
     $('#score').html(score);  
 }
-
 
 /*
  * This function brings back the coins. 
@@ -406,7 +420,7 @@ function bringBack8 () {
 }
 
 /* 
- *  This function starts a new game.
+ *  This function starts a new game. 
  */
 function newGame() {
     window.location.reload();
