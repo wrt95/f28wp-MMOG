@@ -9,6 +9,13 @@ var blueball = $('#blueball');          // Variable for the blue ball
 var timer;              // Variable for the timer (Count down to the game ending)
 var timerL;             // Variable for the lobby timer (Count down to the game starting)
 
+// https://www.audioblocks.com/stock-audio/action-platform-game-from-the-80s-behle5j6ivbk0wyabwm.html
+var gameAudio = new Audio('../public/Audio/gamesong.m4a');
+
+// https://www.myinstants.com/instant/minecraft-hurt/
+var dieAudio = new Audio('../public/Audio/die.mp3');
+
+
 
 
 
@@ -21,7 +28,7 @@ function clock(){
     //This function takes the seconds away from the maximum time 
     function countDown() {
         document.getElementById("timerID").innerHTML = --maxTime; //taking 1 away from the timer 
-        if(maxTime == 0 ){
+        if(maxTime == 0){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
             var timeUp = $('#timeUp');  // Creating a variable set to 'GAME OVER' image 
             timeUp.show();              // Showing the gameover image 
@@ -48,6 +55,7 @@ function lobbyClock(){
 
             // When count down hits 0, enable the functionality
             gameFunctionality();
+            gameAudio.play(); 
             
             // hide the count down timer, show the game left timer
             $('#gameStartClock').hide();
@@ -297,6 +305,7 @@ function trackBall() {
 function killBall() {
     score = 0;
     $('#score').html(score);
+    dieAudio.play();
     // set position of ball to startposition.
     blueball.css({
         left: "93%",
