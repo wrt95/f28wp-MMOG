@@ -11,17 +11,17 @@ var con    =  mysql.createConnection({
 });
 
 var leaderboard;
-var usr;
+var name;
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  //var LdrBrd   = "SELECT Users.USERNAME AS Username, Scores.HIGHSCORE AS Highscore, Scores.GAMES_PLAYED AS Games_Played FROM Users JOIN Scores ON Users.USER_ID = Scores.USER_ID ORDER BY HIGHSCORE DESC LIMIT 5";
-  var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
-  var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
+  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 4";
+  var usr      = "SELECT USERNAME AS Username FROM User LIMIT 1"; // change limit to where username is their username
+  //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
+  //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
   
-  var highscore = "SELECT HIGHSCORE FROM Scores"
-  var sqlUpdate = "UPDATE Scores.HIGHSCORE = ?"
+  //var sqlUpdate = "UPDATE Scores.HIGHSCORE = ?"
   /*
   con.query(UsrScore, function (err, result, fields) {
     if (err) throw err;
@@ -29,10 +29,16 @@ con.connect(function(err) {
     console.log("User Scores",result);
   */
  
- con.query(highscore, function(err, result, fields) {
-  if (err) throw err;
-  console.log("Inserted");
- });
+ con.query(LdrBrd, function (err, result, fields) {
+    if (err) throw err;
+    leaderboard = result;
+    console.log("Leaderboard",result);
+  });
+  con.query(usr, function (err, result, fields) {
+    if (err) throw err;
+    name = result;
+    console.log("user",result);
+  });
 });
 
 router.get('/', function(req, res, next) {
@@ -40,14 +46,8 @@ router.get('/', function(req, res, next) {
   res.render('index.jade', {ld: leaderboard});
 });
 router.get('/gamepage', function(req, res, next) {
-  console.log("Score", hgscr)
-  res.render('gamepage.jade', {hgscr})  
+  console.log("usr:", name)
+  res.render('gamepage', {ud: name});
 });
 
-router.get('/gamepage', function(req, res, next) {
-  console.log("usr:", NameScore)
-  res.render('gamepage', {ud: NameScore});
-});
-
-module.exports = router;  
-
+module.exports = router;
