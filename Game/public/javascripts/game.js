@@ -5,7 +5,7 @@ var gameArea = $('#gameArea');          // variable for the game area
 var score = 0;                          // Variable for the score
 
 var blueball = $('#blueball');          // Variable for the blue ball
-// var greenball = $('#greenball');        // Variable for the blue ball
+// var greenball = $('#greenball');     // Variable for the blue ball
 
 var timer;              // Variable for the timer (Count down to the game ending)
 var timerL;             // Variable for the lobby timer (Count down to the game starting)
@@ -16,7 +16,7 @@ var timerL;             // Variable for the lobby timer (Count down to the game 
 //This function sets the max timer for the clock and calls the other function that deducts the seconds 
 //Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
 function clock(){
-    timer = setInterval(countDown, 1000); // calling the timer every second 
+    timer = setInterval(countDown, 1000); // calling the countdown function every second (countdown takes 1 away. ie minus 1 every 1 second) 
     var maxTime = 60; 
 
     //This function takes the seconds away from the maximum time 
@@ -39,13 +39,12 @@ function gameLobby(){
 
 //Timer to countdown the time until the game can start
 function lobbyClock(){
-    timerL = setInterval(countDownL, 1000); 
-    var maxTimeL = 5;
+    timerL = setInterval(countDownL, 1000); // Calling the countDownL function every second 
+    var maxTimeL = 10; // 10 seconds to until the game starts 
     
     function countDownL(){
-        document.getElementById("timerIDL").innerHTML= --maxTimeL;
-        if(maxTimeL == 0){
-            //  function gameLobby(); 
+        document.getElementById("timerIDL").innerHTML= --maxTimeL; // Taking 1 away from the maxTimeL 
+        if(maxTimeL == 0){ 
             clearInterval(timerL) //Clearing the timer when it gets to 0, to stop it counting into the negative 
 
             // When count down hits 0, enable the functionality
@@ -64,7 +63,7 @@ function lobbyClock(){
 //calling the screen size alert functions every 3 seconds, enough time to alert them before their game starts and enough time to let them 
 //resize their screen before the next alert 
 window.setInterval(function(){
-    screenWidthAlert();
+    screenWidthAlert(); 
     screenHeightAlert();  
   }, 5000);
 
@@ -140,13 +139,6 @@ function gameFunctionality() {
       * array is pressed.  
       */
      $(window).keydown(function(e) { 
-        // clock(); //uncomment for demo 
-    //     counter = counter + 1; //adding 1 to the counter
-         //the timer starts when the counter = 1 *the first button press*
-         //equal to 1 so it doesnt keep re starting with every button press 
-    //     if(counter == 1){
-    //         clock(); 
-    //     }
       
          // The button pressed from the array is set to true. 
          keyPressed[e.which] = true; 
@@ -406,7 +398,7 @@ function bringBack8 () {
 }
 
 /* 
- *  This function starts a new game.
+ *  This function starts a new game. 
  */
 function newGame() {
     window.location.reload();
