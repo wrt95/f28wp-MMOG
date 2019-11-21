@@ -21,6 +21,7 @@ var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
 var timeupAudio = new Audio('../public/Audio/timeup.m4a');
 
 // source - https://www.myinstants.com/instant/coin-mario/
+var coinAudio = new Audio('../public/Audio/coin.mp3');
 
 /*
  *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
@@ -360,6 +361,7 @@ function removeCoin (y, x) {
             gameArray[y][x] = 1; 
         }       
     }
+    coinAudio.play(); 
     score++;
     $('#score').html(score);  
 }
