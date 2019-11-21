@@ -22,17 +22,14 @@ body
             h3 Username
           th
             h3 Score
-          th 
-            h3 Games Played
-          th  
+          th
         each player in locals.ld
           tr
             td(align='center')
-            td
-              h3 #{player.Username}
-            td
-              h3 #{player.Highscore}
-            td
-              h3 #{player.Games_Played}
+              td
+                h3 #{player.Username}
+              td
+                h3 #{player.Highscore}
+
 
   script(src='javascripts/socket.js')
