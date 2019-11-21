@@ -8,6 +8,15 @@ var gameArea = $('#gameArea'),          // variable for the game area
 var timer,              // Variable for the timer (Count down to the game ending)
     timerL;             // Variable for the lobby timer (Count down to the game starting)
 
+// source - https://www.audioblocks.com/stock-audio/action-platform-game-from-the-80s-behle5j6ivbk0wyabwm.html
+var gameAudio = new Audio('../public/Audio/gamesong.m4a');
+
+// source - https://www.myinstants.com/instant/minecraft-hurt/
+var dieAudio = new Audio('../public/Audio/die.mp3');
+
+// source - https://www.myinstants.com/instant/game-over-halo/
+var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
+
 /*
  *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
  *  Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
@@ -49,6 +58,7 @@ function lobbyClock(){
         if(maxTimeL === 0){ 
             clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
             gameFunctionality();
+            gameAudio.play(); 
             $('#gameStartClock').hide();
             $('#gameTimeLeft').show();
             clock();
@@ -282,6 +292,8 @@ function trackBall() {
             var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
             endGame.show();                // Showing the gameover image 
             gameArea.hide();               // Hiding the game area
+            gameAudio.pause(); 
+            gameoverAudio.play(); 
             $('#right').hide();            // Hide what is stored in right
         }
         $('#score').html("0"); 
@@ -297,6 +309,7 @@ function trackBall() {
 function killBall() {
     score = 0;
     $('#score').html(score);
+    dieAudio.play(); 
     blueball.css({
         left: "93%",
         top: "2.5%"
