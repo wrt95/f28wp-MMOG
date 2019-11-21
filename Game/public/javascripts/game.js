@@ -20,6 +20,8 @@ var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
 // source - https://www.audioblocks.com/royalty-free-audio/3+2+1+go+countdown
 var timeupAudio = new Audio('../public/Audio/timeup.m4a');
 
+// source - https://www.myinstants.com/instant/coin-mario/
+
 /*
  *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
  *  Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
@@ -37,6 +39,7 @@ function clock(){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
             var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
             timeUp.show();              // Showing the time up image 
+            gameAudio.pause();  
             timeupAudio.play(); 
             gameArea.hide();            // Hiding the game area
             $('#right').hide();         // Hide what is stored in right
