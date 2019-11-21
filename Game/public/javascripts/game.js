@@ -40,7 +40,7 @@ function gameLobby(){
 //Timer to countdown the time until the game can start
 function lobbyClock(){
     timerL = setInterval(countDownL, 1000); // Calling the countDownL function every second 
-    var maxTimeL = 10; // 10 seconds to until the game starts 
+    var maxTimeL = 5; // 10 seconds to until the game starts 
     
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL; // Taking 1 away from the maxTimeL 
