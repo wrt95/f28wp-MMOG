@@ -132,22 +132,11 @@ function gameFunctionality() {
          return (n < 0 ? 0 : n > width ? width : n);
      } 
  
-     
-     var  counter = 0; //used for making the clock start on one click rather than multiple clicks 
- 
      /*
       * This function sets the new values of the ball. It happens when a button that is in the
       * array is pressed.  
       */
      $(window).keydown(function(e) { 
-        // clock(); //uncomment for demo 
-    //     counter = counter + 1; //adding 1 to the counter
-         //the timer starts when the counter = 1 *the first button press*
-         //equal to 1 so it doesnt keep re starting with every button press 
-    //     if(counter == 1){
-    //         clock(); 
-    //     }
-      
          // The button pressed from the array is set to true. 
          keyPressed[e.which] = true; 
 
@@ -289,8 +278,15 @@ function trackBall() {
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
         // If deadColour is displayed more 18 times, stop creating more of it. 
-        if (deadCounter <= 18) {
+        if (deadCounter <= 10) {
             deadColour();     
+        }
+        else {
+            clearInterval(timer)        // Clearing the timer when it gets to 0 
+            var egImg = $('#endGame');  // Creating a variable set to 'GAME OVER' image 
+            egImg.show();               // Showing the gameover image 
+            gameArea.hide();            // Hiding the game area
+            $('#right').hide();         // Hide what is stored in right
         }
     }
 }
@@ -324,8 +320,9 @@ function deadColour () {
         tmp = document.createElement("p");                              // Create a <p> element, and set the colour of it. 
         tmp.style.color = color;
         $("#right").append(tmp);                                        // Append the <p> to the right area of the game. 
+        var livesLeft = 10 - i;
     }
-    tmp.innerHTML = "YOU DIED!";    // Set the text.
+    tmp.innerHTML = ("YOU DIED! You have " + livesLeft + " lives left");    // Set the text, update with number of lives left. 
 }
 
 
