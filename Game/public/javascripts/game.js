@@ -29,7 +29,7 @@ var coinAudio = new Audio('../public/Audio/coin.mp3');
  */
 function clock(){
     timer = setInterval(countDown, 1000); // calling the countdown function every second (countdown takes 1 away. ie minus 1 every 1 second) 
-    var maxTime = 20; 
+    var maxTime = 60; 
 
     /*
      *  This function takes the seconds away from the maximum time. It is called every second. 
@@ -38,11 +38,11 @@ function clock(){
         document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
         if(maxTime === 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
+            gameArea.hide();            // Hiding the game area
             var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
             timeUp.show();              // Showing the time up image 
             gameAudio.pause();  
-            timeupAudio.play(); 
-            gameArea.hide();            // Hiding the game area
+            timeupAudio.play();  
             $('#right').hide();         // Hide what is stored in right
 
 
@@ -54,7 +54,7 @@ function clock(){
 
 /*
  *  This function counts down from 5 until the game starts. No functionality is available 
- *  in the game before this time hirs 0. 
+ *  in the game before this time hits 0. 
  */
 function lobbyClock(){
     timerL = setInterval(countDownL, 1000); // Calling the countDownL function every second 
@@ -212,18 +212,20 @@ $(window).keydown(function(e) {
  *  0 = obstacle
  *  1 = free position
  *  2 = coin
+ *  3 = teleport bottom
+ *  4 = teleport top
  */
 var gameArray = [
-                [2, 1, 1, 0, 1, 1, 1, 2, 0, 1],
+                [1, 2, 1, 0, 1, 1, 1, 4, 0, 1],
                 [0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
                 [2, 0, 1, 0, 1, 1, 1, 1, 0, 1],
                 [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
                 [0, 0, 0, 1, 1, 2, 1, 1, 0, 1],     
-                [1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-                [1, 0, 0, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 0, 1, 0, 1, 0, 1],
+                [1, 0, 0, 1, 1, 1, 1, 1, 2, 1],
                 [1, 0, 1, 1, 0, 1, 0, 0, 0, 0],
                 [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
-                [2, 0, 1, 2, 0, 1, 1, 1, 0, 2],
+                [3, 0, 1, 2, 0, 1, 1, 1, 0, 2],
                 ];
 
 var deadCounter = 0,        // Variable to count number of deaths. 
@@ -233,11 +235,11 @@ var deadCounter = 0,        // Variable to count number of deaths.
     coin4 = $('#coin4'),    // Variable for coin 4
     coin5 = $('#coin5'),    // Variable for coin 5
     coin6 = $('#coin6'),    // Variable for coin 6
-    coin7 = $('#coin7'),    // Variable for coin 7
-    coin8 = $('#coin8');    // Variable for coin 8
+    coin7 = $('#coin7');    // Variable for coin 7
+
 
 // Array for all the coins
-var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8];  
+var coinArray = [coin1, coin2, coin3, coin4, coin5, coin6, coin7];  
                 
 /* 
  *  This function tracks the ball. It uses Math.floor to round the numbers down, so we get the x and y position for the grid area as a whole number. 
@@ -301,14 +303,25 @@ function trackBall() {
             deadColour();    
         }
         else {
+            clearInterval(timer);
             var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
             endGame.show();                // Showing the gameover image 
             gameArea.hide();               // Hiding the game area
             gameAudio.pause(); 
             gameoverAudio.play(); 
             $('#right').hide();            // Hide what is stored in right
+            blueball.hide();
         }
         $('#score').html("0"); 
+    }
+
+    // If the ball enters the bottom teleport area. 
+    if (gameArray[leftTopY][leftTopX] === 3 || gameArray[leftTopY][rightTopX] === 3 || gameArray[leftBottomY][leftTopX] === 3 || gameArray[leftBottomY][rightTopX] === 3) {   
+        teleportBottom(); 
+    }
+    // If the ball enters the top teleport area.
+    if (gameArray[leftTopY][leftTopX] === 4 || gameArray[leftTopY][rightTopX] === 4 || gameArray[leftBottomY][leftTopX] === 4 || gameArray[leftBottomY][rightTopX] === 4) {
+        teleportTop();
     }
 }
 
@@ -327,6 +340,25 @@ function killBall() {
         top: "2.5%"
     });
     deadCounter++;
+}
+
+/* 
+ *  This function teleports the ball from the bottom to the top.
+ */
+function teleportBottom() {
+    blueball.css({
+        left: "66.5%",
+        top: "2.5%"
+    });
+}
+/* 
+ *  This function teleports the ball from the top to the bottom.
+ */
+function teleportTop() {
+    blueball.css({
+        left: "2.5%",
+        top: "86.5%"
+    });
 }
 
 /*
@@ -383,22 +415,20 @@ function bringBackCoins(){
     bringBack5();
     bringBack6();
     bringBack7();
-    bringBack8();
-    bringBack9();
 }
 
 
 /* 
- *  Below are 8 functions, one for each coin. It sets the coin to be visible, 
+ *  Below are 7 functions, one for each coin. It sets the coin to be visible, 
  *  and changes the value in the 2D array to be 2, which represent a coin.
  */
 function bringBack1 () {  
     coinArray[0].show();
-    gameArray[0][0] = 2;
+    gameArray[1][0] = 2;
 }
 function bringBack2 () {   
     coinArray[1].show();
-    gameArray[0][7] = 2;
+    gameArray[4][5] = 2;
 }
 function bringBack3 () {   
     coinArray[2].show();
@@ -406,7 +436,7 @@ function bringBack3 () {
 }
 function bringBack4 () {   
     coinArray[3].show();
-    gameArray[9][0] = 2;
+    gameArray[5][0] = 2;
 }
 function bringBack5 () {   
     coinArray[4].show();
@@ -418,11 +448,7 @@ function bringBack6 () {
 }
 function bringBack7 () {           
     coinArray[6].show();
-    gameArray[6][9] = 2;
-}
-function bringBack8 () {   
-    coinArray[7].show();
-    gameArray[4][5] = 2;
+    gameArray[6][8] = 2;
 }
 
 /* 
