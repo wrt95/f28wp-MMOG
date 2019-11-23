@@ -3,11 +3,15 @@ var router = express.Router();
 
 
 /* GET home page. */
+//Node.js code to connect to the database
 var mysql  = require('mysql');
 var con    =  mysql.createConnection({
+  //the page hosting the server
   host     :  "sql2.freesqldatabase.com",
+  //login details
   user     :  "sql2312550", 
   password :  "gR1*bG2*",
+  //name of database
   database :  "sql2312550"
 });
 var name;
@@ -19,98 +23,85 @@ var name;
 //else pass
 
 con.connect(function(err) {
-  //const score = require('../public/javascripts/game');  need to get score from game.js
-  const login = require('../public/javascripts/homepage');
-
-  var username = login.username;
-  var password = login.password;
-  console.log(username, password)
-
+  
   if (err) throw err;
   console.log("Connected!");
+
+  //const score = require('../public/javascripts/game');  need to get score from game.js
+
+  //imports the username and password from homepage.js
+  const login = require('../public/javascripts/homepage');
+  //declares them as variables now to make code more readable in SQL queries
+  var username = login.username;
+  var password = login.password;
+  console.log("Current Username:",username,", Current Password:",password)
+
   //retruns the username and scores of the the top 5 scores
   var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5";
-  var validLogin = "SELCT USERNAME, PASS FROM USER WHERE USERNAME ='"+username+"' AND PASS ='"+password+"'";
-  var validUser = "SELECT USERNAME FROM User WHERE USERNAME ='"+username+"'";
-  var validPass = "SELECT PASS FROM User WHERE PASS ='"+password+"'";
+  //returns a user and pass from DB if they exist
+  var validLogin = "SELECT USERNAME, PASS FROM User WHERE USERNAME = '"+username+"' AND PASS = '"+password+"'";
+  //adds new user and pass to DB
   var sqlUpdateLogin = "INSERT INTO User (USERNAME, PASS) VALUES ('"+username+"','"+password+"')";
-
-  function credentials(callback){
-    //checks if the exact username is already in the DB
-    //if true then it should print true
-    con.query(validUser, function (err, result) {
-      callback(err, result ? result.length > 0 : false);
-    });
-  }
+  //gets the current username
+  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
 
 
+  //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
-  /*
-  function credentialsUser(callback){
-    //checks if the exact username is already in the DB
+  function credentials(callback){
+    //checks if the exact username and password are already in the DB
     //if true then it should print true
-    con.query(validUser, function (err, result) {
+    con.query(validLogin, function (err, result) {
       callback(err, result ? result.length > 0 : false);
     });
   }
-  credentialsUser(function(err, isExists){
-    if (err) throw err
-  else {console.log("hey",isExists);}
-  return isExists
-  });
-
-  function credentialsPass(callback){
-    //checks if the exact password is already in the DB
-    //if true then it should print true
-    con.query(validPass, function (err, result) {
-      callback(err, result ? result.length > 0 : false);
-    });
-  }
-  credentialsPass(function(err, isExists){
-    if (err) throw err
-  else {console.log("hoy",isExists);}
-  return isExists
-  }); 
-  */
 
   function isLogin() {
     //call back function that gives the bool value we are looking for
     credentials(function(err, isExists){
       if (err) throw err
-      else {console.log("hay",isExists);}
+      else {console.log("is valid username and password?",isExists);}
       flag = isExists
-      console.log(flag)
       return flag})
     //if true then the player has entered the correct username and password
     if(flag = true)
-        console.log("correct cred")
+        console.log("correct credentials, join a game?")
     else
       console.log("make account or try again")
   }
   isLogin()
 
 
-  /*
+  //for the new account function (TODO)
   function insertLogin(){
     //adds a new set of username and password to DB
     con.query(sqlUpdateLogin, function (err, result) {
       if (err) throw err;
       console.log("dsda",result) })
   } 
-  */
+insertLogin()
+
+  //returns username
+  con.query(getName, function(err, result, fields){
+    if (err) throw err;
+    name = result;
+    console.log("name", result);
+  })
   //returns the tope 5 highscores
   con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
+    //made a variable leaderboard to send to index.jade and display as a table
     leaderboard = result;
     console.log("Leaderboard",result);
   })
 })
-
+//sending the previously mentioned leadeboard to index.jade
 router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
   res.render('index.jade', {ld: leaderboard});
 });
+//sends the current username to the gamepage.js and displays your user as you play
 router.get('/gamepage', function(req, res, next) {
   console.log("usr:", name)
   res.render('gamepage', {ud: name});

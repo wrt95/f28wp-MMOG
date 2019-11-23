@@ -16,19 +16,18 @@ function makeid(length) {
 function login(){
     userin();
     passin();
-
 }
 // login();
 function userin() {
     //var username = prompt("Please enter your username:")
-    //var username = makeid(5);
-    var username = "username"
+    var username = makeid(5);
+    //var username = "username"
     return username;
 }
 function passin(){
     //var password = prompt("Enter enter your password:"
-    //var password = makeid(5);
-    var password = "password"
+    var password = makeid(5);
+    //var password = "password"
     return password;
 }
 //newAccount() function
