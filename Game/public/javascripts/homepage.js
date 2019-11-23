@@ -1,4 +1,4 @@
-
+// $(document).ready(function () {
 //helper function to make a random string of size length, this is to simulate a new user instead of etering new datsa each time
 //take from:
 //https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
@@ -20,14 +20,14 @@ function login(){
 // login();
 function userin() {
     //var username = prompt("Please enter your username:")
-    var username = makeid(5);
-    //var username = "username"
+    //var username = makeid(5);
+    var username = "username"
     return username;
 }
 function passin(){
     //var password = prompt("Enter enter your password:"
-    var password = makeid(5);
-    //var password = "password"
+    //var password = makeid(5);
+    var password = "password"
     return password;
 }
 //newAccount() function

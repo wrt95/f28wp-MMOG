@@ -22,6 +22,8 @@ var name;
 //update HIGHSCORE
 //else pass
 
+
+
 con.connect(function(err) {
   
   if (err) throw err;
@@ -54,24 +56,19 @@ con.connect(function(err) {
     //if true then it should print true
     con.query(validLogin, function (err, result) {
       callback(err, result ? result.length > 0 : false);
-    });
-  }
+      }); 
+    }
 
-  function isLogin() {
-    //call back function that gives the bool value we are looking for
-    credentials(function(err, isExists){
-      if (err) throw err
-      else {console.log("is valid username and password?",isExists);}
-      flag = isExists
-      return flag})
-    //if true then the player has entered the correct username and password
-    if(flag = true)
-        console.log("correct credentials, join a game?")
-    else
-      console.log("make account or try again")
-  }
-  isLogin()
-
+  credentials(function(err, exists){
+    if (err) throw err
+    else {console.log("is valid username and password?",exists);}
+      if(exists == false){
+        console.log("new account pls")
+      }
+      else{
+        console.log("YOU MAY ENTER")
+      }
+    })
 
   //for the new account function (TODO)
   function insertLogin(){
@@ -80,7 +77,6 @@ con.connect(function(err) {
       if (err) throw err;
       console.log("dsda",result) })
   } 
-insertLogin()
 
   //returns username
   con.query(getName, function(err, result, fields){
@@ -107,4 +103,4 @@ router.get('/gamepage', function(req, res, next) {
   res.render('gamepage', {ud: name});
 });
 
-module.exports = router 
+module.exports = router;
