@@ -29,8 +29,6 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  var nameEx = "imSoCool"
-
   //const score = require('../public/javascripts/game');  need to get score from game.js
 
   //imports the username and password from homepage.js
@@ -47,7 +45,7 @@ con.connect(function(err) {
   //adds new user and pass to DB
   var sqlUpdateLogin = "INSERT INTO User (USERNAME, PASS) VALUES ('"+username+"','"+password+"')";
   //gets the current username
-  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+nameEx+"'";
+  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
 
 
@@ -69,6 +67,7 @@ con.connect(function(err) {
       }
       else{
         console.log("YOU MAY ENTER")
+        displayName()
       }
     })
 
@@ -77,15 +76,22 @@ con.connect(function(err) {
     //adds a new set of username and password to DB
     con.query(sqlUpdateLogin, function (err, result) {
       if (err) throw err;
-      console.log("dsda",result) })
+      console.log("updated the DB with: ",result) })
   } 
 
-  //returns username
-  con.query(getName, function(err, result, fields){
-    if (err) throw err;
-    name = Object.values(result[0]);
-    console.log("name:",name[0])
-  })
+  function displayName(){
+    con.query(getName, function(err, result, fields){
+      if (err) throw err;
+      //result is of type [object Object] where Object is the username we want
+      //Object.values gets the data of type Object -> the username
+      //this give use an array ['exampleUsername'] that we can pass through to gamepage.js as 
+      //js knows what and array of string is
+      name = Object.values(result[0]);
+      console.log("name:",name)
+      //express fun that sends it be rendered in gamepage.js
+      setName()
+    })
+  }
   //returns the tope 5 highscores
   con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
@@ -102,10 +108,9 @@ router.get('/', function(req, res, next) {
 
 function setName(){
 //sends the current username to the gamepage.js and displays your user as you play
-router.get('/gamepage', function(req, res, next) {
-  console.log("usr:", name)
+// /gamepage is the url
+router.get('/gamepage', function(req, res, next) {  
   res.render('gamepage', {ud: name});
 });
 }
-setName()
 module.exports = router;

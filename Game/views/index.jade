@@ -10,7 +10,8 @@ head
   button#b1.button(type="button1" onclick="window.location.href='gamepage'") Join Game
   button#b2.button(type='button2' onclick="window.location.href='instructions'") Instructions
   button#b3.button(type="button3" onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
-  button#b4.button(type='button4' onclick='login();') Login
+  button#b4.button(type='button4' onclick='login()') Login
+
 table#score-board-table
   tr#row0
     //td(align='center')
@@ -35,6 +36,6 @@ table#score-board-table
         td
           h3 #{player.Highscore}
 
-script(src='javascripts/jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')
+script(src='javascripts/jquery-3.4.1.min.js')
 script(src='javascripts/socket.js')
