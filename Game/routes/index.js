@@ -29,6 +29,8 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
+  var nameEx = "imSoCool"
+
   //const score = require('../public/javascripts/game');  need to get score from game.js
 
   //imports the username and password from homepage.js
@@ -45,7 +47,7 @@ con.connect(function(err) {
   //adds new user and pass to DB
   var sqlUpdateLogin = "INSERT INTO User (USERNAME, PASS) VALUES ('"+username+"','"+password+"')";
   //gets the current username
-  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
+  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+nameEx+"'";
   
 
 
@@ -54,7 +56,7 @@ con.connect(function(err) {
   function credentials(callback){
     //checks if the exact username and password are already in the DB
     //if true then it should print true
-    con.query(validLogin, function (err, result) {
+    con.query(validLogin, function (err, result) { 
       callback(err, result ? result.length > 0 : false);
       }); 
     }
@@ -81,8 +83,8 @@ con.connect(function(err) {
   //returns username
   con.query(getName, function(err, result, fields){
     if (err) throw err;
-    name = result;
-    console.log("name", result);
+    name = Object.values(result[0]);
+    console.log("name:",name[0])
   })
   //returns the tope 5 highscores
   con.query(LdrBrd, function (err, result, fields) {
@@ -97,10 +99,13 @@ router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
   res.render('index.jade', {ld: leaderboard});
 });
+
+function setName(){
 //sends the current username to the gamepage.js and displays your user as you play
 router.get('/gamepage', function(req, res, next) {
   console.log("usr:", name)
   res.render('gamepage', {ud: name});
 });
-
+}
+setName()
 module.exports = router;

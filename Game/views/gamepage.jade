@@ -27,10 +27,9 @@ head
       td
        h2 Time left to play:
       td#timerID 60
-    each player in locals.ud
-      td#userName
-        h2 Username: #{player.Username}
-      td#name
+    tr#username
+          td#userName
+            h2 Username: #{ud}
     tr
       td#userScore  
         h2 Score: 
@@ -107,3 +106,4 @@ head
 // This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code.
 script(src='javascripts/jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/game.js' language='JavaScript')
+script(src='javascripts/socket.js')
