@@ -37,7 +37,7 @@ function passin(){
 
 var username = userin();
 var password  = passin();
-module.exports = {
+exports = {
     username,
     password
 }
