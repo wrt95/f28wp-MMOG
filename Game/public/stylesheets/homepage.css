@@ -69,6 +69,7 @@ td{
 }
 
 
+/* The login area */
 #loginArea {
   position: fixed;
   width: 70%;
@@ -76,18 +77,17 @@ td{
   margin-right:15%;
   text-align: center;
 }
-
 #usrnameLabel{
   font-size: 20px;
   color: red;
 }
-
 #passwordLabel{
+  margin-left: 5%;
   font-size: 20px;
   color: red;
 }
-
 #loginBtn{
+  margin-left: 5%;
   border: 2px solid white; 
   background-color: red;
   font-size: 20px;
@@ -100,7 +100,7 @@ td{
   width: 20%; 
 }
 
-
+/* The create new user area */
 #makeUser{
   display:none;
   position: fixed;
@@ -109,18 +109,17 @@ td{
   margin-right:20%;
   text-align: center;
 }
-
 #newNameLabel{
   font-size: 20px;
   color: red;
 }
-
 #newPasswordLabel{
+  margin-left: 5%;
   font-size: 20px;
   color: red;
 }
-
 #createBtn{
+  margin-left: 5%;
   border: 2px solid white; 
   background-color: red;
   font-size: 20px;

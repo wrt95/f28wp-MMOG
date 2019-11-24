@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 //Node.js code to connect to the database
-var mysql  = require('mysql');
-var con    =  mysql.createConnection({
+var mysql = require('mysql');
+var con =  mysql.createConnection({
   //the page hosting the server
   host     :  "sql2.freesqldatabase.com",
   //login details
@@ -46,9 +46,6 @@ con.connect(function(err) {
   //gets the current username
   var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
-
-  //hashPass();
-
   //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
   function credentials(callback){
@@ -100,13 +97,15 @@ con.connect(function(err) {
     console.log("Leaderboard",result);
   })
 
- /* function hashPass(){
+  function hashPass(ps){
     var passwordHash = require('password-hash');
-    var hashedPassword = passwordHash.generate(password);
+    var hashedPassword = passwordHash.generate(ps);
     console.log("hashpass",hashedPassword);
-    console.log("verify hashed password",passwordHash.verify(password, hashedPassword));
-    }*/
+    console.log("verify hashed password",passwordHash.verify(ps, hashedPassword));
+    }
 })
+
+
 //sending the previously mentioned leadeboard to index.jade
 router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
@@ -114,11 +113,11 @@ router.get('/', function(req, res, next) {
 });
 
 function setName(){
-//sends the current username to the gamepage.js and displays your user as you play
-// /gamepage is the url
-router.get('/gamepage', function(req, res, next) {  
-  res.render('gamepage', {ud: name});
-});
+  //sends the current username to the gamepage.js and displays your user as you play
+  // /gamepage is the url
+  router.get('/gamepage', function(req, res, next) {  
+    res.render('gamepage', {ud: name});
+  });
 }
 
 module.exports = router;

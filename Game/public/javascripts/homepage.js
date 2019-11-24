@@ -14,33 +14,38 @@ function makeid(length) {
     }
    return result;
 }
+
 function login(){
     userin();
     passin();
 }
 */
 
+// Variables for the user inputs.
 var username,
-    password,
-    loginArea = $('#loginArea'),
-    btnGroup = $('.btn-group'),
-    makeUser = $('#makeUser');
+    password;
 
-  
-
-
+/* 
+ *  This function changes the display from the buttons to the log in area. 
+ */
 function logOut() {
-    loginArea.show();
-    btnGroup.hide();
+    $('#loginArea').show();
+    $('.btn-group').hide();
 }
 
+/* 
+ *  This function changes the display from login area to the new user area. 
+ */
 function newUser() {
-    loginArea.hide();
-    makeUser.show();
+    $('#loginArea').hide();
+    $('#makeUser').show();
 }
 
-
-
+/* 
+ *  This function is to create a new user. 
+ *  It takes the username and password from the user input. 
+ *  After the button is pressed, the display is changed to log in area. 
+ */
 function createUser() {
     username = $('#username').val();
     password = $('#password').val();
@@ -48,13 +53,21 @@ function createUser() {
     console.log(username);
     console.log(password);
 
-    loginArea.show();
-    makeUser.hide(); 
+    $('#loginArea').show();
+    $('#makeUser').hide(); 
+
+    module.exports = {
+        username,
+        password
+    }
 
     $('#username').val('');
     $('#password').val('');
 }
 
+/* 
+ *  This function changes the display from login area to the buttons to use. 
+ */
 function save(){
     username = $('#username').val();
     password = $('#password').val();
@@ -62,39 +75,28 @@ function save(){
     console.log(username);
     console.log(password);
 
-    loginArea.hide();
-    btnGroup.show(); 
+    $('#loginArea').hide();
+    $('.btn-group').show(); 
+    
+    module.exports = {
+        username,
+        password
+    }
 
     $('#username').val('');
     $('#password').val('');
-
-
 }
 
 
-module.exports = {
-    username,
-    password
-}
 
 
-/*
- //login();
-function userin() {
-    //var username = prompt("Please enter your username:")
-    var username = makeid(5);
-    //var username = "username"
-    return username;
-}
-*/
-/*
-function passin(){
-    //var password = prompt("Enter enter your password:")
+    //var username = makeid(5);
+    //var username = "username";
+
     //var password = makeid(5);
-    var password = "password"
-    return password;
-}
-*/
+    //var password = "password"
+
+
 //newAccount() function
 //if username is in DB, enter a different username
 //else add to DB
