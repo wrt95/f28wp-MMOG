@@ -44,3 +44,10 @@ td{
     width: 200px;
     height: 100px;
 }
+
+/* This is used to keep the ball to scale while it's within the table */
+#rowballimg{
+    width: 150px;
+    height: 100px;
+}
+
