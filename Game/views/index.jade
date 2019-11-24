@@ -1,35 +1,40 @@
 doctype html
-
 head
-  img(src='images/pagetitle.png')
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
   link(rel='stylesheet' href='stylesheets/homepage.css')
+  h1#title-image
+    img(src='images/pagetitle.png')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js')
 
-body
-  p.solid
+.btn-group
   button#b1.button(type="button1" onclick="window.location.href='gamepage'") Join Game
   button#b2.button(type='button2' onclick="window.location.href='instructions'") Instructions
   button#b3.button(type="button3" onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
-  section#score-board
-    .container
-      h1.container-title(data-id="score-board-title")
-        img(src="images/scoreboard.png")
-      table#score-board-table
-      table(align='center')
-        tr
-          th(align='center')
-          th
-            h3 Username
-          th
-            h3 Score
-          th
-        each player in locals.ld
-          tr
-            td(align='center')
-              td
-                h3 #{player.Username}
-              td
-                h3 #{player.Highscore}
+  button#b4.button(type='button4' onclick='login();') Login
+table#score-board-table
+  tr#row0
+    //td(align='center')
+    td
+      img#score-board-title(src="images/scoreboard.png")
+    td
+    td
+    td
+  tr#row1
+    th(align='center')
+    th
+      h3 Username
+    th
+      h3 Score
+    th
+  tr#row2 
+    each player in locals.ld
+      tr
+        td(align='center')
+        td
+          h3 #{player.Username}
+        td
+          h3 #{player.Highscore}
 
-
-  script(src='javascripts/socket.js')
+script(src='javascripts/jquery-3.4.1.min.js')
+script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')
+script(src='javascripts/socket.js')

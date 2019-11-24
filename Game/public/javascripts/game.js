@@ -72,6 +72,10 @@ function clock(){
             gameAudio.pause();  
             timeupAudio.play();  
             $('#right').hide();         // Hide what is stored in right
+
+
+            // sql stuff
+           // updateScore();
         }
       }
     }
@@ -453,7 +457,9 @@ function removeCoin (y, x) {
     coinAudio.play(); 
     score++;
     $('#score').html(score);  
+    
 }
+
 
 /*
  * This function brings back the coins. 
@@ -524,3 +530,20 @@ function removeHearts() {
         heartArray[i].hide();
     }
 }
+
+
+
+
+
+/*
+exports.getScore = function(){
+    return score
+}
+
+/*
+function updateScore(){
+    console.log(score)
+    module.exports = {
+        score
+    }
+}*/

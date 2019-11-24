@@ -27,10 +27,9 @@ head
       td
        h2 Time left to play:
       td#timerID 60
-    each player in locals.ud
-      td#userName
-        h2 Username: #{player.Username}
-      td#name
+    tr#username
+          td#userName
+            h2 Username: #{ud}
     tr
       td#userScore  
         h2 Score: 
@@ -97,7 +96,6 @@ head
     img#coin5(src='Images/coin.gif')
     img#coin6(src='Images/coin.gif')
     img#coin7(src='Images/coin.gif')
-    img#coin8(src='Images/coin.gif')
     // Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641
     img#startImg(src='Images/start.png')
   #endGame
@@ -108,3 +106,4 @@ head
 // This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code.
 script(src='javascripts/jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/game.js' language='JavaScript')
+script(src='javascripts/socket.js')
