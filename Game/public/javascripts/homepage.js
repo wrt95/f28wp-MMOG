@@ -13,7 +13,9 @@ function makeid(length) {
     }
    return result;
 }
-
+function button(){
+    prompt="Enter username"
+}
 function login(){
     userin();
     passin();
