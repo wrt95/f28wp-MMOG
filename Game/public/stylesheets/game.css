@@ -64,6 +64,78 @@ table {
     font-size: 50px;
 }
 
+/* Below is all 10 heards, and their positions in the table row. */
+#heartImg1{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: -3%;
+    margin-top: -0.3%;
+}
+#heartImg2{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: -1.5%;
+    margin-top: -0.3%;
+}
+#heartImg3{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 0%;
+    margin-top: -0.3%;
+}
+#heartImg4{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 1.5%;
+    margin-top: -0.3%;
+}
+#heartImg5{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 3%;
+    margin-top: -0.3%;
+}
+#heartImg6{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 4.5%;
+    margin-top: -0.3%;
+}
+#heartImg7{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 6%;
+    margin-top: -0.3%;
+}
+#heartImg8{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 7.5%;
+    margin-top: -0.3%;
+}
+#heartImg9{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 9%;
+    margin-top: -0.3%;
+}
+#heartImg10{
+    position: absolute;                 
+    width: 1.5%;          
+    height: 2%;  
+    margin-left: 10.5%;
+    margin-top: -0.3%;
+}
+
 
 /* --- THE TIMERS --- */ 
 /* 
