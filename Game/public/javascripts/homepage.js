@@ -13,15 +13,26 @@ function makeid(length) {
     }
    return result;
 }
+<<<<<<< HEAD
 
+=======
+function login(){
+    userin();
+    passin();
+}
+
+var username;
+var password;
+>>>>>>> 4031127e6e1829cde2b20abaa22455dd28911784
 
 function save(){
-    var username = $('#username').val();
-    var password = $('#password').val();
+    username = $('#username').val();
+    password = $('#password').val();
     
     console.log(username);
     console.log(password);
 
+<<<<<<< HEAD
     module.exports = {
         username,
         password
@@ -32,6 +43,16 @@ function save(){
 }
 
 
+=======
+    $('#username').val('');
+    $('#password').val('');
+
+}
+module.exports = {
+    username,
+    password
+}
+>>>>>>> 4031127e6e1829cde2b20abaa22455dd28911784
 
     //var username = makeid(5);
     //var username = "username";

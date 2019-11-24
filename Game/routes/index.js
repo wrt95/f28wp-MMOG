@@ -46,6 +46,12 @@ con.connect(function(err) {
   //gets the current username
   var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
+<<<<<<< HEAD
+=======
+
+  //hashPass();
+
+>>>>>>> 4031127e6e1829cde2b20abaa22455dd28911784
   //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
   function credentials(callback){
@@ -99,11 +105,11 @@ con.connect(function(err) {
 
   function hashPass(ps){
     var passwordHash = require('password-hash');
-    var hashedPassword = passwordHash.generate(password);
+    var hashedPassword = passwordHash.generate(ps);
     console.log("hashpass",hashedPassword);
-    console.log("verify hashed password",passwordHash.verify(password, hashedPassword));
+    console.log("verify hashed password",passwordHash.verify(ps, hashedPassword));
     }
-})
+  })
 //sending the previously mentioned leadeboard to index.jade
 router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
