@@ -23,6 +23,14 @@ var timeupAudio = new Audio('../public/Audio/timeup.m4a');
 // source - https://www.myinstants.com/instant/coin-mario/
 var coinAudio = new Audio('../public/Audio/coin.mp3');
 
+
+/* 
+ *  This function starts a new game. 
+ */
+function newGame() {
+    window.location.reload();
+}
+
 /*
  *  This function sets the max timer for the clock and calls the other function that deducts the seconds 
  *  Help taken from this link https://stackoverflow.com/questions/40638402/javascript-countdown-timer-with-start-stop-buttons?fbclid=IwAR30qwUDywIojiyo_1pxMh3Jt3eyOY6izMIApJG6qU7T2pOLHXtiG8cuIaw 
@@ -36,6 +44,26 @@ function clock(){
      */
     function countDown() {
         document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
+
+        // Keep the color to red. 
+        if (maxTime > 0) {
+            gameArea.css ("border-color", "red" );
+        }
+        // Notify the user that the time is almost out by making the 
+        // game area change colour the last seconds. 
+        if (maxTime === 5) {
+            gameArea.css ("border-color", "blue" );
+        }
+        if (maxTime === 4) {
+            gameArea.css ("border-color", "green" );
+        }
+        if (maxTime === 3) {
+            gameArea.css ("border-color", "blue" );
+        }
+        if (maxTime === 2) {
+            gameArea.css ("border-color", "green" );
+        }
+
         if(maxTime === 0 ){
             clearInterval(timer)        // Clearing the timer when it gets to 0 
             gameArea.hide();            // Hiding the game area
@@ -67,7 +95,22 @@ function lobbyClock(){
      */
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL; 
+
+        // Display different colours for the countdown 
+        if (maxTimeL === 4) {
+            gameArea.css ("border-color", "orange" );
+        }
+        if (maxTimeL === 3) {
+            gameArea.css ("border-color", "blue" );
+        }
+        if (maxTimeL === 2) {
+            gameArea.css ("border-color", "yellow" );
+        }
+        if (maxTimeL === 1) {
+            gameArea.css ("border-color", "green" );
+        }
         if(maxTimeL === 0){ 
+            gameArea.css ("border-color", "red" );
             clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
             gameFunctionality();
             gameAudio.play(); 
@@ -229,6 +272,7 @@ var gameArray = [
                 ];
 
 var deadCounter = 0,        // Variable to count number of deaths. 
+
     coin1 = $('#coin1'),    // Variable for coin 1
     coin2 = $('#coin2'),    // Variable for coin 2
     coin3 = $('#coin3'),    // Variable for coin 3
@@ -299,11 +343,13 @@ function trackBall() {
     // If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
         killBall();   
-        if (deadCounter <= 10) {
+
+        if (deadCounter < 10) {
             deadColour();    
         }
         else {
             clearInterval(timer);
+            heartArray[9].hide();          // Hide last heart.
             var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
             endGame.show();                // Showing the gameover image 
             gameArea.hide();               // Hiding the game area
@@ -328,8 +374,9 @@ function trackBall() {
 
 /*
  *  This function "kills" the ball if the ball collide with an obstacle. 
- *  It changes the users score to 0, and sends the user back to start position. 
- *  deadCounter is incremented.
+ *  It changes the users score to 0, and sends the user back to start position, 
+ *  and changes the colour of the game area to white for a short periode. 
+ *  deadCounter is incremented. 
  */
 function killBall() {
     score = 0;
@@ -339,6 +386,8 @@ function killBall() {
         left: "93%",
         top: "2.5%"
     });
+    // Changing the border colour to white to notify about death. 
+    gameArea.css ("border-color", "white" );
     deadCounter++;
 }
 
@@ -350,6 +399,8 @@ function teleportBottom() {
         left: "66.5%",
         top: "2.5%"
     });
+    // Change border colour to blue to notify about teleport. 
+    gameArea.css ("border-color", "blue" );
 }
 /* 
  *  This function teleports the ball from the top to the bottom.
@@ -359,6 +410,8 @@ function teleportTop() {
         left: "2.5%",
         top: "86.5%"
     });
+    // Change border colour to blue to notify about teleport. 
+    gameArea.css ("border-color", "blue" );
 }
 
 /*
@@ -374,9 +427,10 @@ function deadColour () {
         tmp = document.createElement("p");                              // Create a <p> element, and set the colour of it. 
         tmp.style.color = color;
         $("#right").append(tmp);                                        // Append the <p> to the right area of the game. 
-        var livesLeft = 10 - i;
+        var livesLeft = 9 - i;
     }
     tmp.innerHTML = ("YOU DIED! You have " + livesLeft + " lives left"); // Set the text, update with number of lives left. 
+    removeHearts();                                                      // Call the remove heart function
 }
 
 
@@ -397,6 +451,9 @@ function removeCoin (y, x) {
             gameArray[y][x] = 1; 
         }       
     }
+    // Change border colour to yellow to notify about coin pick up. 
+    gameArea.css ("border-color", "yellow" );
+
     coinAudio.play(); 
     score++;
     $('#score').html(score);  
@@ -451,13 +508,28 @@ function bringBack7 () {
     gameArray[6][8] = 2;
 }
 
-/* 
- *  This function starts a new game. 
- */
-function newGame() {
-    window.location.reload();
-}
+/* --- THE LIFE COUNTER --- */
+var heart1 = $('#heartImg1'),
+    heart2 = $('#heartImg2'),
+    heart3 = $('#heartImg3'),
+    heart4 = $('#heartImg4'),
+    heart5 = $('#heartImg5'),
+    heart6 = $('#heartImg6'),
+    heart7 = $('#heartImg7'),
+    heart8 = $('#heartImg8'),
+    heart9 = $('#heartImg9'),
+    heart10 = $('#heartImg10');
 
+var heartArray = [heart10, heart9, heart8, heart7, heart6, heart5, heart4, heart3, heart2, heart1];
+
+/*
+ *  This function removes one heart everytime the player dies. 
+ */
+function removeHearts() {
+    for (var i = 0; i < deadCounter; i++){
+        heartArray[i].hide();
+    }
+}
 
 
 
