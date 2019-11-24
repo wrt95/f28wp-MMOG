@@ -39,6 +39,10 @@ button:active {
     border: 2px green solid; 
 }
 
+td{
+    border: 1px white solid;
+}
+
 #row1{
     border: 1px white solid; 
 }
@@ -49,8 +53,24 @@ button:active {
     border: 1px white solid; 
 }
 #row4{
-    border: 1px white solid; 
+    border: 3px white solid; 
 }
 #row5{
     border: 1px white solid; 
 }
+
+#row1img{
+    width: 200px;
+    height: 100px;
+}
+
+#row2img{
+    width: 200px;
+    height: 100px;  
+  }
+
+#row3img{
+    width: 300px;
+    height: 100px; 
+}
+  
