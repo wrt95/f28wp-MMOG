@@ -13,14 +13,36 @@ function makeid(length) {
     }
    return result;
 }
-function button(){
-    prompt="Enter username"
-}
-
 function login(){
     userin();
     passin();
 }
+
+
+var username;
+var password;
+
+
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+rl.question("What is your username? ", function(username) {
+    rl.question("What is your password? ", function(password) {
+        console.log(`${username}, and password is ${password}`);
+        username = `${username}`;
+        password = `${password}`;
+
+        rl.close();
+    });
+});
+
+
+/*
  //login();
 function userin() {
     //var username = prompt("Please enter your username:")
@@ -28,21 +50,26 @@ function userin() {
     //var username = "username"
     return username;
 }
+*/
+/*
 function passin(){
     //var password = prompt("Enter enter your password:")
     //var password = makeid(5);
     var password = "password"
     return password;
 }
+*/
 //newAccount() function
 //if username is in DB, enter a different username
 //else add to DB
 
-
+/*
 var username = userin();
 var password  = passin();
+*/
 
 module.exports = {
     username,
     password
 }
+

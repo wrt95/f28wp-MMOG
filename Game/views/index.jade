@@ -1,35 +1,31 @@
+
 doctype html
 head
   meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
   link(rel='stylesheet' href='stylesheets/homepage.css')
+  title  CW F28WP Web Programming
   h1#title-image
     img(src='images/pagetitle.png')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js')
-
 .btn-group
-  button#b1.button(type="button1" onclick="window.location.href='gamepage'") Join Game
-  button#b2.button(type='button2' onclick="window.location.href='instructions'") Instructions
-  button#b3.button(type="button3" onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
-  button#b4.button(type='button4' onclick='login()') Login
-
+  button#b1.button(type='button1' onclick="window.location.href='gamepage.html'") Join Game
+  button#b2.button(type='button2' onclick="window.location.href='instructions.html'") Instructions
+  button#b3.button(type='button3' onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
+  button#b4.button(type='button4' onclick="prompt('What is your username'); ") Login
 table#score-board-table
-  tr#row0
-    //td(align='center')
-    td
-      img#score-board-title(src="images/scoreboard.png")
-  tr#row1
-    th(align='center')
+  tr#row
+    th
       h3 Username
     th
       h3 Score
-  tr#row2 
+  tr#row
     each player in locals.ld
       tr
-        td(align='center')
+        td
           h3 #{player.Username}
         td
           h3 #{player.Highscore}
 
-script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')
 script(src='javascripts/jquery-3.4.1.min.js')
+script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js')
 script(src='javascripts/socket.js')
