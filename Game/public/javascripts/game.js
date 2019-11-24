@@ -48,6 +48,7 @@ function clock(){
         // Keep the color to red. 
         if (maxTime > 0) {
             gameArea.css ("border-color", "red" );
+            $('#skullImg').hide();
         }
         // Notify the user that the time is almost out by making the 
         // game area change colour the last seconds. 
@@ -357,7 +358,8 @@ function trackBall() {
     // kill the ball. Update the screen with the deadColour function (information that you died). 
     // If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
-        killBall();   
+        killBall();  
+        $('#skullImg').show(); 
 
         if (deadCounter < 10) {
             deadColour();    
