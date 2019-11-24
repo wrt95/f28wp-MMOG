@@ -13,7 +13,6 @@ function makeid(length) {
     }
    return result;
 }
-
 function login(){
     userin();
     passin();
@@ -43,17 +42,17 @@ function save(){
 /*
  //login();
 function userin() {
-    var username = prompt("Please enter your username:")
-    //var username = makeid(5);
+    //var username = prompt("Please enter your username:")
+    var username = makeid(5);
     //var username = "username"
     return username;
 }
 */
 /*
 function passin(){
-    var password = prompt("Enter enter your password:")
+    //var password = prompt("Enter enter your password:")
     //var password = makeid(5);
-    //var password = "password"
+    var password = "password"
     return password;
 }
 */
