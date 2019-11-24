@@ -64,7 +64,7 @@ table {
     font-size: 50px;
 }
 
-/* Below is all 10 heards, and their positions in the table row. */
+/* Below is all 10 hearts, and their positions in the table row. */
 #heartImg1{
     position: absolute;                 
     width: 1.5%;          
@@ -208,6 +208,45 @@ table {
     height: 300px; 
     left:26%; 
     top:30%; 
+}
+#oneImg{
+    display: none;
+    overflow:hidden;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
+}
+#twoImg{
+    display: none;
+    overflow:hidden;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
+}
+#threeImg{
+    display: none;
+    overflow:hidden;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
+}
+#fourImg{
+    display: none;
+    overflow:hidden;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
+}
+#fiveImg{
+    overflow:hidden;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
 }
 
 /*      
