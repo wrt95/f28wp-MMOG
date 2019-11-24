@@ -96,20 +96,35 @@ function lobbyClock(){
     function countDownL(){
         document.getElementById("timerIDL").innerHTML= --maxTimeL; 
 
+        var img5 = $('#fiveImg'),
+            img4 = $('#fourImg'),
+            img3 = $('#threeImg'),
+            img2 = $('#twoImg'),
+            img1 = $('#oneImg');
+
         // Display different colours for the countdown 
         if (maxTimeL === 4) {
             gameArea.css ("border-color", "orange" );
+            img5.hide();
+            img4.show();
         }
         if (maxTimeL === 3) {
             gameArea.css ("border-color", "blue" );
+            img4.hide();
+            img3.show();
         }
         if (maxTimeL === 2) {
             gameArea.css ("border-color", "yellow" );
+            img3.hide();
+            img2.show();
         }
         if (maxTimeL === 1) {
             gameArea.css ("border-color", "green" );
+            img2.hide();
+            img1.show();
         }
         if(maxTimeL === 0){ 
+            img1.hide();
             gameArea.css ("border-color", "red" );
             clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
             gameFunctionality();
