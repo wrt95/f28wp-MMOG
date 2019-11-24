@@ -14,7 +14,7 @@ body {
     float: center;
 }
 .btn-group > * {
-    border: 2px solid white;
+    border: 1px solid yellow;
     background-color: red;
     font-size: 30px;
 }
@@ -26,7 +26,7 @@ button:active {
 }
 
 #information-table{
-    color: red;
+    color: red; 
     position: fixed;
     margin-top:3%; 
     margin-left: 10%;
@@ -37,7 +37,7 @@ button:active {
 }
 
 td{
-    border: 1px red solid; 
+    border: 1px yellow solid; 
 }
 
 #rowimg{
