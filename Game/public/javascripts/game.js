@@ -45,9 +45,10 @@ function clock(){
     function countDown() {
         document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
 
-        // Keep the color to red. 
+        // Keep the color to red, and keep the skull as not displayed. 
         if (maxTime > 0) {
             gameArea.css ("border-color", "red" );
+            $('#skullImg').hide();
         }
         // Notify the user that the time is almost out by making the 
         // game area change colour the last seconds. 
@@ -96,6 +97,7 @@ function lobbyClock(){
     function countDownL(){
         maxTimeL--; 
 
+        // The countdown images. 
         var img5 = $('#fiveImg'),
             img4 = $('#fourImg'),
             img3 = $('#threeImg'),
@@ -232,7 +234,6 @@ function gameFunctionality() {
          // Call track ball to get the ball´s position in the grid. 
          trackBall();
      }); 
-
  
      /*
       * This function changes the buttons value to false when the key is released.
@@ -352,15 +353,14 @@ function trackBall() {
     }
 
     // If one of the 4 corners of the ball enters a grid postition that is set to 0, 
-    // kill the ball. Update the screen with the deadColour function (information that you died). 
-    // If deadCounter is greater than 10, end the game. 
+    // kill the ball. Display an image of a skull for a short periode, and remove one  
+    // heart. If deadCounter is greater than 10, end the game. 
     if (gameArray[leftTopY][leftTopX] === 0 || gameArray[leftTopY][rightTopX] === 0 || gameArray[leftBottomY][leftTopX] === 0 || gameArray[leftBottomY][rightTopX] === 0) {
-        killBall();   
+        killBall();  
+        removeHearts();     
+        $('#skullImg').show();             // Display the skull
 
-        if (deadCounter < 10) {
-            deadColour();    
-        }
-        else {
+        if (deadCounter >= 10) {
             clearInterval(timer);
             heartArray[9].hide();          // Hide last heart.
             var endGame = $('#endGame');   // Creating a variable set to 'GAME OVER' image 
@@ -425,25 +425,6 @@ function teleportTop() {
     });
     // Change border colour to blue to notify about teleport. 
     gameArea.css ("border-color", "blue" );
-}
-
-/*
- *  This function creates a new <p> element that prints "YOU DIED! You have x lives left" in the right 
- *  area of the screen if the user dies. The colours are randomly choosen from an array of colours. 
- *  The function loops up to the deadCounter, so it prints every time the user dies. 
- */
-function deadColour () {
-    var colors = ["red","green","blue","yellow", "orange", "purple", "lime"];      // Array of colours
- 
-    for (var i = 0; i < deadCounter; i++) {
-        var color = colors[Math.floor(Math.random()*colors.length)];    // Variable for colour to display. 
-        tmp = document.createElement("p");                              // Create a <p> element, and set the colour of it. 
-        tmp.style.color = color;
-        $("#right").append(tmp);                                        // Append the <p> to the right area of the game. 
-        var livesLeft = 9 - i;
-    }
-    tmp.innerHTML = ("YOU DIED! You have " + livesLeft + " lives left"); // Set the text, update with number of lives left. 
-    removeHearts();                                                      // Call the remove heart function
 }
 
 

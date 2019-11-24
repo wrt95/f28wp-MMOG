@@ -244,6 +244,13 @@ table {
     height: 90%;
     left: 6%;
 }
+#skullImg{
+    display: none;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    left: 6%;
+}
 
 /*      
                                 THE GAME AREA GRID 
