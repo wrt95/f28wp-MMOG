@@ -17,21 +17,15 @@ table#score-board-table
     //td(align='center')
     td
       img#score-board-title(src="images/scoreboard.png")
-    td
-    td
-    td
   tr#row1
     th(align='center')
-    th
       h3 Username
     th
       h3 Score
-    th
   tr#row2 
     each player in locals.ld
       tr
         td(align='center')
-        td
           h3 #{player.Username}
         td
           h3 #{player.Highscore}

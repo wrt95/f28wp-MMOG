@@ -14,7 +14,6 @@ var con    =  mysql.createConnection({
   //name of database
   database :  "sql2312550"
 });
-var name;
 
 
 //newHighscore
@@ -47,7 +46,7 @@ con.connect(function(err) {
   //gets the current username
   var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
-
+  hashPass()
 
   //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
@@ -99,6 +98,13 @@ con.connect(function(err) {
     leaderboard = result;
     console.log("Leaderboard",result);
   })
+
+  function hashPass(){
+    var passwordHash = require('password-hash');
+    var hashedPassword = passwordHash.generate(password);
+    console.log("hashpass",hashedPassword);
+    console.log("verify hashed password",passwordHash.verify(password, hashedPassword));
+    }
 })
 //sending the previously mentioned leadeboard to index.jade
 router.get('/', function(req, res, next) {
@@ -113,4 +119,5 @@ router.get('/gamepage', function(req, res, next) {
   res.render('gamepage', {ud: name});
 });
 }
+
 module.exports = router;
