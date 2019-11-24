@@ -13,11 +13,6 @@ function makeid(length) {
     }
    return result;
 }
-function login(){
-    userin();
-    passin();
-}
-
 
 
 function save(){
@@ -31,31 +26,20 @@ function save(){
         username,
         password
     }
-
-
-    $('#username').val('');
-    $('#password').val('');
+    username.val('');
+    password.val('');
 
 }
 
 
-/*
- //login();
-function userin() {
-    //var username = prompt("Please enter your username:")
-    var username = makeid(5);
-    //var username = "username"
-    return username;
-}
-*/
-/*
-function passin(){
-    //var password = prompt("Enter enter your password:")
+
+    //var username = makeid(5);
+    //var username = "username";
+
     //var password = makeid(5);
-    var password = "password"
-    return password;
-}
-*/
+    //var password = "password"
+
+
 //newAccount() function
 //if username is in DB, enter a different username
 //else add to DB

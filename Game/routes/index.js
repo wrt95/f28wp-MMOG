@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 //Node.js code to connect to the database
-var mysql  = require('mysql');
-var con    =  mysql.createConnection({
+var mysql = require('mysql');
+var con =  mysql.createConnection({
   //the page hosting the server
   host     :  "sql2.freesqldatabase.com",
   //login details
@@ -46,8 +46,6 @@ con.connect(function(err) {
   //gets the current username
   var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
-  hashPass()
-
   //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
   function credentials(callback){
@@ -99,7 +97,7 @@ con.connect(function(err) {
     console.log("Leaderboard",result);
   })
 
-  function hashPass(){
+  function hashPass(ps){
     var passwordHash = require('password-hash');
     var hashedPassword = passwordHash.generate(password);
     console.log("hashpass",hashedPassword);
