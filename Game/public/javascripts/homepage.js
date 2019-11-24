@@ -18,24 +18,23 @@ function login(){
     passin();
 }
 
-
+var username;
+var password;
 
 function save(){
-    var username = $('#username').val();
-    var password = $('#password').val();
+    username = $('#username').val();
+    password = $('#password').val();
     
     console.log(username);
     console.log(password);
 
-    module.exports = {
-        username,
-        password
-    }
-
-
     $('#username').val('');
     $('#password').val('');
 
+}
+module.exports = {
+    username,
+    password
 }
 
 
