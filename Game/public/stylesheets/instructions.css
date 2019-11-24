@@ -4,12 +4,13 @@ body {
 
 #instr-img{
     text-align: center;
-    margin-top: 2%;
+    margin-top: 1%;
+    border: 1px yellow solid; 
 }
 
 /* --- THE BUTTONS --- */
 .btn-group{
-    padding: 1% 1%;
+    border:2px blue solid; 
     cursor: pointer;
     text-align: center;
     float: center;
@@ -26,12 +27,30 @@ button:active {
     background-color: green;
 }
 
-/* --- THE INSTRUCTIONS --- */
-#information {
-    font-size: 30px;
-    text-align: center;
+#information-table{
     color: red;
-    overflow: hidden;
-    margin-left: 20%;
-    margin-right: 20%;
+    position: fixed;
+    margin-top:3%; 
+    margin-left: 10%;
+    margin-right: 10%;
+    width:80%;
+    text-align: center;
+    border-spacing: 15px;
+    border: 2px green solid; 
+}
+
+#row1{
+    border: 1px white solid; 
+}
+#row2{
+    border: 1px white solid; 
+}
+#row3{
+    border: 1px white solid; 
+}
+#row4{
+    border: 1px white solid; 
+}
+#row5{
+    border: 1px white solid; 
 }
