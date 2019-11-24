@@ -5,17 +5,18 @@ body {
 #title-image{
   text-align: center;
   margin-top:2%;
-  width:70%;
+  width: 70%;
   margin-left: 15%;
-  margin-right: 15%; 
+  margin-right: 15%;  
 }
 
 /* ----- Group made up of all of the buttons on the game page ----- */ 
 .btn-group{
-  padding: 1% 1%; 
   cursor: pointer;
-  text-align: center;
-  float: center; 
+  text-align: center; 
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%; 
 }
 /* Making all of the buttons size 30, red and have a white border */
 
@@ -23,6 +24,7 @@ body {
   border: 2px solid white; 
   background-color: red;
   font-size: 30px;
+  width: 20%; 
 
 }
 
@@ -39,18 +41,22 @@ button:active{
   font-weight: bold;
   color: red;
   position: fixed;
-  margin-top:3%; 
-  margin-left: 30%;
-  margin-right: 30%;
-  width:40%;
+  margin-top:1%; 
+  margin-left: 15%;
+  margin-right: 15%;
+  width:70%;
   text-align: center;
-  border-spacing: 15px;
+  border-spacing: 5px;
 }
 
 /* */
-#row1{
+#row0{
   font-size: 40px;
   font-weight:bold;
+}
+/* */
+#row1{
+  font-size: 25px;
 }
 /* */
 #row2{
@@ -60,13 +66,16 @@ button:active{
 #row3{
   font-size: 25px;
 }
-/* */
 #row4{
-  font-size: 25px;
-}
-/* */
-#row5{
   font-size: 25px; 
+}
+
+td{
+  border: 1px white solid; 
+}
+
+th{
+
 }
 
 #score-board-title{
