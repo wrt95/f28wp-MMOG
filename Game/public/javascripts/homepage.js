@@ -60,7 +60,7 @@ function createUser() {
         username,
         password
     }
-
+    // Empty the input area after text is displayed
     $('#username').val('');
     $('#password').val('');
 }
@@ -82,11 +82,50 @@ function save(){
         username,
         password
     }
-
+    // Empty the input area after text is displayed
     $('#username').val('');
     $('#password').val('');
 }
 
+
+/*
+ *  Function to hide/show the password when the tick box is clicked. 
+ *  Help taken from: https://www.w3schools.com/howto/howto_js_toggle_password.asp
+ */
+function showPassword() {
+    var visibility = document.getElementById("password");
+    if (visibility.type === "password") {
+        visibility.type = "text";
+    } else {
+        visibility.type = "password";
+    }
+  }
+
+/*
+ *  This function calls the screen-size functions every 5 seconds, incase the user 
+ *  changes the screen-size during the game.  
+ */
+window.setInterval(function(){
+    screenWidthAlert(); 
+    screenHeightAlert();  
+  }, 5000);
+
+/*
+ * This function alerts the user if the width of their screen is too small  
+ */
+function screenWidthAlert(){
+    if($(window).width() < 950) {
+        alert("Please increase the browser width")
+    }
+} 
+/*
+ * This function alerts the user if the height of their screen is too small  
+ */
+function screenHeightAlert(){
+    if($(window).height() < 500) {
+        alert("Please increase the browser height")
+    }
+} 
 
 
 
