@@ -20,27 +20,24 @@ function login(){
 }
 
 
-var username;
-var password;
+
+function save(){
+    var username = $('#username').val();
+    var password = $('#password').val();
+    
+    console.log(username);
+    console.log(password);
+
+    module.exports = {
+        username,
+        password
+    }
 
 
+    $('#username').val('');
+    $('#password').val('');
 
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-rl.question("What is your username? ", function(username) {
-    rl.question("What is your password? ", function(password) {
-        console.log(`${username}, and password is ${password}`);
-        username = `${username}`;
-        password = `${password}`;
-
-        rl.close();
-    });
-});
+}
 
 
 /*
@@ -69,8 +66,5 @@ var username = userin();
 var password  = passin();
 */
 
-module.exports = {
-    username,
-    password
-}
+
 
