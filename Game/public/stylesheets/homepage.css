@@ -49,33 +49,14 @@ button:active{
   border-spacing: 5px;
 }
 
-/* */
-#row0{
-  font-size: 40px;
-  font-weight:bold;
-}
-/* */
-#row1{
-  font-size: 25px;
-}
-/* */
-#row2{
-  font-size: 25px;
-}
-/* */
-#row3{
-  font-size: 25px;
-}
-#row4{
-  font-size: 25px; 
-}
-
+/* This sets the width of each cell and gives it a border */ 
 td{
   border: 1px white solid; 
+  width: 30%; 
 }
-
-th{
-
+/* This sets the font size for all of the rows */
+#row{
+  font-size: 25px; 
 }
 
 #score-board-title{

@@ -69,8 +69,8 @@ function clock(){
             gameArea.hide();            // Hiding the game area
             var timeUp = $('#timeUp');  // Creating a variable set to 'TIME UP' image 
             timeUp.show();              // Showing the time up image 
-            gameAudio.pause();  
-            timeupAudio.play();  
+            gameAudio.pause();          // Pausing the game music when the time is up 
+            timeupAudio.play();         // Playing the time up music 
             $('#right').hide();         // Hide what is stored in right
 
 
@@ -101,11 +101,12 @@ function lobbyClock(){
             img3 = $('#threeImg'),
             img2 = $('#twoImg'),
             img1 = $('#oneImg');
+
         // Display different colours for the countdown 
         if (maxTimeL === 4) {
             gameArea.css ("border-color", "orange" );
             img5.hide();
-            img4.show();
+            img4.show(); 
         }
         if (maxTimeL === 3) {
             gameArea.css ("border-color", "blue" );
@@ -169,7 +170,7 @@ function screenHeightAlert(){
 $(document).ready(function () {
     score = 0;
     $('#score').html(score);
-    lobbyClock(); 
+    lobbyClock();  
 });
 
 /* 
