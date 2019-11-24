@@ -74,7 +74,3 @@ module.exports = {
     password
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 12c43db2dd758acfc96f00311cab7918933724ca
