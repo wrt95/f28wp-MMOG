@@ -67,5 +67,10 @@ td{
   left: 12%; 
 }
 
+#usrnameLabel{
+  color: red;
+}
 
-
+#passwordLabel{
+  color: red;
+}

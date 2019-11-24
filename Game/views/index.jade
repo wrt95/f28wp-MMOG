@@ -10,7 +10,6 @@ head
   button#b1.button(type='button1' onclick="window.location.href='gamepage.html'") Join Game
   button#b2.button(type='button2' onclick="window.location.href='instructions.html'") Instructions
   button#b3.button(type='button3' onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
-  button#b4.button(type='button4' onclick="prompt('What is your username'); ") Login
 table#score-board-table
   tr#row
     th
@@ -24,6 +23,14 @@ table#score-board-table
           h3 #{player.Username}
         td
           h3 #{player.Highscore}
+
+form(action='/login' method='POST')
+  label#usrnameLabel(for='usrnameLabel') Username
+  input#username(type='text' name='usrnameLabel')
+  label#passwordLabel(for='password') Password
+  input#password(type='text' name='password')
+  button#loginBtn.button(type='button' onclick='save()') Login
+
 
 script(src='javascripts/jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')

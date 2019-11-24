@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-            <link rel="stylesheet" href="../public/stylesheets/homepage.css">
-            <title> CW F28WP Web Programming</title>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+                <link rel="stylesheet" href="../public/stylesheets/homepage.css">
+                <title> CW F28WP Web Programming</title>
 
-            <h1 id="title-image"><img src="../public/Images/pagetitle.png"/></h1> 
+                <h1 id="title-image"><img src="../public/Images/pagetitle.png"/></h1> 
             
-    </head>
-    <body>
-        <div class='btn-group'>
-                <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
-                <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
-                <button class="button" type="button3" id="b3" onclick="alert('Email: help@shapeescape.co.uk')">Contact Us </button>
-                <button class="button" type="button4" id="b4" onclick="prompt('What is your username'); " >Login</button>
-        </div>
+        </head>
+        <body>
+                <div class='btn-group'>
+                        <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
+                        <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
+                        <button class="button" type="button3" id="b3" onclick="alert('Email: help@shapeescape.co.uk')">Contact Us </button>
+                        <button class="button" type="button4" id="b4" onclick="prompt('What is your username'); " >Login</button>
+                </div>
                
                 <table id="score-board-table">
                         <tr id="row">
@@ -38,6 +38,19 @@
                                 <td><h5>18</h5></td>
                         </tr>
                 </table>
+
+                <form action="/login" method="POST">
+                        <label id="usrnameLabel" for="usrnameLabel">Username</label>
+                        <input id="username" type="text" name="usrnameLabel">
+
+                        <label id="passwordLabel" for="password">Password</label>
+                        <input id="password" type="text" name="password">
+
+                        <button class="button" type="button" id="loginBtn" onclick="save()">Login</button>
+
+                </form>
+
+        
 
                 <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
                 <script src="../public/javascripts/jquery-3.4.1.min.js"></script>
