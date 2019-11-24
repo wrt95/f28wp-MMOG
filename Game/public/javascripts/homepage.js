@@ -3,6 +3,7 @@
 //take from:
 //https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
 
+/*
 function makeid(length) {
 
     var result           = '';
@@ -17,9 +18,42 @@ function login(){
     userin();
     passin();
 }
+*/
 
-var username;
-var password;
+var username,
+    password,
+    loginArea = $('#loginArea'),
+    btnGroup = $('.btn-group'),
+    makeUser = $('#makeUser');
+
+  
+
+
+function logOut() {
+    loginArea.show();
+    btnGroup.hide();
+}
+
+function newUser() {
+    loginArea.hide();
+    makeUser.show();
+}
+
+
+
+function createUser() {
+    username = $('#username').val();
+    password = $('#password').val();
+    
+    console.log(username);
+    console.log(password);
+
+    loginArea.show();
+    makeUser.hide(); 
+
+    $('#username').val('');
+    $('#password').val('');
+}
 
 function save(){
     username = $('#username').val();
@@ -28,10 +62,16 @@ function save(){
     console.log(username);
     console.log(password);
 
+    loginArea.hide();
+    btnGroup.show(); 
+
     $('#username').val('');
     $('#password').val('');
 
+
 }
+
+
 module.exports = {
     username,
     password
