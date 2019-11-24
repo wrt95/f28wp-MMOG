@@ -95,14 +95,13 @@ function lobbyClock(){
      *  and displays the time left clock. 
      */
     function countDownL(){
-        document.getElementById("timerIDL").innerHTML= --maxTimeL; 
+        maxTimeL--; 
 
         var img5 = $('#fiveImg'),
             img4 = $('#fourImg'),
             img3 = $('#threeImg'),
             img2 = $('#twoImg'),
             img1 = $('#oneImg');
-
         // Display different colours for the countdown 
         if (maxTimeL === 4) {
             gameArea.css ("border-color", "orange" );
@@ -130,8 +129,6 @@ function lobbyClock(){
             clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
             gameFunctionality();
             gameAudio.play(); 
-            $('#gameStartClock').hide();
-            $('#gameTimeLeft').show();
             clock();
         }
     }
