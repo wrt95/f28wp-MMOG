@@ -17,7 +17,7 @@ function login(){
     userin();
     passin();
 }
-// login();
+ //login();
 function userin() {
     //var username = prompt("Please enter your username:")
     //var username = makeid(5);

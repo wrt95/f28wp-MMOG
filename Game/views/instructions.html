@@ -11,14 +11,35 @@
             <!-- Button to take you back to the homepage -->
                     <button class="button" id="homePageButton" onclick="window.location.href='index.html'" >Homepage</button>
         </div>
-        
-        <!-- The text to display information for the user. -->
-        <div id="information">
-            <p>When the start game counter hits 0, you have 60 seconds to collect as many coins as possible. </p>
-            <p>Avoid the black obstacles, if you hit one, your score will be set to 0, and you will be sent back to the start position.</p>
-            <p>If you die more than 10 times, your game will end, and your score will be 0. </p>
-            <p>If you enter a teleport area, you will be teleported to another teleport area. </p>
-            <p>Use the arrow keys on your keyboard to move around on the screen. </p>
-        </div>
-    </body>
+
+        <table id="information-table">
+            <tr id="row0">
+                    <td><h3>When the start game counter hits 0, you have 60 seconds to collect as many coins as possible.</h3></td>
+                    <td><img id="rowimg" src="../public/Images/game-start-in.png"/></td>
+                    <td><img id="rowimg" src="../public/Images/time-left.png"/></td>
+            </tr>
+
+            <tr id="row1">
+                    <td><h3>Avoid the black obstacles, if you hit them you'll lose 1 of your 10 lives.</h3></td>
+                    <td><img id="rowimg" src="../public/Images/obOpenM.png"/></td>
+                    <td><img id="rowimg" src="../public/Images/heart.gif"/></td>
+            </tr>
+
+            <tr id="row2">
+                    <td><h3>You can teleport around the map to collect coins, each coin is worth 1 point.</h3></td>
+                    <td><img id="rowimg" src="../public/Images/teleport.png"/></td>
+                    <td><img id="rowimg" src="../public/Images/coin.gif"/></td>
+            </tr>
+
+            <tr id="row3">
+                    <td id="rowtd"><h3>Use the arrow keys on your keyboard to move the ball around the map. </h3></td>
+                    <td id="rowtd"><img id="rowimg" src="../public/Images/arrowkey.jpg"/></td>
+                    <td id="rowtd"><img id="rowballimg" src="../public/Images/blueball.png"/></td>
+            </tr>
+
+
+
+
+        </table>
+        </body>
 </html>

@@ -20,11 +20,6 @@
         <div id="left">
             <!-- TABLE TO STORE INFO FOR USER -->
             <table>   
-                <tr id ="gameStartClock">
-                    <td><h2>Game Starts in:</h2> </td>
-                    <td id="timerIDL">5</td>
-                </tr> 
-
                 <tr id="gameTimeLeft">
                     <td><h2>Time left to play:</h2> </td>
                     <td id="timerID">60</td>
@@ -38,6 +33,22 @@
                 <tr>
                     <td id="userScore"> <h2>Score: </h2></td>
                     <td id="score"></td>
+                </tr>
+                <tr>
+                    <td id="lives"> <h2>Lives Left:     </h2></td>
+                    <td id="hearts">
+                        <!-- Image for life-hearts - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjAwKu3gIPmAhUFLBoKHdqrD6oQjRx6BAgBEAQ&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fheart-sticker&psig=AOvVaw0fGBwilw2esXTHW4lTClgW&ust=1574690243233098 -->
+                        <img id='heartImg1' src="../public/Images/heart.gif">
+                        <img id='heartImg2' src="../public/Images/heart.gif">
+                        <img id='heartImg3' src="../public/Images/heart.gif">
+                        <img id='heartImg4' src="../public/Images/heart.gif">
+                        <img id='heartImg5' src="../public/Images/heart.gif">
+                        <img id='heartImg6' src="../public/Images/heart.gif">
+                        <img id='heartImg7' src="../public/Images/heart.gif">
+                        <img id='heartImg8' src="../public/Images/heart.gif">
+                        <img id='heartImg9' src="../public/Images/heart.gif">
+                        <img id='heartImg10' src="../public/Images/heart.gif">
+                    </td>
                 </tr>
             </table>
         </div>
@@ -107,7 +118,19 @@
                 
                 <!-- Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641 -->
                 <img id='startImg' src='../public/Images/start.png'> 
+
+                <!-- Image for counting down until game starts -->
+                <img id='oneImg' src='../public/Images/1.png'> 
+                <img id='twoImg' src='../public/Images/2.png'> 
+                <img id='threeImg' src='../public/Images/3.png'> 
+                <img id='fourImg' src='../public/Images/4.png'> 
+                <img id='fiveImg' src='../public/Images/5.png'> 
+
+                <!-- Image to display when you die - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjR8KeIrIPmAhUFWBoKHV3DBHsQjRx6BAgBEAQ&url=https%3A%2F%2Fitch.io%2Fjam%2Fdare-u-to-enter-thid-jam&psig=AOvVaw3Kn3fvSC6GDhKG2jcGsskF&ust=1574701789695042 -->
+                <img id='skullImg' src='../public/Images/skull.png'>
             </div>
+
+            
 
             <!-- To be shown when user dies more than 10 times -->
             <div id="endGame">       
