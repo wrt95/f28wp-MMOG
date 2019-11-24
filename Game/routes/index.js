@@ -2,16 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 
-/* GET home page. */
-//Node.js code to connect to the database
+/*
+************************
+  DATABASE INFORMATION
+************************
+*/
+
 var mysql = require('mysql');
 var con =  mysql.createConnection({
-  //the page hosting the server
   host     :  "sql2.freesqldatabase.com",
-  //login details
   user     :  "sql2312550", 
   password :  "gR1*bG2*",
-  //name of database
   database :  "sql2312550"
 });
 
@@ -21,21 +22,39 @@ var con =  mysql.createConnection({
 //update HIGHSCORE
 //else pass
 
-
+/*
+****************************
+  CONNECTS TO THE DATABASE
+****************************
+*/
 
 con.connect(function(err) {
   
   if (err) throw err;
   console.log("Connected!");
 
-  //const score = require('../public/javascripts/game');  need to get score from game.js
+  /*
+  ********************************************
+    GETS USERNAME AND PASSWORD FROM HOMEPAGE
+  ********************************************
+  */
 
   //imports the username and password from homepage.js
   const login = require('../public/javascripts/homepage');
-  //declares them as variables now to make code more readable in SQL queries
+
+
+  //declares them as variables
+
   var username = login.username;
   var password = login.password;
   console.log("Current Username:",username,", Current Password:",password)
+
+
+  /*
+  ***************
+    SQL QUERIES
+  ***************
+  */
 
   //retruns the username and scores of the the top 5 scores
   var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5";
@@ -46,16 +65,24 @@ con.connect(function(err) {
   //gets the current username
   var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
-  //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
+
+
+  /*
+  *********************
+    CALLS THE QUERIES
+  *********************
+  */
+
+
+  //compares the entered username and password to the database and says true/false
+  //Stolen from:
+    //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
 
   function credentials(callback){
-    //checks if the exact username and password are already in the DB
-    //if true then it should print true
     con.query(validLogin, function (err, result) { 
       callback(err, result ? result.length > 0 : false);
       }); 
     }
-
   credentials(function(err, exists){
     if (err) throw err
     else {console.log("is valid username and password?",exists);}
@@ -68,13 +95,18 @@ con.connect(function(err) {
       }
     })
 
+
+  //adds a new set of username and password to DB
+
   //for the new account function (TODO)
   function insertLogin(){
-    //adds a new set of username and password to DB
     con.query(sqlUpdateLogin, function (err, result) {
       if (err) throw err;
       console.log("updated the DB with: ",result) })
   } 
+
+
+  //gets the current username
 
   function displayName(){
     con.query(getName, function(err, result, fields){
@@ -89,7 +121,10 @@ con.connect(function(err) {
       setName()
     })
   }
-  //returns the tope 5 highscores
+
+
+  //returns the top 5 highscores
+
   con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
     //made a variable leaderboard to send to index.jade and display as a table
@@ -97,27 +132,57 @@ con.connect(function(err) {
     console.log("Leaderboard",result);
   })
 
+  /*
+  *********************
+    Hashing functions
+  *********************
+  */
+
+
+  //uses the hash-pass library to trun the password into a random string
+
   function hashPass(ps){
     var passwordHash = require('password-hash');
     var hashedPassword = passwordHash.generate(ps);
     console.log("hashpass",hashedPassword);
     console.log("verify hashed password",passwordHash.verify(ps, hashedPassword));
     }
-})
+  })
 
 
-//sending the previously mentioned leadeboard to index.jade
+/* 
+****************
+  JADE EXPORTS 
+****************
+*/
+
+
+//sends the leadeboard to index.jade
+
 router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
   res.render('index.jade', {ld: leaderboard});
 });
 
+
+//sends the current username to the gamepage.js and displays your user as you play
+
 function setName(){
-  //sends the current username to the gamepage.js and displays your user as you play
   // /gamepage is the url
   router.get('/gamepage', function(req, res, next) {  
     res.render('gamepage', {ud: name});
   });
 }
 
-module.exports = router;
+
+/*
+**************  
+  JS EXPORTS
+**************
+*/
+
+module.exports = {
+  router,
+  cred : credentials()
+
+}
