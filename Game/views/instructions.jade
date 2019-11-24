@@ -1,14 +1,39 @@
 doctype html
 head
-  img(src='Images/instrctions.png')
+  h1#instr-img
+    img(src='images/instrctions.png')
   link(rel='stylesheet' href='stylesheets/instructions.css')
-
-// Button to take you back to the homepage
-button#homePageButton.button(onclick="window.location.href='/'") Homepage
-
-#information
-  p
-    | When the counter hits 0, you have 1 minute to collect as many coins as possible.
-  p
-    | Avoid the black holes. If you hit a black hole, your score will be set to 0, and you will be sent back to the start position.
-  p Use the arrow keys on your keyboard to move around on the screen. 
+  title CW F28WP Web Programming
+.btn-group
+  // Button to take you back to the homepage
+  button#homePageButton.button(onclick="window.location.href='/'") Homepage
+table#information-table
+  tr#row0
+    td
+      h3
+        | When the start game counter hits 0, you have 60 seconds to collect as many coins as possible.
+    td
+      img#rowimg(src='images/game-start-in.png')
+    td
+      img#rowimg(src='images/time-left.png')
+  tr#row1
+    td
+      h3 Avoid the black obstacles, if you hit them you&apos;ll lose 1 of your 10 lives.
+    td
+      img#rowimg(src='images/obOpenM.png')
+    td
+      img#rowimg(src='images/heart.gif')
+  tr#row2
+    td
+      h3 You can teleport around the map to collect coins, each coin is worth 1 point.
+    td
+      img#rowimg(src='images/teleport.png')
+    td
+      img#rowimg(src='images/coin.gif')
+  tr#row3
+    td#rowtd
+      h3 Use the arrow keys on your keyboard to move the ball around the map. 
+    td#rowtd
+      img#rowimg(src='images/arrowkey.jpg')
+    td#rowtd
+      img#rowballimg(src='images/blueball.png')

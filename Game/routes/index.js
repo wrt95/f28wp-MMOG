@@ -164,13 +164,18 @@ router.get('/', function(req, res, next) {
   res.render('index.jade', {ld: leaderboard});
 });
 
+router.get('/instructions', function(req, res, next) {
+  res.render('instructions.jade');
+});
+
+
 
 //sends the current username to the gamepage.js and displays your user as you play
 
 function setName(){
   // /gamepage is the url
   router.get('/gamepage', function(req, res, next) {  
-    res.render('gamepage', {ud: name});
+    res.render('gamepage.jade', {ud: name});
   });
 }
 
@@ -181,8 +186,6 @@ function setName(){
 **************
 */
 
-module.exports = {
-  router,
-  cred : credentials()
+module.exports = 
+  router;
 
-}

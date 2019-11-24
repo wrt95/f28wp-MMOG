@@ -101,32 +101,6 @@ function showPassword() {
     }
   }
 
-/*
- *  This function calls the screen-size functions every 5 seconds, incase the user 
- *  changes the screen-size during the game.  
- */
-window.setInterval(function(){
-    screenWidthAlert(); 
-    screenHeightAlert();  
-  }, 5000);
-
-/*
- * This function alerts the user if the width of their screen is too small  
- */
-function screenWidthAlert(){
-    if($(window).width() < 950) {
-        alert("Please increase the browser width")
-    }
-} 
-/*
- * This function alerts the user if the height of their screen is too small  
- */
-function screenHeightAlert(){
-    if($(window).height() < 500) {
-        alert("Please increase the browser height")
-    }
-} 
-
 
 
     //var username = makeid(5);
