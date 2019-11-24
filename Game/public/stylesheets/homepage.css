@@ -5,17 +5,18 @@ body {
 #title-image{
   text-align: center;
   margin-top:2%;
-  width:70%;
+  width: 70%;
   margin-left: 15%;
-  margin-right: 15%; 
+  margin-right: 15%;  
 }
 
 /* ----- Group made up of all of the buttons on the game page ----- */ 
 .btn-group{
-  padding: 1% 1%; 
   cursor: pointer;
-  text-align: center;
-  float: center; 
+  text-align: center; 
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%; 
 }
 /* Making all of the buttons size 30, red and have a white border */
 
@@ -23,6 +24,7 @@ body {
   border: 2px solid white; 
   background-color: red;
   font-size: 30px;
+  width: 20%; 
 
 }
 
@@ -39,33 +41,21 @@ button:active{
   font-weight: bold;
   color: red;
   position: fixed;
-  margin-top:3%; 
-  margin-left: 30%;
-  margin-right: 30%;
-  width:40%;
+  margin-top:1%; 
+  margin-left: 15%;
+  margin-right: 15%;
+  width:70%;
   text-align: center;
-  border-spacing: 15px;
+  border-spacing: 5px;
 }
 
-/* */
-#row1{
-  font-size: 40px;
-  font-weight:bold;
+/* This sets the width of each cell and gives it a border */ 
+td{
+  border: 1px white solid; 
+  width: 30%; 
 }
-/* */
-#row2{
-  font-size: 25px;
-}
-/* */
-#row3{
-  font-size: 25px;
-}
-/* */
-#row4{
-  font-size: 25px;
-}
-/* */
-#row5{
+/* This sets the font size for all of the rows */
+#row{
   font-size: 25px; 
 }
 
