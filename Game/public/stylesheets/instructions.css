@@ -5,12 +5,10 @@ body {
 #instr-img{
     text-align: center;
     margin-top: 1%;
-    border: 1px yellow solid; 
 }
 
 /* --- THE BUTTONS --- */
-.btn-group{
-    border:2px blue solid; 
+.btn-group{ 
     cursor: pointer;
     text-align: center;
     float: center;
@@ -36,41 +34,13 @@ button:active {
     width:80%;
     text-align: center;
     border-spacing: 15px;
-    border: 2px green solid; 
 }
 
 td{
-    border: 1px white solid;
+    border: 1px red solid; 
 }
 
-#row1{
-    border: 1px white solid; 
-}
-#row2{
-    border: 1px white solid; 
-}
-#row3{
-    border: 1px white solid; 
-}
-#row4{
-    border: 3px white solid; 
-}
-#row5{
-    border: 1px white solid; 
-}
-
-#row1img{
+#rowimg{
     width: 200px;
     height: 100px;
 }
-
-#row2img{
-    width: 200px;
-    height: 100px;  
-  }
-
-#row3img{
-    width: 300px;
-    height: 100px; 
-}
-  
