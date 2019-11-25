@@ -12,6 +12,7 @@ body {
 
 /* ----- Group made up of all of the buttons on the game page ----- */ 
 .btn-group{
+  display:none;
   cursor: pointer;
   text-align: center; 
   width: 70%;
@@ -67,10 +68,59 @@ td{
   left: 12%; 
 }
 
-#usrnameLabel{
+
+/* The login area */
+#loginArea {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
   color: red;
+  font-size: 12px;
+}
+#usrnameLabel{
+  font-size: 20px;
+}
+#passwordLabel{
+  margin-left: 2%;
+  font-size: 20px;
+}
+#loginBtn{
+  margin-left: 2%;
+  border: 2px solid white; 
+  background-color: red;
+  font-size: 20px;
+  width: 20%; 
+}
+#newBtn{
+  border: 2px solid white; 
+  background-color: red;
+  font-size: 20px;
+  width: 20%; 
 }
 
-#passwordLabel{
+/* The create new user area */
+#makeUser{
+  display:none;
+  position: fixed;
+  width: 60%;
+  margin-left:20%;
+  margin-right:20%;
+  text-align: center;
   color: red;
+  font-size: 12px;
+}
+#newNameLabel{
+  font-size: 20px;
+}
+#newPasswordLabel{
+  margin-left: 2%;
+  font-size: 20px;
+}
+#createBtn{
+  margin-left: 2%;
+  border: 2px solid white; 
+  background-color: red;
+  font-size: 20px;
+  width: 20%; 
 }
