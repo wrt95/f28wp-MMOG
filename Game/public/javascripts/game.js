@@ -9,19 +9,22 @@ var timer,              // Variable for the timer (Count down to the game ending
     timerL;             // Variable for the lobby timer (Count down to the game starting)
 
 // source - https://www.audioblocks.com/stock-audio/action-platform-game-from-the-80s-behle5j6ivbk0wyabwm.html
-var gameAudio = new Audio('../public/Audio/gamesong.m4a');
+var gameAudio = new Audio('Audio/gamesong.m4a');
 
 // source - https://www.myinstants.com/instant/minecraft-hurt/
-var dieAudio = new Audio('../public/Audio/die.mp3');
+var dieAudio = new Audio('Audio/die.mp3');
 
 // source - https://www.myinstants.com/instant/game-over-halo/
-var gameoverAudio = new Audio('../public/Audio/gameover.mp3');
+var gameoverAudio = new Audio('Audio/gameover.mp3');
 
 // source - https://www.audioblocks.com/royalty-free-audio/3+2+1+go+countdown
-var timeupAudio = new Audio('../public/Audio/timeup.m4a');
+var timeupAudio = new Audio('Audio/timeup.m4a');
 
 // source - https://www.myinstants.com/instant/coin-mario/
-var coinAudio = new Audio('../public/Audio/coin.mp3');
+var coinAudio = new Audio('Audio/coin.mp3');
+
+// source - https://freesound.org/people/GameAudio/sounds/220191/
+var teleportAudio = new Audio('Audio/teleport.m4a');
 
 
 /* 
@@ -377,10 +380,12 @@ function trackBall() {
     // If the ball enters the bottom teleport area. 
     if (gameArray[leftTopY][leftTopX] === 3 || gameArray[leftTopY][rightTopX] === 3 || gameArray[leftBottomY][leftTopX] === 3 || gameArray[leftBottomY][rightTopX] === 3) {   
         teleportBottom(); 
+        teleportAudio.play();
     }
     // If the ball enters the top teleport area.
     if (gameArray[leftTopY][leftTopX] === 4 || gameArray[leftTopY][rightTopX] === 4 || gameArray[leftBottomY][leftTopX] === 4 || gameArray[leftBottomY][rightTopX] === 4) {
         teleportTop();
+        teleportAudio.play();
     }
 }
 
