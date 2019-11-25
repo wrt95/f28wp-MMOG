@@ -2,6 +2,7 @@ body {
     background-color: black; 
 }
 
+/* The title image */
 #title-image{
   text-align: center;
   margin-top:2%;
@@ -19,25 +20,25 @@ body {
   margin-left: 15%;
   margin-right: 15%; 
 }
-/* Making all of the buttons size 30, red and have a white border */
 
+/* Making all of the buttons size 30, red and have a white border */
 .btn-group > *{
   border: 2px solid white; 
   background-color: red;
   font-size: 30px;
   width: 20%; 
-
 }
 
-/* Making the button appear blue when they are hovered over*/
+/* Making the button appear blue when they are hovered over */
 button:hover{
   background-color: blue; 
 }
-
+/* Making the button appear green when clicked */
 button:active{
   background-color: green;
 }
 
+/* The score board table */
 #score-board-table{
   font-weight: bold;
   color: red;
@@ -49,7 +50,6 @@ button:active{
   text-align: center;
   border-spacing: 5px;
 }
-
 /* This sets the width of each cell and gives it a border */ 
 td{
   border: 1px white solid; 
@@ -60,16 +60,7 @@ td{
   font-size: 25px; 
 }
 
-#score-board-title{
-  text-align: center;
-  position: absolute;
-  width:70%;
-  height:7%;
-  left: 12%; 
-}
-
-
-/* The login area */
+/* The login area, with input areas, labels and buttons */
 #loginArea {
   position: fixed;
   overflow: hidden;
@@ -99,7 +90,7 @@ td{
   width: 20%; 
 }
 
-/* The create new user area */
+/* The create new user area with labels, input areas and buttons. */
 #makeUser{
   display:none;
   position: fixed;
