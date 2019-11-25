@@ -25,6 +25,9 @@ button:active {
     background-color: green;
 }
 
+/* --- THE TABLE --- */
+
+/* Creating the positoning for the information table */
 #information-table{
     color: red; 
     position: fixed;
@@ -40,6 +43,7 @@ td{
     border: 1px yellow solid; 
 }
 
+/* This sets all the row data to the same size */ 
 #rowimg{
     width: 200px;
     height: 100px;
