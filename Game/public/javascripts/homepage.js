@@ -14,12 +14,12 @@ function makeid(length) {
     }
    return result;
 }
-
 function login(){
     userin();
     passin();
 }
 */
+
 
 // Variables for the user inputs.
 var username,
@@ -63,6 +63,8 @@ function createUser() {
     // Empty the input area after text is displayed
     $('#username').val('');
     $('#password').val('');
+
+
 }
 
 /* 
@@ -109,15 +111,6 @@ function showPassword() {
     //var password = makeid(5);
     //var password = "password"
 
-
-//newAccount() function
-//if username is in DB, enter a different username
-//else add to DB
-
-/*
-var username = userin();
-var password  = passin();
-*/
 
 
 

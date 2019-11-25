@@ -33,21 +33,20 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  /*
-  ********************************************
-    GETS USERNAME AND PASSWORD FROM HOMEPAGE
-  ********************************************
-  */
+/*
+********************************************
+  GETS USERNAME AND PASSWORD FROM HOMEPAGE
+********************************************
+*/
 
   //imports the username and password from homepage.js
   const login = require('../public/javascripts/homepage');
 
-
   //declares them as variables
-
   var username = login.username;
   var password = login.password;
   console.log("Current Username:",username,", Current Password:",password)
+
 
 
   /*
@@ -56,14 +55,15 @@ con.connect(function(err) {
   ***************
   */
 
+
   //retruns the username and scores of the the top 5 scores
-  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5";
+  var LdrBrd         = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5";
   //returns a user and pass from DB if they exist
-  var validLogin = "SELECT USERNAME, PASS FROM User WHERE USERNAME = '"+username+"' AND PASS = '"+password+"'";
+  var validLogin     = "SELECT USERNAME, PASS FROM User WHERE USERNAME = '"+username+"' AND PASS = '"+password+"'";
   //adds new user and pass to DB
   var sqlUpdateLogin = "INSERT INTO User (USERNAME, PASS) VALUES ('"+username+"','"+password+"')";
   //gets the current username
-  var getName = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
+  var getName        = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
   
 
 
@@ -77,34 +77,50 @@ con.connect(function(err) {
   //compares the entered username and password to the database and says true/false
   //Stolen from:
     //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
-
-  function credentials(callback){
+    
+  var cred = {
+  credentials: function credentials(callback){
+    var rows = 0;
     con.query(validLogin, function (err, result) { 
-      callback(err, result ? result.length > 0 : false);
+      if (err) {
+        callback(err, null);
+        }
+      else {
+        rows += result.length;
+        callback(null, rows > 0);
+        }
       }); 
+    },
+  
+  //calls the credentials function passing through the function as an argument
+
+  f: function foo(){
+    credentials(function(err, exists){
+      if (err) throw err
+      else {console.log("is valid username and password?",exists);}
+        if(exists == false){
+          console.log("new account pls")
+        }
+        else{
+          console.log("YOU MAY ENTER")
+          displayName()
+        }
+      })
     }
-  credentials(function(err, exists){
-    if (err) throw err
-    else {console.log("is valid username and password?",exists);}
-      if(exists == false){
-        console.log("new account pls")
-      }
-      else{
-        console.log("YOU MAY ENTER")
-        displayName()
-      }
-    })
+  }
 
 
   //adds a new set of username and password to DB
 
-  //for the new account function (TODO)
-  function insertLogin(){
-    con.query(sqlUpdateLogin, function (err, result) {
-      if (err) throw err;
-      console.log("updated the DB with: ",result) })
-  } 
-
+  var insertLogin = {
+  //for the new account function
+    isl : function insertLogin(){
+      con.query(sqlUpdateLogin, function (err, result) {
+        if (err) throw err;
+        console.log("updated the DB with: ",result) })
+    } 
+  }
+  module.exports= insertLogin
 
   //gets the current username
 
@@ -132,6 +148,8 @@ con.connect(function(err) {
     console.log("Leaderboard",result);
   })
 
+
+
   /*
   *********************
     Hashing functions
@@ -148,6 +166,7 @@ con.connect(function(err) {
     console.log("verify hashed password",passwordHash.verify(ps, hashedPassword));
     }
   })
+
 
 
 /* 
@@ -179,13 +198,13 @@ function setName(){
   });
 }
 
+  /*
+  **************  
+    JS EXPORTS
+  **************
+  */
 
-/*
-**************  
-  JS EXPORTS
-**************
-*/
 
-module.exports = 
-  router;
+module.exports =
+  router
 
