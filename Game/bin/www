@@ -90,10 +90,12 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
+//sets io to the active port of 3000
 var io = socket(server);
 
+//io checks to see if the message 'connection' comes through port 3000
 io.on('connection', function(socket){
+  //if the message 'connected does come through then it prints out the socket id in the console
   console.log('connected', socket.id)
 });
 
