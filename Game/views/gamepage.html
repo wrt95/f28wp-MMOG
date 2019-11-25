@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Used for character encoding -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+
+        <!-- linking the stylesheet -->
         <link rel="stylesheet" href="../public/stylesheets/game.css"> 
+
+        <!-- adding the title -->
         <title>CW F28WP Web Programming</title>
         
         <!-- The header image -->
@@ -12,6 +17,7 @@
     <body>
         <!-- BUTTON GROUP ABOVE GAME AREA -->
         <div class='btn-group'>
+            <!-- button to take you back to the homepage -->
             <button id="leaveGame" onClick="window.location.href='homepage.html'" >Leave Game</button> 
             <br><br> <!--Using this to get some space between the buttons and the body-->
         </div>
@@ -20,20 +26,25 @@
         <div id="left">
             <!-- TABLE TO STORE INFO FOR USER -->
             <table>   
+                <!-- row to display time left -->
                 <tr id="gameTimeLeft">
                     <td><h2>Time left to play:</h2> </td>
                     <td id="timerID">60</td>
                 </tr>
 
+                <!-- row to display the username -->
                 <tr>
                     <td id="userName"><h2>USERNAME:</h2> </td>
                     <td id="name"></td>
                 </tr>
 
+                 <!-- row to display the score -->
                 <tr>
                     <td id="userScore"> <h2>Score: </h2></td>
                     <td id="score"></td>
                 </tr>
+
+                 <!-- row to display the amount of lives left -->
                 <tr>
                     <td id="lives"> <h2>Lives Left:     </h2></td>
                     <td id="hearts">
@@ -130,8 +141,6 @@
                 <img id='skullImg' src='../public/Images/skull.png'>
             </div>
 
-            
-
             <!-- To be shown when user dies more than 10 times -->
             <div id="endGame">       
                 <img id='endGameImg' src='../public/Images/gameover.png'> 
@@ -151,6 +160,7 @@
         <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is not modified, just used for jQuery code. -->
         <script src="../public/javascripts/jquery-3.4.1.min.js"></script>
 
+        <!-- Linking to the javascript -->
         <script type="text/javascript" src="../public/javascripts/game.js" language="JavaScript" ></script> 
     </body>
 </html>
