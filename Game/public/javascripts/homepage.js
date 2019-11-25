@@ -3,6 +3,7 @@
 //take from:
 //https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
 
+/*
 function makeid(length) {
 
     var result           = '';
@@ -17,10 +18,58 @@ function login(){
     userin();
     passin();
 }
+*/
 
-var username;
-var password;
 
+// Variables for the user inputs.
+var username,
+    password;
+
+/* 
+ *  This function changes the display from the buttons to the log in area. 
+ */
+function logOut() {
+    $('#loginArea').show();
+    $('.btn-group').hide();
+}
+
+/* 
+ *  This function changes the display from login area to the new user area. 
+ */
+function newUser() {
+    $('#loginArea').hide();
+    $('#makeUser').show();
+}
+
+/* 
+ *  This function is to create a new user. 
+ *  It takes the username and password from the user input. 
+ *  After the button is pressed, the display is changed to log in area. 
+ */
+function createUser() {
+    username = $('#username').val();
+    password = $('#password').val();
+    
+    console.log(username);
+    console.log(password);
+
+    $('#loginArea').show();
+    $('#makeUser').hide(); 
+
+    module.exports = {
+        username,
+        password
+    }
+
+    $('#username').val('');
+    $('#password').val('');
+
+
+}
+
+/* 
+ *  This function changes the display from login area to the buttons to use. 
+ */
 function save(){
     username = $('#username').val();
     password = $('#password').val();
@@ -28,14 +77,21 @@ function save(){
     console.log(username);
     console.log(password);
 
+    $('#loginArea').hide();
+    $('.btn-group').show(); 
+    
+    module.exports = {
+        username,
+        password
+    }
+        
+
     $('#username').val('');
     $('#password').val('');
+}
 
-}
-module.exports = {
-    username,
-    password
-}
+
+
 
     //var username = makeid(5);
     //var username = "username";

@@ -10,6 +10,8 @@ head
   button#b1.button(type='button1' onclick="window.location.href='gamepage.html'") Join Game
   button#b2.button(type='button2' onclick="window.location.href='instructions.html'") Instructions
   button#b3.button(type='button3' onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
+  button#b4.button(type='button4' onclick='logOut()') Log Out
+
 table#score-board-table
   tr#row
     th
@@ -24,12 +26,22 @@ table#score-board-table
         td
           h3 #{player.Highscore}
 
-form(action='/login' method='POST')
+form#loginArea(action='/login' method='POST')
   label#usrnameLabel(for='usrnameLabel') Username
   input#username(type='text' name='usrnameLabel')
   label#passwordLabel(for='password') Password
   input#password(type='text' name='password')
   button#loginBtn.button(type='button' onclick='save()') Login
+  button#newBtn.button(type='button' onclick='newUser()') New user?
+
+
+form#makeUser
+  label#newNameLabel(for='newNameLabel') Username: 
+  input#newName(type='text' name='newNameLabel')
+  label#newPasswordLabel(for='newPasswordLabel') Password: 
+  input#newPassword(type='text' name='newPasswordLabel')
+  button#createBtn.button(type='button' onclick='createUser()') Create user
+
 
 
 script(src='javascripts/jquery-3.4.1.min.js')

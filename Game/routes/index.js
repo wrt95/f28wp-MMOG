@@ -77,8 +77,9 @@ con.connect(function(err) {
   //compares the entered username and password to the database and says true/false
   //Stolen from:
     //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
-
-  function credentials(callback){
+    
+  var cred = {
+  credentials: function credentials(callback){
     var rows = 0;
     con.query(validLogin, function (err, result) { 
       if (err) {
@@ -89,32 +90,37 @@ con.connect(function(err) {
         callback(null, rows > 0);
         }
       }); 
-    }
+    },
   
   //calls the credentials function passing through the function as an argument
 
-  credentials(function(err, exists){
-    if (err) throw err
-    else {console.log("is valid username and password?",exists);}
-      if(exists == false){
-        console.log("new account pls")
-      }
-      else{
-        console.log("YOU MAY ENTER")
-        displayName()
-      }
-    })
+  f: function foo(){
+    credentials(function(err, exists){
+      if (err) throw err
+      else {console.log("is valid username and password?",exists);}
+        if(exists == false){
+          console.log("new account pls")
+        }
+        else{
+          console.log("YOU MAY ENTER")
+          displayName()
+        }
+      })
+    }
+  }
 
 
   //adds a new set of username and password to DB
 
-  //for the new account function (TODO)
-  function insertLogin(){
-    con.query(sqlUpdateLogin, function (err, result) {
-      if (err) throw err;
-      console.log("updated the DB with: ",result) })
-  } 
-
+  var insertLogin = {
+  //for the new account function
+    isl : function insertLogin(){
+      con.query(sqlUpdateLogin, function (err, result) {
+        if (err) throw err;
+        console.log("updated the DB with: ",result) })
+    } 
+  }
+  module.exports= insertLogin
 
   //gets the current username
 
