@@ -175,18 +175,22 @@ con.connect(function(err) {
 ****************
 */
 
+//The router functions here get the .jade pages and render them in the localhost
 
-//sends the leadeboard to index.jade
-
+//This function gets index.jade and renders it at the address localhost:3000/
 router.get('/', function(req, res, next) {
+  //the leaderboard of highscores is printed in the console when index.jade is rendered
   console.log("Leaderboard:", leaderboard)
+  //At the variable ld in index.jade, the leaderboard is displayed
   res.render('index.jade', {ld: leaderboard});
 });
 
+//This function gets the instructions.jade page and renders it at the address localhost:3000/instructions
 router.get('/instructions', function(req, res, next) {
   res.render('instructions.jade');
 });
 
+//Ths function gets the gamepage.jade file and renders it at the address localhost:3000/gamepage
 router.get('/gamepage', function(req, res, next) {  
   res.render('gamepage.jade');
 });
