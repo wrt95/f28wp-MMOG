@@ -51,7 +51,7 @@ button:active {
 
 
 /*  --- THE TABLE WITH INFO ---  */
-/* The table with username, score and time left */
+/* The table with username, score, time left, and "life counter" */
 table {
     float: left;
     top: 30%;
@@ -136,7 +136,6 @@ table {
     margin-top: -0.3%;
 }
 
-
 /* --- THE TIMERS --- */ 
 /* 
     TmerID   = counting down to end of game 
@@ -205,6 +204,8 @@ table {
     left:26%; 
     top:30%; 
 }
+
+/* Below is the 5 images used for counting down. */
 #oneImg{
     display: none;
     overflow:hidden;
