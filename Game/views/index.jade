@@ -1,4 +1,6 @@
-
+//The jade files in this project were converted from their html counterparts as the jade format allowed for an easier way to
+//integrate the values from the database for the game. They are mostly identical to one another, apart from the syntax, with 
+//a few minor changes.
 doctype html
 head
   meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
@@ -21,6 +23,7 @@ table#score-board-table
       h3 Username
     th
       h3 Score
+  //Here the entries in the database with the highest scores were displayed in a table at the front of the page.
   tr#row
     each player in locals.ld
       tr
