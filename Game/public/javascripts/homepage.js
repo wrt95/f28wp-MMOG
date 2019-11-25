@@ -60,7 +60,7 @@ function createUser() {
         username,
         password
     }
-
+    // Empty the input area after text is displayed
     $('#username').val('');
     $('#password').val('');
 
@@ -84,12 +84,24 @@ function save(){
         username,
         password
     }
-        
-
+    // Empty the input area after text is displayed
     $('#username').val('');
     $('#password').val('');
 }
 
+
+/*
+ *  Function to hide/show the password when the tick box is clicked. 
+ *  Help taken from: https://www.w3schools.com/howto/howto_js_toggle_password.asp
+ */
+function showPassword() {
+    var visibility = document.getElementById("password");
+    if (visibility.type === "password") {
+        visibility.type = "text";
+    } else {
+        visibility.type = "password";
+    }
+  }
 
 
 
