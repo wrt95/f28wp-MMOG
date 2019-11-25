@@ -20,6 +20,33 @@ function login(){
 }
 */
 
+/*
+ *  This function calls the screen-size functions every 5 seconds, incase the user 
+ *  changes the screen-size during the game.  
+ */
+window.setInterval(function(){
+    screenWidthAlert(); 
+    screenHeightAlert();  
+  }, 5000);
+
+/*
+ * This function alerts the user if the width of their screen is too small  
+ */
+function screenWidthAlert(){
+    if($(window).width() < 1000) {
+        alert("Please increase the browser width")
+    }
+} 
+
+/*
+ * This function alerts the user if the height of their screen is too small  
+ */
+function screenHeightAlert(){
+    if($(window).height() < 400) {
+        alert("Please increase the browser height")
+    }
+} 
+
 
 // Variables for the user inputs.
 var username,
@@ -50,6 +77,7 @@ function createUser() {
     username = $('#username').val();
     password = $('#password').val();
     
+    // Used for debugging
     console.log(username);
     console.log(password);
 
@@ -74,6 +102,7 @@ function save(){
     username = $('#username').val();
     password = $('#password').val();
     
+    // Used for debugging
     console.log(username);
     console.log(password);
 
@@ -105,12 +134,10 @@ function showPassword() {
 
 
 
-    //var username = makeid(5);
-    //var username = "username";
 
-    //var password = makeid(5);
-    //var password = "password"
+  
+//var username = makeid(5);
+//var username = "username";
 
-
-
-
+//var password = makeid(5);
+//var password = "password"

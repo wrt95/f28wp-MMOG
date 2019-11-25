@@ -48,13 +48,13 @@ function clock(){
     function countDown() {
         document.getElementById("timerID").innerHTML = --maxTime; // Taking 1 away from the timer 
 
-        // Keep the color to red, and keep the skull as not displayed. 
+        // Keep the color to red, and keep the skull as hidden. 
         if (maxTime > 0) {
             gameArea.css ("border-color", "red" );
             $('#skullImg').hide();
         }
-        // Notify the user that the time is almost out by making the 
-        // game area change colour the last seconds. 
+
+        // Notify the user that the time is almost out by making the game area change colour the last seconds. 
         if (maxTime === 5) {
             gameArea.css ("border-color", "blue" );
         }
@@ -76,10 +76,6 @@ function clock(){
             gameAudio.pause();          // Pausing the game music when the time is up 
             timeupAudio.play();         // Playing the time up music 
             $('#right').hide();         // Hide what is stored in right
-
-
-            // sql stuff
-           // updateScore();
         }
       }
     }
@@ -107,7 +103,7 @@ function lobbyClock(){
             img2 = $('#twoImg'),
             img1 = $('#oneImg');
 
-        // Display different colours for the countdown 
+        // Display different border-colour and count down number for the lobby timer 
         if (maxTimeL === 4) {
             gameArea.css ("border-color", "orange" );
             img5.hide();
@@ -129,12 +125,12 @@ function lobbyClock(){
             img1.show();
         }
         if(maxTimeL === 0){ 
-            img1.hide();
-            gameArea.css ("border-color", "red" );
-            clearInterval(timerL) // Clearing the timer when it gets to 0, to stop it counting into the negative 
-            gameFunctionality();
-            gameAudio.play(); 
-            clock();
+            img1.hide();                            // Hiding the last countdown image.
+            gameArea.css ("border-color", "red" );  // Set the border colour back to red. 
+            clearInterval(timerL);                  // Clearing the timer when it gets to 0, to stop it counting into the negative 
+            gameFunctionality();                    // Call the game functionality. 
+            gameAudio.play();                       // Start the game music.
+            clock();                                // Call the game timer. 
         }
     }
 }
@@ -229,8 +225,8 @@ function gameFunctionality() {
  
   /*     UNNCOMMENT FOLLOWING FOR ACTIVATING REDDBALL, GREENBALL AND YELLOWBALL
          greenball.css({
-             left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); }, // j = left, l = right
-             top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); } // i = up, k = down
+             left: function(i,oldValue) { return newTopLeft(oldValue, 74, 76); },   // j = left, l = right
+             top: function(i,oldValue) { return newTopLeft(oldValue, 73, 75); }     // i = up, k = down
          });
   */
  
@@ -456,7 +452,6 @@ function removeCoin (y, x) {
     coinAudio.play(); 
     score++;
     $('#score').html(score);  
-    
 }
 
 
@@ -529,9 +524,6 @@ function removeHearts() {
         heartArray[i].hide();
     }
 }
-
-
-
 
 
 /*
