@@ -187,15 +187,16 @@ router.get('/instructions', function(req, res, next) {
   res.render('instructions.jade');
 });
 
+router.get('/gamepage', function(req, res, next) {  
+  res.render('gamepage.jade');
+});
+
 
 
 //sends the current username to the gamepage.js and displays your user as you play
 
 function setName(){
-  // /gamepage is the url
-  router.get('/gamepage', function(req, res, next) {  
-    res.render('gamepage.jade', {ud: name});
-  });
+
 }
 
   /*
