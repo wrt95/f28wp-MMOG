@@ -3,15 +3,12 @@ head
   meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
   link(rel='stylesheet' href='stylesheets/game.css')
   title CW F28WP Web Programming
+  // The header image
   h1
-    img(src='./Images/pagetitle.png')
+    img(src='images/pagetitle.png')
 // BUTTON GROUP ABOVE GAME AREA
 .btn-group
-  button#newGame(onclick='startButtonClick();') Start Game
   button#leaveGame(onclick="window.location.href='/'") Leave Game
-  //p#timerID 60
-  // <button onclick="clock(); document.getElementById('timerID').innerHTML='10';">Start counter</button>
-  // <button onclick="clearInterval(timer);">Stop timer</button>
   br
   br
   // Using this to get some space between the buttons and the body
@@ -19,92 +16,110 @@ head
 #left
   // TABLE TO STORE INFO FOR USER
   table
-    tr#gameStartClock
-      td
-        h2 Game Starts in:
-      td#timerIDL 5
     tr#gameTimeLeft
       td
-       h2 Time left to play:
+        h2 Time left to play:
       td#timerID 60
-    each player in locals.ud
-      td#userName
-        h2 Username: #{player.Username}
-      td#name
     tr
-      td#userScore  
+      td#userName
+        h2 USERNAME:
+      td#name #{ud}
+    tr
+      td#userScore
         h2 Score: 
       td#score
+    tr
+      td#lives
+        h2 Lives Left:     
+      td#hearts
+        // Image for life-hearts - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjAwKu3gIPmAhUFLBoKHdqrD6oQjRx6BAgBEAQ&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fheart-sticker&psig=AOvVaw0fGBwilw2esXTHW4lTClgW&ust=1574690243233098
+        img#heartImg1(src='images/heart.gif')
+        img#heartImg2(src='images/heart.gif')
+        img#heartImg3(src='images/heart.gif')
+        img#heartImg4(src='images/heart.gif')
+        img#heartImg5(src='images/heart.gif')
+        img#heartImg6(src='images/heart.gif')
+        img#heartImg7(src='images/heart.gif')
+        img#heartImg8(src='images/heart.gif')
+        img#heartImg9(src='images/heart.gif')
+        img#heartImg10(src='images/heart.gif')
 // CENTER AREA OF THE SCREEN
 #center
   // THE ARE WHERE THE GAME IS PLAYED
   #gameArea
-    #newDiv.here(style='display: none')  content
-    #oldDiv.here(style='display: block')  content
     // Image for the users balls - image source: https://www.google.com/url?sa=i&source =images&cd=&ved=2ahUKEwjR1r3-tYLlAhXPAGMBHWFoAR8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pngguru.com%2Ffree-transparent-background-png-clipart-nonye&psig=AOvVaw3s2rkx_8n91KB62EI9dQKL&ust=1570272124496609
-    img#blueball(src='./Images/blueball.png')
-    // UNNCOMMENT FOLLOWING FOR DISPLAYING REDBALL, GREENBALL AND YELLOWBALL
-    // Image for the opponents ball - imagage source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdi4GVlIDlAhXE5-AKHb_zDYQQjRx6BAgBEAQ&url=https%3A%2F%2Fpngio.com%2FPNG%2F31104-red-ball-png.html&psig=AOvVaw0f7SJWHGGMJlpjz9fLLbCJ&ust=1570194405147288
-    // <img id='redball' src="./Images/redball.png" id='redball'>
-    // <img id='redball' src="./Images/redball.png" id='redball'>
-    // Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567
+    img#blueball(src='images/blueball.png')
+    // UNNCOMMENT FOLLOWING FOR DISPLAYING GREENBALL
+    // Image for the oponents balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjq2YavycblAhXm0eAKHdynDr0QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.clker.com%2Fclipart-3d-green-ball.html&psig=AOvVaw0ESLv2fXi_AXvATc4LP93I&ust=1572613874104567
     // <img id='greenball' src="./Images/greenball.png">
-    // Image for the users balls - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjKi-WMysblAhXODmMBHeF1BoYQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.pig333.com%2Fshop%2Fmanipulable-toys-material_529%2Ftoy-ball-for-pigs-yellow-30-cm_49%2F&psig=AOvVaw00JG6p6CXqxVlde8lo4xds&ust=1572614070722774
-    // <img id='yellowball' src="./Images/yellowball.png">
     // Image for obstacles - image source: self-made
-    img#ob1(src='./Images/obOpenRB.png')
-    img#ob2(src='./Images/obOpenTB.png')
-    img#ob3(src='./Images/obOpenT.png')
-    img#ob4(src='./Images/obOpenTB.png')
-    img#ob5(src='./Images/obOpenLR.png')
-    img#ob6(src='./Images/obOpenB.png')
-    img#ob7(src='./Images/obOpenLR.png')
-    img#ob8(src='./Images/obOpenTB.png')
-    img#ob9(src='./Images/obOpenTB.png')
-    img#ob10(src='./Images/obOpenTLB.png')
-    img#ob11(src='./Images/obOpenR.png')
-    img#ob12(src='./Images/obOpenT.png')
-    img#ob13(src='./Images/obOpenLB.png')
-    img#ob14(src='./Images/obOpenM.png')
-    img#ob15(src='./Images/obOpenM.png')
-    img#ob16(src='./Images/obOpenM.png')
-    img#ob17(src='./Images/obOpenM.png')
-    img#ob18(src='./Images/obOpenTB.png')
-    img#ob19(src='./Images/obOpenTB.png')
-    img#ob20(src='./Images/obOpenTB.png')
-    img#ob21(src='./Images/obOpenLR.png')
-    img#ob22(src='./Images/obOpenLR.png')
-    img#ob23(src='./Images/obOpenRB.png')
-    img#ob24(src='./Images/obOpenT.png')
-    img#ob25(src='./Images/obOpenTLB.png')
-    img#ob26(src='./Images/obOpenR.png')
-    img#ob27(src='./Images/obOpenTB.png')
-    img#ob28(src='./Images/obOpenL.png')
-    img#ob29(src='./Images/obOpenLR.png')
-    img#ob30(src='./Images/obOpenLR.png')
-    img#ob31(src='./Images/obOpenL.png')
-    img#ob32(src='./Images/obOpenLR.png')
-    img#ob33(src='./Images/obOpenT.png')
-    img#ob34(src='./Images/obOpenLR.png')
-    img#ob35(src='./Images/obOpenB.png')
-    img#ob36(src='./Images/obOpenTB.png')
-    img#ob37(src='./Images/obOpenTB.png')
+    img#ob1(src='images/obOpenRB.png')
+    img#ob2(src='images/obOpenTB.png')
+    img#ob3(src='images/obOpenT.png')
+    img#ob4(src='images/obOpenTB.png')
+    img#ob5(src='images/obOpenLR.png')
+    img#ob6(src='images/obOpenB.png')
+    img#ob7(src='images/obOpenLR.png')
+    img#ob8(src='images/obOpenTB.png')
+    img#ob9(src='images/obOpenTB.png')
+    img#ob10(src='images/obOpenTLB.png')
+    img#ob11(src='images/obOpenR.png')
+    img#ob12(src='images/obOpenT.png')
+    img#ob13(src='images/obOpenLB.png')
+    img#ob14(src='images/obOpenM.png')
+    img#ob15(src='images/obOpenM.png')
+    img#ob16(src='images/obOpenM.png')
+    img#ob17(src='images/obOpenM.png')
+    img#ob18(src='images/obOpenTB.png')
+    img#ob19(src='images/obOpenTB.png')
+    img#ob20(src='images/obOpenTB.png')
+    img#ob21(src='images/obOpenLR.png')
+    img#ob22(src='images/obOpenLR.png')
+    img#ob23(src='images/obOpenRB.png')
+    img#ob24(src='images/obOpenT.png')
+    img#ob25(src='images/obOpenTLB.png')
+    img#ob26(src='images/obOpenR.png')
+    img#ob27(src='images/obOpenTB.png')
+    img#ob28(src='images/obOpenL.png')
+    img#ob29(src='images/obOpenLR.png')
+    img#ob30(src='images/obOpenLR.png')
+    img#ob31(src='images/obOpenL.png')
+    img#ob32(src='images/obOpenLR.png')
+    img#ob33(src='images/obOpenT.png')
+    img#ob34(src='images/obOpenLR.png')
+    img#ob35(src='images/obOpenB.png')
+    img#ob36(src='images/obOpenTB.png')
+    img#ob37(src='images/obOpenTB.png')
     // Image for coins - image source: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj6o6jg9-nlAhVBAmMBHZKJD8oQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fgiphy.com%252Fstickers%252Fspinning-ZUdFkBdpw3Tvq%26psig%3DAOvVaw1WTDipYYGTKSTZD5HZGSrw%26ust%3D1573828696886160&psig=AOvVaw1WTDipYYGTKSTZD5HZGSrw&ust=1573828696886160
-    img#coin1(src='Images/coin.gif')
-    img#coin2(src='Images/coin.gif')
-    img#coin3(src='Images/coin.gif')
-    img#coin4(src='Images/coin.gif')
-    img#coin5(src='Images/coin.gif')
-    img#coin6(src='Images/coin.gif')
-    img#coin7(src='Images/coin.gif')
-    img#coin8(src='Images/coin.gif')
+    img#coin1(src='images/coin.gif')
+    img#coin2(src='images/coin.gif')
+    img#coin3(src='images/coin.gif')
+    img#coin4(src='images/coin.gif')
+    img#coin5(src='images/coin.gif')
+    img#coin6(src='images/coin.gif')
+    img#coin7(src='images/coin.gif')
+    // Image for teleport area - image source: https://i.gifer.com/6xwT.gif
+    img#teleport1(src='images/teleport.png')
+    img#teleport2(src='images/teleport.png')
     // Image for start square - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi7iqmFnNPlAhVHPBoKHeAKDnIQjRx6BAgBEAQ&url=https%3A%2F%2Fewans.wordpress.com%2Fdifferent-shades-of-grey%2F&psig=AOvVaw1pCy8Zv9-klTI0TifnPQD_&ust=1573048387721641
-    img#startImg(src='Images/start.png')
+    img#startImg(src='images/start.png')
+    // Image for counting down until game starts
+    img#oneImg(src='images/1.png')
+    img#twoImg(src='images/2.png')
+    img#threeImg(src='images/3.png')
+    img#fourImg(src='images/4.png')
+    img#fiveImg(src='images/5.png')
+    // Image to display when you die - image source: https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjR8KeIrIPmAhUFWBoKHV3DBHsQjRx6BAgBEAQ&url=https%3A%2F%2Fitch.io%2Fjam%2Fdare-u-to-enter-thid-jam&psig=AOvVaw3Kn3fvSC6GDhKG2jcGsskF&ust=1574701789695042
+    img#skullImg(src='images/skull.png')
+  // To be shown when user dies more than 10 times
   #endGame
-    img#endGameImg(src='Images/gameover.png')
-    #score score
+    img#endGameImg(src='images/gameover.png')
+  // To be shown when game is over
+  #timeUp
+    img#timeUpImg(src='images/timeup.png')
 // RIGHT AREA OF THE SCREEN
 #right
-// This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code.
+  // Content for this is created in game.js
+// This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is not modified, just used for jQuery code.
 script(src='javascripts/jquery-3.4.1.min.js')
 script(type='text/javascript' src='javascripts/game.js' language='JavaScript')

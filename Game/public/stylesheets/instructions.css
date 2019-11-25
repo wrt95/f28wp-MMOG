@@ -4,18 +4,17 @@ body {
 
 #instr-img{
     text-align: center;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 /* --- THE BUTTONS --- */
-.btn-group{
-    padding: 1% 1%;
+.btn-group{ 
     cursor: pointer;
     text-align: center;
     float: center;
 }
 .btn-group > * {
-    border: 2px solid white;
+    border: 1px solid yellow;
     background-color: red;
     font-size: 30px;
 }
@@ -26,12 +25,29 @@ button:active {
     background-color: green;
 }
 
-/* --- THE INSTRUCTIONS --- */
-#information {
-    font-size: 30px;
+#information-table{
+    color: red; 
+    position: fixed;
+    margin-top:3%; 
+    margin-left: 10%;
+    margin-right: 10%;
+    width:80%;
     text-align: center;
-    color: red;
-    overflow: hidden;
-    margin-left: 20%;
-    margin-right: 20%;
+    border-spacing: 15px;
 }
+
+td{
+    border: 1px yellow solid; 
+}
+
+#rowimg{
+    width: 200px;
+    height: 100px;
+}
+
+/* This is used to keep the ball to scale while it's within the table */
+#rowballimg{
+    width: 150px;
+    height: 100px;
+}
+

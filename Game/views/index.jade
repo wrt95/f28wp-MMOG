@@ -1,35 +1,59 @@
+
 doctype html
-
 head
-  img(src='images/pagetitle.png')
+  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
   link(rel='stylesheet' href='stylesheets/homepage.css')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js')
+  title  CW F28WP Web Programming
+  h1#title-image
+    img(src='images/pagetitle.png')
 
-body
-  p.solid
-  button#b1.button(type="button1" onclick="window.location.href='gamepage'") Join Game
+// The button group to display all buttons
+.btn-group
+  button#b1.button(type='button1' onclick="window.location.href='gamepage'") Join Game
   button#b2.button(type='button2' onclick="window.location.href='instructions'") Instructions
-  button#b3.button(type="button3" onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
-  section#score-board
-    .container
-      h1.container-title(data-id="score-board-title")
-        img(src="images/scoreboard.png")
-      table#score-board-table
-      table(align='center')
-        tr
-          th(align='center')
-          th
-            h3 Username
-          th
-            h3 Score
-          th
-        each player in locals.ld
-          tr
-            td(align='center')
-              td
-                h3 #{player.Username}
-              td
-                h3 #{player.Highscore}
+  button#b3.button(type='button3' onclick="alert('Email: cf51@hw.ac.uk')") Contact Us 
+  button#b4.button(type='button4' onclick='logOut()') Log Out
+
+// The scoreboard area
+table#score-board-table
+  tr#row
+    th
+      h3 Username
+    th
+      h3 Score
+  tr#row
+    each player in locals.ld
+      tr
+        td
+          h3 #{player.Username}
+        td
+          h3 #{player.Highscore}
+
+// The login area
+form#loginArea(action='/login' method='POST')
+  label#usrnameLabel(for='usrnameLabel') Username: 
+  input#username(type='text' name='usrnameLabel')
+  label#passwordLabel(for='password') Password: 
+  input#password(type='password' name='password')
+  input#tickBox(type='checkbox' onclick='showPassword()')
+  | Show Password
+  button#loginBtn.button(type='button' onclick='save()') Login
+  button#newBtn.button(type='button' onclick='newUser()') New user?
+// The make new user area
+form#makeUser
+  label#newNameLabel(for='newNameLabel') Username: 
+  input#newName(type='text' name='newNameLabel')
+  label#newPasswordLabel(for='newPasswordLabel') Password: 
+  input#newPassword(type='password' name='newPasswordLabel')
+  input#tickBoxNew(type='checkbox' onclick='showPassword()')
+  | Show Password
+  button#createBtn.button(type='button' onclick='createUser()') Create user
 
 
-  script(src='javascripts/socket.js')
+
+
+
+script(src='javascripts/jquery-3.4.1.min.js')
+script(type='text/javascript' src='javascripts/homepage.js' language='JavaScript')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js')
+script(src='javascripts/socket.js')

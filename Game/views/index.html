@@ -1,65 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-            <link rel="stylesheet" href="../public/stylesheets/homepage.css">
-            <title> CW F28WP Web Programming</title>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+                <link rel="stylesheet" href="../public/stylesheets/homepage.css">
+                <title> CW F28WP Web Programming</title>
 
-            <h1 id="title-image"><img src="../public/Images/pagetitle.png"/></h1> 
-           
-        
-    </head>
-    <body>
-        <div class='btn-group'>
-                <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
-                <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
-                <button class="button" type="button3" id="b3" onclick="alert('Email: cf51@hw.ac.uk')">Contact Us </button>
-                <button class="button" type="button4" id="b4" onclick="login();" >Login</button>
+                <h1 id="title-image"><img src="../public/Images/pagetitle.png"/></h1> 
+            
+        </head>
+        <body>
+                <!-- The button group to display all buttons -->
+                <div class='btn-group'>
+                        <button class="button" type="button1" id="b1" onclick="window.location.href='gamepage.html'" >Join Game</button>
+                        <button class="button" type="button2" id="b2" onclick="window.location.href='instructions.html'" >Instructions</button>
+                        <button class="button" type="button3" id="b3" onclick="alert('Email: help@shapeescape.co.uk')">Contact Us </button>
+                        <button class="button" type="button4" id="b4" onclick="logOut()" >Log Out</button>
+                </div>
                
-        </div>
-               
+                <!-- The scoreboard area -->
                 <table id="score-board-table">
-                        <tr id="row0">
-                                <td><img id="score-board-title" src="../public/Images/scoreboard.png"/></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                        </tr>
-                        <tr id="row1">
-                                <!-- <table align="center">-->
+                        <tr id="row">
                                 <th><h3>Username</h3></th>
                                 <th><h3>Score</h3></th>
-                                <th><h3>Games Played</h3></th>
-                                <th></th>
                         </tr>
-
-                        <tr id="row2">
-                                <td><h3>CF51</h3></td>
-                                <td><h3>1098</h3></td>
-                                <td><h3>3</h3></td>
+                        <tr id="row">
+                                <td><h5>CF51</h5></td>
+                                <td><h5>18</h5></td>
                         </tr>
-
-                        <tr id="row3">
-                                <td><h3>WRT1</h3></td>
-                                <td><h3>598</h3></td>
-                                <td><h3>1</h3></td>
+                        <tr id="row">
+                                <td><h5>WRT1</h5></td>
+                                <td><h5>16</h5></td>
                         </tr>
-
-                        <tr id="row4">
-                                <td><h3>AGM6</h3></td>
-                                <td><h3>1588</h3></td>
-                                <td><h3>7</h3></td>
+                        <tr id="row">
+                                <td><h5>AGM6</h5></td>
+                                <td><h5>13</h5></td>
                         </tr>
-
-                        <tr id="row5">
-                                <td><h3>PTR3</h3></td>
-                                <td><h3>4589</h3></td>
-                                <td><h3>9</h3></td>
+                        <tr id="row">
+                                <td><h5>PTR3</h5></td>
+                                <td><h5>10</h5></td>
                         </tr>
                 </table>
 
+                <!-- The login area -->
+                <form id="loginArea" action="/login" method="POST">
+                        <label id="usrnameLabel" for="usrnameLabel">Username: </label>
+                        <input id="username" type="text" name="usrnameLabel">
 
-        
+                        <label id="passwordLabel" for="password">Password: </label>
+                        <input id="password" type="password" name="password">
+                        <input id="tickBox" type="checkbox" onclick="showPassword()">Show Password
+
+                        <button class="button" type="button" id="loginBtn" onclick="save()">Login</button>
+                        <button class="button" type="button" id="newBtn" onclick="newUser()">New user?</button>
+
+                </form>
+                
+                <!-- The make new user area -->
+                <form id="makeUser">
+                        <label id="newNameLabel" for="newNameLabel">Username: </label>
+                        <input id="newName" type="text" name="newNameLabel">
+
+                        <label id="newPasswordLabel" for="newPasswordLabel">Password: </label>
+                        <input id="newPassword" type="password" name="newPasswordLabel">
+                        <input id="tickBoxNew" type="checkbox" onclick="showPassword()">Show Password
+
+                        <button class="button" type="button" id="createBtn" onclick="createUser()">Create user</button>
+
+                </form>
 
                 <!-- This file is the jQuery library, dowloaded from: https://jquery.com/download/. This is modified, just used for jQuery code. -->
                 <script src="../public/javascripts/jquery-3.4.1.min.js"></script>

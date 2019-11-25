@@ -2,9 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 
-/* GET home page. */
-var mysql  = require('mysql');
-var con    =  mysql.createConnection({
+/*
+************************
+  DATABASE INFORMATION
+************************
+*/
+
+var mysql = require('mysql');
+var con =  mysql.createConnection({
   host     :  "sql2.freesqldatabase.com",
   user     :  "sql2312550", 
   password :  "gR1*bG2*",
@@ -12,43 +17,195 @@ var con    =  mysql.createConnection({
 });
 
 
-var name;
+//newHighscore
+//if score is greater than User.HIGHSCORE WHERE User.USERNAME = login.username
+//update HIGHSCORE
+//else pass
 
+/*
+****************************
+  CONNECTS TO THE DATABASE
+****************************
+*/
 
 con.connect(function(err) {
-  const login = require('../public/javascripts/homepage');
-
+  
   if (err) throw err;
   console.log("Connected!");
-  var LdrBrd   = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5 ";
-  var usr      = "SELECT USERNAME AS Username FROM User WHERE USERNAME = '"+login.username+"'"; 
-  //var CnVis    = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 1";
-  //var CnInvis  = "SELECT VISIBLE AS Visible, COIN_ID AS CoinNum, COIN_X AS X, COIN_Y AS Y FROM Coins WHERE Coins.VISIBLE = 0";
-  
-  var sqlUpdate = "INSERT INTO User (USERNAME, PASS) VALUES ('"+login.username+"','"+login.password+"')";
 
-  //con.query(sqlUpdate, function (err, result) {
-    //if (err) throw err;
-  //});
- con.query(LdrBrd, function (err, result, fields) {
+/*
+********************************************
+  GETS USERNAME AND PASSWORD FROM HOMEPAGE
+********************************************
+*/
+
+  //imports the username and password from homepage.js
+  const login = require('../public/javascripts/homepage');
+
+  //declares them as variables
+  var username = login.username;
+  var password = login.password;
+  console.log("Current Username:",username,", Current Password:",password)
+
+
+
+  /*
+  ***************
+    SQL QUERIES
+  ***************
+  */
+
+
+  //retruns the username and scores of the the top 5 scores
+  var LdrBrd         = "SELECT USERNAME AS Username, HIGHSCORE AS Highscore FROM User ORDER BY HIGHSCORE DESC LIMIT 5";
+  //returns a user and pass from DB if they exist
+  var validLogin     = "SELECT USERNAME, PASS FROM User WHERE USERNAME = '"+username+"' AND PASS = '"+password+"'";
+  //adds new user and pass to DB
+  var sqlUpdateLogin = "INSERT INTO User (USERNAME, PASS) VALUES ('"+username+"','"+password+"')";
+  //gets the current username
+  var getName        = "SELECT USERNAME FROM User WHERE USERNAME = '"+username+"'";
+  
+
+
+  /*
+  *********************
+    CALLS THE QUERIES
+  *********************
+  */
+
+
+  //compares the entered username and password to the database and says true/false
+  //Stolen from:
+    //https://stackoverflow.com/questions/47993499/return-boolean-value-from-mysql-in-nodejs
+    
+  var cred = {
+  credentials: function credentials(callback){
+    var rows = 0;
+    con.query(validLogin, function (err, result) { 
+      if (err) {
+        callback(err, null);
+        }
+      else {
+        rows += result.length;
+        callback(null, rows > 0);
+        }
+      }); 
+    },
+  
+  //calls the credentials function passing through the function as an argument
+
+  f: function foo(){
+    credentials(function(err, exists){
+      if (err) throw err
+      else {console.log("is valid username and password?",exists);}
+        if(exists == false){
+          console.log("new account pls")
+        }
+        else{
+          console.log("YOU MAY ENTER")
+          displayName()
+        }
+      })
+    }
+  }
+
+
+  //adds a new set of username and password to DB
+
+  var insertLogin = {
+  //for the new account function
+    isl : function insertLogin(){
+      con.query(sqlUpdateLogin, function (err, result) {
+        if (err) throw err;
+        console.log("updated the DB with: ",result) })
+    } 
+  }
+  module.exports= insertLogin
+
+  //gets the current username
+
+  function displayName(){
+    con.query(getName, function(err, result, fields){
+      if (err) throw err;
+      //result is of type [object Object] where Object is the username we want
+      //Object.values gets the data of type Object -> the username
+      //this give use an array ['exampleUsername'] that we can pass through to gamepage.js as 
+      //js knows what and array of string is
+      name = Object.values(result[0]);
+      console.log("name:",name)
+      //express fun that sends it be rendered in gamepage.js
+      setName()
+    })
+  }
+
+
+  //returns the top 5 highscores
+
+  con.query(LdrBrd, function (err, result, fields) {
     if (err) throw err;
+    //made a variable leaderboard to send to index.jade and display as a table
     leaderboard = result;
     console.log("Leaderboard",result);
-  });
-  con.query(usr, function (err, result, fields) {
-    if (err) throw err;
-    name = result;
-    console.log("user",result);
-  });
-});
+  })
+
+
+
+  /*
+  *********************
+    Hashing functions
+  *********************
+  */
+
+
+  //uses the hash-pass library to trun the password into a random string
+
+  function hashPass(ps){
+    var passwordHash = require('password-hash');
+    var hashedPassword = passwordHash.generate(ps);
+    console.log("hashpass",hashedPassword);
+    console.log("verify hashed password",passwordHash.verify(ps, hashedPassword));
+    }
+  })
+
+
+
+/* 
+****************
+  JADE EXPORTS 
+****************
+*/
+
+
+//sends the leadeboard to index.jade
 
 router.get('/', function(req, res, next) {
   console.log("Leaderboard:", leaderboard)
   res.render('index.jade', {ld: leaderboard});
 });
-router.get('/gamepage', function(req, res, next) {
-  console.log("usr:", name)
-  res.render('gamepage', {ud: name});
+
+router.get('/instructions', function(req, res, next) {
+  res.render('instructions.jade');
 });
 
-module.exports = router;
+router.get('/gamepage', function(req, res, next) {  
+  res.render('gamepage.jade');
+});
+
+
+
+//sends the current username to the gamepage.js and displays your user as you play
+
+function setName(){
+
+}
+
+  /*
+  **************  
+    JS EXPORTS
+  **************
+  */
+
+
+module.exports =
+  router
+
