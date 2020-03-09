@@ -9,6 +9,9 @@ For this project we are planning to make use of a range of software for both the
 For the front-end we will be using HTML5, CSS and javascript, and for the back-end we will be using MySQL, PHP, AJAX and JSON however this
 is subject to change as the project enters the later stages of development.
 
+Trailer for the game can be found using this link:
+https://www.youtube.com/watch?v=FfE8gijf6oA
+
 # Objectives
 - Stage 1:
     - Create a complete version of the single player aspect of the game
@@ -20,10 +23,3 @@ is subject to change as the project enters the later stages of development.
     
 - Stage 3:
      - To be able to host the game on a server in order to have a multiplayer experience
-
-
-
-
-
-Trailer for the game can be found using this link:
-https://www.youtube.com/watch?v=FfE8gijf6oA
