@@ -21,5 +21,9 @@ is subject to change as the project enters the later stages of development.
 - Stage 3:
      - To be able to host the game on a server in order to have a multiplayer experience
 
-# Trailer for the game:
+
+
+
+
+Trailer for the game can be found using this link:
 https://www.youtube.com/watch?v=FfE8gijf6oA
